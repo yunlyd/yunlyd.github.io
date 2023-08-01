@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo之渲染绕过, lucky_llllz 计算机 软件工程 后端">
+    <meta name="keywords" content="PicGo+GitHub 图床搭建, lucky_llllz 计算机 软件工程 后端">
     <meta name="description" content="本科 | 软件工程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hexo之渲染绕过 | llllz_liu</title>
+    <title>PicGo+GitHub 图床搭建 | llllz_liu</title>
 
     <link rel="icon" type="image/png" href="/medias/favicon-32x32.png">
 
@@ -447,12 +447,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/z013.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/z002.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hexo之渲染绕过</h1>
+                    <h1 class="description center-align post-title">PicGo+GitHub 图床搭建</h1>
                 </div>
             </div>
         </div>
@@ -573,12 +573,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/PicGo/">
+                                <span class="chip bg-color">PicGo</span>
                             </a>
                         
-                            <a href="/tags/%E6%B8%B2%E6%9F%93%E7%BB%95%E8%BF%87/">
-                                <span class="chip bg-color">渲染绕过</span>
+                            <a href="/tags/GitHub%E5%9B%BE%E5%BA%8A/">
+                                <span class="chip bg-color">GitHub图床</span>
                             </a>
                         
                     </div>
@@ -602,7 +602,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-28
+                    2020-03-15
                 </div>
                 
 
@@ -616,14 +616,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    463
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -641,45 +641,61 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="0x001-Hexo-渲染"><a href="#0x001-Hexo-渲染" class="headerlink" title="0x001 Hexo 渲染"></a>0x001 Hexo 渲染</h3><p>  在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README.md时，却不希望被Hexo渲染。因此对某个文件或者目录进行排除渲染是非常必要的。</p>
-<h3 id="0x002-方法一：font-matter"><a href="#0x002-方法一：font-matter" class="headerlink" title="0x002 方法一：font matter"></a>0x002 方法一：font matter</h3><p><code>Hexo</code>新建网站页面，然后将你的代码直接写入 <code>index.md</code> 中</p>
-<p>在 <code>Front matter</code> 中添加 <code>layout: false</code>，此方法适用于单一的纯<code>HTML</code><br><code>CSS</code> 页面。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">---
-title: tools
-date: <span class="token number">2020</span>-04-28 00:00:00
-type: <span class="token string">"tools"</span>
-layout: <span class="token boolean">false</span>
----<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="0x003-方法二：skip-render"><a href="#0x003-方法二：skip-render" class="headerlink" title="0x003 方法二：skip render"></a>0x003 方法二：skip render</h3><p>在博客根目录下的 <code>_config.yml</code>，找到 <code>skip_render</code>，大概在32行左右，写入你想要的跳过渲染的路径，注意缩进和空格。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 指定目录跳过hexo渲染</span>
-skip_render:
-  - <span class="token string">'tools/*'</span>
-  - <span class="token string">'tools/**'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>注释：<code>tools/*</code> 表示在目录 <code>source/fireworks</code> 下的文件全部跳过渲染，<code>tools/**</code> 表示在博客根目录 <code>source/tools/</code> 文件夹下的文件全部跳过渲染（例如页面的 js、css 在另一个文件夹中）。</p>
-</blockquote>
-<h3 id="0x004-案例：webstack-导航"><a href="#0x004-案例：webstack-导航" class="headerlink" title="0x004 案例：webstack 导航"></a>0x004 案例：webstack 导航</h3><p><code>webstack</code>是一个纯静态的网址导航网站，内容均由<code>viggo</code>收集并整理。项目基于<code>bootstrap</code>前端框架开发。</p>
-<p><img src="https://camo.githubusercontent.com/41111c4c1d9922982f380566e6a2f8415204c52c/687474703a2f2f7777772e776562737461636b2e63632f6173736574732f696d616765732f707265766965772e676966" alt="image"></p>
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>用GitHub搭建图床，在很久之前我就有了解，但由于市面上有挺多免费的图床，比如我之前一直在用的 路过图床，所以一直懒得动手搭建GitHub图床。一直到前两天我在完善博客的相册时，发现 路过图床 免费版的有这么多限制，比如：每小时限制上传50张图片，每天限制上传100张图片，而且免费版用户的存储容量貌似不过300M，这才意识到有一个自己的GitHub图床是多么重要。</p>
+<h3 id="0x001-PicGO-介绍"><a href="#0x001-PicGO-介绍" class="headerlink" title="0x001 PicGO 介绍"></a>0x001 PicGO 介绍</h3><p>PicGo是一款图片上传工具，目前支持 SM.MS图床、腾讯云COS、GitHub图床、七牛图床、Imgur图床、阿里云OSS、又拍云图床，未来将支持更多图床。</p>
+<p>在支持的这些图床中，SM.MS和Imgur有免费版和收费版，免费版的肯定有很多的使用限制，比如每小时限制上传次数，限制用户的上传容量等等；腾讯云COS、阿里云、有拍云都是要收费使用的；七牛云貌似前期使用免费，后期又要收费才能使用，就剩下的GitHub才是免费且最可靠的。</p>
+<p>PicGo源项目GitHub地址已给出，但是去GitHub下载速度非常慢，这里额外提供一个蓝奏云的快速下载地址。</p>
 <ul>
-<li>Github：<a target="_blank" rel="noopener" href="https://github.com/WebStackPage/WebStackPage.github.io">https://github.com/WebStackPage/WebStackPage.github.io</a></li>
+<li>GitHub地址：<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">https://github.com/Molunerfinn/PicGo</a></li>
+<li>蓝奏云地址：<a target="_blank" rel="noopener" href="https://luckyzmj.lanzous.com/id3e0id">https://luckyzmj.lanzous.com/id3e0id</a></li>
 </ul>
-<p>在博客根目录 <code>source/</code>下新建<code>tools</code>，然后新建<code>index.html</code>,将<code>webstack</code>网页源码全选复制粘贴到里面。</p>
-<ul>
-<li>本站的webstack源码：<a href="view-source:http://luckyzmj.cn/tools/">view-source:http://luckyzmj.cn/tools/</a></li>
-</ul>
-<blockquote>
-<p>注意：将源码里的部分信息以及跳转链接按照你真实个人博客的环境进行修改。</p>
-</blockquote>
-<p>然后打开博客根目录下配置文件<code>_config.yml</code>，找到<code>skip_render</code>，做如下修改：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">skip_render:
-  - <span class="token string">'tools/*'</span>
-  - <span class="token string">'tools/**'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="0x002-GitHub-图床"><a href="#0x002-GitHub-图床" class="headerlink" title="0x002 GitHub 图床"></a>0x002 GitHub 图床</h3><h4 id="1-创建GitHub图床仓库"><a href="#1-创建GitHub图床仓库" class="headerlink" title="1. 创建GitHub图床仓库"></a>1. 创建GitHub图床仓库</h4><p>首先需要有一个登录GitHub的账号，没有的话去<a target="_blank" rel="noopener" href="https://github.com/">GitHub官网</a>注册一个</p>
+<p>创建一个新的图床仓库，点击右上角的New repository</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200529155833.png"></p>
+<p>填写如下配置信息，然后Create创建仓库</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200529160010.png"></p>
+<h4 id="2-获取GitHub-token值"><a href="#2-获取GitHub-token值" class="headerlink" title="2. 获取GitHub token值"></a>2. 获取GitHub token值</h4><p>点击右上的头像，选择设置Setting</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200529160727.png"></p>
+<p>点击选择Developer settings </p>
+<p><img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200529160939.png"></p>
+<p>点击 Generate New token</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200529161241.png"></p>
+<p>填写如下配置信息，只要勾选repo选项即可，然后页面拉到底部点击Generate token 即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200529161716.png"></p>
+<p>此时会跳转到带有token的页面，将token值复制记录下来，之后用PicGo绑定GitHub图床时会利用到</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200529162127.png"></p>
+<h3 id="0x003-PicGo-配置"><a href="#0x003-PicGo-配置" class="headerlink" title="0x003 PicGo 配置"></a>0x003 PicGo 配置</h3><h4 id="1-绑定GitHub图床"><a href="#1-绑定GitHub图床" class="headerlink" title="1. 绑定GitHub图床"></a>1. 绑定GitHub图床</h4><p>首先下载安装好PicGo软件，然后在右列表找到GitHub图床配置</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200529163130.png"></p>
+<p><strong>1. 设定仓库名(必填)：</strong> </p>
+<p>按照“GitHub账户名/仓库名的格式填写”，比如我的是：Luckyzmj/imgbed</p>
+<p><strong>2. 设定分支名(必填)：</strong> </p>
+<p>仓库分支名填写”master”或者”main”，视情况而定。因为GitHub 官方表示,从2020年10月1日起,在该平台上创建的所有新的源代码仓库将默认被命名为”main”,而不是原先的”master”。</p>
+<p><strong>3. 设定Token(必填)：</strong> </p>
+<p>将之前步骤的Token值复制粘贴到这里</p>
+<p><strong>4. 指定存储路径：</strong> </p>
+<p>这个选项可以为空，如果想将图片上传到仓库的指定目录下，可以填写目录名加/，比如我的imgbed仓库下有个posts文件夹，需设置为 posts/</p>
+<p><strong>5. 设定自定义域名：</strong> </p>
+<p>这里统一用jsdelivr的CDN加速域名，在上传图片后成功后，PicGo会将“自定义域名+上传的图片名”生成的访问链接</p>
+<pre class="line-numbers language-none"><code class="language-none">
+自定义域名格式：https://cdn.jsdelivr.net/gh/GitHub账户名/仓库名
+以我的格式为例：https://cdn.jsdelivr.net/gh/Luckyzmj/imgbed<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<p>最后执行<code>hexo clean</code>和<code>hexo s -g </code>本地预览，检查无误后<code>hexo g -d</code>部署到服务器上即可。</p>
+<p>配置完全部信息后，点击 设为默认图床，最后点击确定即可</p>
+<h4 id="2-上传图片到图床"><a href="#2-上传图片到图床" class="headerlink" title="2. 上传图片到图床"></a>2. 上传图片到图床</h4><p>在上传区上传图片，可支持本地图片上传(可多选图片)、剪贴板上传、URL上传等三种方式。上传图片成功后，选择你想要生成的图片链接格式</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200529170555.png"></p>
+<p>在图片区，可以看到成功上传的图片，选择相应的图片进行操作即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200529170831.png"></p>
+<h4 id="3-PicGo-注意事项"><a href="#3-PicGo-注意事项" class="headerlink" title="3. PicGo 注意事项"></a>3. PicGo 注意事项</h4><p>如果配置完PicGo后却上传图片失败，可以参考以下方法：</p>
+<ol>
+<li>检查自定义域名是否正确</li>
+<li>仓库名不要有空格</li>
+<li>图片名字不要带有特殊符号，如：%、+、*、空格等</li>
+<li>建议开启时间戳重命名，防止图片名字重复</li>
+<li>上传图片间歇太短，需在PicGo设置中关闭Server选项</li>
+<li>PicGo应用不稳定因素，需重启应用</li>
+</ol>
 <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://xiabor.com/2020/04/21/hexo3/#%E5%A6%82%E4%BD%95%E8%B7%B3%E8%BF%87hexo%E7%9A%84%E6%B8%B2%E6%9F%93">https://xiabor.com/2020/04/21/hexo3/#%E5%A6%82%E4%BD%95%E8%B7%B3%E8%BF%87hexo%E7%9A%84%E6%B8%B2%E6%9F%93</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/sunhwee/article/details/100109956">https://blog.csdn.net/sunhwee/article/details/100109956</a></li>
 </ul>
 
                 
@@ -707,7 +723,7 @@ skip_render:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yunyd.cloud/2020/04/28/hexo-xr/">http://yunyd.cloud/2020/04/28/hexo-xr/</a>
+                    <a href="http://yunyd.cloud/posts/7a46f93c.html">http://yunyd.cloud/posts/7a46f93c.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -745,12 +761,12 @@ skip_render:
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
+                                <a href="/tags/PicGo/">
+                                    <span class="chip bg-color">PicGo</span>
                                 </a>
                             
-                                <a href="/tags/%E6%B8%B2%E6%9F%93%E7%BB%95%E8%BF%87/">
-                                    <span class="chip bg-color">渲染绕过</span>
+                                <a href="/tags/GitHub%E5%9B%BE%E5%BA%8A/">
+                                    <span class="chip bg-color">GitHub图床</span>
                                 </a>
                             
                         </div>
@@ -1226,44 +1242,7 @@ new Valine({
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/08/01/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/z011.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-01
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            llllz.
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/03/27/jquery-css3/">
+                <a href="/posts/4b3510a4.html">
                     <div class="card-image">
                         
                         
@@ -1279,9 +1258,9 @@ new Valine({
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-27
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-27
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1303,6 +1282,63 @@ new Valine({
                     
                     <a href="/tags/%E7%B2%92%E5%AD%90%E7%89%B9%E6%95%88/">
                         <span class="chip bg-color">粒子特效</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/19d2a4e6.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/z013.jpg" class="responsive-img" alt="阿里云服务器部署Hexo博客">
+                        
+                        <span class="card-title">阿里云服务器部署Hexo博客</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            相信大部分人使用Hexo搭建个人博客都会部署到一些免费的代码托管平台上，但这些免费的平台总是差强人意，今天记录下如何在自己的云服务器上搭建Hexo博客。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/" class="post-category">
+                                    博客篇
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91/">
+                        <span class="chip bg-color">阿里云</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8D%9A%E5%AE%A2/">
+                        <span class="chip bg-color">博客</span>
                     </a>
                     
                 </div>
@@ -1509,9 +1545,9 @@ new Valine({
     
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="tencent"
+                   server="kugou"
                    type="playlist"
-                   id="1776127550"
+                   id="1246488073"
                    fixed='true'
                    autoplay='false'
                    theme='#42b983'
@@ -1605,10 +1641,6 @@ new Valine({
             </script>
             
             <br>
-            
-            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
-                <a href="http://www.beian.miit.gov.cn/" target="_blank">闽ICP备xxxxxxx号-1</a>
-            </span>
             
         </div>
         <div class="col s12 m4 l4 social-link ">
