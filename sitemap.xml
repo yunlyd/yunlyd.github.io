@@ -227,7 +227,7 @@
   </url>
   
   <url>
-    <loc>http://yunyd.cloud/List/galleries/%E4%B9%96%E5%B7%A7%E5%B0%8F%E7%8B%97/index.html</loc>
+    <loc>http://yunyd.cloud/List/galleries/%E4%BA%8C%E6%AC%A1%E5%85%83%E9%A3%8E/index.html</loc>
     
     <lastmod>2023-08-01</lastmod>
     
@@ -236,7 +236,7 @@
   </url>
   
   <url>
-    <loc>http://yunyd.cloud/List/galleries/%E4%BA%8C%E6%AC%A1%E5%85%83%E9%A3%8E/index.html</loc>
+    <loc>http://yunyd.cloud/List/galleries/%E4%B9%96%E5%B7%A7%E5%B0%8F%E7%8B%97/index.html</loc>
     
     <lastmod>2023-08-01</lastmod>
     
@@ -265,7 +265,7 @@
 
   <url>
     <loc>http://yunyd.cloud/</loc>
-    <lastmod>2023-08-01</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -273,14 +273,14 @@
   
   <url>
     <loc>http://yunyd.cloud/tags/Hexo/</loc>
-    <lastmod>2023-08-01</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://yunyd.cloud/tags/%E4%BB%8B%E7%BB%8D/</loc>
-    <lastmod>2023-08-01</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -289,7 +289,7 @@
   
   <url>
     <loc>http://yunyd.cloud/categories/%E5%8D%9A%E5%AE%A2%E7%AF%87/</loc>
-    <lastmod>2023-08-01</lastmod>
+    <lastmod>2023-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
