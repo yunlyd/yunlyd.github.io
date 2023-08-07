@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>OPEN-API开放平台</title>
+      <link href="/posts/574f1a5b.html"/>
+      <url>/posts/574f1a5b.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="OPEN-API开放平台"><a href="#OPEN-API开放平台" class="headerlink" title="OPEN-API开放平台"></a>OPEN-API开放平台</h1><h2 id="项目所用到的技术："><a href="#项目所用到的技术：" class="headerlink" title="项目所用到的技术："></a>项目所用到的技术：</h2><ul><li>Java Spring Boot</li><li>MySQL 数据库</li><li>MyBatis-Plus 及 MyBatis X 自动生成</li><li>Swagger + Knife4j 接口文档生成</li><li>API 签名认证（Http 调用）</li><li>Spring Boot Starter（SDK 开发）</li><li>Dubbo 分布式（RPC、Nacos）</li><li>Spring Cloud Gateway 微服务网关</li><li>Hutool、Apache Common Utils、Gson 等工具库</li></ul><h2 id="后端："><a href="#后端：" class="headerlink" title="后端："></a>后端：</h2><ol><li> 根据业务流程，将整个项目后端划分为 web 系统、模拟接口、公共模块、客户端 SDK、API 网关这 5 个子项目，并使用 Maven 进行多模块依赖管理和打包。</li><li> 基于 MyBatis Plus 框架的 QueryWrapper 实现对 MySQL 数据库的灵活查询，并配合 MyBatis X 插件自动生成后端 CRUD 基础代码，减少重复工作。</li><li> 使用 Swagger + Knife4j 自动生成 OpenAPI 规范的接口文档，降低前后端协作成本。</li><li> 为防止接口被恶意调用，设计 API 签名认证算法，为用户分配唯一 ak / sk 以鉴权，保障调用的安全性、便于统计接口调用次数。</li><li> 为解决开发者调用成本过高的问题（须自己使用 HTTP + 封装签名去调用接口），基于 Spring Boot Starter 开发了客户端 SDK，一行代码 即可调用接口，提高开发体验。</li><li> 选用 Spring Cloud Gateway 作为 API 网关，实现了路由转发、访问控制、流量染色，并集中处理签名校验、请求参数校验、接口调用统计等业务逻辑，提高安全性的同时、便于系统开发维护。</li><li> 为解决多个子系统内代码大量重复的问题，抽象模型层和业务层代码为公共模块，并使用 Dubbo RPC 框架实现子系统间的高性能接口调用，大幅减少重复代码。</li></ol><h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><p>一个提供API接口供开发者调用的平台</p><p>管理员可以接入并发布接口，统计分析个接口调用情况；用户可以注册登录并开通接口调用权限，然后可以浏览接口及在线调试，还能使用客户端SDK轻松在代码中调用接口。</p><h3 id="项目功能及各部分页面介绍，如下图："><a href="#项目功能及各部分页面介绍，如下图：" class="headerlink" title="项目功能及各部分页面介绍，如下图："></a>项目功能及各部分页面介绍，如下图：</h3><h4 id="登陆界面："><a href="#登陆界面：" class="headerlink" title="登陆界面："></a>登陆界面：</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/%E7%99%BB%E9%99%86%E7%95%8C%E9%9D%A2.jpg"></p><h4 id="主页浏览（管理员身份）：管理员身份具有管理页等选项框，用于接口管理和接口分析这两个功能"><a href="#主页浏览（管理员身份）：管理员身份具有管理页等选项框，用于接口管理和接口分析这两个功能" class="headerlink" title="主页浏览（管理员身份）：管理员身份具有管理页等选项框，用于接口管理和接口分析这两个功能"></a>主页浏览（管理员身份）：管理员身份具有管理页等选项框，用于接口管理和接口分析这两个功能</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/%E4%B8%BB%E9%A1%B5%E6%B5%8F%E8%A7%88%EF%BC%88%E7%AE%A1%E7%90%86%E5%91%98%E8%BA%AB%E4%BB%BD%EF%BC%89.jpg"></p><h4 id="接口管理（管理员身份）：接口管理用来发布、下线接口，对接口信息的增上改查等等功能"><a href="#接口管理（管理员身份）：接口管理用来发布、下线接口，对接口信息的增上改查等等功能" class="headerlink" title="接口管理（管理员身份）：接口管理用来发布、下线接口，对接口信息的增上改查等等功能"></a>接口管理（管理员身份）：接口管理用来发布、下线接口，对接口信息的增上改查等等功能</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/1.jpg"></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/2.jpg"></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/3.jpg"></p><h4 id="接口分析（管理员身份）：用于调查接口里面的top3（接口调用次数最多的前三名接口名称及其调用次数），方便管理员进行接口分析和管理"><a href="#接口分析（管理员身份）：用于调查接口里面的top3（接口调用次数最多的前三名接口名称及其调用次数），方便管理员进行接口分析和管理" class="headerlink" title="接口分析（管理员身份）：用于调查接口里面的top3（接口调用次数最多的前三名接口名称及其调用次数），方便管理员进行接口分析和管理"></a>接口分析（管理员身份）：用于调查接口里面的<u>top3</u>（接口调用次数最多的前三名接口名称及其调用次数），方便管理员进行接口分析和管理</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/4.jpg"></p><h4 id="主页浏览（非管理员身份）-仅可以在线调用接口，不能对接口进行权限处理等功能"><a href="#主页浏览（非管理员身份）-仅可以在线调用接口，不能对接口进行权限处理等功能" class="headerlink" title="主页浏览（非管理员身份）:仅可以在线调用接口，不能对接口进行权限处理等功能"></a>主页浏览（非管理员身份）:仅可以在线调用接口，不能对接口进行权限处理等功能</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/%E4%B8%BB%E9%A1%B5%E6%B5%8F%E8%A7%88%EF%BC%88%E9%9D%9E%E7%AE%A1%E7%90%86%E5%91%98%E8%BA%AB%E4%BB%BD%EF%BC%89.jpg"></p><h4 id="在线调试：按照要求输入，即可调用已经发布上线的接口，并使用其功能"><a href="#在线调试：按照要求输入，即可调用已经发布上线的接口，并使用其功能" class="headerlink" title="在线调试：按照要求输入，即可调用已经发布上线的接口，并使用其功能"></a>在线调试：按照要求输入，即可调用已经发布上线的接口，并使用其功能</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/7.jpg"></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/8.jpg"></p><h4 id="开放平台项目涉及到了多个系统的交互（不止有一个后端），包括了API签名认证、网关、RPC、分布式等知识"><a href="#开放平台项目涉及到了多个系统的交互（不止有一个后端），包括了API签名认证、网关、RPC、分布式等知识" class="headerlink" title="开放平台项目涉及到了多个系统的交互（不止有一个后端），包括了API签名认证、网关、RPC、分布式等知识"></a>开放平台项目涉及到了<u>多个系统</u>的交互（不止有一个后端），包括了API签名认证、网关、RPC、分布式等知识</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/11.jpg"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 项目 </category>
+          
+          <category> OPEN-API </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 项目 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>大家好</title>
       <link href="/posts/42adfbca.html"/>
       <url>/posts/42adfbca.html</url>
@@ -13,7 +40,7 @@
       
       <categories>
           
-          <category> 项目 </category>
+          <category> 打招呼 </category>
           
       </categories>
       
@@ -38,7 +65,7 @@
       
       <categories>
           
-          <category> 项目 </category>
+          <category> 打招呼 </category>
           
       </categories>
       

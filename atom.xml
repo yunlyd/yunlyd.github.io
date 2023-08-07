@@ -6,7 +6,7 @@
   <link href="http://yunyd.cloud/atom.xml" rel="self"/>
   
   <link href="http://yunyd.cloud/"/>
-  <updated>2023-08-03T02:53:37.384Z</updated>
+  <updated>2023-08-07T06:33:50.403Z</updated>
   <id>http://yunyd.cloud/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>OPEN-API开放平台</title>
+    <link href="http://yunyd.cloud/posts/574f1a5b.html"/>
+    <id>http://yunyd.cloud/posts/574f1a5b.html</id>
+    <published>2023-08-07T05:12:22.000Z</published>
+    <updated>2023-08-07T06:33:50.403Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="OPEN-API开放平台"><a href="#OPEN-API开放平台" class="headerlink" title="OPEN-API开放平台"></a>OPEN-API开放平台</h1><h2 id="项目所用到的技术："><a href="#项目所用到的技术：" class="headerlink" title="项目所用到的技术："></a>项目所用到的技术：</h2><ul><li>Java Spring Boot</li><li>MySQL 数据库</li><li>MyBatis-Plus 及 MyBatis X 自动生成</li><li>Swagger + Knife4j 接口文档生成</li><li>API 签名认证（Http 调用）</li><li>Spring Boot Starter（SDK 开发）</li><li>Dubbo 分布式（RPC、Nacos）</li><li>Spring Cloud Gateway 微服务网关</li><li>Hutool、Apache Common Utils、Gson 等工具库</li></ul><h2 id="后端："><a href="#后端：" class="headerlink" title="后端："></a>后端：</h2><ol><li> 根据业务流程，将整个项目后端划分为 web 系统、模拟接口、公共模块、客户端 SDK、API 网关这 5 个子项目，并使用 Maven 进行多模块依赖管理和打包。</li><li> 基于 MyBatis Plus 框架的 QueryWrapper 实现对 MySQL 数据库的灵活查询，并配合 MyBatis X 插件自动生成后端 CRUD 基础代码，减少重复工作。</li><li> 使用 Swagger + Knife4j 自动生成 OpenAPI 规范的接口文档，降低前后端协作成本。</li><li> 为防止接口被恶意调用，设计 API 签名认证算法，为用户分配唯一 ak / sk 以鉴权，保障调用的安全性、便于统计接口调用次数。</li><li> 为解决开发者调用成本过高的问题（须自己使用 HTTP + 封装签名去调用接口），基于 Spring Boot Starter 开发了客户端 SDK，一行代码 即可调用接口，提高开发体验。</li><li> 选用 Spring Cloud Gateway 作为 API 网关，实现了路由转发、访问控制、流量染色，并集中处理签名校验、请求参数校验、接口调用统计等业务逻辑，提高安全性的同时、便于系统开发维护。</li><li> 为解决多个子系统内代码大量重复的问题，抽象模型层和业务层代码为公共模块，并使用 Dubbo RPC 框架实现子系统间的高性能接口调用，大幅减少重复代码。</li></ol><h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><p>一个提供API接口供开发者调用的平台</p><p>管理员可以接入并发布接口，统计分析个接口调用情况；用户可以注册登录并开通接口调用权限，然后可以浏览接口及在线调试，还能使用客户端SDK轻松在代码中调用接口。</p><h3 id="项目功能及各部分页面介绍，如下图："><a href="#项目功能及各部分页面介绍，如下图：" class="headerlink" title="项目功能及各部分页面介绍，如下图："></a>项目功能及各部分页面介绍，如下图：</h3><h4 id="登陆界面："><a href="#登陆界面：" class="headerlink" title="登陆界面："></a>登陆界面：</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/%E7%99%BB%E9%99%86%E7%95%8C%E9%9D%A2.jpg"></p><h4 id="主页浏览（管理员身份）：管理员身份具有管理页等选项框，用于接口管理和接口分析这两个功能"><a href="#主页浏览（管理员身份）：管理员身份具有管理页等选项框，用于接口管理和接口分析这两个功能" class="headerlink" title="主页浏览（管理员身份）：管理员身份具有管理页等选项框，用于接口管理和接口分析这两个功能"></a>主页浏览（管理员身份）：管理员身份具有管理页等选项框，用于接口管理和接口分析这两个功能</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/%E4%B8%BB%E9%A1%B5%E6%B5%8F%E8%A7%88%EF%BC%88%E7%AE%A1%E7%90%86%E5%91%98%E8%BA%AB%E4%BB%BD%EF%BC%89.jpg"></p><h4 id="接口管理（管理员身份）：接口管理用来发布、下线接口，对接口信息的增上改查等等功能"><a href="#接口管理（管理员身份）：接口管理用来发布、下线接口，对接口信息的增上改查等等功能" class="headerlink" title="接口管理（管理员身份）：接口管理用来发布、下线接口，对接口信息的增上改查等等功能"></a>接口管理（管理员身份）：接口管理用来发布、下线接口，对接口信息的增上改查等等功能</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/1.jpg"></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/2.jpg"></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/3.jpg"></p><h4 id="接口分析（管理员身份）：用于调查接口里面的top3（接口调用次数最多的前三名接口名称及其调用次数），方便管理员进行接口分析和管理"><a href="#接口分析（管理员身份）：用于调查接口里面的top3（接口调用次数最多的前三名接口名称及其调用次数），方便管理员进行接口分析和管理" class="headerlink" title="接口分析（管理员身份）：用于调查接口里面的top3（接口调用次数最多的前三名接口名称及其调用次数），方便管理员进行接口分析和管理"></a>接口分析（管理员身份）：用于调查接口里面的<u>top3</u>（接口调用次数最多的前三名接口名称及其调用次数），方便管理员进行接口分析和管理</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/4.jpg"></p><h4 id="主页浏览（非管理员身份）-仅可以在线调用接口，不能对接口进行权限处理等功能"><a href="#主页浏览（非管理员身份）-仅可以在线调用接口，不能对接口进行权限处理等功能" class="headerlink" title="主页浏览（非管理员身份）:仅可以在线调用接口，不能对接口进行权限处理等功能"></a>主页浏览（非管理员身份）:仅可以在线调用接口，不能对接口进行权限处理等功能</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/%E4%B8%BB%E9%A1%B5%E6%B5%8F%E8%A7%88%EF%BC%88%E9%9D%9E%E7%AE%A1%E7%90%86%E5%91%98%E8%BA%AB%E4%BB%BD%EF%BC%89.jpg"></p><h4 id="在线调试：按照要求输入，即可调用已经发布上线的接口，并使用其功能"><a href="#在线调试：按照要求输入，即可调用已经发布上线的接口，并使用其功能" class="headerlink" title="在线调试：按照要求输入，即可调用已经发布上线的接口，并使用其功能"></a>在线调试：按照要求输入，即可调用已经发布上线的接口，并使用其功能</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/7.jpg"></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/8.jpg"></p><h4 id="开放平台项目涉及到了多个系统的交互（不止有一个后端），包括了API签名认证、网关、RPC、分布式等知识"><a href="#开放平台项目涉及到了多个系统的交互（不止有一个后端），包括了API签名认证、网关、RPC、分布式等知识" class="headerlink" title="开放平台项目涉及到了多个系统的交互（不止有一个后端），包括了API签名认证、网关、RPC、分布式等知识"></a>开放平台项目涉及到了<u>多个系统</u>的交互（不止有一个后端），包括了API签名认证、网关、RPC、分布式等知识</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/api/11.jpg"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;OPEN-API开放平台&quot;&gt;&lt;a href=&quot;#OPEN-API开放平台&quot; class=&quot;headerlink&quot; title=&quot;OPEN-API开放平台&quot;&gt;&lt;/a&gt;OPEN-API开放平台&lt;/h1&gt;&lt;h2 id=&quot;项目所用到的技术：&quot;&gt;&lt;a href=&quot;#项目所用</summary>
+      
+    
+    
+    
+    <category term="项目" scheme="http://yunyd.cloud/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+    <category term="OPEN-API" scheme="http://yunyd.cloud/categories/%E9%A1%B9%E7%9B%AE/OPEN-API/"/>
+    
+    
+    <category term="项目" scheme="http://yunyd.cloud/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>大家好</title>
     <link href="http://yunyd.cloud/posts/42adfbca.html"/>
     <id>http://yunyd.cloud/posts/42adfbca.html</id>
     <published>2023-08-03T01:01:22.000Z</published>
-    <updated>2023-08-03T02:53:37.384Z</updated>
+    <updated>2023-08-07T06:28:49.801Z</updated>
     
     <content type="html"><![CDATA[<h1 id="大家好"><a href="#大家好" class="headerlink" title="大家好"></a>大家好</h1><h5 id="在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README-md时，却不希望被Hexo渲染。"><a href="#在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README-md时，却不希望被Hexo渲染。" class="headerlink" title="在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README.md时，却不希望被Hexo渲染。"></a>在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README.md时，却不希望被Hexo渲染。</h5><h2 id="大家好-1"><a href="#大家好-1" class="headerlink" title="大家好"></a>大家好</h2><h3 id="大家好-2"><a href="#大家好-2" class="headerlink" title="大家好"></a>大家好</h3><h4 id="大家好-3"><a href="#大家好-3" class="headerlink" title="大家好"></a>大家好</h4><h5 id="大家好-4"><a href="#大家好-4" class="headerlink" title="大家好"></a>大家好</h5><h6 id="大家好-5"><a href="#大家好-5" class="headerlink" title="大家好"></a>大家好</h6><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/img/penguin.jpg"></p>]]></content>
     
@@ -33,7 +59,7 @@
     
     
     
-    <category term="项目" scheme="http://yunyd.cloud/categories/%E9%A1%B9%E7%9B%AE/"/>
+    <category term="打招呼" scheme="http://yunyd.cloud/categories/%E6%89%93%E6%8B%9B%E5%91%BC/"/>
     
     
     <category term="介绍" scheme="http://yunyd.cloud/tags/%E4%BB%8B%E7%BB%8D/"/>
@@ -45,7 +71,7 @@
     <link href="http://yunyd.cloud/posts/ff05b5bf.html"/>
     <id>http://yunyd.cloud/posts/ff05b5bf.html</id>
     <published>2023-07-20T00:01:13.000Z</published>
-    <updated>2023-08-02T07:10:55.546Z</updated>
+    <updated>2023-08-07T06:28:58.432Z</updated>
     
     <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">  <script id="hbeData" type="hbeData" data-hmacdigest="0d121107f181ed1cad61e06d5e131895bb464c10cb5b841740cd01fd3c06441a">165d50f05814027fb7fe5e4ae8a088d8cabf1ea2d88ccf0f53dc7b0b289f3333ce426d2290f122e350413bfc7c4b15270e1fa98bc3bdc0696bd1240dc2c54dc46f3cf8c90ee47863eda5ed8429988339008fe8f5da23a188c09fa3923cb7e84998d48f9d1db1884ecbf116f84c604df665cf1ed02440e3704fe8a1d3f4e355c4b881361cca31a753bd765fa261f4fb2636246c3e4625086b6d615ef4b2b6cd7a8f7c3280fcde1606e2b11f9b2135665ec1dd4fcf4f0ac1fcec56cc7c1f658ec6aebb9907cf5d1591950e5dcce46b7fbd70731a8c4cffc0d39deeae4a2fb58528c5e81756ffe4712f213da309241d1aef28ba26ef9771379de4137e2769df892eb6f9e10addcd0fa5290221487d6f9c4ce779be7b4c93832fbafc4e24b9e19dc48d875959cc0d44882851087bbbf9ebf47ff801dd21fe86b5b163aded09e38674606d130c35d1282dd481ba8477ead8b5fe58554f7ab87cb1bb77dcc23b874f3cbb1b9b236314dca583053c6c88a4211ac414f48a8bc8fc5175a98fea8c154655eac039a57040f78e924f6934f017cfea4e51a606e4620c6167c0b11638ee7827df798e806b80e806a2172b934c402ec5321f359ab72862c0604ee573a74db3716c358c96257842b8490322aa106b2da92da99fa9d4c37575994d8f4d82190d29b354486955e1c3eaf860c07b768fc4796b0d362e96ff45801f81faa5b52ae9fee670998bb268c09c24d148cc417162407700649e80e17cf7eb074f550eac60074a41932338fd8d24f29d37721bf720204f05e98cb8bd1eb8b7f485624fabb0bff90798db78e20d90d0ec5e5ed6840b0dbafd17446b74a13eae4b6eb43f531af795f967e5606b4f8c668e99848e61750d5e914e39889964879f150ec5956a2fb43f78b40057311c6a6bcab7a5606e95deb1eae13ffbbf2feed6617cd563eb8de9bb2939a5740f9529e897f49b03c60257b070fd4faee501b85337c6ad1c6577ce0baaaa7232c7e729ef40d782c9d28909181283753a556bbe33f5269a48e3d52dd91fbd9bcb63d8c3f8188ed7f5b2898277c0a19fb2ecc358c9ba5c725c7b12691a9e28b73e787054ec07c29e937d02d00a007e960e96ccbae234f59e633c00c403d6eeb546684d4150d16b1fb38486774292c0eac59fcf9aef7b26e594c6c7a614521fa90bf363ed249325c2ac789abe3f9410cbb4c2f9d6c73077dc60cfe17b422bdc81563db19eb23449d487f584e43968b15d58ba04e6d11a4dab99fa80a3ca1bec83270387ecf1d7acdc39a5b6d1a78f85bf8a86f862ad06568c858d95dfac508165fc47ddef331f146c670a03d8377c5e6f733da0ef07da416a773db2c7d507da80eb7cfff00d21482e35096c187a455dd23e88c18d623302fa8080f064e820be334b26026d636c94de4d980cc715aaa113a14533513035dd7d06235393</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">文章已加密, 请输入密码.</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
     
@@ -54,7 +80,7 @@
     
     
     
-    <category term="项目" scheme="http://yunyd.cloud/categories/%E9%A1%B9%E7%9B%AE/"/>
+    <category term="打招呼" scheme="http://yunyd.cloud/categories/%E6%89%93%E6%8B%9B%E5%91%BC/"/>
     
     
     <category term="介绍" scheme="http://yunyd.cloud/tags/%E4%BB%8B%E7%BB%8D/"/>
