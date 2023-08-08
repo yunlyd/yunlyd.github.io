@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="资源分享, lucky_llllz 计算机 软件工程 后端">
+    <meta name="keywords" content="商家外卖, lucky_llllz 计算机 软件工程 后端">
     <meta name="description" content="计算机 | 软件工程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>资源分享 | llllz_liu</title>
+    <title>商家外卖 | llllz_liu</title>
 
     <link rel="icon" type="image/png" href="/medias/favicon-32x32.png">
 
@@ -371,12 +371,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/z.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/i.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">资源分享</h1>
+                    <h1 class="description center-align post-title">商家外卖</h1>
                 </div>
             </div>
         </div>
@@ -495,12 +495,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E9%A1%B9%E7%9B%AE/">
+                                <span class="chip bg-color">项目</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                项目
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -509,28 +522,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-07-19
+                    2023-08-07
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-01
+                    2023-08-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -548,7 +561,60 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="商家外卖"><a href="#商家外卖" class="headerlink" title="商家外卖"></a>商家外卖</h1><h2 id="项目所用到的技术："><a href="#项目所用到的技术：" class="headerlink" title="项目所用到的技术："></a>项目所用到的技术：</h2><ul>
+<li>Spring Boot </li>
+<li>SSM  + Lombok</li>
+</ul>
+<ul>
+<li>MyBatis Plus </li>
+<li> Spring Cache </li>
+<li> Redis </li>
+<li> Sharding JDBC 读写分离 </li>
+</ul>
+<h2 id="部署："><a href="#部署：" class="headerlink" title="部署："></a>部署：</h2><p>前后端不分离 jar 包部署</p>
+<h2 id="后端："><a href="#后端：" class="headerlink" title="后端："></a>后端：</h2><ol>
+<li>为集中处理系统异常，自定义统一的错误码，并封装了 <strong>全局异常处理器</strong> ，屏蔽了项目冗余的报错细节、便于接口调用方理解和统一处理。</li>
+<li>基于静态 ThreadLocal 封装了线程隔离的全局上下文对象，便于在请求内部存取用户信息，减少用户远程查询次数。</li>
+<li>为兼容请求参数 date 类型的序列化，自定义 Jackson 对象映射器处理日期；并扩展 SpringMVC 的消息转换器，实现自动序列化。</li>
+<li>自定义 MyBatis Plus 的 MetaObjectHandler，配合全局上下文实现写数据前的创建时间、用户 id 字段的自动填充。</li>
+<li>遵循 Restful 设计规范编写接口，降低前后端接口沟通和理解成本。</li>
+<li>为解决原生 Jdk 序列化器导致的缓存 key 值乱码问题，自定义 RedisTemplate Bean 的 Redis Key 序列化器为 StringRedisSerializer。</li>
+<li>使用 Knife4j + Swagger 自动生成后端接口文档，并通过编写 ApiOperation 等注解补充接口注释，避免了人工编写维护文档的麻烦。</li>
+<li>为省去重复编写用户校验的麻烦，基于 WebFilter 实现全局登录校验；并通过 AntPathMatcher 来匹配动态请求路径，实现灵活的可选鉴权。</li>
+<li>为保证数据的完整性和一致性，使用 @Transactional 实现数据库事务，并配置 rollbackFor = Exception.class 来支持受检异常的事务回滚。</li>
+<li>为提高信息页加载速度，基于 Spring Cache 注解 + Redis 实现对信息的自动缓存，来降低数据库压力的同时将接口响应耗时</li>
+<li>为降低开发成本，使用 MyBatis Plus 框架自动生成业务的增删改查重复代码，并使用 LambdaQueryWrapper 实现更灵活地自定义查询。</li>
+<li>为提高数据库整体读写性能，配置 MySQL 主从同步，并使用 sharding-jdbc 实现业务无侵入的读写分离。</li>
+<li>封装全局 Axios 请求实例，添加全局请求拦截和全局异常响应处理器，减少重复的状态码判断、提升项目可维护性。﻿</li>
+</ol>
+<h2 id="项目功能及各部分页面介绍，如下图："><a href="#项目功能及各部分页面介绍，如下图：" class="headerlink" title="项目功能及各部分页面介绍，如下图："></a>项目功能及各部分页面介绍，如下图：</h2><h3 id="项目分为用户端和管理端："><a href="#项目分为用户端和管理端：" class="headerlink" title="项目分为用户端和管理端："></a>项目分为用户端和管理端：</h3><h4 id="用户端介绍："><a href="#用户端介绍：" class="headerlink" title="用户端介绍："></a>用户端介绍：</h4><p>页面输入手机号，首先会对手机号码有一个校验，不符合规则的的手机号会进行提示。然后点击验证码会直接给出验证码，由于模拟真实的短信服务需要付费并调用XX云SDK接入短信服务，为了节省成本，我直接将返回的验证码写在输入框里（模拟一下接收短信的流程）</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/1-tuya.jpg"></p>
+<p>注册登录进来后就可以查看商家信息（都哪有些菜品，套餐之类的）</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/9-tuya.jpg"></p>
+<p>随机选择一个，点击选择规格，会弹出如下框，选择适合自己的口味并点击加入购物车</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/10-tuya.jpg"></p>
+<p>点击完加入购物车之后，即可在购物车中显示，如果同一菜品想要多份的话，就点击➕来增加份数，购物车显示的金额也会随之更新</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/11-tuya.jpg"></p>
+<p>点击去结算的按钮会到支付页面，当然如果是新注册的账号，则会先让你留下收货地址，如下图</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/12-tuya.jpg"></p>
+<p>保存完收货地址，就可以进行支付了</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/13-tuya.jpg"></p>
+<h4 id="管理端介绍："><a href="#管理端介绍：" class="headerlink" title="管理端介绍："></a>管理端介绍：</h4><p>管理端是用来商家来上传一些菜品，套餐之类的，并包括员工信息等，可以对员工信息、菜品、套餐等信息进行增删改查等功能</p>
+<p>下图为管理端的登陆页面：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/2-tuya.jpg"></p>
+<p>点击登录，来到管理端页面</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/3-tuya.jpg"></p>
+<p>分为左列几个功能，能对响应分类进行增上改查，拿员工管理界面的增上改查来举例子：</p>
+<p>点击编辑，可以修改员工信息。点击添加员工可以进行添加，启用禁用功能是指如果员工加入企业或者退出企业，可以对他的账号进行封禁或者开启</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/5-tuya.jpg"></p>
+<p>点击修改，效果如下图：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/4-tuya.jpg"></p>
+<p>其余界面如下，功能类似，都可以进行增删改查等功能：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/6-tuya.jpg"></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/7-tuya.jpg"></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/8-tuya.jpg"></p>
+<h4 id="（以上项目大体功能等仅粗略展示，如功能解释的不详细，还望见谅！！）"><a href="#（以上项目大体功能等仅粗略展示，如功能解释的不详细，还望见谅！！）" class="headerlink" title="（以上项目大体功能等仅粗略展示，如功能解释的不详细，还望见谅！！）"></a>（以上项目大体功能等仅粗略展示，如功能解释的不详细，还望见谅！！）</h4><p>.</p>
+
                 
             </div>
             <hr/>
@@ -574,7 +640,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yunyd.cloud/resource/index.html">http://yunyd.cloud/resource/index.html</a>
+                    <a href="http://yunyd.cloud/posts/7161264.html">http://yunyd.cloud/posts/7161264.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -611,7 +677,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E9%A1%B9%E7%9B%AE/">
+                                    <span class="chip bg-color">项目</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1081,39 +1151,49 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/resource/index.html">
+                <a href="/posts/574f1a5b.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/z.jpg" class="responsive-img" alt="资源分享">
+                        <img src="/medias/k.jpg" class="responsive-img" alt="OPEN-API开放平台">
                         
-                        <span class="card-title">资源分享</span>
+                        <span class="card-title">OPEN-API开放平台</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            api项目概述
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-07-19
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-07
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            llllz.
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    项目
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%A1%B9%E7%9B%AE/">
+                        <span class="chip bg-color">项目</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1121,37 +1201,48 @@ new Valine({
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/resource/index.html">
+                <a href="/posts/42adfbca.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/z.jpg" class="responsive-img" alt="资源分享">
+                        <img src="/medias/z005.jpg" class="responsive-img" alt="大家好">
                         
-                        <span class="card-title">资源分享</span>
+                        <span class="card-title">大家好</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            打招呼
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-07-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-03
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            llllz.
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%89%93%E6%8B%9B%E5%91%BC/" class="post-category">
+                                    打招呼
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BB%8B%E7%BB%8D/">
+                        <span class="chip bg-color">介绍</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
