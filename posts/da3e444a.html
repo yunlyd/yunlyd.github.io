@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="大家好, lucky_llllz 计算机 软件工程 后端">
+    <meta name="keywords" content="说说Java锁事-3, lucky_llllz 计算机 软件工程 后端">
     <meta name="description" content="计算机 | 软件工程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>大家好 | llllz_liu</title>
+    <title>说说Java锁事-3 | llllz_liu</title>
 
     <link rel="icon" type="image/png" href="/yunyd/medias/favicon-32x32.png">
 
@@ -371,12 +371,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/yunyd/medias/z005.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/yunyd/medias/c.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">大家好</h1>
+                    <h1 class="description center-align post-title">说说Java锁事-3</h1>
                 </div>
             </div>
         </div>
@@ -497,8 +497,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/yunyd/tags/%E4%BB%8B%E7%BB%8D/">
-                                <span class="chip bg-color">介绍</span>
+                            <a href="/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                                <span class="chip bg-color">JUC并发编程</span>
                             </a>
                         
                     </div>
@@ -509,8 +509,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/yunyd/categories/%E6%89%93%E6%8B%9B%E5%91%BC/" class="post-category">
-                                打招呼
+                            <a href="/yunyd/categories/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="post-category">
+                                JUC并发编程
                             </a>
                         
                     </div>
@@ -522,7 +522,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-07-21
+                    2023-08-01
                 </div>
                 
 
@@ -536,14 +536,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    62
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    9 分
                 </div>
                 
 
@@ -561,7 +561,258 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="大家好"><a href="#大家好" class="headerlink" title="大家好"></a>大家好</h1><h5 id="在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README-md时，却不希望被Hexo渲染。"><a href="#在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README-md时，却不希望被Hexo渲染。" class="headerlink" title="在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README.md时，却不希望被Hexo渲染。"></a>在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README.md时，却不希望被Hexo渲染。</h5><h2 id="大家好-1"><a href="#大家好-1" class="headerlink" title="大家好"></a>大家好</h2><h3 id="大家好-2"><a href="#大家好-2" class="headerlink" title="大家好"></a>大家好</h3><h4 id="大家好-3"><a href="#大家好-3" class="headerlink" title="大家好"></a>大家好</h4><h5 id="大家好-4"><a href="#大家好-4" class="headerlink" title="大家好"></a>大家好</h5><h6 id="大家好-5"><a href="#大家好-5" class="headerlink" title="大家好"></a>大家好</h6><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/img/penguin.jpg"></p>
+                <h1 id="说说Java”锁”事"><a href="#说说Java”锁”事" class="headerlink" title="说说Java”锁”事"></a>说说Java”锁”事</h1><h2 id="3-1-从轻松的乐观锁和悲观锁开讲"><a href="#3-1-从轻松的乐观锁和悲观锁开讲" class="headerlink" title="3.1 从轻松的乐观锁和悲观锁开讲"></a>3.1 从轻松的乐观锁和悲观锁开讲</h2><p>●悲观锁： 认为自己在使用数据的时候一定有别的线程来修改数据，因此在获取数据的时候会先加锁，确保数据不会被别的线程修改，synchronized和Lock的实现类都是悲观锁，适合写操作多的场景，先加锁可以保证写操作时数据正确，显示的锁定之后再操作同步资源—–狼性锁</p>
+<p>●乐观锁： 认为自己在使用数据的时候不会有别的线程修改数据或资源，不会添加锁，Java中使用无锁编程来实现，只是在更新的时候去判断，之前有没有别的线程更新了这个数据，如果这个数据没有被更新，当前线程将自己修改的数据成功写入，如果已经被其他线程更新，则根据不同的实现方式执行不同的操作，比如：放弃修改、重试抢锁等等。判断规则有：版本号机制Version，最常采用的是CAS算法，Java原子类中的递增操作就通过CAS自旋实现的。—–适合读操作多的场景，不加锁的特性能够使其读操作的性能大幅提升，乐观锁则直接去操作同步资源，是一种无锁算法，得之我幸不得我命—佛系锁</p>
+<h2 id="3-2-通过8种情况演示锁运行案例，看看锁到底是什么"><a href="#3-2-通过8种情况演示锁运行案例，看看锁到底是什么" class="headerlink" title="3.2 通过8种情况演示锁运行案例，看看锁到底是什么"></a>3.2 通过8种情况演示锁运行案例，看看锁到底是什么</h2><h4 id="3-2-1-锁相关的8种案例演示code"><a href="#3-2-1-锁相关的8种案例演示code" class="headerlink" title="3.2.1 锁相关的8种案例演示code"></a>3.2.1 锁相关的8种案例演示code</h4><p>8种案例演示：</p>
+<pre class="line-numbers language-none"><code class="language-none">class Phone {
+    public synchronized void sendEmail() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("------sendEmail");
+    }
+
+    public synchronized void sendSMS() {
+        System.out.println("------sendSMS");
+    }
+
+    public void hello() {
+        System.out.println("------hello");
+    }
+}
+
+/**
+ * 现象描述：
+ * 1 标准访问ab两个线程，请问先打印邮件还是短信？ --------先邮件，后短信  共用一个对象锁
+ * 2. sendEmail钟加入暂停3秒钟，请问先打印邮件还是短信？---------先邮件，后短信  共用一个对象锁
+ * 3. 添加一个普通的hello方法，请问先打印普通方法还是邮件？ --------先hello，再邮件
+ * 4. 有两部手机，请问先打印邮件还是短信？ ----先短信后邮件  资源没有争抢，不是同一个对象锁
+ * 5. 有两个静态同步方法，一步手机， 请问先打印邮件还是短信？---------先邮件后短信  共用一个类锁
+ * 6. 有两个静态同步方法，两部手机， 请问先打印邮件还是短信？ ----------先邮件后短信 共用一个类锁
+ * 7. 有一个静态同步方法 一个普通同步方法，请问先打印邮件还是短信？ ---------先短信后邮件   一个用类锁一个用对象锁
+ * 8. 有一个静态同步方法，一个普通同步方法，两部手机，请问先打印邮件还是短信？ -------先短信后邮件 一个类锁一个对象锁
+ */
+
+public class Lock8Demo {
+    public static void main(String[] args) {
+        Phone phone = new Phone();
+        new Thread(() -&gt; {
+            phone.sendEmail();
+        }, "a").start();
+
+        try {
+            TimeUnit.MILLISECONDS.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        new Thread(() -&gt; {
+            phone.sendSMS();
+        }, "b").start();
+    }
+
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>结论：</p>
+<ul>
+<li>对于普通同步方法，锁的是当前实例对象，通常指this，所有的同步方法用的都是同一把锁—&gt;实例对象本身</li>
+<li>对于静态同步方法，锁的时当前类的Class对象</li>
+<li>对于同步方法块，锁的时synchronized括号内的对象</li>
+</ul>
+<h4 id="3-2-2-synchronized有三种应用方式"><a href="#3-2-2-synchronized有三种应用方式" class="headerlink" title="3.2.2 synchronized有三种应用方式"></a>3.2.2 synchronized有三种应用方式</h4><ul>
+<li>作用于实例方法，当前实例加锁，进入同步代码块前要获得当前实例的锁；</li>
+<li>作用于代码块，对括号里配置的对象加锁</li>
+<li>作用于静态方法，当前类加锁，进去同步代码前要获得当前类对象的锁</li>
+</ul>
+<h4 id="3-2-3-从字节码角度分析synchronized实现"><a href="#3-2-3-从字节码角度分析synchronized实现" class="headerlink" title="3.2.3 从字节码角度分析synchronized实现"></a>3.2.3 从字节码角度分析synchronized实现</h4><ul>
+<li><p>javap -c(v附加信息) ***.class 文件反编译</p>
+</li>
+<li><p>synchronized同步代码块</p>
+</li>
+<li><ul>
+<li>实现使用的是monitorenter和monitorexit指令</li>
+</ul>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/11.jpg"></p>
+</li>
+<li><p>synchronized普通同步方法</p>
+</li>
+<li><ul>
+<li>调用指令将会检查方法的ACC_SYNCHRONIZED访问标志是否被设置，如果设置了，执行线程会将现持有monitor锁，然后再执行该方法，最后在方法完成（无论是否正常结束）时释放monitor</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/12.jpg"></p>
+<ul>
+<li></li>
+<li><p>synchronized静态同步方法</p>
+</li>
+<li><ul>
+<li>ACC_STATIC、ACC_SYNCHRONIZED访问标志区分该方法是否是静态同步方法</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/13.jpg"></p>
+<h4 id="3-2-4-反编译synchronized锁的是什么"><a href="#3-2-4-反编译synchronized锁的是什么" class="headerlink" title="3.2.4 反编译synchronized锁的是什么"></a>3.2.4 反编译synchronized锁的是什么</h4><p>面试题：为什么任何一个对象都可以成为一个锁？</p>
+<p>C++源码：ObjectMonitor.java—&gt;ObjectMonitor.cpp—&gt;ObjectMonitor.hpp</p>
+<p>每个对象天生都带着一个对象监视器，每一个被锁住的对象都会和Monitor关联起来</p>
+<p>总结：指针指向Monitor对象（也称为管程或监视器）的真实地址。每个对象都存在着一个monitor与之关联，当一个monitor被某个线程持有后，它便处于锁定状态。在Java虚拟机（HotSpot）中，monitor是由OnjectMonitor实现的，其主要的数据结构如下（位于HotSpot虚拟机源码ObjectMonitor.hpp文件，C++实现）：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/14.jpg"></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/15.jpg"></p>
+<h4 id="3-2-5-对于Synchronized关键字"><a href="#3-2-5-对于Synchronized关键字" class="headerlink" title="3.2.5 对于Synchronized关键字"></a>3.2.5 对于Synchronized关键字</h4><p>后面章节详说</p>
+<h2 id="3-3-公平锁和非公平锁"><a href="#3-3-公平锁和非公平锁" class="headerlink" title="3.3 公平锁和非公平锁"></a>3.3 公平锁和非公平锁</h2><h4 id="3-3-1-何为公平锁-非公平锁"><a href="#3-3-1-何为公平锁-非公平锁" class="headerlink" title="3.3.1 何为公平锁/非公平锁"></a>3.3.1 何为公平锁/非公平锁</h4><ul>
+<li>公平锁：是指多个线程按照申请锁的顺序来获取锁，这里类似于排队买票，先来的人先买，后来的人再队尾排着，这是公平的—– Lock lock = new ReentrantLock(true)—表示公平锁，先来先得。</li>
+<li>非公平锁：是指多个线程获取锁的顺序并不是按照申请的顺序，有可能后申请的线程比先申请的线程优先获取锁，在高并发环境下，有可能造成优先级反转或者饥饿的状态（某个线程一直得不到锁）—- Lock lock = new  ReentrantLock(false)—表示非公平锁，后来的也可能先获得锁，默认为非公平锁。</li>
+</ul>
+<p>面试题：</p>
+<ul>
+<li><p>为什么会有公平锁/非公平锁的设计？为什么默认非公平？</p>
+</li>
+<li><ul>
+<li>恢复挂起的线程到真正锁的获取还是有时间差的，从开发人员来看这个时间微乎其微，但是从CPU的角度来看，这个时间差存在的还是很明显的。所以非公平锁能更充分地利用CPU的时间片，尽量减少CPU空间状态时间。</li>
+<li>使用多线程很重要的考量点是线程切换的开销，当采用非公平锁时，当一个线程请求锁获取同步状态，然后释放同步状态，所以刚释放锁的线程在此刻再次获取同步状态的概率就变得很大，所以就减少了线程的开销。</li>
+</ul>
+</li>
+<li><p>什么时候用公平？什么时候用非公平？</p>
+</li>
+<li><ul>
+<li>如果为了更高的吞吐量，很显然非公平锁是比较合适的，因为节省了很多线程切换的时间，吞吐量自然就上去了；否则就用公平锁，大家公平使用。</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-3-2-预埋伏AQS"><a href="#3-3-2-预埋伏AQS" class="headerlink" title="3.3.2 预埋伏AQS"></a>3.3.2 预埋伏AQS</h4><p>后续深入分析</p>
+<h1 id="3-4-可重入锁（递归锁）"><a href="#3-4-可重入锁（递归锁）" class="headerlink" title="3.4 可重入锁（递归锁）"></a>3.4 可重入锁（递归锁）</h1><h2 id="3-4-1-概念说明"><a href="#3-4-1-概念说明" class="headerlink" title="3.4.1 概念说明"></a>3.4.1 概念说明</h2><p>是指在同一线程在外层方法获取到锁的时侯，在进入该线程的内层方法会自动获取锁（前提，锁对象的是同一个对象），不会因为之前已经获取过还没释放而阻塞———优点之一就是可一定程度避免死锁。</p>
+<h2 id="3-4-2-可重入锁种类"><a href="#3-4-2-可重入锁种类" class="headerlink" title="3.4.2 可重入锁种类"></a>3.4.2 可重入锁种类</h2><ul>
+<li><p>隐式锁（即synchronized关键字使用的锁），默认是可重入锁</p>
+</li>
+<li><ul>
+<li>在一个synchronized修饰的方法或者代码块的内部调用本类的其他synchronized修饰的方法或者代码块时，是永远可以得到锁。</li>
+</ul>
+</li>
+<li><p>显式锁（即Lock）也有ReentrantLock这样的可重入锁</p>
+</li>
+</ul>
+<p>隐式和显示可重入锁的演示：</p>
+<pre class="line-numbers language-none"><code class="language-none">public class ReEntryLockDemo {
+
+    public static void main(String[] args) {
+        final Object o = new Object();
+        /**
+         * ---------------外层调用
+         * ---------------中层调用
+         * ---------------内层调用
+         */
+        new Thread(() -&gt; {
+            synchronized (o) {
+                System.out.println("---------------外层调用");
+                synchronized (o) {
+                    System.out.println("---------------中层调用");
+                    synchronized (o) {
+                        System.out.println("---------------内层调用");
+                    }
+                }
+            }
+        }, "t1").start();
+
+        /**
+         * 注意：加锁几次就需要解锁几次
+         * ---------------外层调用
+         * ---------------中层调用
+         * ---------------内层调用
+         */
+        Lock lock = new ReentrantLock();
+        new Thread(() -&gt; {
+            lock.lock();
+            try {
+                System.out.println("---------------外层调用");
+                lock.lock();
+                try {
+                    System.out.println("---------------中层调用");
+                    lock.lock();
+                    try {
+                        System.out.println("---------------内层调用");
+                    } finally {
+                        lock.unlock();
+                    }
+                } finally {
+                    lock.unlock();
+                }
+            } finally {
+                lock.unlock();
+            }
+        }, "t2").start();
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3-5-死锁及排查"><a href="#3-5-死锁及排查" class="headerlink" title="3.5 死锁及排查"></a>3.5 死锁及排查</h2><h4 id="3-5-1-概念"><a href="#3-5-1-概念" class="headerlink" title="3.5.1 概念"></a>3.5.1 概念</h4><p>死锁是指两个或两个以上的线程在执行过程中，因抢夺资源而造成的一种互相等待的现象，若无外力干涉，则它们无法再继续推进下去。</p>
+<p>产生原因：</p>
+<ul>
+<li>系统资源不足</li>
+<li>进程运行推进顺序不合适</li>
+<li>系统资源分配不当</li>
+</ul>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/16.jpg"></p>
+<h4 id="3-5-2-写一个死锁代码case"><a href="#3-5-2-写一个死锁代码case" class="headerlink" title="3.5.2 写一个死锁代码case"></a>3.5.2 写一个死锁代码case</h4><p>实现死锁：</p>
+<pre class="line-numbers language-none"><code class="language-none">public class DeadLockDemo {
+    static  Object a=new Object();
+    static  Object b=new Object();
+
+    public static void main(String[] args) {
+        new Thread(() -&gt; {
+            synchronized (a){
+                System.out.println("t1线程持有a锁，试图获取b锁");
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                synchronized (b){
+                    System.out.println("t1线程获取到b锁");
+                }
+            }
+         },"t1").start();
+
+        new Thread(() -&gt; {
+            synchronized (b){
+                System.out.println("t2线程持有a锁，试图获取a锁");
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                synchronized (a){
+                    System.out.println("t2线程获取到a锁");
+                }
+            }
+        },"t2").start();
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="3-5-3-如何排查死锁"><a href="#3-5-3-如何排查死锁" class="headerlink" title="3.5.3 如何排查死锁"></a>3.5.3 如何排查死锁</h4><ul>
+<li><p>纯命令</p>
+</li>
+<li><ul>
+<li>jps -l</li>
+<li>jstack 进程编号</li>
+</ul>
+</li>
+<li><p>图形化</p>
+</li>
+<li><ul>
+<li>jconsole</li>
+</ul>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/17.jpg"></p>
+</li>
+</ul>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/18.jpg"></p>
+<h2 id="3-6-写锁（独占锁）-读锁（共享锁）"><a href="#3-6-写锁（独占锁）-读锁（共享锁）" class="headerlink" title="3.6 写锁（独占锁）/读锁（共享锁）"></a>3.6 写锁（独占锁）/读锁（共享锁）</h2><p>深度源码分析见后面</p>
+<h2 id="3-7-自旋锁spinLock"><a href="#3-7-自旋锁spinLock" class="headerlink" title="3.7 自旋锁spinLock"></a>3.7 自旋锁spinLock</h2><p>深度源码分析见后面</p>
+<h2 id="3-8-无锁-gt-独占锁-gt-读写锁-gt-邮戳锁"><a href="#3-8-无锁-gt-独占锁-gt-读写锁-gt-邮戳锁" class="headerlink" title="3.8 无锁->独占锁->读写锁->邮戳锁"></a>3.8 无锁-&gt;独占锁-&gt;读写锁-&gt;邮戳锁</h2><p>深度源码分析见后面</p>
+<h2 id="3-9-无锁-gt-偏向锁-gt-轻量锁-gt-重量锁"><a href="#3-9-无锁-gt-偏向锁-gt-轻量锁-gt-重量锁" class="headerlink" title="3.9 无锁->偏向锁->轻量锁->重量锁"></a>3.9 无锁-&gt;偏向锁-&gt;轻量锁-&gt;重量锁</h2><p>深度源码分析见后面</p>
 
                 
             </div>
@@ -588,7 +839,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gitee.com/yunyd/yunyd/posts/42adfbca.html">https://gitee.com/yunyd/yunyd/posts/42adfbca.html</a>
+                    <a href="https://gitee.com/yunyd/yunyd/posts/da3e444a.html">https://gitee.com/yunyd/yunyd/posts/da3e444a.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -626,8 +877,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/yunyd/tags/%E4%BB%8B%E7%BB%8D/">
-                                    <span class="chip bg-color">介绍</span>
+                                <a href="/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                                    <span class="chip bg-color">JUC并发编程</span>
                                 </a>
                             
                         </div>
@@ -1103,31 +1354,31 @@ new Valine({
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/yunyd/posts/53d0684b.html">
+                <a href="/yunyd/posts/b972fab5.html">
                     <div class="card-image">
                         
                         
-                        <img src="/yunyd/medias/z003.jpg" class="responsive-img" alt="Linux">
+                        <img src="/yunyd/medias/v.jpg" class="responsive-img" alt="LockSupport与线程中断-4">
                         
-                        <span class="card-title">Linux</span>
+                        <span class="card-title">LockSupport与线程中断-4</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            linux常用命令
+                            LockSupport与线程中断
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-05
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/yunyd/categories/Linux/" class="post-category">
-                                    Linux
+                            <a href="/yunyd/categories/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="post-category">
+                                    JUC并发编程
                                 </a>
                             
                             
@@ -1137,8 +1388,8 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/yunyd/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                        <span class="chip bg-color">JUC并发编程</span>
                     </a>
                     
                 </div>
@@ -1152,31 +1403,31 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yunyd/posts/ff05b5bf.html">
+                <a href="/yunyd/posts/1fb3c234.html">
                     <div class="card-image">
                         
                         
-                        <img src="/yunyd/medias/z004.jpg" class="responsive-img" alt="第一篇博客">
+                        <img src="/yunyd/medias/o.jpg" class="responsive-img" alt="CompletableFuture-2">
                         
-                        <span class="card-title">第一篇博客</span>
+                        <span class="card-title">CompletableFuture-2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            博客介绍
+                            CompletableFuture
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/yunyd/categories/%E6%89%93%E6%8B%9B%E5%91%BC/" class="post-category">
-                                    打招呼
+                            <a href="/yunyd/categories/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="post-category">
+                                    JUC并发编程
                                 </a>
                             
                             
@@ -1186,8 +1437,8 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/yunyd/tags/%E4%BB%8B%E7%BB%8D/">
-                        <span class="chip bg-color">介绍</span>
+                    <a href="/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                        <span class="chip bg-color">JUC并发编程</span>
                     </a>
                     
                 </div>

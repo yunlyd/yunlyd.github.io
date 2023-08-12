@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="lucky_llllz 计算机 软件工程 后端">
+    <meta name="keywords" content="分类: JUC并发编程, lucky_llllz 计算机 软件工程 后端">
     <meta name="description" content="计算机 | 软件工程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>llllz_liu</title>
+    <title>分类: JUC并发编程 | llllz_liu</title>
 
     <link rel="icon" type="image/png" href="/yunyd/medias/favicon-32x32.png">
 
@@ -367,56 +367,9 @@
 
 </header>
 
-    
-<style>
-    .carousel-control {
-        width: 45px;
-        height: 45px;
-        line-height: 55px;
-        border-radius: 45px;
-        background: transparent;
-        cursor: pointer;
-        z-index: 100;
-    }
-
-    #prev-cover {
-        position: absolute;
-        top: 48%;
-        left: 8px;
-    }
-
-    #next-cover {
-        position: absolute;
-        top: 48%;
-        right: 8px;;
-    }
-
-    #prev-cover i {
-        margin-right: 3px;
-    }
-
-    #next-cover i {
-        margin-left: 3px;
-    }
-
-    .carousel-control:hover {
-        background-color: rgba(0, 0, 0, .4);
-    }
-
-    .carousel-control i {
-        color: #fff;
-        font-size: 2.4rem;
-    }
-</style>
-
-
-
-<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
-    
-
-    <div class="carousel-item red white-text bg-cover about-cover">
-        <div class="container">
-            <div class="row">
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
         <div class="brand">
             <div class="title center-align">
@@ -451,352 +404,215 @@
 </script>
 
 
-
-            <div class="cover-btns">
-                <a href="#articles" class="waves-effect waves-light btn">
-                    <i class="fa fa-angle-double-down"></i>开始阅读
-                </a>
-
-                
-            </div>
-            <div class="cover-social-link">
-
-
-    <a href="mailto:2428170173@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2428170173" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2428170173" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-
-
-</div>
-        </div>
     </div>
-
-    
 </div>
-
-<script>
-    $(function () {
-        let coverSlider = $('.carousel');
-
-        //用户触摸轮播自动 restartPlay 是否生效
-        let initUserPressedOrDraggedActive = false
-
-        //用户触摸轮播自动 restartPlay
-        function initUserPressedOrDragged(instance) {
-            setInterval(() => {
-                if (instance.pressed || instance.dragged) {
-                    // console.log('initUserPressedOrDragged: ',instance.pressed,instance.dragged)
-                    restartPlay()
-                }
-            }, 1000)
-        }
-
-        coverSlider.carousel({
-            duration: Number('120'),
-            fullWidth: true,
-            indicators: 'true' === 'true',
-            onCycleTo() {
-                if (!initUserPressedOrDraggedActive) {
-                    // console.log('initUserPressedOrDraggedActive')
-                    initUserPressedOrDragged(this)
-                    initUserPressedOrDraggedActive = true
-                }
-            },
-        })
-
-        let carouselIntervalId;
-        
-        // Loop to call the next cover article picture.
-        let autoCarousel = function () {
-            carouselIntervalId = setInterval(function () {
-                coverSlider.carousel('next');
-            }, 8000);
-        };
-        autoCarousel();
-        
-
-        function restartPlay() {
-            
-            clearInterval(carouselIntervalId);
-            autoCarousel();
-            
-        };
-
-        
-    });
-</script>
-
-
 
 <main class="content">
 
     
-    <div id="indexCard" class="index-card">
-        <div class="container ">
-            <div class="card">
-                <div class="card-content">
-                    
 
-                    
-
-                    
-
-                    
-                    <div id="recommend-sections" class="recommend">
-                        
-
-
-
-
-
-<div class="title"><i class="far fa-thumbs-up"></i>&nbsp;&nbsp;推荐文章</div>
-
-<div class="row">
-
-    
-    
-    <div class="col s12 m6" >
-        
-            <div class="post-card" style="background-image: url('/yunyd/medias/z003.jpg')">
-            
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                        
-                            <a href="/yunyd/categories/Linux/" class="category">Linux</a>
-                        
-                    
-                </div>
-                <a href="/yunyd/posts/53d0684b.html">
-                    <h3 class="post-title">Linux</h3>
+<div id="category-cloud" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="tag-title center-align">
+                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+            </div>
+            <div class="tag-chips">
+                
+                
+                
+                <a href="/yunyd/categories/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" title="JUC并发编程: 4">
+                  <div class="moleskine-wrapper">
+                      <div class="moleskine-notebook">
+                          <div class="chip notebook-cover center-align waves-effect waves-light
+                           chip-active "
+                                  style="background-color: #0D2730;">                                               
+                              <div class="notebook-skin
+                                   chip-active "
+                                  >JUC并发编程                                  
+                              </div>
+                          </div>
+                          <div class="notebook-page dotted"></div>
+                      </div>
+                  </div>
                 </a>
-                <p class="post-description">
-                    
-                        linux常用命令
-                    
-                </p>
-                <a href="/yunyd/posts/53d0684b.html" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
-                    <i class="icon far fa-eye fa-fw"></i>阅读更多
+                
+                
+                <a href="/yunyd/categories/Linux/" title="Linux: 1">
+                  <div class="moleskine-wrapper">
+                      <div class="moleskine-notebook">
+                          <div class="chip notebook-cover center-align waves-effect waves-light
+                           chip-default "
+                                  style="background-color: #C9DFC7;">                                               
+                              <div class="notebook-skin
+                                   chip-default "
+                                  >Linux                                  
+                              </div>
+                          </div>
+                          <div class="notebook-page dotted"></div>
+                      </div>
+                  </div>
                 </a>
+                
+                
+                <a href="/yunyd/categories/%E9%A1%B9%E7%9B%AE/" title="项目: 2">
+                  <div class="moleskine-wrapper">
+                      <div class="moleskine-notebook">
+                          <div class="chip notebook-cover center-align waves-effect waves-light
+                           chip-default "
+                                  style="background-color: #CB0474;">                                               
+                              <div class="notebook-skin
+                                   chip-default "
+                                  >项目                                  
+                              </div>
+                          </div>
+                          <div class="notebook-page dotted"></div>
+                      </div>
+                  </div>
+                </a>
+                
+                
+                <a href="/yunyd/categories/%E6%89%93%E6%8B%9B%E5%91%BC/" title="打招呼: 2">
+                  <div class="moleskine-wrapper">
+                      <div class="moleskine-notebook">
+                          <div class="chip notebook-cover center-align waves-effect waves-light
+                           chip-default "
+                                  style="background-color: #1818A2;">                                               
+                              <div class="notebook-skin
+                                   chip-default "
+                                  >打招呼                                  
+                              </div>
+                          </div>
+                          <div class="notebook-page dotted"></div>
+                      </div>
+                  </div>
+                </a>
+                
+                
             </div>
         </div>
     </div>
-    
-    
-    <div class="col s12 m6" >
-        
-            <div class="post-card" style="background-image: url('/yunyd/medias/k.jpg')">
-            
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                        
-                            <a href="/yunyd/categories/%E9%A1%B9%E7%9B%AE/" class="category">项目</a>
-                        
-                    
-                </div>
-                <a href="/yunyd/posts/574f1a5b.html">
-                    <h3 class="post-title">OPEN-API开放平台</h3>
-                </a>
-                <p class="post-description">
-                    
-                        api项目概述
-                    
-                </p>
-                <a href="/yunyd/posts/574f1a5b.html" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)" target="_blank">
-                    <i class="icon far fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12 m6" data-aos="zoom-in-up">
-        
-            <div class="post-card" style="background-image: url('/yunyd/medias/z004.jpg')">
-            
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                        
-                            <a href="/yunyd/categories/%E6%89%93%E6%8B%9B%E5%91%BC/" class="category">打招呼</a>
-                        
-                    
-                </div>
-                <a href="/yunyd/posts/ff05b5bf.html">
-                    <h3 class="post-title">第一篇博客</h3>
-                </a>
-                <p class="post-description">
-                    
-                        博客介绍
-                    
-                </p>
-                <a href="/yunyd/posts/ff05b5bf.html" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #1AD6FD 0%, #1D62F0 100%)" target="_blank">
-                    <i class="icon far fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12 m6" data-aos="zoom-in-up">
-        
-            <div class="post-card" style="background-image: url('/yunyd/medias/i.jpg')">
-            
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                        
-                            <a href="/yunyd/categories/%E9%A1%B9%E7%9B%AE/" class="category">项目</a>
-                        
-                    
-                </div>
-                <a href="/yunyd/posts/7161264.html">
-                    <h3 class="post-title">商家外卖</h3>
-                </a>
-                <p class="post-description">
-                    
-                        商家外卖
-                    
-                </p>
-                <a href="/yunyd/posts/7161264.html" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FFCC00 0%, #FF9500 100%)" target="_blank">
-                    <i class="icon far fa-eye fa-fw"></i>阅读更多
-                </a>
-            </div>
-        </div>
-    </div>
-    
-
 </div>
+    <style>
+    /* 文章分类书本样式 */
+    .chip-container .tag-chips {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .chip-container .tag-chips a {
+        margin: 0 7px 10px;
+    }
+    .chip-container .chip {
+        max-width: calc(100% / 4);
+        min-width: 10em;
+        height: 200px;
+        position: relative;
+        transition: .5s linear;
+        padding: 19px 0;
+        line-height: 20px;
+        z-index: 990;
+        border-radius: 5px 15px 15px 5px;
+        transform-origin: left center 0;
+    }
+    .chip-container .notebook-cover::before {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: calc(100% + 2px);
+        top: -1px;
+        z-index: 100;
+        border-radius: 2px;
+        right: 25px;
+        transition: 2s ease;
+        /* background: linear-gradient(to right,#9c2e2b 0,#cc4b48 12%,#9c2e2b 25%,#cc4b48 37%,#9c2e2b 50%,#cc4b48 62%,#9c2e2b 75%,#cc4b48 87%,#9c2e2b 100%); */
+        background: linear-gradient(to right,#1e606e 0,#2e95aa 12%,#1e606e 25%,#2e95aa 37%,#1e606e 50%,#2e95aa 62%,#1e606e 75%,#2e95aa 87%,#1e606e 100%);
+    }
 
+    .chip .notebook-skin {
+        height: 50px;
+        width: 100%;
+        background: #e8e8e0;
+        margin-top: 42px;
+        padding: 10px 32px 64px 10px;
+        font-size: 19px;
+        position: relative;
+        z-index: 10;
+        color: #222;
+        text-align: left;
+        box-shadow: 0 1px 1px rgba(0,0,0,.2);
+    }
+    .chip .notebook-skin:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 15px;
+        left: 0;
+        bottom: 0;
+        background: #cddc39;
+    }
+    .notebook-cover {
+        background: #cc4b48;
+        height: 200px;
+        width: 140px;
+        position: absolute;
+        border-radius: 5px 15px 15px 5px;
+        z-index: 10;
+        transition: .5s linear;
+        transform-style: preserve-3d;
+        transform-origin: left center 0;
+    }
 
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
+    .moleskine-wrapper {
+        max-width: calc(100% / 4);
+        min-width: 10em;
+    }
+    .moleskine-notebook:hover .notebook-cover {
+        transform: rotateY(-50deg);
+        z-index: 99;
+        box-shadow: 20px 10px 50px rgba(0,0,0,.2);
+    }
+    .moleskine-notebook {
+        height: 200px;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        transition: .5s linear;
+        border-radius: 5px 15px 15px 5px;
+        transform-origin: left center 0;
+    }
+    .moleskine-notebook:hover {
+        transform: rotateZ(-10deg);
+    }
+    .notebook-page.dotted {
+        background: linear-gradient(to bottom,#fbfae8 9px,#e4e4e4 1px);
+        background-size: 100% 10px;
+    }
+    .chip-container .chip:hover {
+        background: none;
+    }
+    .notebook-page {
+        height: 100%;
+        width: 140px;
+        position: absolute;
+        top: 10px;
+        background-color: #fbfae8;
+        z-index: 0;
+        border-radius: 5px 16px 16px 5px;
+        overflow: hidden;
+    }
+    </style>
+
     
 
-    
-
-    <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
-        <div class="row article-row">
+        <div class="row tags-posts">
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/yunyd/posts/574f1a5b.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/yunyd/medias/k.jpg" class="responsive-img" alt="OPEN-API开放平台">
-                            
-                            <span class="card-title">OPEN-API开放平台</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                api项目概述
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/yunyd/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                    项目
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/yunyd/tags/%E9%A1%B9%E7%9B%AE/">
-                            <span class="chip bg-color">项目</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/yunyd/posts/7161264.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/yunyd/medias/i.jpg" class="responsive-img" alt="商家外卖">
-                            
-                            <span class="card-title">商家外卖</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                商家外卖
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/yunyd/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                    项目
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/yunyd/tags/%E9%A1%B9%E7%9B%AE/">
-                            <span class="chip bg-color">项目</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/yunyd/posts/b972fab5.html">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             
                             <img src="/yunyd/medias/v.jpg" class="responsive-img" alt="LockSupport与线程中断-4">
@@ -804,7 +620,6 @@
                             <span class="card-title">LockSupport与线程中断-4</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
@@ -840,10 +655,10 @@
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/yunyd/posts/da3e444a.html">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             
                             <img src="/yunyd/medias/c.jpg" class="responsive-img" alt="说说Java锁事-3">
@@ -851,7 +666,6 @@
                             <span class="card-title">说说Java锁事-3</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
@@ -887,10 +701,10 @@
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/yunyd/posts/1fb3c234.html">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             
                             <img src="/yunyd/medias/o.jpg" class="responsive-img" alt="CompletableFuture-2">
@@ -898,7 +712,6 @@
                             <span class="card-title">CompletableFuture-2</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
@@ -934,10 +747,10 @@
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/yunyd/posts/5e115804.html">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             
                             <img src="/yunyd/medias/z005.jpg" class="responsive-img" alt="线程基础知识复习-1">
@@ -945,7 +758,6 @@
                             <span class="card-title">线程基础知识复习-1</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
@@ -981,150 +793,8 @@
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/yunyd/posts/53d0684b.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/yunyd/medias/z003.jpg" class="responsive-img" alt="Linux">
-                            
-                            <span class="card-title">Linux</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                linux常用命令
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-26
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/yunyd/categories/Linux/" class="post-category">
-                                    Linux
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/yunyd/tags/Linux/">
-                            <span class="chip bg-color">Linux</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/yunyd/posts/42adfbca.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/yunyd/medias/z005.jpg" class="responsive-img" alt="大家好">
-                            
-                            <span class="card-title">大家好</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                打招呼
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/yunyd/categories/%E6%89%93%E6%8B%9B%E5%91%BC/" class="post-category">
-                                    打招呼
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/yunyd/tags/%E4%BB%8B%E7%BB%8D/">
-                            <span class="chip bg-color">介绍</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/yunyd/posts/ff05b5bf.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/yunyd/medias/z004.jpg" class="responsive-img" alt="第一篇博客">
-                            
-                            <span class="card-title">第一篇博客</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                博客介绍
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-20
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/yunyd/categories/%E6%89%93%E6%8B%9B%E5%91%BC/" class="post-category">
-                                    打招呼
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/yunyd/tags/%E4%BB%8B%E7%BB%8D/">
-                            <span class="chip bg-color">介绍</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
-
 </main>
 
 

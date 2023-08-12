@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="大家好, lucky_llllz 计算机 软件工程 后端">
+    <meta name="keywords" content="线程基础知识复习-1, lucky_llllz 计算机 软件工程 后端">
     <meta name="description" content="计算机 | 软件工程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>大家好 | llllz_liu</title>
+    <title>线程基础知识复习-1 | llllz_liu</title>
 
     <link rel="icon" type="image/png" href="/yunyd/medias/favicon-32x32.png">
 
@@ -376,7 +376,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">大家好</h1>
+                    <h1 class="description center-align post-title">线程基础知识复习-1</h1>
                 </div>
             </div>
         </div>
@@ -497,8 +497,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/yunyd/tags/%E4%BB%8B%E7%BB%8D/">
-                                <span class="chip bg-color">介绍</span>
+                            <a href="/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                                <span class="chip bg-color">JUC并发编程</span>
                             </a>
                         
                     </div>
@@ -509,8 +509,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/yunyd/categories/%E6%89%93%E6%8B%9B%E5%91%BC/" class="post-category">
-                                打招呼
+                            <a href="/yunyd/categories/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="post-category">
+                                JUC并发编程
                             </a>
                         
                     </div>
@@ -522,7 +522,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-07-21
+                    2023-07-26
                 </div>
                 
 
@@ -536,14 +536,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    62
+                    664
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -561,7 +561,45 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="大家好"><a href="#大家好" class="headerlink" title="大家好"></a>大家好</h1><h5 id="在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README-md时，却不希望被Hexo渲染。"><a href="#在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README-md时，却不希望被Hexo渲染。" class="headerlink" title="在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README.md时，却不希望被Hexo渲染。"></a>在Hexo部署时会默认渲染source下的所有html页面，但有时候想在Hexo博客上单独自定义html页面或README.md时，却不希望被Hexo渲染。</h5><h2 id="大家好-1"><a href="#大家好-1" class="headerlink" title="大家好"></a>大家好</h2><h3 id="大家好-2"><a href="#大家好-2" class="headerlink" title="大家好"></a>大家好</h3><h4 id="大家好-3"><a href="#大家好-3" class="headerlink" title="大家好"></a>大家好</h4><h5 id="大家好-4"><a href="#大家好-4" class="headerlink" title="大家好"></a>大家好</h5><h6 id="大家好-5"><a href="#大家好-5" class="headerlink" title="大家好"></a>大家好</h6><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/img/penguin.jpg"></p>
+                <h1 id="线程基础知识复习"><a href="#线程基础知识复习" class="headerlink" title="线程基础知识复习"></a>线程基础知识复习</h1><p>● 1把锁：synchronized（后面细讲）</p>
+<p>● 2个并：</p>
+<p>​    ○并发（concurrent）：是在同一实体上的多个事件，是在一台机器上“同时”处理多个任务，同一时刻，其实是只有一个事情再发生。</p>
+<p>​    ○并行（parallel）：是在不同实体上的多个事件，是在多台处理器上同时处理多个任务，同一时刻，大家都在做事情，你做你的，我做我的，各干各的。</p>
+<p>●3个程：</p>
+<p>​    ○进程：在系统中运行的一个应用程序，每个进程都有它自己的内存空间和系统资源</p>
+<p>​    ○线程：也被称为轻量级进程，在同一个进程内会有1个或多个线程，是大多数操作系统进行时序调度的基本单元。</p>
+<p>​    ○管程：Monitor（锁），也就是我们平时所说的锁。Monitor其实是一种同步机制，它的义务是保证（同一时间）只有一个线程可以访问被保护的数据和代码，JVM中同步是基于进入和退出监视器（Monitor管程对象）来实现的，每个对象实例都会有一个Monitor对象，Monitor对象和Java对象一同创建并销毁，底层由C++语言实现。</p>
+<p>●线程分类（一般不做特别说明配置，默认都是用户线程）：</p>
+<p>​    ○用户线程：是系统的工作线程，它会完成这个程序需要完成的业务操作。</p>
+<p>​    ○守护线程：是一种特殊的线程为其他线程服务的，在后台默默地完成一些系统性的任务，比如垃圾回收线程就是最典型的例子。守护线程作为一个服务线程，没有服务对象就没有必要继续运行了，如果用户线程全部结束了，意味着程序需要完成的业务操作已经结束了，系统可以退出了。所以假如当系统只剩下守护线程的时候，守护线程伴随着JVM一同结束工作。</p>
+<p>守护线程代码实操</p>
+<p>Java</p>
+<p>复制代码</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class DaemonDemo {
+
+​    public static void main(String[] args) {
+​        Thread t1 = new Thread(() -&gt; {
+​            System.out.println(Thread.currentThread().getName() + " 开始运行," + (Thread.currentThread().isDaemon() ? "守护线程" : "用户线程"));
+​            while (true) {
+
+​            }
+​        }, "t1");
+​        t1.setDaemon(true);//通过设置属性Daemon来设置当前线程是否为守护线程
+​        t1.start();
+​        try {
+​            TimeUnit.SECONDS.sleep(3);
+​        } catch (InterruptedException e) {
+​            e.printStackTrace();
+​        }
+​        System.out.println(Thread.currentThread().getName() + " 主线程结束");
+​    }
+
+}
+
+输出：t1 开始运行,守护线程
+
+main 主线程结束---&gt;在main主线程结束后，守护线程会伴随着JVM一同结束工作，即使还有循环没有结束<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -588,7 +626,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gitee.com/yunyd/yunyd/posts/42adfbca.html">https://gitee.com/yunyd/yunyd/posts/42adfbca.html</a>
+                    <a href="https://gitee.com/yunyd/yunyd/posts/5e115804.html">https://gitee.com/yunyd/yunyd/posts/5e115804.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -626,8 +664,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/yunyd/tags/%E4%BB%8B%E7%BB%8D/">
-                                    <span class="chip bg-color">介绍</span>
+                                <a href="/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                                    <span class="chip bg-color">JUC并发编程</span>
                                 </a>
                             
                         </div>
@@ -1103,6 +1141,55 @@ new Valine({
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/yunyd/posts/1fb3c234.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/yunyd/medias/o.jpg" class="responsive-img" alt="CompletableFuture-2">
+                        
+                        <span class="card-title">CompletableFuture-2</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            CompletableFuture
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-28
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/yunyd/categories/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="post-category">
+                                    JUC并发编程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                        <span class="chip bg-color">JUC并发编程</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/yunyd/posts/53d0684b.html">
                     <div class="card-image">
                         
@@ -1119,9 +1206,9 @@ new Valine({
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1139,55 +1226,6 @@ new Valine({
                     
                     <a href="/yunyd/tags/Linux/">
                         <span class="chip bg-color">Linux</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/yunyd/posts/ff05b5bf.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/yunyd/medias/z004.jpg" class="responsive-img" alt="第一篇博客">
-                        
-                        <span class="card-title">第一篇博客</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            博客介绍
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-20
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/yunyd/categories/%E6%89%93%E6%8B%9B%E5%91%BC/" class="post-category">
-                                    打招呼
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/yunyd/tags/%E4%BB%8B%E7%BB%8D/">
-                        <span class="chip bg-color">介绍</span>
                     </a>
                     
                 </div>
