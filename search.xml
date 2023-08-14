@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>校园美食圈</title>
+      <link href="/yunyd/posts/38f0fa30.html"/>
+      <url>/yunyd/posts/38f0fa30.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="校园美食圈"><a href="#校园美食圈" class="headerlink" title="校园美食圈"></a>校园美食圈</h1><h2 id="项目所用到的技术："><a href="#项目所用到的技术：" class="headerlink" title="项目所用到的技术："></a>项目所用到的技术：</h2><p>Spring 相关：</p><ol><li>Spring Boot 2.x</li><li>Spring MVC</li></ol><p>数据存储层：</p><ol><li>MySQL：存储数据</li><li>MyBatis Plus：数据访问框架</li></ol><p>Redis 相关：</p><ol><li>spring-data-redis：操作 Redis</li><li>Lettuce：操作 Redis 的高级客户端</li><li>Apache Commons Pool：用于实现 Redis 连接池</li><li>Redisson：基于 Redis 的分布式数据网格</li></ol><p>工具库：</p><ol><li>HuTool：工具库合集</li><li>Lombok：注解式代码生成工具</li></ol><h2 id="后端："><a href="#后端：" class="headerlink" title="后端："></a>后端：</h2><ul><li><p>为方便其他业务后续使用缓存，使用泛型 + 函数式编程实现了缓存访问静态方法，并解决了缓存雪崩、缓存穿透等问题；</p></li><li><p>优惠券秒杀： 使用Redis + Lua 脚本实现库存预检，并通过Stream队列实现订单的异步创建，解决了超卖问题，实现一人一单；</p></li><li><p>店铺查询：使用Redis 对高频访问店铺进行缓存，降低DB压力同时提高数据查询性能；</p></li><li><p>短信登陆：使用Redis实现分布式Session，解决了集群间登录态同步问题；使用Hash代替String来存储用户信息，节约了内存并便于单字段的修改；</p></li><li><p>使用Redis Set数据结构实现用户关注、共同关注功能；</p></li><li><p>使用常量类全局管理Redis Key前缀、TTL等，保证了键空间的业务隔离，减少冲突；</p></li></ul><h2 id="项目功能："><a href="#项目功能：" class="headerlink" title="项目功能："></a>项目功能：</h2><h4 id="登陆界面："><a href="#登陆界面：" class="headerlink" title="登陆界面："></a>登陆界面：</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/dianping/1.jpg"></p><h2 id="项目主页面："><a href="#项目主页面：" class="headerlink" title="项目主页面："></a>项目主页面：</h2><p>登录进来后，展示的主页面</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/dianping/2.jpg"></p><p>从主页面点击美食：会展示商家列表信息</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/dianping/3.jpg"></p><p>这个是探店的人发表的评论</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/dianping/4.jpg"></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/dianping/5.jpg"></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/dianping/6.jpg"></p><h4 id="优惠券秒杀："><a href="#优惠券秒杀：" class="headerlink" title="优惠券秒杀："></a>优惠券秒杀：</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/dianping/7.jpg"></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/dianping/8.jpg"></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/dianping/9.jpg"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 项目 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 项目 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java内存模型之JMM-5</title>
       <link href="/yunyd/posts/6c9d84e4.html"/>
       <url>/yunyd/posts/6c9d84e4.html</url>
