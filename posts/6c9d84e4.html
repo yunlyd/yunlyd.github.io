@@ -529,7 +529,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-14
+                    2023-08-15
                 </div>
                 
 
@@ -568,9 +568,9 @@
 <p>●happens-before先行并发原则你有了解过吗？</p>
 <h2 id="5-2-计算机硬件存储体系"><a href="#5-2-计算机硬件存储体系" class="headerlink" title="5.2 计算机硬件存储体系"></a>5.2 计算机硬件存储体系</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/23.jpg"></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/24.jpg"></p>
-<p>CPU的运行并不是直接操作内存而是先把内存里面的数据读到缓存，而内存的读和写操作的时候会造成不一致的问题。JVM规范中试图定义一种Java内存模型来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序再各种平台下都能达到一致性的内存访问效果。</p>
+<p>CPU的运行并不是直接操作内存而是先把内存里面的数据读到缓存，而内存的读和写操作的时候会造成不一致的问题。JVM规范中试图定义一种Java内存模型来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致性的内存访问效果。</p>
 <h2 id="5-3-Java内存模型Java-Memory-Model"><a href="#5-3-Java内存模型Java-Memory-Model" class="headerlink" title="5.3 Java内存模型Java Memory Model"></a>5.3 Java内存模型Java Memory Model</h2><p>JMM（Java内存模型Java Memory Model）本身是一种抽象的概念并不真实存在，它仅仅描述的是一组约定或规范，通过这组规范定义了程序中（尤其是多线程）各个变量的读写访问方式并决定一个线程对共享变量的写入以及如何变成对另一个线程可见，关键技术点都是围绕多线程的原子性、可见性和有序性展开的。</p>
-<p>能干吗？</p>
+<p>能干嘛？</p>
 <ul>
 <li>通过JMM来实现线程和主内存之间的抽象关系</li>
 <li>屏蔽各个硬件平台和操作系统的内存访问差异以实现让Java程序再各种平台下都能达到一致性的内存访问效果。</li>
