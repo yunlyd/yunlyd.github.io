@@ -54,6 +54,31 @@
     
     
     <entry>
+      <title>Git常用命令复习</title>
+      <link href="/yunyd/posts/d33e17b2.html"/>
+      <url>/yunyd/posts/d33e17b2.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Git常用命令复习"><a href="#Git常用命令复习" class="headerlink" title="Git常用命令复习"></a>Git常用命令复习</h1><h4 id="Git工作区中文件的状态"><a href="#Git工作区中文件的状态" class="headerlink" title="Git工作区中文件的状态"></a>Git工作区中文件的状态</h4><p>Git工作区中的文件存在两种状态：</p><ul><li>untracked 未跟踪 （未被纳入版本控制）</li><li>tracked 已跟踪 （被纳入版本控制）<ol><li>Unmodified 未修改状态</li><li>Modified 已修改状态</li><li>Staged 已暂存状态</li></ol></li></ul><p>注意： 这些文件的状态会随着我们执行Git的命令发生改变</p><h4 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h4><table><thead><tr><th>命令名称</th><th>作用</th></tr></thead><tbody><tr><td>git config –global user.name 用户名</td><td>设置用户签名</td></tr><tr><td>git config –global user.email 邮箱</td><td>设置用户签名</td></tr><tr><td>git init</td><td>初始化本地库</td></tr><tr><td>git status</td><td>查看本地库状态</td></tr><tr><td>git add 文件名</td><td>添加到暂存区</td></tr><tr><td>git commit -m “日志信息” 文件名</td><td>提交到本地库</td></tr><tr><td>git reflog</td><td>查看历史版本记录</td></tr><tr><td>git log</td><td>查看版本详细信息</td></tr><tr><td>git reset –hard 版本号</td><td>版本穿梭</td></tr><tr><td>git reset 文件名</td><td>将暂存区的文件取消暂存</td></tr></tbody></table><h4 id="分支的操作"><a href="#分支的操作" class="headerlink" title="分支的操作"></a>分支的操作</h4><table><thead><tr><th>命令名称</th><th>作用</th></tr></thead><tbody><tr><td>git branch 分支名</td><td>创建分支</td></tr><tr><td>git branch -v</td><td>查看本地分支</td></tr><tr><td>git branch -r</td><td>查看所有远程分支</td></tr><tr><td>git branch -a</td><td>查看所有分支</td></tr><tr><td>git checkout 分支名</td><td>切换分支</td></tr><tr><td>git merge 分支名</td><td>把指定的分支合并到当前分支上</td></tr></tbody></table><h4 id="远程仓库操作"><a href="#远程仓库操作" class="headerlink" title="远程仓库操作"></a>远程仓库操作</h4><table><thead><tr><th>命令名称</th><th>作用</th></tr></thead><tbody><tr><td>git remote -v</td><td>查看当前所有远程地址别名</td></tr><tr><td>git remote add 别名 远程地址</td><td>起别名</td></tr><tr><td>git push 别名 分支</td><td>推送本地分支上的内容到远程仓库</td></tr><tr><td>git clone 远程地址</td><td>将远程仓库的内容克隆到本地</td></tr><tr><td>git pull 远程库地址别名 远程分支名</td><td>将远程仓库对于分支最新内容拉下来后与当前本地分支直接合并</td></tr></tbody></table><h4 id="标签操作"><a href="#标签操作" class="headerlink" title="标签操作"></a>标签操作</h4><table><thead><tr><th>命令名称</th><th>作用</th></tr></thead><tbody><tr><td>git tag</td><td>列出已有的标签</td></tr><tr><td>git tag [name]</td><td>创建标签</td></tr><tr><td>git push [shortName] [name]</td><td>将标签推送至远程仓库 (shortName为远程仓库别名) （name为标签名）</td></tr><tr><td>git checkout -b [branch] [name]</td><td>检出标签  （branch为分支名，随便写，会自动创建该分支）</td></tr></tbody></table><h4 id="创建远程仓库的远程分支"><a href="#创建远程仓库的远程分支" class="headerlink" title="创建远程仓库的远程分支"></a>创建远程仓库的远程分支</h4><hr><p>在本地仓库创建分支</p><p>  git branch + 分支名</p><p>查看全部分支</p><p>   git branch -a</p><p>在远程仓库上生成分支</p><p>   git push 远程仓库地址 + 刚刚创建的分支名</p><hr><h4 id="免密登录"><a href="#免密登录" class="headerlink" title="免密登录"></a>免密登录</h4><pre class="line-numbers language-Git" data-language="Git"><code class="language-Git">先删除用户里面的.ssh目录然后输入如下命令:ssh-keygen -t rsa -C "你的github登录邮箱"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>校园美食圈</title>
       <link href="/yunyd/posts/38f0fa30.html"/>
       <url>/yunyd/posts/38f0fa30.html</url>
