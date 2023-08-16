@@ -1,0 +1,3259 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="SpringBoot复习 -2, lucky_llllz 计算机 软件工程 后端">
+    <meta name="description" content="计算机 | 软件工程">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google-site-verification" content="pBWoGvVEP36FzzS4xIpoMejc5UKi3RKcxd9rWWcjiDg" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>SpringBoot复习 -2 | llllz_liu</title>
+
+    <link rel="icon" type="image/png" href="/yunyd/medias/favicon-32x32.png">
+
+    <link rel="stylesheet" type="text/css" href="/yunyd/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/yunyd/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/yunyd/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/yunyd/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/yunyd/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/yunyd/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/yunyd/css/my.css">
+
+    <script src="/yunyd/libs/jquery/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?aaa6c944b0ed07922901d7fc571a171d";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+<meta name="generator" content="Hexo 5.4.2">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/yunyd/atom.xml" title="llllz_liu" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/yunyd/" class="waves-effect waves-light">
+                    
+                    <img src="/yunyd/medias/avatar.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">llllz_liu</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/yunyd/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/yunyd/archives">
+          
+          <i class="fas fa-paper-plane" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/yunyd/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/yunyd/tags">
+          
+          <i class="fas fa-tag" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-heartbeat" style="zoom: 0.6;"></i>
+      
+      <span>清单</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/yunyd/List/music">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/yunyd/List/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>相册</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/yunyd/List/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>视频</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/yunyd/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-envelope" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/yunyd/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-link" style="zoom: 0.6;"></i>
+      
+      <span>友链</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/yunyd/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/yunyd/medias/avatar.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">llllz_liu</div>
+        <div class="logo-desc">
+            
+            计算机 | 软件工程
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/yunyd/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/yunyd/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-paper-plane" style="position: absolute;left:50px" ></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/yunyd/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="position: absolute;left:50px" ></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/yunyd/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tag" style="position: absolute;left:50px" ></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-heartbeat"></i>
+			
+			清单
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/yunyd/List/music " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/yunyd/List/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>相册</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/yunyd/List/movies " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>视频</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/yunyd/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-envelope"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/yunyd/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-link"></i>
+			
+			友链
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/yunyd/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/yunyd/medias/v.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">SpringBoot复习 -2</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/yunyd/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        background-color: white;
+        width: 345px;
+        padding-left: 20px;
+        border-radius: 10px;
+        box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15), 0 5px 15px rgba(0, 0, 0, .07), 0 2px 5px -5px rgba(0, 0, 0, .1) !important;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+    
+    #toc-content {
+        height: calc(100vh - 300px);
+        overflow: scroll;
+
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+        bottom: 120px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/yunyd/tags/SpringBoot/">
+                                <span class="chip bg-color">SpringBoot</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/yunyd/categories/SpringBoot/" class="post-category">
+                                SpringBoot
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-07-25
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2023-08-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    25.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    93 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/yunyd/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="SpringBoot复习"><a href="#SpringBoot复习" class="headerlink" title="SpringBoot复习"></a>SpringBoot复习</h1><h2 id="YW-1-SpringBoot程序的打包与运行"><a href="#YW-1-SpringBoot程序的打包与运行" class="headerlink" title="YW-1.SpringBoot程序的打包与运行"></a><strong>YW-1.SpringBoot程序的打包与运行</strong></h2><p>​        刚开始做开发学习的小伙伴可能在有一个知识上面有错误的认知，我们天天写程序是在Idea下写的，运行也是在Idea下运行的。</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211201091317258.png?lastModify=1692141274" alt="image-20211201091317258"></p>
+<p>​        但是实际开发完成后，我们的项目是不可能运行在自己的电脑上的。</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211201091341645.png?lastModify=1692141274" alt="image-20211201091341645"></p>
+<p>​        我们以后制作的程序是运行在专用的服务器上的，简单说就是将你做的程序放在一台独立运行的电脑上，这台电脑要比你开发使用的计算机更专业，并且安全等级各个方面要远超过你现在的电脑。</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211201091502040.png?lastModify=1692141274" alt="image-20211201091502040"></p>
+<p>​        那我们的程序如何放置在这台专用的电脑上呢，这就要将我们的程序先组织成一个文件，然后将这个文件传输到这台服务器上。这里面就存在两个过程，一个是打包的过程，另一个是运行的过程。</p>
+<p><strong>温馨提示</strong></p>
+<p>​        企业项目上线为了保障环境适配性会采用下面流程发布项目，这里不讨论此过程。</p>
+<ol>
+<li>开发部门使用Git、SVN等版本控制工具上传工程到版本服务器</li>
+<li>服务器使用版本控制工具下载工程</li>
+<li>服务器上使用Maven工具在当前真机环境下重新构建项目</li>
+<li>启动服务</li>
+</ol>
+<p>​        继续说我们的打包和运行过程。所谓打包指将程序转换成一个可执行的文件，所谓运行指不依赖开发环境执行打包产生的文件。上述两个操作都有对应的命令可以快速执行。</p>
+<h3 id="程序打包"><a href="#程序打包" class="headerlink" title="程序打包"></a><strong>程序打包</strong></h3><p>​        SpringBoot程序是基于Maven创建的，在Maven中提供有打包的指令，叫做package。本操作可以在Idea环境下执行。</p>
+<pre class="line-numbers language-none"><code class="language-none">mvn package<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>​        打包后会产生一个与工程名类似的jar文件，其名称是由模块名+版本号+.jar组成的。</p>
+<h3 id="程序运行"><a href="#程序运行" class="headerlink" title="程序运行"></a><strong>程序运行</strong></h3><p>​        程序包打好以后，就可以直接执行了。在程序包所在路径下，执行指令。</p>
+<pre class="line-numbers language-none"><code class="language-none">java -jar 工程包名.jar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>​        执行程序打包指令后，程序正常运行，与在Idea下执行程序没有区别。</p>
+<p>​        <strong>特别关注</strong>：如果你的计算机中没有安装java的jdk环境，是无法正确执行上述操作的，因为程序执行使用的是java指令。</p>
+<p>​        <strong>特别关注</strong>：在使用向导创建SpringBoot工程时，pom.xml文件中会有如下配置，这一段配置千万不能删除，否则打包后无法正常执行程序。</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>总结</strong></p>
+<ol>
+<li>SpringBoot工程可以基于java环境下独立运行jar文件启动服务</li>
+<li>SpringBoot工程执行mvn命令package进行打包</li>
+<li>执行jar命令：java –jar 工程名.jar</li>
+</ol>
+<h3 id="SpringBoot程序打包失败处理"><a href="#SpringBoot程序打包失败处理" class="headerlink" title="SpringBoot程序打包失败处理"></a>SpringBoot程序打包失败处理</h3><p>​        有些小伙伴打包以后执行会出现一些问题，导致程序无法正常执行，例如下面的现象</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211201094223991.png?lastModify=1692141274" alt="image-20211201094223991"></p>
+<p>​        要想搞清楚这个问题就要说说.jar文件的工作机制了，知道了这个东西就知道如何避免此类问题的发生了。</p>
+<p>​        搞java开发平时会接触很多jar包，比如mysql的驱动jar包，而上面我们打包程序后得到的也是一个jar文件。这个时候如果你使用上面的java -jar指令去执行mysql的驱动jar包就会出现上述不可执行的现象，而我们的SpringBoot项目为什么能执行呢？其实是因为打包方式不一样。</p>
+<p>​        在SpringBoot工程的pom.xml中有下面这组配置，这组配置决定了打包出来的程序包是否可以执行。</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        我们分别开启这段配置和注释掉这段配置分别执行两次打包，然后观察两次打包后的程序包的差别，共有3处比较明显的特征</p>
+<ul>
+<li>打包后文件的大小不同</li>
+<li>打包后所包含的内容不同</li>
+<li>打包程序中个别文件内容不同</li>
+</ul>
+<p>​        先看第一个现象，文件大小不同。带有配置时打包生成的程序包大小如下：</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211201095610270.png?lastModify=1692141274" alt="image-20211201095610270"></p>
+<p>​        不难看出，带有配置的程序包体积比不带配置的大了30倍，那这里面都有什么呢？能差这么多？下面看看里面的内容有什么区别。</p>
+<p>​        <img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211201101541267.png?lastModify=1692141274" alt="image-20211201101541267"><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211201101652868.png?lastModify=1692141274" alt="image-20211201101652868"></p>
+<p>​        我们发现内容也完全不一样，仅有一个目录是一样的，叫做META-INF。打开容量大的程序包中的BOOT-INF目录下的classes目录，我们发现其中的内容居然和容量小的程序包中的内容完全一样。</p>
+<p>​        <img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211201101805569.png?lastModify=1692141274" alt="image-20211201101805569"><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211201101652868.png?lastModify=1692141274" alt="image-20211201101652868"></p>
+<p>​        原来大的程序包中除了包含小的程序包中的内容，还有别的东西。都有什么呢？回到BOOT-INF目录下，打开lib目录，里面显示了很多个jar文件。</p>
+<p>​        <img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211201102025791.png?lastModify=1692141274" alt="image-20211201102025791"></p>
+<p>​        仔细翻阅不难发现，这些jar文件都是我们制作这个工程时导入的坐标对应的文件。大概可以想明白了，SpringBoot程序为了让自己打包生成的程序可以独立运行，不仅将项目中自己开发的内容进行了打包，还把当前工程运行需要使用的jar包全部打包进来了。为什么这样做呢？就是为了可以独立运行。不依赖程序包外部的任何资源可以独立运行当前程序。这也是为什么大的程序包容量是小的程序包容量的30倍的主要原因。</p>
+<p>​        再看看大程序包还有什么不同之处，在最外层目录包含一个org目录，进入此目录，目录名是org\springframework\boot\loader，在里面可以找到一个<strong>JarLauncher.class</strong>的文件，先记得这个文件。再看这套目录名，明显是一个Spring的目录名，为什么要把Spring框架的东西打包到这个程序包中呢？不清楚。</p>
+<p>​        回到两个程序包的最外层目录，查看名称相同的文件夹META-INF下都有一个叫做MANIFEST.MF的文件，但是大小不同，打开文件，比较内容区别</p>
+<ul>
+<li><p>小容量文件的MANIFEST.MF</p>
+<pre class="line-numbers language-none"><code class="language-none">Manifest-Version: 1.0
+Implementation-Title: springboot_08_ssmp
+Implementation-Version: 0.0.1-SNAPSHOT
+Build-Jdk-Spec: 1.8
+Created-By: Maven Jar Plugin 3.2.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>大容量文件的MANIFEST.MF</p>
+<pre class="line-numbers language-none"><code class="language-none">Manifest-Version: 1.0
+Spring-Boot-Classpath-Index: BOOT-INF/classpath.idx
+Implementation-Title: springboot_08_ssmp
+Implementation-Version: 0.0.1-SNAPSHOT
+Spring-Boot-Layers-Index: BOOT-INF/layers.idx
+Start-Class: com.itheima.SSMPApplication
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Build-Jdk-Spec: 1.8
+Spring-Boot-Version: 2.5.4
+Created-By: Maven Jar Plugin 3.2.0
+Main-Class: org.springframework.boot.loader.JarLauncher<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</li>
+</ul>
+<p>​        大文件中明显比小文件中多了几行信息，其中最后一行信息是Main-Class: org.springframework.boot.loader.<strong>JarLauncher</strong>。这句话什么意思呢？如果使用java -jar执行此程序包，将执行Main-Class属性配置的类，这个类恰巧就是前面看到的那个文件。原来SpringBoot打包程序中出现Spring框架的东西是为这里服务的。而这个org.springframework.boot.loader.<strong>JarLauncher</strong>类内部要查找Start-Class属性中配置的类，并执行对应的类。这个属性在当前配置中也存在，对应的就是我们的引导类类名。</p>
+<p>​        现在这组设定的作用就搞清楚了</p>
+<ol>
+<li>SpringBoot程序添加配置后会打出一个特殊的包，包含Spring框架部分功能，原始工程内容，原始工程依赖的jar包</li>
+<li>首先读取MANIFEST.MF文件中的Main-Class属性，用来标记执行java -jar命令后运行的类</li>
+<li>JarLauncher类执行时会找到Start-Class属性，也就是启动类类名</li>
+<li>运行启动类时会运行当前工程的内容</li>
+<li>运行当前工程时会使用依赖的jar包，从lib目录中查找</li>
+</ol>
+<p>​        看来SpringBoot打出来了包为了能够独立运行，简直是煞费苦心，将所有需要使用的资源全部都添加到了这个包里。这就是为什么这个jar包能独立运行的原因。</p>
+<p>​        再来看之前的报错信息：</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211201094223991.png?lastModify=1692141274" alt="image-20211201094223991"></p>
+<p>​        由于打包时没有使用那段配置，结果打包后形成了一个普通的jar包，在MANIFEST.MF文件中也就没有了Main-Class对应的属性了，所以运行时提示找不到主清单属性，这就是报错的原因。</p>
+<p>​        上述内容搞清楚对我们编程意义并不大，但是对各位小伙伴理清楚SpringBoot工程独立运行的机制是有帮助的。其实整体过程主要是带着大家分析，如果以后遇到了类似的问题，多给自己提问，多问一个为什么，兴趣自己就可以独立解决问题了。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>spring-boot-maven-plugin插件用于将当前程序打包成一个可以独立运行的程序包</li>
+</ol>
+<h3 id="命令行启动常见问题及解决方案"><a href="#命令行启动常见问题及解决方案" class="headerlink" title="命令行启动常见问题及解决方案"></a>命令行启动常见问题及解决方案</h3><p>​        各位小伙伴在DOS环境下启动SpringBoot工程时，可能会遇到端口占用的问题。给大家一组命令，不用深入学习，备用吧。</p>
+<pre class="line-numbers language-none"><code class="language-none"># 查询端口
+netstat -ano
+# 查询指定端口
+netstat -ano |findstr "端口号"
+# 根据进程PID查询进程名称
+tasklist |findstr "进程PID号"
+# 根据PID杀死任务
+taskkill /F /PID "进程PID号"
+# 根据进程名称杀死任务
+taskkill -f -t -im "进程名称"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        关于打包与运行程序其实还有一系列的配置和参数，下面的内容中遇到再说，这里先开个头，知道如何打包和运行程序。</p>
+<h3 id="SpringBoot项目快速启动（Linux版）"><a href="#SpringBoot项目快速启动（Linux版）" class="headerlink" title="SpringBoot项目快速启动（Linux版）"></a>SpringBoot项目快速启动（Linux版）</h3><p>​        其实对于Linux系统下的程序运行与Windows系统下的程序运行差别不大，命令还是那组命令，只不过各位小伙伴可能对Linux指令不太熟悉，结果就会导致各种各样的问题发生。比如防火墙如何关闭，IP地址如何查询，JDK如何安装等等。这里不作为重点内容给大家普及了，了解一下整体过程就行了。</p>
+<h2 id="YW-2-配置高级"><a href="#YW-2-配置高级" class="headerlink" title="YW-2.配置高级"></a><strong>YW-2.配置高级</strong></h2><p>​        关于配置在基础篇讲过一部分，基础篇的配置总体上来说就是让各位小伙伴掌握配置的格式。比如配置文件如何写啊，写好的数据如何读取啊，都是基础的语法级知识。在实用篇中就要集中在配置的应用这个方面了，下面就开始配置高级相关内容的第一部分学习，为什么说第一部分，因为在开发实用篇中还有对应的配置高级知识要进行学习。</p>
+<h3 id="YW-2-1-临时属性设置"><a href="#YW-2-1-临时属性设置" class="headerlink" title="YW-2-1.临时属性设置"></a>YW-2-1.临时属性设置</h3><p>​        目前我们的程序包打好了，可以发布了。但是程序包打好以后，里面的配置都已经是固定的了，比如配置了服务器的端口是8080。如果我要启动项目，发现当前我的服务器上已经有应用启动起来并且占用了8080端口，这个时候就尴尬了。难道要重新把打包好的程序修改一下吗？比如我要把打包好的程序启动端口改成80。</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211206095113771.png?lastModify=1692141274" alt="image-20211206095113771">             <img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211206095524343.png?lastModify=1692141274" alt="image-20211206095524343">             <img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211206095101581.png?lastModify=1692141274" alt="image-20211206095101581"></p>
+<p>​        SpringBoot提供了灵活的配置方式，如果你发现你的项目中有个别属性需要重新配置，可以使用临时属性的方式快速修改某些配置。方法也特别简单，在启动的时候添加上对应参数就可以了。</p>
+<pre class="line-numbers language-none"><code class="language-none">java –jar springboot.jar –-server.port=80<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>​        上面的命令是启动SpringBoot程序包的命令，在命令输入完毕后，空一格，然后输入两个-号。下面按照属性名=属性值的形式添加对应参数就可以了。记得，这里的格式不是yaml中的书写格式，当属性存在多级名称时，中间使用点分隔，和properties文件中的属性格式完全相同。</p>
+<p>​        如果你发现要修改的属性不止一个，可以按照上述格式继续写，属性与属性之间使用空格分隔。</p>
+<pre class="line-numbers language-none"><code class="language-none">java –jar springboot.jar –-server.port=80 --logging.level.root=debug<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="属性加载优先级"><a href="#属性加载优先级" class="headerlink" title="属性加载优先级"></a><strong>属性加载优先级</strong></h4><p>​        现在我们的程序配置受两个地方控制了，第一配置文件，第二临时属性。并且我们发现临时属性的加载优先级要高于配置文件的。那是否还有其他的配置方式呢？其实是有的，而且还不少，打开官方文档中对应的内容，就可以查看配置读取的优先顺序。地址奉上：<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html">https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config</a></p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211206100859236.png?lastModify=1692141274" alt="image-20211206100859236"></p>
+<p>​        我们可以看到，居然有14种配置的位置，而我们现在使用的是这里面的2个。第3条Config data说的就是使用配置文件，第11条Command line arguments说的就是使用命令行临时参数。而这14种配置的顺序就是SpringBoot加载配置的顺序，言外之意，命令行临时属性比配置文件的加载优先级高，所以这个列表上面的优先级低，下面的优先级高。其实这个东西不用背的，你就记得一点，你最终要什么效果，你自己是知道的，不管这个顺序是怎么个高低排序，开发时一定要配置成你要的顺序为准。这个顺序只是在你想不明白问题的时候帮助你分析罢了。</p>
+<p>​        比如你现在加载了一个user.name属性。结果你发现出来的结果和你想的不一样，那肯定是别的优先级比你高的属性覆盖你的配置属性了，那你就可以看着这个顺序挨个排查。哪个位置有可能覆盖了你的属性。</p>
+<p>​        我在课程评论区看到小伙伴学习基础篇的时候问这个问题了，就是这个原因造成的。在yaml中配置了user.name属性值，然后读取出来的时候居然不是自己的配置值，因为在系统属性中有一个属性叫做user.name，两个相互冲突了。而系统属性的加载优先顺序在上面这个列表中是5号，高于3号，所以SpringBoot最终会加载系统配置属性user.name。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>使用jar命令启动SpringBoot工程时可以使用临时属性替换配置文件中的属性</li>
+<li>临时属性添加方式：java –jar 工程名.jar –-属性名=值</li>
+<li>多个临时属性之间使用空格分隔</li>
+<li>临时属性必须是当前boot工程支持的属性，否则设置无效</li>
+</ol>
+<h4 id="开发环境中使用临时属性"><a href="#开发环境中使用临时属性" class="headerlink" title="开发环境中使用临时属性"></a>开发环境中使用临时属性</h4><p>​        临时使用目前是有了，但是上线的时候通过命令行输入的临时属性必须是正确的啊，那这些属性配置值我们必须在开发环境中测试好才行。下面说一下开发环境中如何使用临时属性，其实就是Idea界面下如何操作了。</p>
+<p>​        打开SpringBoot引导类的运行界面，在里面找到配置项。其中Program arguments对应的位置就是添加临时属性的，可以加几个试试效果。</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211206101947622.png?lastModify=1692141274" alt="image-20211206101947622"></p>
+<p>​        做到这里其实可以产生一个思考了，如果对java编程熟悉的小伙伴应该知道，我们运行main方法的时候，如果想使用main方法的参数，也就是下面的args参数，就是在上面这个位置添加的参数。</p>
+<pre class="line-numbers language-none"><code class="language-none">public static void main(String[] args) {
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>​        原来是这样，通过这个args就可以获取到参数。再来看我们的引导类是如何书写的</p>
+<pre class="line-numbers language-none"><code class="language-none">public static void main(String[] args) {
+    SpringApplication.run(SSMPApplication.class,args);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>​        这个args参数居然传递给了run方法，看来在Idea中配置的临时参数就是通过这个位置传递到我们的程序中的。言外之意，这里如果不用这个args是不是就断开了外部传递临时属性的入口呢？是这样的，我们可以使用下面的调用方式，这样外部临时属性就无法进入到SpringBoot程序中了。</p>
+<pre class="line-numbers language-none"><code class="language-none">public static void main(String[] args) {
+    SpringApplication.run(SSMPApplication.class);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>​        或者还可以使用如下格式来玩这个操作，就是将配置不写在配置文件中，直接写成一个字符串数组，传递给程序入口。当然，这种做法并没有什么实际开发意义。</p>
+<pre class="line-numbers language-none"><code class="language-none">public static void main(String[] args) {
+    String[] arg = new String[1];
+    arg[0] = "--server.port=8082";
+    SpringApplication.run(SSMPApplication.class, arg);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>总结</strong></p>
+<ol>
+<li>启动SpringBoot程序时，可以选择是否使用命令行属性为SpringBoot程序传递启动属性</li>
+</ol>
+<p><strong>思考</strong></p>
+<p>​        现在使用临时属性可以在启动项目前临时更改配置了，但是新的问题又出来了。临时属性好用是好用，就是写的多了会很麻烦。比如我现在有个需求，上线的时候使用临时属性配置20个值，这下可麻烦了，能不能搞得简单点，集中管理一下呢？比如说搞个文件，加载指定文件？还真可以。怎么做呢？咱们下一节再说。</p>
+<h3 id="YW-2-2-配置文件分类"><a href="#YW-2-2-配置文件分类" class="headerlink" title="YW-2-2.配置文件分类"></a>YW-2-2.配置文件分类</h3><p>​        SpringBoot提供了配置文件和临时属性的方式来对程序进行配置。前面一直说的是临时属性，这一节要说说配置文件了。其实这个配置文件我们一直在使用，只不过我们用的是SpringBoot提供的4级配置文件中的其中一个级别。4个级别分别是：</p>
+<ul>
+<li>类路径下配置文件（一直使用的是这个，也就是resources目录中的application.yml文件）</li>
+<li>类路径下config目录下配置文件</li>
+<li>程序包所在目录中配置文件</li>
+<li>程序包所在目录中config目录下配置文件</li>
+</ul>
+<p>​        好复杂，一个一个说。其实上述4种文件是提供给你了4种配置文件书写的位置，功能都是一样的，都是做配置的。那大家关心的就是差别了，没错，就是因为位置不同，产生了差异。总体上来说，4种配置文件如果都存在的话，有一个优先级的问题，说白了就是加入4个文件我都有，里面都有一样的配置，谁生效的问题。上面4个文件的加载优先顺序为</p>
+<ol>
+<li>file ：config/application.yml <strong>【最高】</strong></li>
+<li>file ：application.yml</li>
+<li>classpath：config/application.yml</li>
+<li>classpath：application.yml  <strong>【最低】</strong></li>
+</ol>
+<p>​        那为什么设计这种多种呢？说一个最典型的应用吧。</p>
+<ul>
+<li>场景A：你作为一个开发者，你做程序的时候为了方便自己写代码，配置的数据库肯定是连接你自己本机的，咱们使用4这个级别，也就是之前一直用的application.yml。</li>
+<li>场景B：现在项目开发到了一个阶段，要联调测试了，连接的数据库是测试服务器的数据库，肯定要换一组配置吧。你可以选择把你之前的文件中的内容都改了，目前还不麻烦。</li>
+<li>场景C：测试完了，一切OK。你继续写你的代码，你发现你原来写的配置文件被改成测试服务器的内容了，你要再改回来。现在明白了不？场景B中把你的内容都改掉了，你现在要重新改回来，以后呢？改来改去吗？</li>
+</ul>
+<p>​        解决方案很简单，用上面的3这个级别的配置文件就可以快速解决这个问题，再写一个配置就行了。两个配置文件共存，因为config目录中的配置加载优先级比你的高，所以配置项如果和级别4里面的内容相同就覆盖了，这样是不是很简单？</p>
+<p>​        级别1和2什么时候使用呢？程序打包以后就要用这个级别了，管你程序里面配置写的是什么？我的级别高，可以轻松覆盖你，就不用考虑这些配置冲突的问题了。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li><p>配置文件分为4种</p>
+<ul>
+<li>项目类路径配置文件：服务于开发人员本机开发与测试</li>
+<li>项目类路径config目录中配置文件：服务于项目经理整体调控</li>
+<li>工程路径配置文件：服务于运维人员配置涉密线上环境</li>
+<li>工程路径config目录中配置文件：服务于运维经理整体调控</li>
+</ul>
+</li>
+<li><p>多层级配置文件间的属性采用叠加并覆盖的形式作用于程序</p>
+</li>
+</ol>
+<h3 id="YW-2-3-自定义配置文件"><a href="#YW-2-3-自定义配置文件" class="headerlink" title="YW-2-3.自定义配置文件"></a>YW-2-3.自定义配置文件</h3><p>​        之前咱们做配置使用的配置文件都是application.yml，其实这个文件也是可以改名字的，这样方便维护。比如我2020年4月1日搞活动，走了一组配置，2020年5月1日活动取消，恢复原始配置，这个时候只需要重新更换一下配置文件就可以了。但是你总不能在原始配置文件上修改吧，不然搞完活动以后，活动的配置就留不下来了，不利于维护。</p>
+<p>​        自定义配置文件方式有如下两种：</p>
+<p><strong>方式一：使用临时属性设置配置文件名，注意仅仅是名称，不要带扩展名</strong></p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211206105548238.png?lastModify=1692141274" alt="image-20211206105548238"></p>
+<p><strong>方式二：使用临时属性设置配置文件路径，这个是全路径名</strong></p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211206105716450.png?lastModify=1692141274" alt="image-20211206105716450"></p>
+<p>​        也可以设置加载多个配置文件</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211206105750285.png?lastModify=1692141274" alt="image-20211206105750285"></p>
+<p>​        使用的属性一个是spring.config.name，另一个是spring.config.location，这个一定要区别清楚。</p>
+<p><strong>温馨提示</strong></p>
+<p>​        我们现在研究的都是SpringBoot单体项目，就是单服务器版本。其实企业开发现在更多的是使用基于SpringCloud技术的多服务器项目。这种配置方式和我们现在学习的完全不一样，所有的服务器将不再设置自己的配置文件，而是通过配置中心获取配置，动态加载配置信息。为什么这样做？集中管理。这里不再说这些了，后面再讲这些东西。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>配置文件可以修改名称，通过启动参数设定</li>
+<li>配置文件可以修改路径，通过启动参数设定</li>
+<li>微服务开发中配置文件通过配置中心进行设置</li>
+</ol>
+<h2 id="YW-3-多环境开发"><a href="#YW-3-多环境开发" class="headerlink" title="YW-3.多环境开发"></a><strong>YW-3.多环境开发</strong></h2><p>​        讲的内容距离线上开发越来越近了，下面说一说多环境开发问题。</p>
+<p>​        什么是多环境？其实就是说你的电脑上写的程序最终要放到别人的服务器上去运行。每个计算机环境不一样，这就是多环境。常见的多环境开发主要兼顾3种环境设置，开发环境——自己用的，测试环境——自己公司用的，生产环境——甲方爸爸用的。因为这是绝对不同的三台电脑，所以环境肯定有所不同，比如连接的数据库不一样，设置的访问端口不一样等等。</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211206110958819.png?lastModify=1692141274" alt="image-20211206110958819"></p>
+<h3 id="YW-3-1-多环境开发（yaml单一文件版）"><a href="#YW-3-1-多环境开发（yaml单一文件版）" class="headerlink" title="YW-3-1.多环境开发（yaml单一文件版）"></a>YW-3-1.多环境开发（yaml单一文件版）</h3><p>​        那什么是多环境开发？就是针对不同的环境设置不同的配置属性即可。比如你自己开发时，配置你的端口如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">server:
+  port: 80<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>​        如何想设计两组环境呢？中间使用三个减号分隔开</p>
+<pre class="line-numbers language-none"><code class="language-none">server:
+  port: 80
+---
+server:
+  port: 81<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        如何区分两种环境呢？起名字呗</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+	profiles: pro
+server:
+	port: 80
+---
+spring:
+	profiles: dev
+server:
+	port: 81<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        那用哪一个呢？设置默认启动哪个就可以了</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+	profiles:
+		active: pro		# 启动pro
+---
+spring:
+	profiles: pro
+server:
+	port: 80
+---
+spring:
+	profiles: dev
+server:
+	port: 81<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        就这么简单，再多来一组环境也OK</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+	profiles:
+		active: pro		# 启动pro
+---
+spring:
+	profiles: pro
+server:
+	port: 80
+---
+spring:
+	profiles: dev
+server:
+	port: 81
+---
+spring:
+	profiles: test
+server:
+	port: 82<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        其中关于环境名称定义上述格式是过时格式，标准格式如下</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+	config:
+    	activate:
+        	on-profile: pro<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>总结</strong></p>
+<ol>
+<li>多环境开发需要设置若干种常用环境，例如开发、生产、测试环境</li>
+<li>yaml格式中设置多环境使用—区分环境设置边界</li>
+<li>每种环境的区别在于加载的配置属性不同</li>
+<li>启用某种环境时需要指定启动时使用该环境</li>
+</ol>
+<h3 id="YW-3-2-多环境开发（yaml多文件版）"><a href="#YW-3-2-多环境开发（yaml多文件版）" class="headerlink" title="YW-3-2.多环境开发（yaml多文件版）"></a>YW-3-2.多环境开发（yaml多文件版）</h3><p>​        将所有的配置都放在一个配置文件中，尤其是每一个配置应用场景都不一样，这显然不合理，于是就有了将一个配置文件拆分成多个配置文件的想法。拆分后，每个配置文件中写自己的配置，主配置文件中写清楚用哪一个配置文件就好了。</p>
+<p><strong>主配置文件</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+	profiles:
+		active: pro		# 启动pro<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>环境配置文件</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">server:
+	port: 80<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>​        环境配置文件因为每一个都是配置自己的项，所以连名字都不用写里面了。那问题是如何区分这是哪一组配置呢？使用文件名区分。</p>
+<p><strong>application-pro.yaml</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">server:
+	port: 80<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>application-dev.yaml</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">server:
+	port: 81<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>​        文件的命名规则为：application-环境名.yml。</p>
+<p>​        在配置文件中，如果某些配置项所有环境都一样，可以将这些项写入到主配置中，只有哪些有区别的项才写入到环境配置文件中。</p>
+<ul>
+<li>主配置文件中设置公共配置（全局）</li>
+<li>环境分类配置文件中常用于设置冲突属性（局部）</li>
+</ul>
+<p><strong>总结</strong></p>
+<ol>
+<li><p>可以使用独立配置文件定义环境属性</p>
+</li>
+<li><p>独立配置文件便于线上系统维护更新并保障系统安全性</p>
+</li>
+</ol>
+<h3 id="YW-3-3-多环境开发（properties多文件版）"><a href="#YW-3-3-多环境开发（properties多文件版）" class="headerlink" title="YW-3-3.多环境开发（properties多文件版）"></a>YW-3-3.多环境开发（properties多文件版）</h3><p>​        SpringBoot最早期提供的配置文件格式是properties格式的，这种格式的多环境配置也了解一下吧。</p>
+<p><strong>主配置文件</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">spring.profiles.active=pro<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>环境配置文件</strong></p>
+<p><strong>application-pro.properties</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">server.port=80<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>application-dev.properties</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">server.port=81<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>​        文件的命名规则为：application-环境名.properties。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>properties文件多环境配置仅支持多文件格式</li>
+</ol>
+<h3 id="YW-3-4-多环境开发独立配置文件书写技巧"><a href="#YW-3-4-多环境开发独立配置文件书写技巧" class="headerlink" title="YW-3-4.多环境开发独立配置文件书写技巧"></a>YW-3-4.多环境开发独立配置文件书写技巧</h3><p>​        作为程序员在搞配置的时候往往处于一种分久必合合久必分的局面。开始先写一起，后来为了方便维护就拆分。对于多环境开发也是如此，下面给大家说一下如何基于多环境开发做配置独立管理，务必掌握。</p>
+<p><strong>准备工作</strong></p>
+<p>​        将所有的配置根据功能对配置文件中的信息进行拆分，并制作成独立的配置文件，命名规则如下</p>
+<ul>
+<li>application-devDB.yml</li>
+<li>application-devRedis.yml</li>
+<li>application-devMVC.yml</li>
+</ul>
+<p><strong>使用</strong></p>
+<p>​        使用include属性在激活指定环境的情况下，同时对多个环境进行加载使其生效，多个环境间使用逗号分隔</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+	profiles:
+    	active: dev
+        include: devDB,devRedis,devMVC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        比较一下，现在相当于加载dev配置时，再加载对应的3组配置，从结构上就很清晰，用了什么，对应的名称是什么</p>
+<p><strong>注意</strong></p>
+<p>​        当主环境dev与其他环境有相同属性时，主环境属性生效；其他环境中有相同属性时，最后加载的环境属性生效</p>
+<p><strong>改良</strong></p>
+<p>​        但是上面的设置也有一个问题，比如我要切换dev环境为pro时，include也要修改。因为include属性只能使用一次，这就比较麻烦了。SpringBoot从2.4版开始使用group属性替代include属性，降低了配置书写量。简单说就是我先写好，你爱用哪个用哪个。</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+	profiles:
+    	active: dev
+        group:
+        	"dev": devDB,devRedis,devMVC
+      		"pro": proDB,proRedis,proMVC
+      		"test": testDB,testRedis,testMVC<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        现在再来看，如果切换dev到pro，只需要改一下是不是就结束了？完美！</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>多环境开发使用group属性设置配置文件分组，便于线上维护管理</li>
+</ol>
+<h3 id="YW-3-5-多环境开发控制"><a href="#YW-3-5-多环境开发控制" class="headerlink" title="YW-3-5.多环境开发控制"></a>YW-3-5.多环境开发控制</h3><p>​        多环境开发到这里基本上说完了，最后说一个冲突问题。就是maven和SpringBoot同时设置多环境的话怎么搞。</p>
+<p>​        要想处理这个冲突问题，你要先理清一个关系，究竟谁在多环境开发中其主导地位。也就是说如果现在都设置了多环境，谁的应该是保留下来的，另一个应该遵从相同的设置。</p>
+<p>​        maven是做什么的？项目构建管理的，最终生成代码包的，SpringBoot是干什么的？简化开发的。简化，又不是其主导作用。最终还是要靠maven来管理整个工程，所以SpringBoot应该听maven的。整个确认后下面就好做了。大体思想如下：</p>
+<ul>
+<li>先在maven环境中设置用什么具体的环境</li>
+<li>在SpringBoot中读取maven设置的环境即可</li>
+</ul>
+<p><strong>maven中设置多环境（使用属性方式区分环境）</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;profiles&gt;
+    &lt;profile&gt;
+        &lt;id&gt;env_dev&lt;/id&gt;
+        &lt;properties&gt;
+            &lt;profile.active&gt;dev&lt;/profile.active&gt;
+        &lt;/properties&gt;
+        &lt;activation&gt;
+            &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;		&lt;!--默认启动环境--&gt;
+        &lt;/activation&gt;
+    &lt;/profile&gt;
+    &lt;profile&gt;
+        &lt;id&gt;env_pro&lt;/id&gt;
+        &lt;properties&gt;
+            &lt;profile.active&gt;pro&lt;/profile.active&gt;
+        &lt;/properties&gt;
+    &lt;/profile&gt;
+&lt;/profiles&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>SpringBoot中读取maven设置值</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+	profiles:
+    	active: @profile.active@<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>​        上面的@属性名@就是读取maven中配置的属性值的语法格式。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>当Maven与SpringBoot同时对多环境进行控制时，以Mavn为主，SpringBoot使用@..@占位符读取Maven对应的配置属性值</li>
+<li>基于SpringBoot读取Maven配置属性的前提下，如果在Idea下测试工程时pom.xml每次更新需要手动compile方可生效</li>
+</ol>
+<h2 id="YW-4-日志"><a href="#YW-4-日志" class="headerlink" title="YW-4.日志"></a><strong>YW-4.日志</strong></h2><p>​        运维篇最后一部分我们来聊聊日志，日志大家不陌生，简单介绍一下。日志其实就是记录程序日常运行的信息，主要作用如下：</p>
+<ul>
+<li>编程期调试代码</li>
+<li>运营期记录信息</li>
+<li>记录日常运营重要信息（峰值流量、平均响应时长……）</li>
+<li>记录应用报错信息（错误堆栈）</li>
+<li>记录运维过程数据（扩容、宕机、报警……）</li>
+</ul>
+<p>​        或许各位小伙伴并不习惯于使用日志，没关系，慢慢多用，习惯就好。想进大厂，这是最基本的，别去面试的时候说没用过，完了，没机会了。</p>
+<h4 id="YW-4-1-代码中使用日志工具记录日志"><a href="#YW-4-1-代码中使用日志工具记录日志" class="headerlink" title="YW-4-1.代码中使用日志工具记录日志"></a>YW-4-1.代码中使用日志工具记录日志</h4><p>​        日志的使用格式非常固定，直接上操作步骤：</p>
+<p><strong>步骤①</strong>：添加日志记录操作</p>
+<pre class="line-numbers language-none"><code class="language-none">@RestController
+@RequestMapping("/books")
+public class BookController extends BaseClass{
+    private static final Logger log = LoggerFactory.getLogger(BookController.class);
+    @GetMapping
+    public String getById(){
+        log.debug("debug...");
+        log.info("info...");
+        log.warn("warn...");
+        log.error("error...");
+        return "springboot is running...2";
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        上述代码中log对象就是用来记录日志的对象，下面的log.debug，log.info这些操作就是写日志的API了。</p>
+<p><strong>步骤②</strong>：设置日志输出级别</p>
+<p>​        日志设置好以后可以根据设置选择哪些参与记录。这里是根据日志的级别来设置的。日志的级别分为6种，分别是：</p>
+<ul>
+<li>TRACE：运行堆栈信息，使用率低</li>
+<li>DEBUG：程序员调试代码使用</li>
+<li>INFO：记录运维过程数据</li>
+<li>WARN：记录运维过程报警数据</li>
+<li>ERROR：记录错误堆栈信息</li>
+<li>FATAL：灾难信息，合并计入ERROR</li>
+</ul>
+<p>​        一般情况下，开发时候使用DEBUG，上线后使用INFO，运维信息记录使用WARN即可。下面就设置一下日志级别：</p>
+<pre class="line-numbers language-none"><code class="language-none"># 开启debug模式，输出调试信息，常用于检查系统运行状况
+debug: true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>​        这么设置太简单粗暴了，日志系统通常都提供了细粒度的控制</p>
+<pre class="line-numbers language-none"><code class="language-none"># 开启debug模式，输出调试信息，常用于检查系统运行状况
+debug: true
+
+# 设置日志级别，root表示根节点，即整体应用日志级别
+logging:
+	level:
+    	root: debug<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        还可以再设置更细粒度的控制</p>
+<p><strong>步骤③</strong>：设置日志组，控制指定包对应的日志输出级别，也可以直接控制指定包对应的日志输出级别</p>
+<pre class="line-numbers language-none"><code class="language-none">logging:
+	# 设置日志组
+    group:
+    	# 自定义组名，设置当前组中所包含的包
+        ebank: com.itheima.controller
+    level:
+    	root: warn
+        # 为对应组设置日志级别
+        ebank: debug
+    	# 为对包设置日志级别
+        com.itheima.controller: debug<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        说白了就是总体设置一下，每个包设置一下，如果感觉设置的麻烦，就先把包分个组，对组设置，没了，就这些。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>日志用于记录开发调试与运维过程消息</li>
+<li>日志的级别共6种，通常使用4种即可，分别是DEBUG，INFO,WARN,ERROR</li>
+<li>可以通过日志组或代码包的形式进行日志显示级别的控制</li>
+</ol>
+<h4 id="教你一招：优化日志对象创建代码"><a href="#教你一招：优化日志对象创建代码" class="headerlink" title="教你一招：优化日志对象创建代码"></a>教你一招：优化日志对象创建代码</h4><p>​        写代码的时候每个类都要写创建日志记录对象，这个可以优化一下，使用前面用过的lombok技术给我们提供的工具类即可。</p>
+<pre class="line-numbers language-none"><code class="language-none">@RestController
+@RequestMapping("/books")
+public class BookController extends BaseClass{
+    private static final Logger log = LoggerFactory.getLogger(BookController.class);	//这一句可以不写了
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        导入lombok后使用注解搞定，日志对象名为log</p>
+<pre class="line-numbers language-none"><code class="language-none">@Slf4j		//这个注解替代了下面那一行
+@RestController
+@RequestMapping("/books")
+public class BookController extends BaseClass{
+    private static final Logger log = LoggerFactory.getLogger(BookController.class);	//这一句可以不写了
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>总结</strong></p>
+<ol>
+<li>基于lombok提供的@Slf4j注解为类快速添加日志对象</li>
+</ol>
+<h4 id="YW-4-2-日志输出格式控制"><a href="#YW-4-2-日志输出格式控制" class="headerlink" title="YW-4-2.日志输出格式控制"></a>YW-4-2.日志输出格式控制</h4><p>​        日志已经能够记录了，但是目前记录的格式是SpringBoot给我们提供的，如果想自定义控制就需要自己设置了。先分析一下当前日志的记录格式。</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211206123431222.png?lastModify=1692141274" alt="image-20211206123431222"></p>
+<p>​        对于单条日志信息来说，日期，触发位置，记录信息是最核心的信息。级别用于做筛选过滤，PID与线程名用于做精准分析。了解这些信息后就可以DIY日志格式了。本课程不做详细的研究，有兴趣的小伙伴可以学习相关的知识。下面给出课程中模拟的官方日志模板的书写格式，便于大家学习。</p>
+<pre class="line-numbers language-none"><code class="language-none">logging:
+	pattern:
+    	console: "%d %clr(%p) --- [%16t] %clr(%-40.40c){cyan} : %m %n"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>总结</strong></p>
+<ol>
+<li>日志输出格式设置规则</li>
+</ol>
+<h4 id="YW-4-3-日志文件"><a href="#YW-4-3-日志文件" class="headerlink" title="YW-4-3.日志文件"></a>YW-4-3.日志文件</h4><p>​        日志信息显示，记录已经控制住了，下面就要说一下日志的转存了。日志不能仅显示在控制台上，要把日志记录到文件中，方便后期维护查阅。</p>
+<p>​        对于日志文件的使用存在各种各样的策略，例如每日记录，分类记录，报警后记录等。这里主要研究日志文件如何记录。</p>
+<p>​        记录日志到文件中格式非常简单，设置日志文件名即可。</p>
+<pre class="line-numbers language-none"><code class="language-none">logging:
+	file:
+    	name: server.log<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>​        虽然使用上述格式可以将日志记录下来了，但是面对线上的复杂情况，一个文件记录肯定是不能够满足运维要求的，通常会每天记录日志文件，同时为了便于维护，还要限制每个日志文件的大小。下面给出日志文件的常用配置方式：</p>
+<pre class="line-numbers language-none"><code class="language-none">logging:
+	logback:
+    	rollingpolicy:
+        	max-file-size: 3KB
+            file-name-pattern: server.%d{yyyy-MM-dd}.%i.log<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        以上格式是基于logback日志技术设置每日日志文件的设置格式，要求容量到达3KB以后就转存信息到第二个文件中。文件命名规则中的%d标识日期，%i是一个递增变量，用于区分日志文件。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>日志记录到文件</li>
+<li>日志文件格式设置</li>
+</ol>
+<h2 id="运维实用篇完结"><a href="#运维实用篇完结" class="headerlink" title="运维实用篇完结"></a><strong>运维实用篇完结</strong></h2><p>​        运维实用篇到这里就要先告一段落了，为什么不说结束呢？因为运维篇中还有一些知识，但是现在讲解过于分散了。所以要把这些知识与开发实用篇的知识结合在一起讲，也是本课程的教学设计的体现。</p>
+<p>​        在整体运维实用篇中带着大家学习了4块内容，首先学习了如何运行SpringBoot程序，也就是程序的打包与运行，接下来对配置进行了升级学习，不再局限在配置文件中进行设置，通过临时属性，外部配置文件对项目的配置进行管控。在多环境开发中给大家介绍了多种多环境开发的格式，其实掌握一种即可，此外还给大家讲了多环境开发的一些技巧以及与maven的冲突解决方案。最后给大家介绍了日志系统，老实说日志这里讲的相当的潦草，因为大部分日志相关的知识都不应该在这门课中学习，这里只是告诉大家如何整合实用而已。</p>
+<p>​        看了各位小伙伴的评论，知道你们再催更，我也在加油，一起努力吧，实用开发篇再会。实用开发篇会提高更新频度，不全部做完给大家更新了，我先把做好的一部分开放出来，随后做完一点就更新一点，额，好吧，就说到这里吧。</p>
+<h1 id="SpringBoot开发实用篇"><a href="#SpringBoot开发实用篇" class="headerlink" title="SpringBoot开发实用篇"></a>SpringBoot开发实用篇</h1><p>​        怀着忐忑的心情，开始了开发实用篇文档的编写。为什么忐忑？特喵的债欠的太多，不知道从何写起。哎，不煽情了，开工。</p>
+<p>​        运维实用篇完结以后，开发实用篇采用日更新的形式发布给各位小伙伴，基本上是每天一集，目前已经发布完毕。看评论区，好多小伙伴在求文档，所以赶紧来补文档，加班加点把开发实用篇的文档刨出来。</p>
+<p>​        开发实用篇中因为牵扯到SpringBoot整合各种各样的技术，由于不是每个小伙伴对各种技术都有所掌握，所以在整合每一个技术之前，都会做一个快速的普及，这样的话内容整个开发实用篇所包含的内容就会比较多。各位小伙伴在学习的时候，如果对某一个技术不是很清楚，可以先跳过对应章节，或者先补充一下技术知识，然后再来看对应的课程。开发实用篇具体包含的内容如下：</p>
+<ul>
+<li>热部署</li>
+<li>配置高级</li>
+<li>测试</li>
+<li>数据层解决方案</li>
+<li>整合第三方技术</li>
+<li>监控</li>
+</ul>
+<p>​        看目录感觉内容量并不是很大，但是在数据层解决方案和整合第三方技术中包含了大量的知识，一点一点慢慢学吧。下面开启第一部分热部署相关知识的学习</p>
+<h2 id="KF-1-热部署"><a href="#KF-1-热部署" class="headerlink" title="KF-1.热部署"></a><strong>KF-1.热部署</strong></h2><p>​        什么是热部署？简单说就是你程序改了，现在要重新启动服务器，嫌麻烦？不用重启，服务器会自己悄悄的把更新后的程序给重新加载一遍，这就是热部署。</p>
+<p>​        热部署的功能是如何实现的呢？这就要分两种情况来说了，非springboot工程和springboot工程的热部署实现方式完全不一样。先说一下原始的非springboot项目是如何实现热部署的。</p>
+<p><strong>非springboot项目热部署实现原理</strong></p>
+<p>​        开发非springboot项目时，我们要制作一个web工程并通过tomcat启动，通常需要先安装tomcat服务器到磁盘中，开发的程序配置发布到安装的tomcat服务器上。如果想实现热部署的效果，这种情况其实有两种做法，一种是在tomcat服务器的配置文件中进行配置，这种做法与你使用什么IDE工具无关，不管你使用eclipse还是idea都行。还有一种做法是通过IDE工具进行配置，比如在idea工具中进行设置，这种形式需要依赖IDE工具，每款IDE工具不同，对应的配置也不太一样。但是核心思想是一样的，就是使用服务器去监控其中加载的应用，发现产生了变化就重新加载一次。</p>
+<p>​        上面所说的非springboot项目实现热部署看上去是一个非常简单的过程，几乎每个小伙伴都能自己写出来。如果你不会写，我给你个最简单的思路，但是实际设计要比这复杂一些。例如启动一个定时任务，任务启动时记录每个文件的大小，以后每5秒比对一下每个文件的大小是否有改变，或者是否有新文件。如果没有改变，放行，如果有改变，刷新当前记录的文件信息，然后重新启动服务器，这就可以实现热部署了。当然，这个过程肯定不能这么做，比如我把一个打印输出的字符串”abc”改成”cba”，比对大小是没有变化的，但是内容缺实变了，所以这么做肯定不行，只是给大家打个比方，而且重启服务器这就是冷启动了，不能算热部署，领会精神吧。</p>
+<p>​        看上去这个过程也没多复杂，在springboot项目中难道还有其他的弯弯绕吗？还真有。</p>
+<p><strong>springboot项目热部署实现原理</strong></p>
+<p>​        基于springboot开发的web工程其实有一个显著的特征，就是tomcat服务器内置了，还记得内嵌服务器吗？服务器是以一个对象的形式在spring容器中运行的。本来我们期望于tomcat服务器加载程序后由tomcat服务器盯着程序，你变化后我就重新启动重新加载，但是现在tomcat和我们的程序是平级的了，都是spring容器中的组件，这下就麻烦了，缺乏了一个直接的管理权，那该怎么做呢？简单，再搞一个程序X在spring容器中盯着你原始开发的程序A不就行了吗？确实，搞一个盯着程序A的程序X就行了，如果你自己开发的程序A变化了，那么程序X就命令tomcat容器重新加载程序A就OK了。并且这样做有一个好处，spring容器中东西不用全部重新加载一遍，只需要重新加载你开发的程序那一部分就可以了，这下效率又高了，挺好。</p>
+<p>​    下面就说说，怎么搞出来这么一个程序X，肯定不是我们自己手写了，springboot早就做好了，搞一个坐标导入进去就行了。</p>
+<h3 id="KF-1-1-手动启动热部署"><a href="#KF-1-1-手动启动热部署" class="headerlink" title="KF-1-1.手动启动热部署"></a>KF-1-1.手动启动热部署</h3><p><strong>步骤①</strong>：导入开发者工具对应的坐标</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;
+    &lt;optional&gt;true&lt;/optional&gt;
+&lt;/dependency&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>步骤②</strong>：构建项目，可以使用快捷键激活此功能</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20220222121257218.png?lastModify=1692141274" alt="image-20220222121257218"></p>
+<p>​        对应的快捷键一定要记得</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;CTR&gt;L+&lt;F9&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>​        以上过程就实现了springboot工程的热部署，是不是挺简单的。不过这里需要把底层的工作工程给普及一下。</p>
+<p><strong>重启与重载</strong></p>
+<p>​        一个springboot项目在运行时实际上是分两个过程进行的，根据加载的东西不同，划分成base类加载器与restart类加载器。</p>
+<ul>
+<li>base类加载器：用来加载jar包中的类，jar包中的类和配置文件由于不会发生变化，因此不管加载多少次，加载的内容不会发生变化</li>
+<li>restart类加载器：用来加载开发者自己开发的类、配置文件、页面等信息，这一类文件受开发者影响</li>
+</ul>
+<p>​        当springboot项目启动时，base类加载器执行，加载jar包中的信息后，restart类加载器执行，加载开发者制作的内容。当执行构建项目后，由于jar中的信息不会变化，因此base类加载器无需再次执行，所以仅仅运行restart类加载即可，也就是将开发者自己制作的内容重新加载就行了，这就完成了一次热部署的过程，也可以说热部署的过程实际上是重新加载restart类加载器中的信息。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>使用开发者工具可以为当前项目开启热部署功能</li>
+<li>使用构建项目操作对工程进行热部署</li>
+</ol>
+<p><strong>思考</strong></p>
+<p>​        上述过程每次进行热部署都需要开发者手工操作，不管是点击按钮还是快捷键都需要开发者手工执行。这种操作的应用场景主要是在开发调试期，并且调试的代码处于不同的文件中，比如服务器启动了，我需要改4个文件中的内容，然后重启，等4个文件都改完了再执行热部署，使用一个快捷键就OK了。但是如果现在开发者要修改的内容就只有一个文件中的少量代码，这个时候代码修改完毕如果能够让程序自己执行热部署功能，就可以减少开发者的操作，也就是自动进行热部署，能这么做吗？是可以的。咱们下一节再说。</p>
+<p>​        </p>
+<h3 id="KF-1-2-自动启动热部署"><a href="#KF-1-2-自动启动热部署" class="headerlink" title="KF-1-2.自动启动热部署"></a>KF-1-2.自动启动热部署</h3><p>​        自动热部署其实就是设计一个开关，打开这个开关后，IDE工具就可以自动热部署。因此这个操作和IDE工具有关，以下以idea为例设置idea中启动热部署</p>
+<p><strong>步骤①</strong>：设置自动构建项目</p>
+<p>​        打开【File】，选择【settings…】,在面板左侧的菜单中找到【Compile】选项，然后勾选【Build project automatically】，意思是自动构建项目</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20220222123543551.png?lastModify=1692141274" alt="image-20220222123543551"></p>
+<p>​        自动构建项目选项勾选后</p>
+<p><strong>步骤②</strong>：允许在程序运行时进行自动构建</p>
+<p>​        使用快捷键【Ctrl】+【Alt】+【Shit】+【/】打开维护面板，选择第1项【Registry…】</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20220222124006910.png?lastModify=1692141274" alt="image-20220222124006910"></p>
+<p>​        在选项中搜索comple，然后勾选对应项即可</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20220222124240069.png?lastModify=1692141274" alt="image-20220222124240069"></p>
+<p>​        这样程序在运行的时候就可以进行自动构建了，实现了热部署的效果。</p>
+<p><strong>关注</strong>：如果你每敲一个字母，服务器就重新构建一次，这未免有点太频繁了，所以idea设置当idea工具失去焦点5秒后进行热部署。其实就是你从idea工具中切换到其他工具时进行热部署，比如改完程序需要到浏览器上去调试，这个时候idea就自动进行热部署操作。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>自动热部署要开启自动构建项目</li>
+<li>自动热部署要开启在程序运行时自动构建项目</li>
+</ol>
+<p><strong>思考</strong></p>
+<p>​        现在已经实现了热部署了，但是到企业开发的时候你会发现，为了便于管理，在你的程序目录中除了有代码，还有可能有文档，如果你修改了一下文档，这个时候会进行热部署吗？不管是否进行热部署，这个过程我们需要自己控制才比较合理，那这个东西能控制吗？咱们下一节再说。</p>
+<h3 id="KF-1-3-参与热部署监控的文件范围配置"><a href="#KF-1-3-参与热部署监控的文件范围配置" class="headerlink" title="KF-1-3.参与热部署监控的文件范围配置"></a>KF-1-3.参与热部署监控的文件范围配置</h3><p>​        通过修改项目中的文件，你可以发现其实并不是所有的文件修改都会激活热部署的，原因在于在开发者工具中有一组配置，当满足了配置中的条件后，才会启动热部署，配置中默认不参与热部署的目录信息如下</p>
+<ul>
+<li>/META-INF/maven</li>
+<li>/META-INF/resources</li>
+<li>/resources</li>
+<li>/static</li>
+<li>/public</li>
+<li>/templates</li>
+</ul>
+<p>​        以上目录中的文件如果发生变化，是不参与热部署的。如果想修改配置，可以通过application.yml文件进行设定哪些文件不参与热部署操作</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+  devtools:
+    restart:
+      # 设置不参与热部署的文件或文件夹
+      exclude: static/**,public/**,config/application.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>总结</strong></p>
+<ol>
+<li>通过配置可以修改不参与热部署的文件或目录</li>
+</ol>
+<p><strong>思考</strong></p>
+<p>​        热部署功能是一个典型的开发阶段使用的功能，到了线上环境运行程序时，这个功能就没有意义了。能否关闭热部署功能呢？咱们下一节再说。</p>
+<h3 id="KF-1-4-关闭热部署"><a href="#KF-1-4-关闭热部署" class="headerlink" title="KF-1-4.关闭热部署"></a>KF-1-4.关闭热部署</h3><p>​        线上环境运行时是不可能使用热部署功能的，所以需要强制关闭此功能，通过配置可以关闭此功能。</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+  devtools:
+    restart:
+      enabled: false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        如果当心配置文件层级过多导致相符覆盖最终引起配置失效，可以提高配置的层级，在更高层级中配置关闭热部署。例如在启动容器前通过系统属性设置关闭热部署功能。</p>
+<pre class="line-numbers language-none"><code class="language-none">@SpringBootApplication
+public class SSMPApplication {
+    public static void main(String[] args) {
+        System.setProperty("spring.devtools.restart.enabled","false");
+        SpringApplication.run(SSMPApplication.class);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        其实上述担心略微有点多余，因为线上环境的维护是不可能出现修改代码的操作的，这么做唯一的作用是降低资源消耗，毕竟那双盯着你项目是不是产生变化的眼睛只要闭上了，就不具有热部署功能了，这个开关的作用就是禁用对应功能。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>通过配置可以关闭热部署功能降低线上程序的资源消耗</li>
+</ol>
+<h2 id="KF-2-配置高级"><a href="#KF-2-配置高级" class="headerlink" title="KF-2.配置高级"></a><strong>KF-2.配置高级</strong></h2><p>​        进入开发实用篇第二章内容，配置高级，其实配置在基础篇讲了一部分，在运维实用篇讲了一部分，这里还要讲，讲的东西有什么区别呢？距离开发过程越来越接近，解决的问题也越来越靠近线上环境，下面就开启本章的学习。</p>
+<h3 id="KF-2-1-ConfigurationProperties"><a href="#KF-2-1-ConfigurationProperties" class="headerlink" title="KF-2-1.@ConfigurationProperties"></a>KF-2-1.@ConfigurationProperties</h3><p>​        在基础篇学习了@ConfigurationProperties注解，此注解的作用是用来为bean绑定属性的。开发者可以在yml配置文件中以对象的格式添加若干属性</p>
+<pre class="line-numbers language-none"><code class="language-none">servers:
+  ip-address: 192.168.0.1 
+  port: 2345
+  timeout: -1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        然后再开发一个用来封装数据的实体类，注意要提供属性对应的setter方法</p>
+<pre class="line-numbers language-none"><code class="language-none">@Component
+@Data
+public class ServerConfig {
+    private String ipAddress;
+    private int port;
+    private long timeout;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        使用@ConfigurationProperties注解就可以将配置中的属性值关联到开发的模型类上</p>
+<pre class="line-numbers language-none"><code class="language-none">@Component
+@Data
+@ConfigurationProperties(prefix = "servers")
+public class ServerConfig {
+    private String ipAddress;
+    private int port;
+    private long timeout;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        这样加载对应bean的时候就可以直接加载配置属性值了。但是目前我们学的都是给自定义的bean使用这种形式加载属性值，如果是第三方的bean呢？能不能用这种形式加载属性值呢？为什么会提出这个疑问？原因就在于当前@ConfigurationProperties注解是写在类定义的上方，而第三方开发的bean源代码不是你自己书写的，你也不可能到源代码中去添加@ConfigurationProperties注解，这种问题该怎么解决呢？下面就来说说这个问题。</p>
+<p>​        使用@ConfigurationProperties注解其实可以为第三方bean加载属性，格式特殊一点而已。</p>
+<p><strong>步骤①</strong>：使用@Bean注解定义第三方bean</p>
+<pre class="line-numbers language-none"><code class="language-none">@Bean
+public DruidDataSource datasource(){
+    DruidDataSource ds = new DruidDataSource();
+    return ds;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>步骤②</strong>：在yml中定义要绑定的属性，注意datasource此时全小写</p>
+<pre class="line-numbers language-none"><code class="language-none">datasource:
+  driverClassName: com.mysql.jdbc.Driver<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><strong>步骤③</strong>：使用@ConfigurationProperties注解为第三方bean进行属性绑定，注意前缀是全小写的datasource</p>
+<pre class="line-numbers language-none"><code class="language-none">@Bean
+@ConfigurationProperties(prefix = "datasource")
+public DruidDataSource datasource(){
+    DruidDataSource ds = new DruidDataSource();
+    return ds;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        操作方式完全一样，只不过@ConfigurationProperties注解不仅能添加到类上，还可以添加到方法上，添加到类上是为spring容器管理的当前类的对象绑定属性，添加到方法上是为spring容器管理的当前方法的返回值对象绑定属性，其实本质上都一样。</p>
+<p>​        做到这其实就出现了一个新的问题，目前我们定义bean不是通过类注解定义就是通过@Bean定义，使用@ConfigurationProperties注解可以为bean进行属性绑定，那在一个业务系统中，哪些bean通过注解@ConfigurationProperties去绑定属性了呢？因为这个注解不仅可以写在类上，还可以写在方法上，所以找起来就比较麻烦了。为了解决这个问题，spring给我们提供了一个全新的注解，专门标注使用@ConfigurationProperties注解绑定属性的bean是哪些。这个注解叫做@EnableConfigurationProperties。具体如何使用呢？</p>
+<p><strong>步骤①</strong>：在配置类上开启@EnableConfigurationProperties注解，并标注要使用@ConfigurationProperties注解绑定属性的类</p>
+<pre class="line-numbers language-none"><code class="language-none">@SpringBootApplication
+@EnableConfigurationProperties(ServerConfig.class)
+public class Springboot13ConfigurationApplication {
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>步骤②</strong>：在对应的类上直接使用@ConfigurationProperties进行属性绑定</p>
+<pre class="line-numbers language-none"><code class="language-none">@Data
+@ConfigurationProperties(prefix = "servers")
+public class ServerConfig {
+    private String ipAddress;
+    private int port;
+    private long timeout;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        有人感觉这没区别啊？注意观察，现在绑定属性的ServerConfig类并没有声明@Component注解。当使用@EnableConfigurationProperties注解时，spring会默认将其标注的类定义为bean，因此无需再次声明@Component注解了。</p>
+<p>​        最后再说一个小技巧，使用@ConfigurationProperties注解时，会出现一个提示信息</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20220222145535749.png?lastModify=1692141274" alt="image-20220222145535749"></p>
+<p>​        出现这个提示后只需要添加一个坐标此提醒就消失了</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;
+&lt;/dependency&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>总结</strong></p>
+<ol>
+<li>使用@ConfigurationProperties可以为使用@Bean声明的第三方bean绑定属性</li>
+<li>当使用@EnableConfigurationProperties声明进行属性绑定的bean后，无需使用@Component注解再次进行bean声明</li>
+</ol>
+<h3 id="KF-2-2-宽松绑定-松散绑定"><a href="#KF-2-2-宽松绑定-松散绑定" class="headerlink" title="KF-2-2.宽松绑定/松散绑定"></a>KF-2-2.宽松绑定/松散绑定</h3><p>​        在进行属性绑定时，可能会遇到如下情况，为了进行标准命名，开发者会将属性名严格按照驼峰命名法书写，在yml配置文件中将datasource修改为dataSource，如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">dataSource:
+  driverClassName: com.mysql.jdbc.Driver<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>​        此时程序可以正常运行，然后又将代码中的前缀datasource修改为dataSource，如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">@Bean
+@ConfigurationProperties(prefix = "dataSource")
+public DruidDataSource datasource(){
+    DruidDataSource ds = new DruidDataSource();
+    return ds;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        此时就发生了编译错误，而且并不是idea工具导致的，运行后依然会出现问题，配置属性名dataSource是无效的</p>
+<pre class="line-numbers language-none"><code class="language-none">Configuration property name 'dataSource' is not valid:
+
+    Invalid characters: 'S'
+    Bean: datasource
+    Reason: Canonical names should be kebab-case ('-' separated), lowercase alpha-numeric characters and must start with a letter
+
+Action:
+Modify 'dataSource' so that it conforms to the canonical names requirements.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        为什么会出现这种问题，这就要来说一说springboot进行属性绑定时的一个重要知识点了，有关属性名称的宽松绑定，也可以称为宽松绑定。</p>
+<p>​        什么是宽松绑定？实际上是springboot进行编程时人性化设计的一种体现，即配置文件中的命名格式与变量名的命名格式可以进行格式上的最大化兼容。兼容到什么程度呢？几乎主流的命名格式都支持，例如：</p>
+<p>​        在ServerConfig中的ipAddress属性名</p>
+<pre class="line-numbers language-none"><code class="language-none">@Component
+@Data
+@ConfigurationProperties(prefix = "servers")
+public class ServerConfig {
+    private String ipAddress;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        可以与下面的配置属性名规则全兼容</p>
+<pre class="line-numbers language-none"><code class="language-none">servers:
+  ipAddress: 192.168.0.2       # 驼峰模式
+  ip_address: 192.168.0.2      # 下划线模式
+  ip-address: 192.168.0.2      # 烤肉串模式
+  IP_ADDRESS: 192.168.0.2      # 常量模式<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        也可以说，以上4种模式最终都可以匹配到ipAddress这个属性名。为什么这样呢？原因就是在进行匹配时，配置中的名称要去掉中划线和下划线后，忽略大小写的情况下去与java代码中的属性名进行忽略大小写的等值匹配，以上4种命名去掉下划线中划线忽略大小写后都是一个词ipaddress，java代码中的属性名忽略大小写后也是ipaddress，这样就可以进行等值匹配了，这就是为什么这4种格式都能匹配成功的原因。不过springboot官方推荐使用烤肉串模式，也就是中划线模式。</p>
+<p>​        到这里我们掌握了一个知识点，就是命名的规范问题。再来看开始出现的编程错误信息</p>
+<pre class="line-numbers language-none"><code class="language-none">Configuration property name 'dataSource' is not valid:
+
+    Invalid characters: 'S'
+    Bean: datasource
+    Reason: Canonical names should be kebab-case ('-' separated), lowercase alpha-numeric characters and must start with a letter
+
+Action:
+Modify 'dataSource' so that it conforms to the canonical names requirements.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        其中Reason描述了报错的原因，规范的名称应该是烤肉串(kebab)模式(case)，即使用-分隔，使用小写字母数字作为标准字符，且必须以字母开头。然后再看我们写的名称dataSource，就不满足上述要求。闹了半天，在书写前缀时，这个词不是随意支持的，必须使用上述标准。编程写了这么久，基本上编程习惯都养成了，到这里又被springboot教育了，没辙，谁让人家东西好用呢，按照人家的要求写吧。</p>
+<p>​        最后说一句，以上规则仅针对springboot中@ConfigurationProperties注解进行属性绑定时有效，对@Value注解进行属性映射无效。有人就说，那我不用你不就行了？不用，你小看springboot的推广能力了，到原理篇我们看源码时，你会发现内部全是这玩意儿，算了，拿人手短吃人嘴短，认怂吧。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>@ConfigurationProperties绑定属性时支持属性名宽松绑定，这个宽松体现在属性名的命名规则上</li>
+<li>@Value注解不支持松散绑定规则</li>
+<li>绑定前缀名推荐采用烤肉串命名规则，即使用中划线做分隔符</li>
+</ol>
+<h3 id="KF-2-3-常用计量单位绑定"><a href="#KF-2-3-常用计量单位绑定" class="headerlink" title="KF-2-3.常用计量单位绑定"></a>KF-2-3.常用计量单位绑定</h3><p>​        在前面的配置中，我们书写了如下配置值，其中第三项超时时间timeout描述了服务器操作超时时间，当前值是-1表示永不超时。</p>
+<pre class="line-numbers language-none"><code class="language-none">servers:
+  ip-address: 192.168.0.1 
+  port: 2345
+  timeout: -1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        但是每个人都这个值的理解会产生不同，比如线上服务器完成一次主从备份，配置超时时间240，这个240如果单位是秒就是超时时间4分钟，如果单位是分钟就是超时时间4小时。面对一次线上服务器的主从备份，设置4分钟，简直是开玩笑，别说拷贝过程，备份之前的压缩过程4分钟也搞不定，这个时候问题就来了，怎么解决这个误会？</p>
+<p>​        除了加强约定之外，springboot充分利用了JDK8中提供的全新的用来表示计量单位的新数据类型，从根本上解决这个问题。以下模型类中添加了两个JDK8中新增的类，分别是Duration和DataSize</p>
+<pre class="line-numbers language-none"><code class="language-none">@Component
+@Data
+@ConfigurationProperties(prefix = "servers")
+public class ServerConfig {
+    @DurationUnit(ChronoUnit.HOURS)
+    private Duration serverTimeOut;
+    @DataSizeUnit(DataUnit.MEGABYTES)
+    private DataSize dataSize;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Duration</strong>：表示时间间隔，可以通过@DurationUnit注解描述时间单位，例如上例中描述的单位为小时（ChronoUnit.HOURS）</p>
+<p><strong>DataSize</strong>：表示存储空间，可以通过@DataSizeUnit注解描述存储空间单位，例如上例中描述的单位为MB（DataUnit.MEGABYTES）</p>
+<p>​        使用上述两个单位就可以有效避免因沟通不同步或文档不健全导致的信息不对称问题，从根本上解决了问题，避免产生误读。</p>
+<p>Druation常用单位如下：</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20220222173911102.png?lastModify=1692141274" alt="image-20220222173911102"></p>
+<p>DataSize常用单位如下：</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20220222174130102.png?lastModify=1692141274" alt="image-20220222174130102"></p>
+<h3 id="KF-2-4-校验"><a href="#KF-2-4-校验" class="headerlink" title="KF-2-4.校验"></a>KF-2-4.校验</h3><p>​        目前我们在进行属性绑定时可以通过松散绑定规则在书写时放飞自我了，但是在书写时由于无法感知模型类中的数据类型，就会出现类型不匹配的问题，比如代码中需要int类型，配置中给了非法的数值，例如写一个“a”，这种数据肯定无法有效的绑定，还会引发错误。        SpringBoot给出了强大的数据校验功能，可以有效的避免此类问题的发生。在JAVAEE的JSR303规范中给出了具体的数据校验标准，开发者可以根据自己的需要选择对应的校验框架，此处使用Hibernate提供的校验框架来作为实现进行数据校验。书写应用格式非常固定，话不多说，直接上步骤</p>
+<p><strong>步骤①</strong>：开启校验框架</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;!--1.导入JSR303规范--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;javax.validation&lt;/groupId&gt;
+    &lt;artifactId&gt;validation-api&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!--使用hibernate框架提供的校验器做实现--&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.hibernate.validator&lt;/groupId&gt;
+    &lt;artifactId&gt;hibernate-validator&lt;/artifactId&gt;
+&lt;/dependency&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>步骤②</strong>：在需要开启校验功能的类上使用注解@Validated开启校验功能</p>
+<pre class="line-numbers language-none"><code class="language-none">@Component
+@Data
+@ConfigurationProperties(prefix = "servers")
+//开启对当前bean的属性注入校验
+@Validated
+public class ServerConfig {
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>步骤③</strong>：对具体的字段设置校验规则</p>
+<pre class="line-numbers language-none"><code class="language-none">@Component
+@Data
+@ConfigurationProperties(prefix = "servers")
+//开启对当前bean的属性注入校验
+@Validated
+public class ServerConfig {
+    //设置具体的规则
+    @Max(value = 8888,message = "最大值不能超过8888")
+    @Min(value = 202,message = "最小值不能低于202")
+    private int port;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        通过设置数据格式校验，就可以有效避免非法数据加载，其实使用起来还是挺轻松的，基本上就是一个格式。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>开启Bean属性校验功能一共3步：导入JSR303与Hibernate校验框架坐标、使用@Validated注解启用校验功能、使用具体校验规则规范数据校验格式</li>
+</ol>
+<h3 id="KF-2-5-数据类型转换"><a href="#KF-2-5-数据类型转换" class="headerlink" title="KF-2-5.数据类型转换"></a>KF-2-5.数据类型转换</h3><p>​        有关spring属性注入的问题到这里基本上就讲完了，但是最近一名开发者向我咨询了一个问题，我觉得需要给各位学习者分享一下。在学习阶段其实我们遇到的问题往往复杂度比较低，单一性比较强，但是到了线上开发时，都是综合性的问题，而这个开发者遇到的问题就是由于bean的属性注入引发的灾难。</p>
+<p>​        先把问题描述一下，这位开发者连接数据库正常操作，但是运行程序后显示的信息是密码错误。</p>
+<pre class="line-numbers language-none"><code class="language-none">java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>​        其实看到这个报错，几乎所有的学习者都能分辨出来，这是用户名和密码不匹配，就就是密码输入错了，但是问题就在于密码并没有输入错误，这就比较讨厌了。给的报错信息无法帮助你有效的分析问题，甚至会给你带到沟里。如果是初学者，估计这会心态就崩了，我密码没错啊，你怎么能说我有错误呢？来看看用户名密码的配置是如何写的：</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ssm_db?serverTimezone=UTC
+    username: root
+    password: 0127<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        这名开发者的生日是1月27日，所以密码就使用了0127，其实问题就出在这里了。</p>
+<p>​        之前在基础篇讲属性注入时，提到过类型相关的知识，在整数相关知识中有这么一句话，<strong>支持二进制，八进制，十六进制</strong></p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20220222225748370.png?lastModify=1692141274" alt="image-20220222225748370"></p>
+<p>​        这个问题就处在这里了，因为0127在开发者眼中是一个字符串“0127”，但是在springboot看来，这就是一个数字，而且是一个八进制的数字。当后台使用String类型接收数据时，如果配置文件中配置了一个整数值，他是先安装整数进行处理，读取后再转换成字符串。巧了，0127撞上了八进制的格式，所以最终以十进制数字87的结果存在了。</p>
+<p>​        这里提两个注意点，第一，字符串标准书写加上引号包裹，养成习惯，第二，遇到0开头的数据多注意吧。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>yaml文件中对于数字的定义支持进制书写格式，如需使用字符串请使用引号明确标注</li>
+</ol>
+<h2 id="KF-3-测试"><a href="#KF-3-测试" class="headerlink" title="KF-3.测试"></a><strong>KF-3.测试</strong></h2><p>​        说完bean配置相关的内容，下面要对前面讲过的一个知识做加强了，测试。测试是保障程序正确性的唯一屏障，在企业级开发中更是不可缺少，但是由于测试代码往往不产生实际效益，所以一些小型公司并不是很关注，导致一些开发者从小型公司进入中大型公司后，往往这一块比较短板，所以还是要拿出来把这一块知识好好说说，做一名专业的开发人员。</p>
+<h3 id="KF-3-1-加载测试专用属性"><a href="#KF-3-1-加载测试专用属性" class="headerlink" title="KF-3-1.加载测试专用属性"></a>KF-3-1.加载测试专用属性</h3><p>​        测试过程本身并不是一个复杂的过程，但是很多情况下测试时需要模拟一些线上情况，或者模拟一些特殊情况。如果当前环境按照线上环境已经设定好了，例如是下面的配置</p>
+<pre class="line-numbers language-none"><code class="language-none">env:
+  maxMemory: 32GB
+  minMemory: 16GB<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>​        但是你现在想测试对应的兼容性，需要测试如下配置</p>
+<pre class="line-numbers language-none"><code class="language-none">env:
+  maxMemory: 16GB
+  minMemory: 8GB<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>​        这个时候我们能不能每次测试的时候都去修改源码application.yml中的配置进行测试呢？显然是不行的。每次测试前改过来，每次测试后改回去，这太麻烦了。于是我们就想，需要在测试环境中创建一组临时属性，去覆盖我们源码中设定的属性，这样测试用例就相当于是一个独立的环境，能够独立测试，这样就方便多了。</p>
+<p><strong>临时属性</strong></p>
+<p>​        springboot已经为我们开发者早就想好了这种问题该如何解决，并且提供了对应的功能入口。在测试用例程序中，可以通过对注解@SpringBootTest添加属性来模拟临时属性，具体如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">//properties属性可以为当前测试用例添加临时的属性配置
+@SpringBootTest(properties = {"test.prop=testValue1"})
+public class PropertiesAndArgsTest {
+
+    @Value("${test.prop}")
+    private String msg;
+    
+    @Test
+    void testProperties(){
+        System.out.println(msg);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        使用注解@SpringBootTest的properties属性就可以为当前测试用例添加临时的属性，覆盖源码配置文件中对应的属性值进行测试。</p>
+<p><strong>临时参数</strong></p>
+<p>​        除了上述这种情况，在前面讲解使用命令行启动springboot程序时讲过，通过命令行参数也可以设置属性值。而且线上启动程序时，通常都会添加一些专用的配置信息。作为运维人员他们才不懂java，更不懂这些配置的信息具体格式该怎么写，那如果我们作为开发者提供了对应的书写内容后，能否提前测试一下这些配置信息是否有效呢？当时是可以的，还是通过注解@SpringBootTest的另一个属性来进行设定。</p>
+<pre class="line-numbers language-none"><code class="language-none">//args属性可以为当前测试用例添加临时的命令行参数
+@SpringBootTest(args={"--test.prop=testValue2"})
+public class PropertiesAndArgsTest {
+    
+    @Value("${test.prop}")
+    private String msg;
+    
+    @Test
+    void testProperties(){
+        System.out.println(msg);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        使用注解@SpringBootTest的args属性就可以为当前测试用例模拟命令行参数并进行测试。</p>
+<p>​        说到这里，好奇宝宝们肯定就有新问题了，如果两者共存呢？其实如果思考一下配置属性与命令行参数的加载优先级，这个结果就不言而喻了。在属性加载的优先级设定中，有明确的优先级设定顺序，还记得下面这个顺序吗？</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20211206100859236.png?lastModify=1692141274" alt="image-20211206100859236"></p>
+<p>​        在这个属性加载优先级的顺序中，明确规定了命令行参数的优先级排序是11，而配置属性的优先级是3，结果不言而喻了，args属性配置优先于properties属性配置加载。</p>
+<p>​        到这里我们就掌握了如果在测试用例中去模拟临时属性的设定。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>加载测试临时属性可以通过注解@SpringBootTest的properties和args属性进行设定，此设定应用范围仅适用于当前测试用例</li>
+</ol>
+<p><strong>思考</strong></p>
+<p>​        应用于测试环境的临时属性解决了，如果想在测试的时候临时加载一些bean能不做呢？也就是说我测试时，想搞一些独立的bean出来，专门应用于测试环境，能否实现呢？咱们下一节再讲。</p>
+<h3 id="KF-3-2-加载测试专用配置"><a href="#KF-3-2-加载测试专用配置" class="headerlink" title="KF-3-2.加载测试专用配置"></a>KF-3-2.加载测试专用配置</h3><p>​        上一节提出了临时配置一些专用于测试环境的bean的需求，这一节我们就来解决这个问题。</p>
+<p>​        学习过Spring的知识，我们都知道，其实一个spring环境中可以设置若干个配置文件或配置类，若干个配置信息可以同时生效。现在我们的需求就是在测试环境中再添加一个配置类，然后启动测试环境时，生效此配置就行了。其实做法和spring环境中加载多个配置信息的方式完全一样。具体操作步骤如下：</p>
+<p><strong>步骤①</strong>：在测试包test中创建专用的测试环境配置类</p>
+<pre class="line-numbers language-none"><code class="language-none">@Configuration
+public class MsgConfig {
+    @Bean
+    public String msg(){
+        return "bean msg";
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        上述配置仅用于演示当前实验效果，实际开发可不能这么注入String类型的数据</p>
+<p><strong>步骤②</strong>：在启动测试环境时，导入测试环境专用的配置类，使用@Import注解即可实现</p>
+<pre class="line-numbers language-none"><code class="language-none">@SpringBootTest
+@Import({MsgConfig.class})
+public class ConfigurationTest {
+
+    @Autowired
+    private String msg;
+
+    @Test
+    void testConfiguration(){
+        System.out.println(msg);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        到这里就通过@Import属性实现了基于开发环境的配置基础上，对配置进行测试环境的追加操作，实现了1+1的配置环境效果。这样我们就可以实现每一个不同的测试用例加载不同的bean的效果，丰富测试用例的编写，同时不影响开发环境的配置。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>定义测试环境专用的配置类，然后通过@Import注解在具体的测试中导入临时的配置，例如测试用例，方便测试过程，且上述配置不影响其他的测试类环境</li>
+</ol>
+<p><strong>思考</strong></p>
+<p>​        当前我们已经可以实现业务层和数据层的测试，并且通过临时配置，控制每个测试用例加载不同的测试数据。但是实际企业开发不仅要保障业务层与数据层的功能安全有效，也要保障表现层的功能正常。但是我们目的对表现层的测试都是通过postman手工测试的，并没有在打包过程中体现表现层功能被测试通过。能否在测试用例中对表现层进行功能测试呢？还真可以，咱们下一节再讲。</p>
+<h3 id="KF-3-3-Web环境模拟测试"><a href="#KF-3-3-Web环境模拟测试" class="headerlink" title="KF-3-3.Web环境模拟测试"></a>KF-3-3.Web环境模拟测试</h3><p>​        在测试中对表现层功能进行测试需要一个基础和一个功能。所谓的一个基础是运行测试程序时，必须启动web环境，不然没法测试web功能。一个功能是必须在测试程序中具备发送web请求的能力，不然无法实现web功能的测试。所以在测试用例中测试表现层接口这项工作就转换成了两件事，一，如何在测试类中启动web测试，二，如何在测试类中发送web请求。下面一件事一件事进行，先说第一个</p>
+<p><strong>测试类中启动web环境</strong></p>
+<p>​        每一个springboot的测试类上方都会标准@SpringBootTest注解，而注解带有一个属性，叫做webEnvironment。通过该属性就可以设置在测试用例中启动web环境，具体如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class WebTest {	
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>​        测试类中启动web环境时，可以指定启动的Web环境对应的端口，springboot提供了4种设置值，分别如下：</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20220223125453317.png?lastModify=1692141274" alt="image-20220223125453317"></p>
+<ul>
+<li>MOCK：根据当前设置确认是否启动web环境，例如使用了Servlet的API就启动web环境，属于适配性的配置</li>
+<li>DEFINED_PORT：使用自定义的端口作为web服务器端口</li>
+<li>RANDOM_PORT：使用随机端口作为web服务器端口</li>
+<li>NONE：不启动web环境</li>
+</ul>
+<p>​        通过上述配置，现在启动测试程序时就可以正常启用web环境了，建议大家测试时使用RANDOM_PORT，避免代码中因为写死设定引发线上功能打包测试时由于端口冲突导致意外现象的出现。就是说你程序中写了用8080端口，结果线上环境8080端口被占用了，结果你代码中所有写的东西都要改，这就是写死代码的代价。现在你用随机端口就可以测试出来你有没有这种问题的隐患了。</p>
+<p>​        测试环境中的web环境已经搭建好了，下面就可以来解决第二个问题了，如何在程序代码中发送web请求。</p>
+<p><strong>测试类中发送请求</strong></p>
+<p>​        对于测试类中发送请求，其实java的API就提供对应的功能，只不过平时各位小伙伴接触的比较少，所以较为陌生。springboot为了便于开发者进行对应的功能开发，对其又进行了包装，简化了开发步骤，具体操作如下：</p>
+<p><strong>步骤①</strong>：在测试类中开启web虚拟调用功能，通过注解@AutoConfigureMockMvc实现此功能的开启</p>
+<pre class="line-numbers language-none"><code class="language-none">@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+//开启虚拟MVC调用
+@AutoConfigureMockMvc
+public class WebTest {
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>步骤②</strong>：定义发起虚拟调用的对象MockMVC，通过自动装配的形式初始化对象</p>
+<pre class="line-numbers language-none"><code class="language-none">@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+//开启虚拟MVC调用
+@AutoConfigureMockMvc
+public class WebTest {
+
+    @Test
+    void testWeb(@Autowired MockMvc mvc) {
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>步骤③</strong>：创建一个虚拟请求对象，封装请求的路径，并使用MockMVC对象发送对应请求</p>
+<pre class="line-numbers language-none"><code class="language-none">@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+//开启虚拟MVC调用
+@AutoConfigureMockMvc
+public class WebTest {
+
+    @Test
+    void testWeb(@Autowired MockMvc mvc) throws Exception {
+        //http://localhost:8080/books
+        //创建虚拟请求，当前访问/books
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/books");
+        //执行对应的请求
+        mvc.perform(builder);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        执行测试程序，现在就可以正常的发送/books对应的请求了，注意访问路径不要写<a target="_blank" rel="noopener" href="http://localhost:8080/books%EF%BC%8C%E5%9B%A0%E4%B8%BA%E5%89%8D%E9%9D%A2%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8IP%E5%9C%B0%E5%9D%80%E5%92%8C%E7%AB%AF%E5%8F%A3%E4%BD%BF%E7%94%A8%E7%9A%84%E6%98%AF%E5%BD%93%E5%89%8D%E8%99%9A%E6%8B%9F%E7%9A%84web%E7%8E%AF%E5%A2%83%EF%BC%8C%E6%97%A0%E9%9C%80%E6%8C%87%E5%AE%9A%EF%BC%8C%E4%BB%85%E6%8C%87%E5%AE%9A%E8%AF%B7%E6%B1%82%E7%9A%84%E5%85%B7%E4%BD%93%E8%B7%AF%E5%BE%84%E5%8D%B3%E5%8F%AF%E3%80%82">http://localhost:8080/books，因为前面的服务器IP地址和端口使用的是当前虚拟的web环境，无需指定，仅指定请求的具体路径即可。</a></p>
+<p><strong>总结</strong></p>
+<ol>
+<li>在测试类中测试web层接口要保障测试类启动时启动web容器，使用@SpringBootTest注解的webEnvironment属性可以虚拟web环境用于测试</li>
+<li>为测试方法注入MockMvc对象，通过MockMvc对象可以发送虚拟请求，模拟web请求调用过程</li>
+</ol>
+<p><strong>思考</strong></p>
+<p>​        目前已经成功的发送了请求，但是还没有起到测试的效果，测试过程必须出现预计值与真实值的比对结果才能确认测试结果是否通过，虚拟请求中能对哪些请求结果进行比对呢？咱们下一节再讲。</p>
+<p><strong>web环境请求结果比对</strong></p>
+<p>​        上一节已经在测试用例中成功的模拟出了web环境，并成功的发送了web请求，本节就来解决发送请求后如何比对发送结果的问题。其实发完请求得到的信息只有一种，就是响应对象。至于响应对象中包含什么，就可以比对什么。常见的比对内容如下：</p>
+<ul>
+<li><p>响应状态匹配</p>
+<pre class="line-numbers language-none"><code class="language-none">@Test
+void testStatus(@Autowired MockMvc mvc) throws Exception {
+    MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/books");
+    ResultActions action = mvc.perform(builder);
+    //设定预期值 与真实值进行比较，成功测试通过，失败测试失败
+    //定义本次调用的预期值
+    StatusResultMatchers status = MockMvcResultMatchers.status();
+    //预计本次调用时成功的：状态200
+    ResultMatcher ok = status.isOk();
+    //添加预计值到本次调用过程中进行匹配
+    action.andExpect(ok);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>响应体匹配（非json数据格式）</p>
+<pre class="line-numbers language-none"><code class="language-none">@Test
+void testBody(@Autowired MockMvc mvc) throws Exception {
+    MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/books");
+    ResultActions action = mvc.perform(builder);
+    //设定预期值 与真实值进行比较，成功测试通过，失败测试失败
+    //定义本次调用的预期值
+    ContentResultMatchers content = MockMvcResultMatchers.content();
+    ResultMatcher result = content.string("springboot2");
+    //添加预计值到本次调用过程中进行匹配
+    action.andExpect(result);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>响应体匹配（json数据格式，开发中的主流使用方式）</p>
+<pre class="line-numbers language-none"><code class="language-none">@Test
+void testJson(@Autowired MockMvc mvc) throws Exception {
+    MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/books");
+    ResultActions action = mvc.perform(builder);
+    //设定预期值 与真实值进行比较，成功测试通过，失败测试失败
+    //定义本次调用的预期值
+    ContentResultMatchers content = MockMvcResultMatchers.content();
+    ResultMatcher result = content.json("{\"id\":1,\"name\":\"springboot2\",\"type\":\"springboot\"}");
+    //添加预计值到本次调用过程中进行匹配
+    action.andExpect(result);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>响应头信息匹配</p>
+<pre class="line-numbers language-none"><code class="language-none">@Test
+void testContentType(@Autowired MockMvc mvc) throws Exception {
+    MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/books");
+    ResultActions action = mvc.perform(builder);
+    //设定预期值 与真实值进行比较，成功测试通过，失败测试失败
+    //定义本次调用的预期值
+    HeaderResultMatchers header = MockMvcResultMatchers.header();
+    ResultMatcher contentType = header.string("Content-Type", "application/json");
+    //添加预计值到本次调用过程中进行匹配
+    action.andExpect(contentType);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+</li>
+</ul>
+<p>​        基本上齐了，头信息，正文信息，状态信息都有了，就可以组合出一个完美的响应结果比对结果了。以下范例就是三种信息同时进行匹配校验，也是一个完整的信息匹配过程。</p>
+<pre class="line-numbers language-none"><code class="language-none">@Test
+void testGetById(@Autowired MockMvc mvc) throws Exception {
+    MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/books");
+    ResultActions action = mvc.perform(builder);
+
+    StatusResultMatchers status = MockMvcResultMatchers.status();
+    ResultMatcher ok = status.isOk();
+    action.andExpect(ok);
+
+    HeaderResultMatchers header = MockMvcResultMatchers.header();
+    ResultMatcher contentType = header.string("Content-Type", "application/json");
+    action.andExpect(contentType);
+
+    ContentResultMatchers content = MockMvcResultMatchers.content();
+    ResultMatcher result = content.json("{\"id\":1,\"name\":\"springboot\",\"type\":\"springboot\"}");
+    action.andExpect(result);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>总结</strong></p>
+<ol>
+<li>web虚拟调用可以对本地虚拟请求的返回响应信息进行比对，分为响应头信息比对、响应体信息比对、响应状态信息比对</li>
+</ol>
+<h3 id="KF-3-4-数据层测试回滚"><a href="#KF-3-4-数据层测试回滚" class="headerlink" title="KF-3-4.数据层测试回滚"></a>KF-3-4.数据层测试回滚</h3><p>​        当前我们的测试程序可以完美的进行表现层、业务层、数据层接口对应的功能测试了，但是测试用例开发完成后，在打包的阶段由于test生命周期属于必须被运行的生命周期，如果跳过会给系统带来极高的安全隐患，所以测试用例必须执行。但是新的问题就呈现了，测试用例如果测试时产生了事务提交就会在测试过程中对数据库数据产生影响，进而产生垃圾数据。这个过程不是我们希望发生的，作为开发者测试用例该运行运行，但是过程中产生的数据不要在我的系统中留痕，这样该如何处理呢？</p>
+<p>​        springboot早就为开发者想到了这个问题，并且针对此问题给出了最简解决方案，在原始测试用例中添加注解@Transactional即可实现当前测试用例的事务不提交。当程序运行后，只要注解@Transactional出现的位置存在注解@SpringBootTest，springboot就会认为这是一个测试程序，无需提交事务，所以也就可以避免事务的提交。</p>
+<pre class="line-numbers language-none"><code class="language-none">@SpringBootTest
+@Transactional
+@Rollback(true)
+public class DaoTest {
+    @Autowired
+    private BookService bookService;
+
+    @Test
+    void testSave(){
+        Book book = new Book();
+        book.setName("springboot3");
+        book.setType("springboot3");
+        book.setDescription("springboot3");
+
+        bookService.save(book);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        如果开发者想提交事务，也可以，再添加一个@RollBack的注解，设置回滚状态为false即可正常提交事务，是不是很方便？springboot在辅助开发者日常工作这一块展现出了惊人的能力，实在太贴心了。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>在springboot的测试类中通过添加注解@Transactional来阻止测试用例提交事务</li>
+<li>通过注解@Rollback控制springboot测试类执行结果是否提交事务，需要配合注解@Transactional使用</li>
+</ol>
+<p><strong>思考</strong></p>
+<p>​        当前测试程序已经近乎完美了，但是由于测试用例中书写的测试数据属于固定数据，往往失去了测试的意义，开发者可以针对测试用例进行针对性开发，这样就有可能出现测试用例不能完美呈现业务逻辑代码是否真实有效的达成业务目标的现象，解决方案其实很容易想，测试用例的数据只要随机产生就可以了，能实现吗？咱们下一节再讲。</p>
+<h3 id="KF-3-5-测试用例数据设定"><a href="#KF-3-5-测试用例数据设定" class="headerlink" title="KF-3-5.测试用例数据设定"></a>KF-3-5.测试用例数据设定</h3><p>​        对于测试用例的数据固定书写肯定是不合理的，springboot提供了在配置中使用随机值的机制，确保每次运行程序加载的数据都是随机的。具体如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">testcase:
+  book:
+    id: ${random.int}
+    id2: ${random.int(10)}
+    type: ${random.int!5,10!}
+    name: ${random.value}
+    uuid: ${random.uuid}
+    publishTime: ${random.long}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        当前配置就可以在每次运行程序时创建一组随机数据，避免每次运行时数据都是固定值的尴尬现象发生，有助于测试功能的进行。数据的加载按照之前加载数据的形式，使用@ConfigurationProperties注解即可</p>
+<pre class="line-numbers language-none"><code class="language-none">@Component
+@Data
+@ConfigurationProperties(prefix = "testcase.book")
+public class BookCase {
+    private int id;
+    private int id2;
+    private int type;
+    private String name;
+    private String uuid;
+    private long publishTime;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        对于随机值的产生，还有一些小的限定规则，比如产生的数值性数据可以设置范围等，具体如下：</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20220223135454862.png?lastModify=1692141274" alt="image-20220223135454862"></p>
+<ul>
+<li>${random.int}表示随机整数</li>
+<li>${random.int(10)}表示10以内的随机数</li>
+<li>${random.int(10,20)}表示10到20的随机数</li>
+<li>其中()可以是任意字符，例如[]，!!均可</li>
+</ul>
+<p><strong>总结</strong></p>
+<ol>
+<li>使用随机数据可以替换测试用例中书写的固定数据，提高测试用例中的测试数据有效性</li>
+</ol>
+<h2 id="KF-4-数据层解决方案"><a href="#KF-4-数据层解决方案" class="headerlink" title="KF-4.数据层解决方案"></a><strong>KF-4.数据层解决方案</strong></h2><p>​        开发实用篇前三章基本上是开胃菜，从第四章开始，开发实用篇进入到了噩梦难度了，从这里开始，不再是单纯的在springboot内部搞事情了，要涉及到很多相关知识。本章节主要内容都是和数据存储与读取相关，前期学习的知识与数据层有关的技术基本上都围绕在数据库这个层面上，所以本章要讲的第一个大的分支就是SQL解决方案相关的内容，除此之外，数据的来源还可以是非SQL技术相关的数据操作，因此第二部分围绕着NOSQL解决方案讲解。至于什么是NOSQL解决方案，讲到了再说吧。下面就从SQL解决方案说起。</p>
+<h3 id="KF-4-1-SQL"><a href="#KF-4-1-SQL" class="headerlink" title="KF-4-1.SQL"></a>KF-4-1.SQL</h3><p>​        回忆一下之前做SSMP整合的时候数据层解决方案涉及到了哪些技术？MySQL数据库与MyBatisPlus框架，后面又学了Druid数据源的配置，所以现在数据层解决方案可以说是Mysql+Druid+MyBatisPlus。而三个技术分别对应了数据层操作的三个层面：</p>
+<ul>
+<li>数据源技术：Druid</li>
+<li>持久化技术：MyBatisPlus</li>
+<li>数据库技术：MySQL</li>
+</ul>
+<p>​        下面的研究就分为三个层面进行研究，对应上面列出的三个方面，咱们就从第一个数据源技术开始说起。</p>
+<h4 id="数据源技术"><a href="#数据源技术" class="headerlink" title="数据源技术"></a>数据源技术</h4><p>​        目前我们使用的数据源技术是Druid，运行时可以在日志中看到对应的数据源初始化信息，具体如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">INFO 28600 --- [           main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+INFO 28600 --- [           main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>​        如果不使用Druid数据源，程序运行后是什么样子呢？是独立的数据库连接对象还是有其他的连接池技术支持呢？将Druid技术对应的starter去掉再次运行程序可以在日志中找到如下初始化信息：</p>
+<pre class="line-numbers language-none"><code class="language-none">INFO 31820 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+INFO 31820 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>​        虽然没有DruidDataSource相关的信息了，但是我们发现日志中有HikariDataSource这个信息，就算不懂这是个什么技术，看名字也能看出来，以DataSource结尾的名称，这一定是一个数据源技术。我们又没有手工添加这个技术，这个技术哪里来的呢？这就是这一节要讲的知识，springboot内嵌数据源。</p>
+<p>​        数据层技术是每一个企业级应用程序都会用到的，而其中必定会进行数据库连接的管理。springboot根据开发者的习惯出发，开发者提供了数据源技术，就用你提供的，开发者没有提供，那总不能手工管理一个一个的数据库连接对象啊，怎么办？我给你一个默认的就好了，这样省心又省事，大家都方便。</p>
+<p>​        springboot提供了3款内嵌数据源技术，分别如下：</p>
+<ul>
+<li>HikariCP</li>
+<li>Tomcat提供DataSource</li>
+<li>Commons DBCP</li>
+</ul>
+<p>​        第一种，HikartCP，这是springboot官方推荐的数据源技术，作为默认内置数据源使用。啥意思？你不配置数据源，那就用这个。</p>
+<p>​        第二种，Tomcat提供的DataSource，如果不想用HikartCP，并且使用tomcat作为web服务器进行web程序的开发，使用这个。为什么是Tomcat，不是其他web服务器呢？因为web技术导入starter后，默认使用内嵌tomcat，既然都是默认使用的技术了，那就一用到底，数据源也用它的。有人就提出怎么才能不使用HikartCP用tomcat提供的默认数据源对象呢？把HikartCP技术的坐标排除掉就OK了。</p>
+<p>​        第三种，DBCP，这个使用的条件就更苛刻了，既不使用HikartCP也不使用tomcat的DataSource时，默认给你用这个。</p>
+<p>​        springboot这心操的，也是稀碎啊，就怕你自己管不好连接对象，给你一顿推荐，真是开发界的最强辅助。既然都给你奶上了，那就受用吧，怎么配置使用这些东西呢？之前我们配置druid时使用druid的starter对应的配置如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+  datasource:
+    druid:	
+   	  url: jdbc:mysql://localhost:3306/ssm_db?serverTimezone=UTC
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        换成是默认的数据源HikariCP后，直接吧druid删掉就行了，如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ssm_db?serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​         当然，也可以写上是对hikari做的配置，但是url地址要单独配置，如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ssm_db?serverTimezone=UTC
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        这就是配置hikari数据源的方式。如果想对hikari做进一步的配置，可以继续配置其独立的属性。例如：</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ssm_db?serverTimezone=UTC
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: root
+      maximum-pool-size: 50<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        如果不想使用hikari数据源，使用tomcat的数据源或者DBCP配置格式也是一样的。学习到这里，以后我们做数据层时，数据源对象的选择就不再是单一的使用druid数据源技术了，可以根据需要自行选择。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>springboot技术提供了3种内置的数据源技术，分别是Hikari、tomcat内置数据源、DBCP</li>
+</ol>
+<h4 id="持久化技术"><a href="#持久化技术" class="headerlink" title="持久化技术"></a>持久化技术</h4><p>​        说完数据源解决方案，再来说一下持久化解决方案。springboot充分发挥其最强辅助的特征，给开发者提供了一套现成的数据层技术，叫做JdbcTemplate。其实这个技术不能说是springboot提供的，因为不使用springboot技术，一样能使用它，谁提供的呢？spring技术提供的，所以在springboot技术范畴中，这个技术也是存在的，毕竟springboot技术是加速spring程序开发而创建的。</p>
+<p>​        这个技术其实就是回归到jdbc最原始的编程形式来进行数据层的开发，下面直接上操作步骤：</p>
+<p><strong>步骤①</strong>：导入jdbc对应的坐标，记得是starter</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt;
+&lt;/dependency<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>步骤②</strong>：自动装配JdbcTemplate对象</p>
+<pre class="line-numbers language-none"><code class="language-none">@SpringBootTest
+class Springboot15SqlApplicationTests {
+    @Test
+    void testJdbcTemplate(@Autowired JdbcTemplate jdbcTemplate){
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>步骤③</strong>：使用JdbcTemplate实现查询操作（非实体类封装数据的查询操作）</p>
+<pre class="line-numbers language-none"><code class="language-none">@Test
+void testJdbcTemplate(@Autowired JdbcTemplate jdbcTemplate){
+    String sql = "select * from tbl_book";
+    List&lt;Map&lt;String, Object&gt;&gt; maps = jdbcTemplate.queryForList(sql);
+    System.out.println(maps);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>步骤④</strong>：使用JdbcTemplate实现查询操作（实体类封装数据的查询操作）</p>
+<pre class="line-numbers language-none"><code class="language-none">@Test
+void testJdbcTemplate(@Autowired JdbcTemplate jdbcTemplate){
+
+    String sql = "select * from tbl_book";
+    RowMapper&lt;Book&gt; rm = new RowMapper&lt;Book&gt;() {
+        @Override
+        public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Book temp = new Book();
+            temp.setId(rs.getInt("id"));
+            temp.setName(rs.getString("name"));
+            temp.setType(rs.getString("type"));
+            temp.setDescription(rs.getString("description"));
+            return temp;
+        }
+    };
+    List&lt;Book&gt; list = jdbcTemplate.query(sql, rm);
+    System.out.println(list);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>步骤⑤</strong>：使用JdbcTemplate实现增删改操作</p>
+<pre class="line-numbers language-none"><code class="language-none">@Test
+void testJdbcTemplateSave(@Autowired JdbcTemplate jdbcTemplate){
+    String sql = "insert into tbl_book values(3,'springboot1','springboot2','springboot3')";
+    jdbcTemplate.update(sql);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        如果想对JdbcTemplate对象进行相关配置，可以在yml文件中进行设定，具体如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+  jdbc:
+    template:
+      query-timeout: -1   # 查询超时时间
+      max-rows: 500       # 最大行数
+      fetch-size: -1      # 缓存行数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>总结</strong></p>
+<ol>
+<li>SpringBoot内置JdbcTemplate持久化解决方案</li>
+<li>使用JdbcTemplate需要导入spring-boot-starter-jdbc的坐标</li>
+</ol>
+<h4 id="数据库技术"><a href="#数据库技术" class="headerlink" title="数据库技术"></a>数据库技术</h4><p>​        截止到目前，springboot给开发者提供了内置的数据源解决方案和持久化解决方案，在数据层解决方案三件套中还剩下一个数据库，莫非springboot也提供有内置的解决方案？还真有，还不是一个，三个，这一节就来说说内置的数据库解决方案。</p>
+<p>​        springboot提供了3款内置的数据库，分别是</p>
+<ul>
+<li>H2</li>
+<li>HSQL</li>
+<li>Derby</li>
+</ul>
+<p>​        以上三款数据库除了可以独立安装之外，还可以像是tomcat服务器一样，采用内嵌的形式运行在spirngboot容器中。内嵌在容器中运行，那必须是java对象啊，对，这三款数据库底层都是使用java语言开发的。</p>
+<p>​        我们一直使用MySQL数据库就挺好的，为什么有需求用这个呢？原因就在于这三个数据库都可以采用内嵌容器的形式运行，在应用程序运行后，如果我们进行测试工作，此时测试的数据无需存储在磁盘上，但是又要测试使用，内嵌数据库就方便了，运行在内存中，该测试测试，该运行运行，等服务器关闭后，一切烟消云散，多好，省得你维护外部数据库了。这也是内嵌数据库的最大优点，方便进行功能测试。</p>
+<p>​        下面以H2数据库为例讲解如何使用这些内嵌数据库，操作步骤也非常简单，简单才好用嘛</p>
+<p><strong>步骤①</strong>：导入H2数据库对应的坐标，一共2个</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;dependency&gt;
+    &lt;groupId&gt;com.h2database&lt;/groupId&gt;
+    &lt;artifactId&gt;h2&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+&lt;/dependency&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>步骤②</strong>：将工程设置为web工程，启动工程时启动H2数据库</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+&lt;/dependency&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>步骤③</strong>：通过配置开启H2数据库控制台访问程序，也可以使用其他的数据库连接软件操作</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        web端访问路径/h2，访问密码123456，如果访问失败，先配置下列数据源，启动程序运行后再次访问/h2路径就可以正常访问了</p>
+<pre class="line-numbers language-none"><code class="language-none">datasource:
+  url: jdbc:h2:~/test
+  hikari:
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 123456<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>步骤④</strong>：使用JdbcTemplate或MyBatisPlus技术操作数据库</p>
+<p>（略）</p>
+<p>​        其实我们只是换了一个数据库而已，其他的东西都不受影响。一个重要提醒，别忘了，上线时，把内存级数据库关闭，采用MySQL数据库作为数据持久化方案，关闭方式就是设置enabled属性为false即可。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>H2内嵌式数据库启动方式，添加坐标，添加配置</li>
+<li>H2数据库线上运行时请务必关闭</li>
+</ol>
+<p>​        到这里SQL相关的数据层解决方案就讲完了，现在的可选技术就丰富的多了。</p>
+<ul>
+<li>数据源技术：Druid、Hikari、tomcat DataSource、DBCP</li>
+<li>持久化技术：MyBatisPlus、MyBatis、JdbcTemplate</li>
+<li>数据库技术：MySQL、H2、HSQL、Derby</li>
+</ul>
+<p>​        现在开发程序时就可以在以上技术中任选一种组织成一套数据库解决方案了。</p>
+<h3 id="KF-4-2-NoSQL"><a href="#KF-4-2-NoSQL" class="headerlink" title="KF-4-2.NoSQL"></a>KF-4-2.NoSQL</h3><p>​        SQL数据层解决方案说完了，下面来说收NoSQL数据层解决方案。这个NoSQL是什么意思呢？从字面来看，No表示否定，NoSQL就是非关系型数据库解决方案，意思就是数据该存存该取取，只是这些数据不放在关系型数据库中了，那放在哪里？自然是一些能够存储数据的其他相关技术中了，比如Redis等。本节讲解的内容就是springboot如何整合这些技术，在springboot官方文档中提供了10种相关技术的整合方案，我们将讲解国内市场上最流行的几款NoSQL数据库整合方案，分别是Redis、MongoDB、ES。</p>
+<p>​        因为每个小伙伴学习这门课程的时候起点不同，为了便于各位学习者更好的学习，每种技术在讲解整合前都会先讲一下安装和基本使用，然后再讲整合。如果对某个技术比较熟悉的小伙伴可以直接跳过安装的学习过程，直接看整合方案即可。此外上述这些技术最佳使用方案都是在Linux服务器上部署，但是考虑到各位小伙伴的学习起点差异过大，所以下面的课程都是以Windows平台作为安装基础讲解，如果想看Linux版软件安装，可以再找到对应技术的学习文档查阅学习。</p>
+<h4 id="SpringBoot整合Redis"><a href="#SpringBoot整合Redis" class="headerlink" title="SpringBoot整合Redis"></a>SpringBoot整合Redis</h4><p>​        Redis是一款采用key-value数据存储格式的内存级NoSQL数据库，重点关注数据存储格式，是key-value格式，也就是键值对的存储形式。与MySQL数据库不同，MySQL数据库有表、有字段、有记录，Redis没有这些东西，就是一个名称对应一个值，并且数据以存储在内存中使用为主。什么叫以存储在内存中为主？其实Redis有它的数据持久化方案，分别是RDB和AOF，但是Redis自身并不是为了数据持久化而生的，主要是在内存中保存数据，加速数据访问的，所以说是一款内存级数据库。</p>
+<p>​        Redis支持多种数据存储格式，比如可以直接存字符串，也可以存一个map集合，list集合，后面会涉及到一些不同格式的数据操作，这个需要先学习一下才能进行整合，所以在基本操作中会介绍一些相关操作。下面就先安装，再操作，最后说整合</p>
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>​        windows版安装包下载地址：<a target="_blank" rel="noopener" href="https://github.com/tporadowski/redis/releases">https://github.com/tporadowski/redis/releases</a></p>
+<p>​        下载的安装包有两种形式，一种是一键安装的msi文件，还有一种是解压缩就能使用的zip文件，哪种形式都行，这里就不介绍安装过程了，本课程采用的是msi一键安装的msi文件进行安装的。</p>
+<p>​        啥是msi，其实就是一个文件安装包，不仅安装软件，还帮你把安装软件时需要的功能关联在一起，打包操作。比如如安装序列、创建和设置安装路径、设置系统依赖项、默认设定安装选项和控制安装过程的属性。说简单点就是一站式服务，安装过程一条龙操作一气呵成，就是为小白用户提供的软件安装程序。</p>
+<p>​        安装完毕后会得到如下文件，其中有两个文件对应两个命令，是启动Redis的核心命令，需要再CMD命令行模式执行。</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20220224091709173.png?lastModify=1692141274" alt="image-20220224091709173"></p>
+<p><strong>启动服务器</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">redis-server.exe redis.windows.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>​        初学者无需调整服务器对外服务端口，默认6379。</p>
+<p><strong>启动客户端</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">redis-cli.exe<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>​        如果启动redis服务器失败，可以先启动客户端，然后执行shutdown操作后退出，此时redis服务器就可以正常执行了。</p>
+<h5 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h5><p>​        服务器启动后，使用客户端就可以连接服务器，类似于启动完MySQL数据库，然后启动SQL命令行操作数据库。        </p>
+<p>​        放置一个字符串数据到redis中，先为数据定义一个名称，比如name,age等，然后使用命令set设置数据到redis服务器中即可</p>
+<pre class="line-numbers language-none"><code class="language-none">set name itheima
+set age 12<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>​        从redis中取出已经放入的数据，根据名称取，就可以得到对应数据。如果没有对应数据就会得到(nil)</p>
+<pre class="line-numbers language-none"><code class="language-none">get name
+get age<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>​        以上使用的数据存储是一个名称对应一个值，如果要维护的数据过多，可以使用别的数据存储结构。例如hash，它是一种一个名称下可以存储多个数据的存储模型，并且每个数据也可以有自己的二级存储名称。向hash结构中存储数据格式如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">hset a a1 aa1		#对外key名称是a，在名称为a的存储模型中，a1这个key中保存了数据aa1
+hset a a2 aa2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>​        获取hash结构中的数据命令如下</p>
+<pre class="line-numbers language-none"><code class="language-none">hget a a1			#得到aa1
+hget a a2			#得到aa2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>​        有关redis的基础操作就普及到这里，需要全面掌握redis技术，请参看相关教程学习。</p>
+<h5 id="整合"><a href="#整合" class="headerlink" title="整合"></a>整合</h5><p>​        在进行整合之前先梳理一下整合的思想，springboot整合任何技术其实就是在springboot中使用对应技术的API。如果两个技术没有交集，就不存在整合的概念了。所谓整合其实就是使用springboot技术去管理其他技术，几个问题是躲不掉的。</p>
+<p>​        第一，需要先导入对应技术的坐标，而整合之后，这些坐标都有了一些变化</p>
+<p>​        第二，任何技术通常都会有一些相关的设置信息，整合之后，这些信息如何写，写在哪是一个问题</p>
+<p>​        第三，没有整合之前操作如果是模式A的话，整合之后如果没有给开发者带来一些便捷操作，那整合将毫无意义，所以整合后操作肯定要简化一些，那对应的操作方式自然也有所不同</p>
+<p>​        按照上面的三个问题去思考springboot整合所有技术是一种通用思想，在整合的过程中会逐步摸索出整合的套路，而且适用性非常强，经过若干种技术的整合后基本上可以总结出一套固定思维。</p>
+<p>​        下面就开始springboot整合redis，操作步骤如下：</p>
+<p><strong>步骤①</strong>：导入springboot整合redis的starter坐标</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        上述坐标可以在创建模块的时候通过勾选的形式进行选择，归属NoSQL分类中</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20220224101142220.png?lastModify=1692141274" alt="image-20220224101142220"></p>
+<p><strong>步骤②</strong>：进行基础配置</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+  redis:
+    host: localhost
+    port: 6379<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        操作redis，最基本的信息就是操作哪一台redis服务器，所以服务器地址属于基础配置信息，不可缺少。但是即便你不配置，目前也是可以用的。因为以上两组信息都有默认配置，刚好就是上述配置值。</p>
+<p><strong>步骤③</strong>：使用springboot整合redis的专用客户端接口操作，此处使用的是RedisTemplate</p>
+<pre class="line-numbers language-none"><code class="language-none">@SpringBootTest
+class Springboot16RedisApplicationTests {
+    @Autowired
+    private RedisTemplate redisTemplate;
+    @Test
+    void set() {
+        ValueOperations ops = redisTemplate.opsForValue();
+        ops.set("age",41);
+    }
+    @Test
+    void get() {
+        ValueOperations ops = redisTemplate.opsForValue();
+        Object age = ops.get("name");
+        System.out.println(age);
+    }
+    @Test
+    void hset() {
+        HashOperations ops = redisTemplate.opsForHash();
+        ops.put("info","b","bb");
+    }
+    @Test
+    void hget() {
+        HashOperations ops = redisTemplate.opsForHash();
+        Object val = ops.get("info", "b");
+        System.out.println(val);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        在操作redis时，需要先确认操作何种数据，根据数据种类得到操作接口。例如使用opsForValue()获取string类型的数据操作接口，使用opsForHash()获取hash类型的数据操作接口，剩下的就是调用对应api操作了。各种类型的数据操作接口如下：</p>
+<p><img src="file://E:/Learning-Path/SpringBoot/%E5%BC%80%E5%8F%91%E5%AE%9E%E7%94%A8%E7%AF%87%E2%80%94%E8%B5%84%E6%96%99/%E8%AE%B2%E4%B9%89/img/image-20220224103104908.png?lastModify=1692141274" alt="image-20220224103104908"></p>
+<p><strong>总结</strong></p>
+<ol>
+<li>springboot整合redis步骤<ol>
+<li>导入springboot整合redis的starter坐标</li>
+<li>进行基础配置</li>
+<li>使用springboot整合redis的专用客户端接口RedisTemplate操作</li>
+</ol>
+</li>
+</ol>
+<p><strong>StringRedisTemplate</strong></p>
+<p>​        由于redis内部不提供java对象的存储格式，因此当操作的数据以对象的形式存在时，会进行转码，转换成字符串格式后进行操作。为了方便开发者使用基于字符串为数据的操作，springboot整合redis时提供了专用的API接口StringRedisTemplate，你可以理解为这是RedisTemplate的一种指定数据泛型的操作API。</p>
+<pre class="line-numbers language-none"><code class="language-none">@SpringBootTest
+public class StringRedisTemplateTest {
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
+    @Test
+    void get(){
+        ValueOperations&lt;String, String&gt; ops = stringRedisTemplate.opsForValue();
+        String name = ops.get("name");
+        System.out.println(name);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p><strong>redis客户端选择</strong></p>
+<pre class="line-numbers language-none"><code class="language-none">springboot整合redis技术提供了多种客户端兼容模式，默认提供的是lettucs客户端技术，也可以根据需要切换成指定客户端技术，例如jedis客户端技术，切换成jedis客户端技术操作步骤如下：<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><strong>步骤①</strong>：导入jedis坐标</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;dependency&gt;
+    &lt;groupId&gt;redis.clients&lt;/groupId&gt;
+    &lt;artifactId&gt;jedis&lt;/artifactId&gt;
+&lt;/dependency&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​        jedis坐标受springboot管理，无需提供版本号</p>
+<p><strong>步骤②</strong>：配置客户端技术类型，设置为jedis</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+  redis:
+    host: localhost
+    port: 6379
+    client-type: jedis<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>步骤③</strong>：根据需要设置对应的配置</p>
+<pre class="line-numbers language-none"><code class="language-none">spring:
+  redis:
+    host: localhost
+    port: 6379
+    client-type: jedis
+    lettuce:
+      pool:
+        max-active: 16
+    jedis:
+      pool:
+        max-active: 16<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>lettcus与jedis区别</strong></p>
+<ul>
+<li>jedis连接Redis服务器是直连模式，当多线程模式下使用jedis会存在线程安全问题，解决方案可以通过配置连接池使每个连接专用，这样整体性能就大受影响</li>
+<li>lettcus基于Netty框架进行与Redis服务器连接，底层设计中采用StatefulRedisConnection。 StatefulRedisConnection自身是线程安全的，可以保障并发访问安全问题，所以一个连接可以被多线程复用。当然lettcus也支持多连接实例一起工作</li>
+</ul>
+<p><strong>总结</strong></p>
+<ol>
+<li>springboot整合redis提供了StringRedisTemplate对象，以字符串的数据格式操作redis</li>
+<li>如果需要切换redis客户端实现技术，可以通过配置的形式进行</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/yunyd/about" rel="external nofollow noreferrer">llllz.</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://gitee.com/yunyd/yunyd/posts/fdb4f820.html">https://gitee.com/yunyd/yunyd/posts/fdb4f820.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/yunyd/about" target="_blank">llllz.</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/yunyd/tags/SpringBoot/">
+                                    <span class="chip bg-color">SpringBoot</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/yunyd/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,qzone,wechat,weibo,twitter,facebook,google,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/yunyd/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/yunyd/medias/alipay.jpg#%20%E6%94%AF%E4%BB%98%E5%AE%9D%E4%BA%8C%E7%BB%B4%E7%A0%81%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/yunyd/medias/WechatPay.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/yunyd/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    .v[data-class="v"] .vwrap .vheader .vinput {
+      width: 32%;
+      border-bottom: 1px dashed #dedede;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/yunyd/libs/valine/av-min.js"></script>
+<script src="/yunyd/libs/valine/Valine.min.js"></script>
+<script>
+let metaPlaceholder = {"nick":"昵称(必填)","mail":"qq邮箱(必填)","link":"网址(https://)"} ;
+//这里要换行
+new Valine({
+        el: '#vcomments',
+        appId: '5WoI8iT8zsozK65NimH06jNP-gzGzoHsz',
+        appKey: 'RcaNKs50Vbews4w8vbHk1Ty7',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'monsterid',
+        pageSize: '10',
+        lang: 'zh-CN',
+        placeholder: '留下你的足迹..',
+        meta: ["nick", "mail", "link"],
+        recordIP: 'true' === 'true',
+        enableQQ: 'monsterid',
+        requiredFields: ["2428170173@qq.com"],
+        master: ["2428170173@qq.com"],
+        friends: [""],
+        tagMeta: ["博主", "小伙伴", "访客"],
+        metaPlaceholder: metaPlaceholder,
+
+    });
+
+    document.body.addEventListener('click', function(e) {
+        if (e.target.classList.contains('vsubmit')) {
+            const email = document.querySelector('input[type=email]');
+            const nick = document.querySelector('input[name=nick]');
+            const reg = /^[A-Za-z0-9_-\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+            if (!email.value || !nick.value || !reg.test(email.value)) {
+                const str = `<div class="valert txt-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+                const vmark = document.querySelector('.vmark');
+                vmark.innerHTML = str;
+                vmark.style.display = 'block';
+
+                e.stopPropagation();
+
+                setTimeout(function() {
+                    vmark.style.display = 'none';
+                    vmark.innerHTML = '';
+                }, 2500);
+            }
+        }
+        }, true);
+</script>
+
+
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/yunyd/posts/53d0684b.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/yunyd/medias/z003.jpg" class="responsive-img" alt="Linux">
+                        
+                        <span class="card-title">Linux</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            linux常用命令
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-26
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/yunyd/categories/Linux/" class="post-category">
+                                    Linux
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/yunyd/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/yunyd/posts/64bda99a.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/yunyd/medias/w.jpg" class="responsive-img" alt="SpringBoot复习 -1">
+                        
+                        <span class="card-title">SpringBoot复习 -1</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            SpringBoot复习 -1
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/yunyd/categories/SpringBoot/" class="post-category">
+                                    SpringBoot
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/yunyd/tags/SpringBoot/">
+                        <span class="chip bg-color">SpringBoot</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: llllz_liu<br />'
+            + '文章作者: llllz.<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/yunyd/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/yunyd/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/yunyd/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/yunyd/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/yunyd/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/yunyd/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="6759445583"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/yunyd/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2023</span>
+            
+            <span id="year">2023</span>
+            <a href="/yunyd/about" target="_blank">llllz.</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">151.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2023";
+                    var startMonth = "7";
+                    var startDate = "20";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:2428170173@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2428170173" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2428170173" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/yunyd/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/yunyd/libs/materialize/materialize.min.js"></script>
+    <script src="/yunyd/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/yunyd/libs/aos/aos.js"></script>
+    <script src="/yunyd/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.11/js/lightgallery-all.min.js"></script>
+    <script src="/yunyd/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?aaa6c944b0ed07922901d7fc571a171d";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/yunyd/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/yunyd/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+<!-- 深色模式按钮 -->
+    <script>
+        if (localStorage.getItem('dark') === '1') {
+        document.body.classList.add('dark');
+        }
+        else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+        document.body.classList.add('dark');
+        } 
+        else if (matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+        }
+    </script>
+    <a onclick="switchNightMode()" id="sma">
+        <i class="fas fa-lightbulb" id="nightMode" aria-hidden="true"></i>
+    </a>
+
+    <!-- 天气接口控件   -->
+    
+        <script type="text/javascript">
+        WIDGET = {FID: 'zLkJSQpqsh'}
+        </script>
+    <!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> -->
+
+    <script type="text/javascript">
+      var windowWidth = $(window).width();
+      if (windowWidth > 768) {
+          document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
+      }
+    </script>
+    
+
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: "4xxxxxxxe"
+        });
+        daovoice('update');
+    </script>
+    
+
+	
+    
+
+    
+
+    
+    <script type="text/javascript" src="/yunyd/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/yunyd/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
