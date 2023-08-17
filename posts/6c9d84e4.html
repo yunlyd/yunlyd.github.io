@@ -529,7 +529,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-15
+                    2023-08-17
                 </div>
                 
 
@@ -561,21 +561,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="5-Java内存模型之JMM"><a href="#5-Java内存模型之JMM" class="headerlink" title="5. Java内存模型之JMM"></a>5. Java内存模型之JMM</h1><h2 id="5-1-先从大场面试开始"><a href="#5-1-先从大场面试开始" class="headerlink" title="5.1 先从大场面试开始"></a>5.1 先从大场面试开始</h2><p>●你知道什么是Java内存模型JMM吗？</p>
+                <h1 id="Java内存模型之JMM"><a href="#Java内存模型之JMM" class="headerlink" title="Java内存模型之JMM"></a>Java内存模型之JMM</h1><h2 id="1-1-先从大场面试开始"><a href="#1-1-先从大场面试开始" class="headerlink" title="1.1 先从大场面试开始"></a>1.1 先从大场面试开始</h2><p>●你知道什么是Java内存模型JMM吗？</p>
 <p>●JMM和volatile他们两个之间的关系？</p>
 <p>●JMM没有那些特征或者它的三大特征是什么？</p>
 <p>●为什么要有JMM，它为什么出现？作用和功能是什么？</p>
 <p>●happens-before先行并发原则你有了解过吗？</p>
-<h2 id="5-2-计算机硬件存储体系"><a href="#5-2-计算机硬件存储体系" class="headerlink" title="5.2 计算机硬件存储体系"></a>5.2 计算机硬件存储体系</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/23.jpg"></p>
+<h2 id="1-2-计算机硬件存储体系"><a href="#1-2-计算机硬件存储体系" class="headerlink" title="1.2 计算机硬件存储体系"></a>1.2 计算机硬件存储体系</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/23.jpg"></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/24.jpg"></p>
 <p>CPU的运行并不是直接操作内存而是先把内存里面的数据读到缓存，而内存的读和写操作的时候会造成不一致的问题。JVM规范中试图定义一种Java内存模型来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致性的内存访问效果。</p>
-<h2 id="5-3-Java内存模型Java-Memory-Model"><a href="#5-3-Java内存模型Java-Memory-Model" class="headerlink" title="5.3 Java内存模型Java Memory Model"></a>5.3 Java内存模型Java Memory Model</h2><p>JMM（Java内存模型Java Memory Model）本身是一种抽象的概念并不真实存在，它仅仅描述的是一组约定或规范，通过这组规范定义了程序中（尤其是多线程）各个变量的读写访问方式并决定一个线程对共享变量的写入以及如何变成对另一个线程可见，关键技术点都是围绕多线程的原子性、可见性和有序性展开的。</p>
+<h2 id="1-3-Java内存模型Java-Memory-Model"><a href="#1-3-Java内存模型Java-Memory-Model" class="headerlink" title="1.3 Java内存模型Java Memory Model"></a>1.3 Java内存模型Java Memory Model</h2><p>JMM（Java内存模型Java Memory Model）本身是一种抽象的概念并不真实存在，它仅仅描述的是一组约定或规范，通过这组规范定义了程序中（尤其是多线程）各个变量的读写访问方式并决定一个线程对共享变量的写入以及如何变成对另一个线程可见，关键技术点都是围绕多线程的原子性、可见性和有序性展开的。</p>
 <p>能干嘛？</p>
 <ul>
 <li>通过JMM来实现线程和主内存之间的抽象关系</li>
 <li>屏蔽各个硬件平台和操作系统的内存访问差异以实现让Java程序再各种平台下都能达到一致性的内存访问效果。</li>
 </ul>
-<h2 id="5-4-JMM规范下三大特性"><a href="#5-4-JMM规范下三大特性" class="headerlink" title="5.4 JMM规范下三大特性"></a>5.4 JMM规范下三大特性</h2><ul>
+<h2 id="1-4-JMM规范下三大特性"><a href="#1-4-JMM规范下三大特性" class="headerlink" title="1.4 JMM规范下三大特性"></a>1.4 JMM规范下三大特性</h2><ul>
 <li><strong>可见性</strong>：是指当一个线程修改了某一个共享变量的值，其他线程是否能够立即知道该变更，JMM规定了所有的变量都存储在主内存中。</li>
 </ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/25.jpg"></p>
@@ -617,7 +617,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="5-5JMM规范下多线程对变量的读写过程"><a href="#5-5JMM规范下多线程对变量的读写过程" class="headerlink" title="5.5JMM规范下多线程对变量的读写过程"></a>5.5JMM规范下多线程对变量的读写过程</h2><p>由于JVM运行程序的实体是线程，而每个线程创建时JVM都会为其创建一个工作内存（有的地方成为栈空间），工作内存是每个线程的私有数据区域，而Java内存模型中规定所有变量都存储在主内存，主内存是共享内存区域，所有线程都可以访问，但线程对变量的操作（读写赋值等）必须在工作内存中进行，首先要将变量从主内存拷贝到线程自己的工作内存空间，然后对变量进行操作，操作完成后再将变量写回主内存，不能直接操作主内存中的变量，各个线程中的工作内存存储着主内存中的变量副本拷贝，因此不同的线程无法访问对方的工作内存，线程间的通信（传值）必须通过主内存来完成，其简要访问过程如下图：</p>
+<h2 id="1-5JMM规范下多线程对变量的读写过程"><a href="#1-5JMM规范下多线程对变量的读写过程" class="headerlink" title="1.5JMM规范下多线程对变量的读写过程"></a>1.5JMM规范下多线程对变量的读写过程</h2><p>由于JVM运行程序的实体是线程，而每个线程创建时JVM都会为其创建一个工作内存（有的地方成为栈空间），工作内存是每个线程的私有数据区域，而Java内存模型中规定所有变量都存储在主内存，主内存是共享内存区域，所有线程都可以访问，但线程对变量的操作（读写赋值等）必须在工作内存中进行，首先要将变量从主内存拷贝到线程自己的工作内存空间，然后对变量进行操作，操作完成后再将变量写回主内存，不能直接操作主内存中的变量，各个线程中的工作内存存储着主内存中的变量副本拷贝，因此不同的线程无法访问对方的工作内存，线程间的通信（传值）必须通过主内存来完成，其简要访问过程如下图：</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/27.jpg"></p>
 <p>JMM定义了线程和主内存之间的抽象关系：</p>
 <ul>
@@ -631,8 +631,8 @@
 <li>线程对共享变量所有的操作都必须先在线程自己的工作内存中进行后写回主内存，不能直接从主内存在读写（不能越级）</li>
 <li>不同线程之间也无法直接访问其他线程的工作内存中的变量，线程间变量值的传递需要通过主内存来进行（同级不能互相访问）</li>
 </ul>
-<h2 id="5-6-JMM规范下多线程先行发生原则之happens-before"><a href="#5-6-JMM规范下多线程先行发生原则之happens-before" class="headerlink" title="5.6 JMM规范下多线程先行发生原则之happens-before"></a>5.6 JMM规范下多线程先行发生原则之happens-before</h2><p>在JVM中，如果一个操作执行的结果需要对另一个操作可见或者代码重排序，那么这两个操作之间必须存在happens-before（先行发生）原则，逻辑上的先后关系。</p>
-<h4 id="5-6-1-x-y案例说明"><a href="#5-6-1-x-y案例说明" class="headerlink" title="5.6.1 x,y案例说明"></a>5.6.1 x,y案例说明</h4><table>
+<h2 id="1-6-JMM规范下多线程先行发生原则之happens-before"><a href="#1-6-JMM规范下多线程先行发生原则之happens-before" class="headerlink" title="1.6 JMM规范下多线程先行发生原则之happens-before"></a>1.6 JMM规范下多线程先行发生原则之happens-before</h2><p>在JVM中，如果一个操作执行的结果需要对另一个操作可见或者代码重排序，那么这两个操作之间必须存在happens-before（先行发生）原则，逻辑上的先后关系。</p>
+<h4 id="1-6-1-x-y案例说明"><a href="#1-6-1-x-y案例说明" class="headerlink" title="1.6.1 x,y案例说明"></a>1.6.1 x,y案例说明</h4><table>
 <thead>
 <tr>
 <th>——————-</th>
@@ -654,14 +654,14 @@
 </tbody></table>
 <p>问题？</p>
 <p>y是否等于5呢？如果线程A的操作（x=5）happens-before（先行发生）线程B的操作(y=x)，那么可以确定线程B执行y=5一定成立；如果他们不存在happens-before原则，那么y=5不一定成立这就是happens-before原则的为例———–&gt;包含可见性和有序性的约束</p>
-<h4 id="5-6-2-先行并发原则说明"><a href="#5-6-2-先行并发原则说明" class="headerlink" title="5.6.2 先行并发原则说明"></a>5.6.2 先行并发原则说明</h4><p>如果Java内存模型中所有的有序性都仅靠volatile和synchronized来完成，那么有很多操作都将变得非常罗嗦，但是我们在编写Java并发代码的时候并没有察觉到这一点。</p>
+<h4 id="1-6-2-先行并发原则说明"><a href="#1-6-2-先行并发原则说明" class="headerlink" title="1.6.2 先行并发原则说明"></a>1.6.2 先行并发原则说明</h4><p>如果Java内存模型中所有的有序性都仅靠volatile和synchronized来完成，那么有很多操作都将变得非常罗嗦，但是我们在编写Java并发代码的时候并没有察觉到这一点。</p>
 <p>我们没有时时、处处、次次，添加volatile和synchronized来完成程序，这是因为Java语言中JMM原则下，有一个“先行发生”（happens-before）的原则限制和规矩，给你理好了规矩！</p>
 <p>这个原则非常重要：它是判断数据是否存在竞争，线程是否安全的非常有用的手段。依赖这个原则，我们可以通过几条简单规则一揽子解决并发环境下两个操作之间是否可能存在冲突的所有问题，而不需要陷入Java内存模型晦涩难懂的底层编译原理之中。</p>
-<h4 id="5-6-3-happens-before总原则"><a href="#5-6-3-happens-before总原则" class="headerlink" title="5.6.3 happens-before总原则"></a>5.6.3 happens-before总原则</h4><ul>
+<h4 id="1-6-3-happens-before总原则"><a href="#1-6-3-happens-before总原则" class="headerlink" title="1.6.3 happens-before总原则"></a>1.6.3 happens-before总原则</h4><ul>
 <li>如果一个操作happens-before另一个操作，那么第一个操作的执行结果将对第二个操作可见，而且第一个操作的执行顺序排在第二个操作之前</li>
 <li>如果两个操作之间存在happens-before关系，并不意味着一定要按照happens-before原则制定的顺序来执行。如果重排之后的执行结果与按照happens-before关系来执行的结果一致，那么这种重排序并不非法。</li>
 </ul>
-<h4 id="5-6-4-happens-before之8条"><a href="#5-6-4-happens-before之8条" class="headerlink" title="5.6.4 happens-before之8条"></a>5.6.4 happens-before之8条</h4><p>从JDK 5开始，Java使用新的JSR-133内存模型，提供了 happens-before 原则来辅助保证程序执行的原子性、可见性以及有序性的问题，它是判断数据是否存在竞争、线程是否安全的依据，happens-before 原则内容如下：</p>
+<h4 id="1-6-4-happens-before之8条"><a href="#1-6-4-happens-before之8条" class="headerlink" title="1.6.4 happens-before之8条"></a>1.6.4 happens-before之8条</h4><p>从JDK 5开始，Java使用新的JSR-133内存模型，提供了 happens-before 原则来辅助保证程序执行的原子性、可见性以及有序性的问题，它是判断数据是否存在竞争、线程是否安全的依据，happens-before 原则内容如下：</p>
 <ol>
 <li>次序规则：一个线程内，按照代码的顺序，写在前面的操作先行发生于写在后面的操作，也就是说前一个操作的结果可以被后续的操作获取（保证语义串行性，按照代码顺序执行）。比如前一个操作把变量x赋值为1，那后面一个操作肯定能知道x已经变成了1</li>
 <li>锁定规则：一个unLock操作先行发生于后面对同一个锁的lock操作（后面指时间上的先后）</li>
@@ -677,7 +677,7 @@
 <li>线程终止规则（Thread Termination Rule）：线程中的所有操作都优先发生于对此线程的终止检测，我们可以通过isAlive()等手段检测线程是否已经终止执行</li>
 <li>对象终结规则（Finalizer Rule）：一个对象的初始化完成（构造函数执行结束）先行发生于它的finalize(）方法的开始——-&gt;对象没有完成初始化之前，是不能调用finalized()方法的</li>
 </ol>
-<h4 id="5-6-5-happens-before小总结"><a href="#5-6-5-happens-before小总结" class="headerlink" title="5.6.5 happens-before小总结"></a>5.6.5 happens-before小总结</h4><ul>
+<h4 id="1-6-5-happens-before小总结"><a href="#1-6-5-happens-before小总结" class="headerlink" title="1.6.5 happens-before小总结"></a>1.6.5 happens-before小总结</h4><ul>
 <li>在Java语言里面，Happens-before的语义本质上是一种可见性</li>
 <li>A happens-before B ,意味着A发生过的事情对B而言是可见的，无论A事件和B事件是否发生在同一线程里</li>
 <li>JVM的设计分为两部分：<ul>
@@ -686,7 +686,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="5-6-6-案例说明"><a href="#5-6-6-案例说明" class="headerlink" title="5.6.6 案例说明"></a>5.6.6 案例说明</h4><p>初始案例演示：</p>
+<h4 id="1-6-6-案例说明"><a href="#1-6-6-案例说明" class="headerlink" title="1.6.6 案例说明"></a>1.6.6 案例说明</h4><p>初始案例演示：</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">int</span> value <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
     <span class="token keyword">return</span> value<span class="token punctuation">;</span>
@@ -1601,7 +1601,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">154.9k</span>&nbsp;字
+                class="white-color">157.4k</span>&nbsp;字
             
             
             

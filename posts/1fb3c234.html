@@ -529,7 +529,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-14
+                    2023-08-17
                 </div>
                 
 
@@ -561,11 +561,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="CompletableFuture"><a href="#CompletableFuture" class="headerlink" title="CompletableFuture"></a>CompletableFuture</h1><h2 id="2-1-Future接口理论知识复习"><a href="#2-1-Future接口理论知识复习" class="headerlink" title="2.1 Future接口理论知识复习"></a>2.1 Future接口理论知识复习</h2><p>Future接口（FutureTask实现类）定义了操作异步任务执行一些方法，如获取异步任务的执行结果、取消异步任务的执行、判断任务是否被取消、判断任务执行是否完毕等。</p>
+                <h1 id="CompletableFuture"><a href="#CompletableFuture" class="headerlink" title="CompletableFuture"></a>CompletableFuture</h1><h2 id="1-1-Future接口理论知识复习"><a href="#1-1-Future接口理论知识复习" class="headerlink" title="1.1 Future接口理论知识复习"></a>1.1 Future接口理论知识复习</h2><p>Future接口（FutureTask实现类）定义了操作异步任务执行一些方法，如获取异步任务的执行结果、取消异步任务的执行、判断任务是否被取消、判断任务执行是否完毕等。</p>
 <p>举例：比如主线程让一个子线程去执行任务，子线程可能比较耗时，启动子线程开始执行任务后，主线程就去做其他事情了，忙完其他事情或者先执行完，过了一会再才去获取子任务的执行结果或变更的任务状态（老师上课时间想喝水，他继续讲课不结束上课这个主线程，让学生去小卖部帮老师买水完成这个耗时和费力的任务）。</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/1.jpg"></p>
-<h2 id="2-2-Future接口常用实现类FutureTask异步任务"><a href="#2-2-Future接口常用实现类FutureTask异步任务" class="headerlink" title="2.2 Future接口常用实现类FutureTask异步任务"></a>2.2 Future接口常用实现类FutureTask异步任务</h2><h4 id="2-2-1-Future接口能干什么"><a href="#2-2-1-Future接口能干什么" class="headerlink" title="2.2.1 Future接口能干什么"></a>2.2.1 Future接口能干什么</h4><p>Future是Java5新加的一个接口，它提供一种异步并行计算的功能，如果主线程需要执行一个很耗时的计算任务，我们会就可以通过Future把这个任务放进异步线程中执行，主线程继续处理其他任务或者先行结束，再通过Future获取计算结果。</p>
-<h4 id="2-2-2-Future接口相关架构"><a href="#2-2-2-Future接口相关架构" class="headerlink" title="2.2.2 Future接口相关架构"></a>2.2.2 Future接口相关架构</h4><p>●目的：异步多线程任务执行且返回有结果，三个特点：多线程、有返回、异步任务（班长为老师去买水作为新启动的异步多线程任务且买到水有结果返回）</p>
+<h2 id="1-2-Future接口常用实现类FutureTask异步任务"><a href="#1-2-Future接口常用实现类FutureTask异步任务" class="headerlink" title="1.2 Future接口常用实现类FutureTask异步任务"></a>1.2 Future接口常用实现类FutureTask异步任务</h2><h4 id="1-2-1-Future接口能干什么"><a href="#1-2-1-Future接口能干什么" class="headerlink" title="1.2.1 Future接口能干什么"></a>1.2.1 Future接口能干什么</h4><p>Future是Java5新加的一个接口，它提供一种异步并行计算的功能，如果主线程需要执行一个很耗时的计算任务，我们会就可以通过Future把这个任务放进异步线程中执行，主线程继续处理其他任务或者先行结束，再通过Future获取计算结果。</p>
+<h4 id="1-2-2-Future接口相关架构"><a href="#1-2-2-Future接口相关架构" class="headerlink" title="1.2.2 Future接口相关架构"></a>1.2.2 Future接口相关架构</h4><p>●目的：异步多线程任务执行且返回有结果，三个特点：多线程、有返回、异步任务（班长为老师去买水作为新启动的异步多线程任务且买到水有结果返回）</p>
 <p>●代码实现：Runnable接口+Callable接口+Future接口和FutureTask实现类。</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/2.jpg"></p>
 <p>FutureTask开启异步任务：</p>
@@ -591,7 +591,7 @@ class MyThread implements Callable&lt;String&gt; {
 
 
 
-<h4 id="2-2-3-Future编码实战和优缺点分析"><a href="#2-2-3-Future编码实战和优缺点分析" class="headerlink" title="2.2.3 Future编码实战和优缺点分析"></a>2.2.3 Future编码实战和优缺点分析</h4><p>●优点：Future+线程池异步多线程任务配合，能显著提高程序的运行效率。</p>
+<h4 id="1-2-3-Future编码实战和优缺点分析"><a href="#1-2-3-Future编码实战和优缺点分析" class="headerlink" title="1.2.3 Future编码实战和优缺点分析"></a>1.2.3 Future编码实战和优缺点分析</h4><p>●优点：Future+线程池异步多线程任务配合，能显著提高程序的运行效率。</p>
 <p>●缺点：</p>
 <p>​    ○get()阻塞—一旦调用get()方法求结果，一旦调用不见不散，非要等到结果才会离开，不管你是否计算完成，如果没有计算完成容易程序堵塞。</p>
 <p>​    ○isDone()轮询—轮询的方式会耗费无谓的cpu资源，而且也不见得能及时得到计算结果，如果想要异步获取结果，通常会以轮询的方式去获取结果，尽量不要阻塞。</p>
@@ -645,7 +645,7 @@ class MyThread implements Callable&lt;String&gt; {
 
 
 
-<h4 id="2-2-4-完成一些复杂的任务"><a href="#2-2-4-完成一些复杂的任务" class="headerlink" title="2.2.4 完成一些复杂的任务"></a>2.2.4 完成一些复杂的任务</h4><p>●对于简单的业务场景使用Future完全ok</p>
+<h4 id="1-2-4-完成一些复杂的任务"><a href="#1-2-4-完成一些复杂的任务" class="headerlink" title="1.2.4 完成一些复杂的任务"></a>1.2.4 完成一些复杂的任务</h4><p>●对于简单的业务场景使用Future完全ok</p>
 <p>●回调通知：</p>
 <p>​            ○应对Future的完成时间，完成了可以告诉我，也就是我们的回调通知</p>
 <p>​            ○通过轮询的方式去判断任务是否完成这样非常占cpu并且代码也不优雅</p>
@@ -659,11 +659,11 @@ class MyThread implements Callable&lt;String&gt; {
 <p>​           ○使用Future之前提供的那点API就囊中羞涩，处理起来不够优雅，这时候还是让CompletableFuture以声明式的方式优雅的处理这些需求。</p>
 <p>​            ○从i到i++</p>
 <p>​            ○Future能干的，CompletableFuture都能干</p>
-<h2 id="2-3-CompletableFuture对Future的改进"><a href="#2-3-CompletableFuture对Future的改进" class="headerlink" title="2.3 CompletableFuture对Future的改进"></a>2.3 CompletableFuture对Future的改进</h2><h4 id="2-3-1-CompletableFuture为什么会出现"><a href="#2-3-1-CompletableFuture为什么会出现" class="headerlink" title="2.3.1 CompletableFuture为什么会出现"></a>2.3.1 CompletableFuture为什么会出现</h4><p>●get()方法在Future计算完成之前会一直处在阻塞状态下，阻塞的方式和异步编程的设计理念相违背。</p>
+<h2 id="1-3-CompletableFuture对Future的改进"><a href="#1-3-CompletableFuture对Future的改进" class="headerlink" title="1.3 CompletableFuture对Future的改进"></a>1.3 CompletableFuture对Future的改进</h2><h4 id="1-3-1-CompletableFuture为什么会出现"><a href="#1-3-1-CompletableFuture为什么会出现" class="headerlink" title="1.3.1 CompletableFuture为什么会出现"></a>1.3.1 CompletableFuture为什么会出现</h4><p>●get()方法在Future计算完成之前会一直处在阻塞状态下，阻塞的方式和异步编程的设计理念相违背。</p>
 <p>●isDene()方法容易耗费cpu资源（cpu空转），</p>
 <p>●对于真正的异步处理我们希望是可以通过传入回调函数，在Future结束时自动调用该回调函数，这样，我们就不用等待结果</p>
 <p>jdk8设计出CompletableFuture，CompletableFuture提供了一种观察者模式类似的机制，可以让任务执行完成后通知监听的一方。</p>
-<h4 id="2-3-2-CompletableFuture和CompletionStage介绍"><a href="#2-3-2-CompletableFuture和CompletionStage介绍" class="headerlink" title="2.3.2 CompletableFuture和CompletionStage介绍"></a>2.3.2 CompletableFuture和CompletionStage介绍</h4><p>类架构说明：</p>
+<h4 id="1-3-2-CompletableFuture和CompletionStage介绍"><a href="#1-3-2-CompletableFuture和CompletionStage介绍" class="headerlink" title="1.3.2 CompletableFuture和CompletionStage介绍"></a>1.3.2 CompletableFuture和CompletionStage介绍</h4><p>类架构说明：</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/3.jpg"></p>
 <p><strong>●</strong>接口CompletionStage</p>
 <p>​            ○代表异步计算过程中的某一个阶段，一个阶段完成以后可能会触发另外一个阶段。</p>
@@ -671,7 +671,7 @@ class MyThread implements Callable&lt;String&gt; {
 <p><strong>●</strong>类CompletableFuture</p>
 <p>​            ○提供了非常强大的Future的扩展功能，可以帮助我们简化异步编程的复杂性，并且提供了函数式编程的能力，可以通过回调的方式处理计算结果，也提供了转换和组合CompletableFuture的方法</p>
 <p>​            ○它可能代表一个明确完成的Future，也可能代表一个完成阶段（CompletionStage），它支持在计算完成以后触发一些函数或执行某些动作</p>
-<h4 id="2-3-3-核心的四个静态方法，来创建一个异步任务"><a href="#2-3-3-核心的四个静态方法，来创建一个异步任务" class="headerlink" title="2.3.3 核心的四个静态方法，来创建一个异步任务"></a>2.3.3 核心的四个静态方法，来创建一个异步任务</h4><p>四个静态构造方法</p>
+<h4 id="1-3-3-核心的四个静态方法，来创建一个异步任务"><a href="#1-3-3-核心的四个静态方法，来创建一个异步任务" class="headerlink" title="1.3.3 核心的四个静态方法，来创建一个异步任务"></a>1.3.3 核心的四个静态方法，来创建一个异步任务</h4><p>四个静态构造方法</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/4.jpg"></p>
 <p>对于上述Executor参数说明：若没有指定，则使用默认的ForkJoinPoolcommonPool（）作为它的线程池执行异步代码，如果指定线程池，则使用我们自定义的或者特别指定的线程池执行异步代码</p>
 <p>四个静态方法演示:</p>
@@ -762,7 +762,7 @@ class MyThread implements Callable&lt;String&gt; {
 <p>●异步任务结束时，会自动回调某个对象的方法</p>
 <p>●主线程设置好回调后，不用关心异步任务的执行，异步任务之间可以顺序执行</p>
 <p>●异步任务出错时，会自动回调某个对象的方法</p>
-<h2 id="2-4-案例精讲-从电商网站的比价需求展开"><a href="#2-4-案例精讲-从电商网站的比价需求展开" class="headerlink" title="2.4 案例精讲-从电商网站的比价需求展开"></a>2.4 案例精讲-从电商网站的比价需求展开</h2><h4 id="2-4-1-函数式编程已成为主流"><a href="#2-4-1-函数式编程已成为主流" class="headerlink" title="2.4.1 函数式编程已成为主流"></a>2.4.1 函数式编程已成为主流</h4><p>Lambda表达式+Stream流式调用+Chain链式调用+Java8函数式编程</p>
+<h2 id="1-4-案例精讲-从电商网站的比价需求展开"><a href="#1-4-案例精讲-从电商网站的比价需求展开" class="headerlink" title="1.4 案例精讲-从电商网站的比价需求展开"></a>1.4 案例精讲-从电商网站的比价需求展开</h2><h4 id="1-4-1-函数式编程已成为主流"><a href="#1-4-1-函数式编程已成为主流" class="headerlink" title="1.4.1 函数式编程已成为主流"></a>1.4.1 函数式编程已成为主流</h4><p>Lambda表达式+Stream流式调用+Chain链式调用+Java8函数式编程</p>
 <p>函数时接口：</p>
 <p>●Runnable：无参数、无返回值</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/5.jpg"></p>
@@ -797,7 +797,7 @@ class Student {
 
 
 
-<h4 id="2-4-2-大厂业务需求说明"><a href="#2-4-2-大厂业务需求说明" class="headerlink" title="2.4.2 大厂业务需求说明"></a>2.4.2 大厂业务需求说明</h4><p>切记：功能—&gt;性能（完成—&gt;完美）</p>
+<h4 id="1-4-2-大厂业务需求说明"><a href="#1-4-2-大厂业务需求说明" class="headerlink" title="1.4.2 大厂业务需求说明"></a>1.4.2 大厂业务需求说明</h4><p>切记：功能—&gt;性能（完成—&gt;完美）</p>
 <p>电商网站比价需求分析：</p>
 <p>1.需求说明：</p>
 <p>​    a同一款产品，同时搜索出同款产品在各大电商平台的售价</p>
@@ -808,7 +808,7 @@ class Student {
 <p>3.解决方案，对比同一个产品在各个平台上的价格，要求获得一个清单列表</p>
 <p>astep by step，按部就班，查完淘宝查京东，查完京东查天猫….</p>
 <p>ball in，万箭齐发，一口气多线程异步任务同时查询</p>
-<h4 id="2-4-3-一波流Java8函数式编程带走-比价案例实战Case"><a href="#2-4-3-一波流Java8函数式编程带走-比价案例实战Case" class="headerlink" title="2.4.3 一波流Java8函数式编程带走-比价案例实战Case"></a>2.4.3 一波流Java8函数式编程带走-比价案例实战Case</h4><p>比价实战Case:</p>
+<h4 id="1-4-3-一波流Java8函数式编程带走-比价案例实战Case"><a href="#1-4-3-一波流Java8函数式编程带走-比价案例实战Case" class="headerlink" title="1.4.3 一波流Java8函数式编程带走-比价案例实战Case"></a>1.4.3 一波流Java8函数式编程带走-比价案例实战Case</h4><p>比价实战Case:</p>
 <pre class="line-numbers language-none"><code class="language-none">public class CompletableFutureMallDemo {
     static List&lt;NetMall&gt; list = Arrays.asList(new NetMall("jd"), new NetMall("taobao"), new NetMall("dangdang"));
 
@@ -900,7 +900,7 @@ class NetMall {
 
 
 
-<h4 id="2-4-4-CompletableFuture常用方法"><a href="#2-4-4-CompletableFuture常用方法" class="headerlink" title="2.4.4 CompletableFuture常用方法"></a>2.4.4 CompletableFuture常用方法</h4><p><strong>●</strong>获得结果和触发计算</p>
+<h4 id="1-4-4-CompletableFuture常用方法"><a href="#1-4-4-CompletableFuture常用方法" class="headerlink" title="1.4.4 CompletableFuture常用方法"></a>1.4.4 CompletableFuture常用方法</h4><p><strong>●</strong>获得结果和触发计算</p>
 <p>​                ○获取结果</p>
 <p>​                            ■public T get()</p>
 <p>​                            ■public T get(long timeout,TimeUnit unit)</p>
@@ -1929,7 +1929,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">154.9k</span>&nbsp;字
+                class="white-color">157.4k</span>&nbsp;字
             
             
             

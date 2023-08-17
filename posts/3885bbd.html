@@ -561,7 +561,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="volatile与JMM"><a href="#volatile与JMM" class="headerlink" title="volatile与JMM"></a>volatile与JMM</h1><h2 id="6-1-被volatile修饰的变量有两大特点"><a href="#6-1-被volatile修饰的变量有两大特点" class="headerlink" title="6.1 被volatile修饰的变量有两大特点"></a>6.1 被volatile修饰的变量有两大特点</h2><ul>
+                <h1 id="volatile与JMM"><a href="#volatile与JMM" class="headerlink" title="volatile与JMM"></a>volatile与JMM</h1><h2 id="1-1-被volatile修饰的变量有两大特点"><a href="#1-1-被volatile修饰的变量有两大特点" class="headerlink" title="1.1 被volatile修饰的变量有两大特点"></a>1.1 被volatile修饰的变量有两大特点</h2><ul>
 <li>特点：<ul>
 <li>可见性</li>
 <li>有序性：有排序要求，有时需要<strong>禁重排</strong></li>
@@ -578,7 +578,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="6-2内存屏障（面试重点必须拿下）"><a href="#6-2内存屏障（面试重点必须拿下）" class="headerlink" title="6.2内存屏障（面试重点必须拿下）"></a>6.2内存屏障（面试重点必须拿下）</h2><h4 id="6-2-1-生活case"><a href="#6-2-1-生活case" class="headerlink" title="6.2.1 生活case"></a>6.2.1 生活case</h4><ul>
+<h2 id="1-2内存屏障（面试重点必须拿下）"><a href="#1-2内存屏障（面试重点必须拿下）" class="headerlink" title="1.2内存屏障（面试重点必须拿下）"></a>1.2内存屏障（面试重点必须拿下）</h2><h4 id="1-2-1-生活case"><a href="#1-2-1-生活case" class="headerlink" title="1.2.1 生活case"></a>1.2.1 生活case</h4><ul>
 <li><p>没有管控，顺序难保</p>
 </li>
 <li><p>设定规则，禁止乱序—-&gt;上海南京路武警当红灯</p>
@@ -598,7 +598,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="6-2-2-是什么"><a href="#6-2-2-是什么" class="headerlink" title="6.2.2 是什么"></a>6.2.2 是什么</h4><p>内存屏障（也称内存栅栏，屏障指令等）是一类同步屏障指令，是CPU或编译器在对内存随机访问的操作中的一个同步点，使得此点之前的所有读写操作都执行后才可以开始执行此点之后的操作，避免代码重排序。内存屏障其实就是一种JVM指令，Java内存模型的重排规则会要求Java编译器在生成JVM指令时插入特定的内存屏障指令，通过这些内存屏障指令，volatile实现了Java内存模型中的可见性和有序性（禁重排），但volatile无法保证原子性</p>
+<h4 id="1-2-2-是什么"><a href="#1-2-2-是什么" class="headerlink" title="1.2.2 是什么"></a>1.2.2 是什么</h4><p>内存屏障（也称内存栅栏，屏障指令等）是一类同步屏障指令，是CPU或编译器在对内存随机访问的操作中的一个同步点，使得此点之前的所有读写操作都执行后才可以开始执行此点之后的操作，避免代码重排序。内存屏障其实就是一种JVM指令，Java内存模型的重排规则会要求Java编译器在生成JVM指令时插入特定的内存屏障指令，通过这些内存屏障指令，volatile实现了Java内存模型中的可见性和有序性（禁重排），但volatile无法保证原子性</p>
 <ul>
 <li>内存屏障之前的所有写操作都要回写到主内存</li>
 <li>内存屏障之后的所有读操作都能获得内存屏障之前的所有写操作的最新结果（实现了可见性）</li>
@@ -608,7 +608,7 @@
 读屏障(Load Memory Barrier)：处理器在读屏障之后的读操作，都在读屏障之后执行。也就是说在Load屏障指令之后就能够保证后面的读取数据指令一定能够读取到最新的数据。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>因此重排序时，不允许把内存屏障之后的指令重排序到内存屏障之前。一句话：对一个volatile变量的写，先行发生于任意后续对这个volatile变量的读，也叫写后读。</p>
-<h4 id="6-2-3-内存屏障分类"><a href="#6-2-3-内存屏障分类" class="headerlink" title="6.2.3 内存屏障分类"></a>6.2.3 内存屏障分类</h4><ul>
+<h4 id="1-2-3-内存屏障分类"><a href="#1-2-3-内存屏障分类" class="headerlink" title="1.2.3 内存屏障分类"></a>1.2.3 内存屏障分类</h4><ul>
 <li><p>粗分两种：</p>
 <ul>
 <li>读屏障（Load Barrier）：在读指令之前插入读屏障，让工作内存或CPU高速缓存 当中的缓存数据失效，重新回到主内存中获取最新数据。</li>
@@ -646,7 +646,7 @@
 <td>保证Store1的写操作已经刷新到主内存后，Load2及其后的读操作才能执行</td>
 </tr>
 </tbody></table>
-<h4 id="6-2-4-困难内容"><a href="#6-2-4-困难内容" class="headerlink" title="6.2.4 困难内容"></a>6.2.4 困难内容</h4><ul>
+<h4 id="1-2-4-困难内容"><a href="#1-2-4-困难内容" class="headerlink" title="1.2.4 困难内容"></a>1.2.4 困难内容</h4><ul>
 <li><p>什么叫保证有序性？—–&gt;通过内存屏障禁重排</p>
 </li>
 <li><ul>
@@ -719,7 +719,7 @@
 </li>
 </ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/29.jpg"></p>
-<h2 id="6-3-volatile特性"><a href="#6-3-volatile特性" class="headerlink" title="6.3 volatile特性"></a>6.3 volatile特性</h2><h4 id="6-3-1-保证可见性"><a href="#6-3-1-保证可见性" class="headerlink" title="6.3.1 保证可见性"></a>6.3.1 保证可见性</h4><p>保证不同线程对某个变量完成操作后结果及时可见，即该共享变量一旦改变所有线程立即可见</p>
+<h2 id="1-3-volatile特性"><a href="#1-3-volatile特性" class="headerlink" title="1.3 volatile特性"></a>1.3 volatile特性</h2><h4 id="1-3-1-保证可见性"><a href="#1-3-1-保证可见性" class="headerlink" title="1.3.1 保证可见性"></a>1.3.1 保证可见性</h4><p>保证不同线程对某个变量完成操作后结果及时可见，即该共享变量一旦改变所有线程立即可见</p>
 <ul>
 <li><p>Code</p>
 </li>
@@ -765,7 +765,7 @@
 <li>volatile变量的读写过程（了解即可）</li>
 </ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/30.jpg"></p>
-<h4 id="6-3-2-没有原子性"><a href="#6-3-2-没有原子性" class="headerlink" title="6.3.2 没有原子性"></a>6.3.2 没有原子性</h4><p>volatile变量的符合操作不具有原子性</p>
+<h4 id="1-3-2-没有原子性"><a href="#1-3-2-没有原子性" class="headerlink" title="1.3.2 没有原子性"></a>1.3.2 没有原子性</h4><p>volatile变量的符合操作不具有原子性</p>
 <ul>
 <li><p>对于voaltile变量具备可见性，JVM只是保证从主内存加载到线程工作内存的值是最新的，也仅仅是数据加载时是最新的。但是多线程环境下，“数据计算”和“数据赋值”操作可能多次出现，若数据在加载之后，若主内存volatile修饰变量发生修改之后，线程工作内存的操作将会作废去读主内存最新值，操作出现写丢失问题。即各线程私有内存和主内存公共内存中变量不同步，进而导致数据不一致。由此可见volatile解决的是变量读时的可见性问题，但无法保证原子性，对于多线程修改主内存共享变量的场景必须加锁同步。</p>
 </li>
@@ -786,7 +786,7 @@
 </li>
 </ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/31.jpg"></p>
-<h4 id="6-3-3-指令禁重排"><a href="#6-3-3-指令禁重排" class="headerlink" title="6.3.3 指令禁重排"></a>6.3.3 指令禁重排</h4><ul>
+<h4 id="1-3-3-指令禁重排"><a href="#1-3-3-指令禁重排" class="headerlink" title="1.3.3 指令禁重排"></a>1.3.3 指令禁重排</h4><ul>
 <li>在每一个volatile写操作前面插入一个StoreStore屏障—&gt;StoreStore屏障可以保证在volatile写之前，其前面所有的普通写操作都已经刷新到主内存中。</li>
 <li>在每一个volatile写操作后面插入一个StoreLoad屏障—&gt;StoreLoad屏障的作用是避免volatile写与后面可能有的volatile读/写操作重排序</li>
 <li>在每一个volatile读操作后面插入一个LoadLoad屏障—&gt;LoadLoad屏障用来禁止处理器把上面的volatile读与下面的普通读重排序</li>
@@ -795,7 +795,7 @@
 </ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/32.jpg"></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/33.jpg"></p>
-<h2 id="6-4-如何正确使用volatile"><a href="#6-4-如何正确使用volatile" class="headerlink" title="6.4 如何正确使用volatile"></a>6.4 如何正确使用volatile</h2><ul>
+<h2 id="1-4-如何正确使用volatile"><a href="#1-4-如何正确使用volatile" class="headerlink" title="1.4 如何正确使用volatile"></a>1.4 如何正确使用volatile</h2><ul>
 <li><p>单一赋值可以，但是含复合运算赋值不可以（i++之类的）</p>
 </li>
 <li><ul>
@@ -834,7 +834,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="6-5-本章最后的小总结"><a href="#6-5-本章最后的小总结" class="headerlink" title="6.5  本章最后的小总结"></a>6.5  本章最后的小总结</h2><h4 id="6-5-1-volatile可见性"><a href="#6-5-1-volatile可见性" class="headerlink" title="6.5.1 volatile可见性"></a>6.5.1 volatile可见性</h4><table>
+<h2 id="1-5-本章最后的小总结"><a href="#1-5-本章最后的小总结" class="headerlink" title="1.5  本章最后的小总结"></a>1.5  本章最后的小总结</h2><h4 id="1-5-1-volatile可见性"><a href="#1-5-1-volatile可见性" class="headerlink" title="1.5.1 volatile可见性"></a>1.5.1 volatile可见性</h4><table>
 <thead>
 <tr>
 <th>volatile关键字保证可见性：</th>
@@ -854,18 +854,18 @@
 <td>当某个线程收到通知，去读取volatile修饰的变量的值的时候，线程私有工作内存的数据失效，需要重新回到主内存中去读取最新的数据。</td>
 </tr>
 </tbody></table>
-<h4 id="6-5-2-volatile没有原子性"><a href="#6-5-2-volatile没有原子性" class="headerlink" title="6.5.2 volatile没有原子性"></a>6.5.2 volatile没有原子性</h4><h4 id="6-5-3-volatile禁重排"><a href="#6-5-3-volatile禁重排" class="headerlink" title="6.5.3 volatile禁重排"></a>6.5.3 volatile禁重排</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/45.jpg"></p>
+<h4 id="1-5-2-volatile没有原子性"><a href="#1-5-2-volatile没有原子性" class="headerlink" title="1.5.2 volatile没有原子性"></a>1.5.2 volatile没有原子性</h4><h4 id="1-5-3-volatile禁重排"><a href="#1-5-3-volatile禁重排" class="headerlink" title="1.5.3 volatile禁重排"></a>1.5.3 volatile禁重排</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/45.jpg"></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/46.jpg"></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/47.jpg"></p>
-<h4 id="6-5-4-凭什么我们Java写了一个volatile关键字，系统底层加入内存屏障？两者的关系如何勾搭？"><a href="#6-5-4-凭什么我们Java写了一个volatile关键字，系统底层加入内存屏障？两者的关系如何勾搭？" class="headerlink" title="6.5.4 凭什么我们Java写了一个volatile关键字，系统底层加入内存屏障？两者的关系如何勾搭？"></a>6.5.4 凭什么我们Java写了一个volatile关键字，系统底层加入内存屏障？两者的关系如何勾搭？</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/48.jpg"></p>
-<h4 id="6-5-5-内存屏障是什么？"><a href="#6-5-5-内存屏障是什么？" class="headerlink" title="6.5.5 内存屏障是什么？"></a>6.5.5 内存屏障是什么？</h4><p>是一种屏障指令，它使得CPU或编译器对屏障指令的前和后所发出的内存操作执行一个排序的约束。也称为内存栅栏或栅栏指令。</p>
-<h4 id="6-5-6-内存屏障能干吗？"><a href="#6-5-6-内存屏障能干吗？" class="headerlink" title="6.5.6 内存屏障能干吗？"></a>6.5.6 内存屏障能干吗？</h4><ul>
+<h4 id="1-5-4-凭什么我们Java写了一个volatile关键字，系统底层加入内存屏障？两者的关系如何勾搭？"><a href="#1-5-4-凭什么我们Java写了一个volatile关键字，系统底层加入内存屏障？两者的关系如何勾搭？" class="headerlink" title="1.5.4 凭什么我们Java写了一个volatile关键字，系统底层加入内存屏障？两者的关系如何勾搭？"></a>1.5.4 凭什么我们Java写了一个volatile关键字，系统底层加入内存屏障？两者的关系如何勾搭？</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/48.jpg"></p>
+<h4 id="1-5-5-内存屏障是什么？"><a href="#1-5-5-内存屏障是什么？" class="headerlink" title="1.5.5 内存屏障是什么？"></a>1.5.5 内存屏障是什么？</h4><p>是一种屏障指令，它使得CPU或编译器对屏障指令的前和后所发出的内存操作执行一个排序的约束。也称为内存栅栏或栅栏指令。</p>
+<h4 id="1-5-6-内存屏障能干吗？"><a href="#1-5-6-内存屏障能干吗？" class="headerlink" title="1.5.6 内存屏障能干吗？"></a>1.5.6 内存屏障能干吗？</h4><ul>
 <li>阻止屏障两边的指令重排序</li>
 <li>写操作时加入屏障，强制将线程私有工作内存的数据刷回主物理内存</li>
 <li>读操作时加入屏障，线程私有工作内存的数据失效，重新回到主物理内存中获取最新值</li>
 </ul>
-<h4 id="6-5-7-内存屏障四大指令"><a href="#6-5-7-内存屏障四大指令" class="headerlink" title="6.5.7 内存屏障四大指令"></a>6.5.7 内存屏障四大指令</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/49.jpg"></p>
-<h4 id="6-5-8-3句话总结"><a href="#6-5-8-3句话总结" class="headerlink" title="6.5.8    3句话总结"></a>6.5.8    3句话总结</h4><ul>
+<h4 id="1-5-7-内存屏障四大指令"><a href="#1-5-7-内存屏障四大指令" class="headerlink" title="1.5.7 内存屏障四大指令"></a>1.5.7 内存屏障四大指令</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/49.jpg"></p>
+<h4 id="1-5-8-3句话总结"><a href="#1-5-8-3句话总结" class="headerlink" title="1.5.8    3句话总结"></a>1.5.8    3句话总结</h4><ul>
 <li>volatile写之前的操作，都禁止重排序到volatile之后</li>
 <li>volatile读之后的操作，都禁止重排序到volatile之前</li>
 <li>volatile写之后volatile读，禁止重排序</li>
@@ -1735,7 +1735,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">154.9k</span>&nbsp;字
+                class="white-color">157.4k</span>&nbsp;字
             
             
             

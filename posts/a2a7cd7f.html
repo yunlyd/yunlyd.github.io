@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JUC-原子操作类 -8, lucky_llllz 计算机 软件工程 后端">
+    <meta name="keywords" content="JUC-聊聊ThreadLocal -9, lucky_llllz 计算机 软件工程 后端">
     <meta name="description" content="计算机 | 软件工程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>JUC-原子操作类 -8 | llllz_liu</title>
+    <title>JUC-聊聊ThreadLocal -9 | llllz_liu</title>
 
     <link rel="icon" type="image/png" href="/yunyd/medias/favicon-32x32.png">
 
@@ -371,12 +371,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/yunyd/medias/f.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/yunyd/medias/a.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">JUC-原子操作类 -8</h1>
+                    <h1 class="description center-align post-title">JUC-聊聊ThreadLocal -9</h1>
                 </div>
             </div>
         </div>
@@ -522,7 +522,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-14
+                    2023-08-16
                 </div>
                 
 
@@ -536,14 +536,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    9 分
                 </div>
                 
 
@@ -561,461 +561,303 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="原子操作类"><a href="#原子操作类" class="headerlink" title="原子操作类"></a>原子操作类</h1><p> Atomic 翻译成中文是原子的意思。在化学上，我们知道原子是构成一般物质的最小单位，在化学反应中是不可分割的。在我们这里 Atomic 是指一个操作是不可中断的。即使是在多个线程一起执行的时候，一个操作一旦开始，就不会被其他线程干扰。</p>
-<h2 id="1-1-基本类型原子类"><a href="#1-1-基本类型原子类" class="headerlink" title="1.1 基本类型原子类"></a>1.1 基本类型原子类</h2><ul>
-<li><code>AtomicInteger</code>：整型原子类</li>
-<li><code>AtomicBoolean</code>：布尔型原子类</li>
-<li><code>AtomicLong</code>：长整型原子类</li>
+                <h1 id="聊聊ThreadLocal"><a href="#聊聊ThreadLocal" class="headerlink" title="聊聊ThreadLocal"></a>聊聊ThreadLocal</h1><h2 id="1-1-ThreadLocal简介"><a href="#1-1-ThreadLocal简介" class="headerlink" title="1.1 ThreadLocal简介"></a>1.1 ThreadLocal简介</h2><h4 id="1-1-1-面试题"><a href="#1-1-1-面试题" class="headerlink" title="1.1.1 面试题"></a>1.1.1 面试题</h4><p>●ThreadLocal中ThreadLocalMap的数据结构和关系</p>
+<p>●ThreadLocal的key是弱引用，这是为什么？</p>
+<p>●ThreadLocal内存泄漏问题你知道吗？</p>
+<p>●ThreadLocal中最后为什么要加remove方法？</p>
+<h4 id="1-1-2-是什么？"><a href="#1-1-2-是什么？" class="headerlink" title="1.1.2 是什么？"></a>1.1.2 是什么？</h4><p>ThreadLocal提供线程局部变量。这些变量与正常的变量不同，因为每一个线程在访问ThreadLocal实例的时候（通过其get或set方法）都有自己的、独立初始化的变量副本。ThreadLocal实例通常是类中的私有静态字段，使用它的目的是希望将状态（例如，用户ID或事物ID）与线程关联起来。</p>
+<h4 id="1-1-3-能干嘛？"><a href="#1-1-3-能干嘛？" class="headerlink" title="1.1.3 能干嘛？"></a>1.1.3 能干嘛？</h4><p>实现每一个线程都有自己专属的本地变量副本（自己用自己的变量不用麻烦别人，不和其他人共享，人人有份，人各一份）。主要解决了让每个线程绑定自己的值，通过使用get()和set()方法，获取默认值或将其改为当前线程所存的副本的值从而避免了线程安全问题。比如8锁案例中，资源类是使用同一部手机，多个线程抢夺同一部手机，假如人手一份不是天下太平？</p>
+<h4 id="1-1-4-API介绍"><a href="#1-1-4-API介绍" class="headerlink" title="1.1.4 API介绍"></a>1.1.4 API介绍</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/68.jpg"></p>
+<h4 id="1-1-5-永远的helloworld讲起"><a href="#1-1-5-永远的helloworld讲起" class="headerlink" title="1.1.5 永远的helloworld讲起"></a>1.1.5 永远的helloworld讲起</h4><ul>
+<li>问题描述：5个销售买房子，集团只关心销售总量的准确统计数，按照总销售额统计，方便集团公司给部分发送奖金——–群雄逐鹿起纷争——为了数据安全只能加锁</li>
 </ul>
-<h4 id="1-1-1-常用API简介"><a href="#1-1-1-常用API简介" class="headerlink" title="1.1.1 常用API简介"></a>1.1.1 常用API简介</h4><p>基本类型原子类常用API简介：</p>
-<pre class="line-numbers language-基本类型原子类常用API简介" data-language="基本类型原子类常用API简介"><code class="language-基本类型原子类常用API简介">public final int get() //获取当前的值
-public final int getAndSet(int newValue)//获取当前的值，并设置新的值
-public final int getAndIncrement()//获取当前的值，并自增
-public final int getAndDecrement() //获取当前的值，并自减
-public final int getAndAdd(int delta) //获取当前的值，并加上预期的值
-boolean compareAndSet(int expect, int update) //如果输入的数值等于预期值，则以原子方式将该值设置为输入值（update）
-public final void lazySet(int newValue)//最终设置为newValue,使用 lazySet 设置之后可能导致其他线程在之后的一小段时间内还是可以读到旧的值。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>需求1演示：</p>
+<pre class="line-numbers language-需求1演示" data-language="需求1演示"><code class="language-需求1演示">class House {
+    int saleCount = 0;
 
-
-
-<h4 id="1-1-2-Case"><a href="#1-1-2-Case" class="headerlink" title="1.1.2 Case"></a>1.1.2 Case</h4><p>AtomicInteger案例演示：</p>
-<pre class="line-numbers language-AtomicInteger案例演示" data-language="AtomicInteger案例演示"><code class="language-AtomicInteger案例演示">class MyNumber {
-    AtomicInteger atomicInteger = new AtomicInteger();
-
-    public void addPlusPlus() {
-        atomicInteger.getAndIncrement();
+    public synchronized void saleHouse() {
+        saleCount++;
     }
 
 }
 
-public class AtomicIntegerDemo {
-
-    public static final int SIZE = 50;
-
-    public static void main(String[] args) throws InterruptedException {
-        MyNumber myNumber = new MyNumber();
-        CountDownLatch countDownLatch = new CountDownLatch(SIZE);
-        for (int i = 1; i &lt;= SIZE; i++) {
-            new Thread(() -&gt; {
-                try {
-                    for (int j = 1; j &lt;= 10; j++) {
-                        myNumber.addPlusPlus();
-                    }
-                } finally {
-                    countDownLatch.countDown();
-                }
-            }, String.valueOf(i)).start();
-
-        }
-        countDownLatch.await();
-
-        System.out.println(Thread.currentThread().getName() + "\t" + "result: " + myNumber.atomicInteger.get());//main	result: 500
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="1-2-数组类型原子类"><a href="#1-2-数组类型原子类" class="headerlink" title="1.2 数组类型原子类"></a>1.2 数组类型原子类</h2><ul>
-<li><code>AtomicIntegerArray</code>：整型数组原子类</li>
-<li><code>AtomicLongrArray</code>：长整型数组原子类</li>
-<li><code>AtomicReferenceArray</code>：用类型数组原子类</li>
-</ul>
-<h4 id="1-2-1-常用API简介"><a href="#1-2-1-常用API简介" class="headerlink" title="1.2.1 常用API简介"></a>1.2.1 常用API简介</h4><p>数组类型原子类常用API简介：</p>
-<pre class="line-numbers language-数组类型原子类常用API简介" data-language="数组类型原子类常用API简介"><code class="language-数组类型原子类常用API简介">public final int get(int i) //获取 index=i 位置元素的值
-public final int getAndSet(int i, int newValue)//返回 index=i 位置的当前的值，并将其设置为新值：newValue
-public final int getAndIncrement(int i)//获取 index=i 位置元素的值，并让该位置的元素自增
-public final int getAndDecrement(int i) //获取 index=i 位置元素的值，并让该位置的元素自减
-public final int getAndAdd(int i, int delta) //获取 index=i 位置元素的值，并加上预期的值
-boolean compareAndSet(int i, int expect, int update) //如果输入的数值等于预期值，则以原子方式将 index=i 位置的元素值设置为输入值（update）
-public final void lazySet(int i, int newValue)//最终 将index=i 位置的元素设置为newValue,使用 lazySet 设置之后可能导致其他线程在之后的一小段时间内还是可以读到旧的值。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="1-2-2-Case"><a href="#1-2-2-Case" class="headerlink" title="1.2.2 Case"></a>1.2.2 Case</h4><p>AtomicIntegerArray案例演示：</p>
-<pre class="line-numbers language-AtomicIntegerArray案例演示" data-language="AtomicIntegerArray案例演示"><code class="language-AtomicIntegerArray案例演示">public class AtomicIntegerArrayDemo {
+public class ThreadLocalDemo {
     public static void main(String[] args) {
-//        AtomicIntegerArray atomicIntegerArray = new AtomicIntegerArray(new int[]{1, 2, 3, 4, 5});
-        AtomicIntegerArray atomicIntegerArray = new AtomicIntegerArray(new int[5]);
-        for (int i = 0; i &lt; atomicIntegerArray.length(); i++) {
-            System.out.println(atomicIntegerArray.get(i));
-        }
-        System.out.println();
-        int tempInt = 0;
-        tempInt = atomicIntegerArray.getAndSet(0, 1122);
-        System.out.println(tempInt + "\t" + atomicIntegerArray.get(0));
-        tempInt = atomicIntegerArray.getAndIncrement(0);
-        System.out.println(tempInt + "\t" + atomicIntegerArray.get(0));
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="1-3-引用类型原子类"><a href="#1-3-引用类型原子类" class="headerlink" title="1.3 引用类型原子类"></a>1.3 引用类型原子类</h2><ul>
-<li><p><code>AtomicReference</code> :引用类型原子类</p>
-</li>
-<li><p><code>AtomicStampedReference</code>：原子更新带有版本号的引用类型。该类将整数值与引用关联起来，可用于解决原子的更新数据和数据的版本号，可以解决使用 CAS 进行原子更新时可能出现的 ABA 问题。</p>
-</li>
-<li><ul>
-<li>解决修改过几次</li>
-</ul>
-</li>
-<li><p><code>AtomicMarkableReference</code>：原子更新带有标记的引用类型。该类将 boolean 标记与引用关联起来</p>
-</li>
-<li><ul>
-<li>解决是否修改过，它的定义就是将标记戳简化为true/false，类似于一次性筷子</li>
-</ul>
-</li>
-<li><p>AtomicMarkableReference案例演示：</p>
-</li>
-</ul>
-<pre class="line-numbers language-AtomicMarkableReference案例演示" data-language="AtomicMarkableReference案例演示"><code class="language-AtomicMarkableReference案例演示">public class AtomicMarkableReferenceDemo {
-    static AtomicMarkableReference markableReference = new AtomicMarkableReference(100, false);
-
-    public static void main(String[] args) {
-        new Thread(() -&gt; {
-            boolean marked = markableReference.isMarked();
-            System.out.println(Thread.currentThread().getName() + "\t" + "默认标识: " + marked);//t1	默认标识: false
-            try {
-                TimeUnit.SECONDS.sleep(1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            markableReference.compareAndSet(100, 1000, marked, !marked);//t2	默认标识: false
-
-        }, "t1").start();
-
-        new Thread(() -&gt; {
-            boolean marked = markableReference.isMarked();
-            System.out.println(Thread.currentThread().getName() + "\t" + "默认标识: " + marked);//t2	t2线程CASResult：false
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            boolean b = markableReference.compareAndSet(100, 2000, marked, !marked);
-            System.out.println(Thread.currentThread().getName() + "\t" + "t2线程CASResult：" + b);
-            System.out.println(Thread.currentThread().getName() + "\t" + markableReference.isMarked());//t2	true
-            System.out.println(Thread.currentThread().getName() + "\t" + markableReference.getReference());//t2	1000
-
-        }, "t2").start();
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="1-4-对象的属性修改原子类"><a href="#1-4-对象的属性修改原子类" class="headerlink" title="1.4 对象的属性修改原子类"></a>1.4 对象的属性修改原子类</h2><ul>
-<li><code>AtomicIntegerFieldUpdater</code>：原子更新对象中int类型字段的值</li>
-<li><code>AtomicLongFieldUpdater</code>：原子更新对象中Long类型字段的值</li>
-<li><code>AtomicReferenceFieldUpdater</code>：原子更新对象中引用类型字段的值</li>
-</ul>
-<h4 id="1-4-1-使用目的"><a href="#1-4-1-使用目的" class="headerlink" title="1.4.1 使用目的"></a>1.4.1 使用目的</h4><p>以一种线程安全的方式操作非线程安全对象内的某些字段</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/59.jpg"></p>
-<h4 id="1-4-2-使用要求"><a href="#1-4-2-使用要求" class="headerlink" title="1.4.2 使用要求"></a>1.4.2 使用要求</h4><ul>
-<li>更新的对象属性必须使用public volatile修饰符</li>
-<li>因为对象的属性修改类型原子类都是抽象类，所以每次使用都必须使用静态方法newUpdater()创建一个更新器，并且需要设置想要更新的类和属性</li>
-</ul>
-<h4 id="1-4-3-Case"><a href="#1-4-3-Case" class="headerlink" title="1.4.3 Case"></a>1.4.3 Case</h4><p>AtomicIntegerFieldUpdater使用案例：</p>
-<pre class="line-numbers language-AtomicIntegerFieldUpdater使用案例" data-language="AtomicIntegerFieldUpdater使用案例"><code class="language-AtomicIntegerFieldUpdater使用案例">class BankAccount {
-    public volatile int money = 0;
-
-
-    AtomicIntegerFieldUpdater&lt;BankAccount&gt; atomicIntegerFieldUpdater = AtomicIntegerFieldUpdater.newUpdater(BankAccount.class, "money");
-
-    public void transferMoney(BankAccount bankAccount) {
-        atomicIntegerFieldUpdater.getAndIncrement(bankAccount);
-
-    }
-}
-
-public class AtomicIntegerFieldUpdaterDemo {
-    public static void main(String[] args) throws InterruptedException {
-        BankAccount bankAccount = new BankAccount();
-        CountDownLatch countDownLatch = new CountDownLatch(10);
-        for (int i = 1; i &lt;= 10; i++) {
-            new Thread(() -&gt; {
-                try {
-                    for (int j = 1; j &lt;= 1000; j++) {
-                        bankAccount.transferMoney(bankAccount);
-                    }
-                } finally {
-                    countDownLatch.countDown();
-                }
-            }, String.valueOf(i)).start();
-
-        }
-        countDownLatch.await();
-        System.out.println(Thread.currentThread().getName() + '\t' + "result: " + bankAccount.money); //main	result: 10000
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>AtomicReferenceFieldUpdater案例演示：</p>
-<pre class="line-numbers language-AtomicReferenceFieldUpdater案例演示" data-language="AtomicReferenceFieldUpdater案例演示"><code class="language-AtomicReferenceFieldUpdater案例演示">class MyVar {
-    public volatile Boolean isInit = Boolean.FALSE;
-    AtomicReferenceFieldUpdater&lt;MyVar, Boolean&gt; referenceFieldUpdater = AtomicReferenceFieldUpdater.newUpdater(MyVar.class, Boolean.class, "isInit");
-
-    public void init(MyVar myVar) {
-        if (referenceFieldUpdater.compareAndSet(myVar, Boolean.FALSE, Boolean.TRUE)) {
-            System.out.println(Thread.currentThread().getName() + "\t" + "--------------start init ,need 2 secondes");
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            System.out.println(Thread.currentThread().getName() + "\t" + "--------------over init");
-        } else {
-            System.out.println(Thread.currentThread().getName() + "\t" + "--------------已经有线程进行初始化工作了。。。。。");
-        }
-    }
-}
-
-public class AtomicReferenceFieldUpdaterDemo {
-
-    public static void main(String[] args) {
-        MyVar myVar = new MyVar();
+        House house = new House();
         for (int i = 1; i &lt;= 5; i++) {
             new Thread(() -&gt; {
-                myVar.init(myVar);
+                int size = new Random().nextInt(5) + 1;
+                System.out.println(size);
+                for (int j = 1; j &lt;= size; j++) {
+                    house.saleHouse();
+                }
             }, String.valueOf(i)).start();
+
         }
+        try {
+            TimeUnit.MILLISECONDS.sleep(300);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(Thread.currentThread().getName() + "\t" + "共计卖出多少套： " + house.saleCount);
     }
 }
 /**
- * 1	--------------start init ,need 2 secondes
- * 5	--------------已经有线程进行初始化工作了。。。。。
- * 2	--------------已经有线程进行初始化工作了。。。。。
- * 4	--------------已经有线程进行初始化工作了。。。。。
- * 3	--------------已经有线程进行初始化工作了。。。。。
- * 1	--------------over init
+ * 3
+ * 4
+ * 2
+ * 4
+ * 2
+ * main	共计卖出多少套： 15
  */<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="1-5-原子操作增强类原理深度解析"><a href="#1-5-原子操作增强类原理深度解析" class="headerlink" title="1.5 原子操作增强类原理深度解析"></a>1.5 原子操作增强类原理深度解析</h2><ul>
-<li><code>DoubleAccumulator</code>：一个或多个变量，它们一起保持运行double使用所提供的功能更新值</li>
-<li><code>DoubleAdder</code>：一个或多个变量一起保持初始为零double总和</li>
-<li><code>LongAccumulator</code>：一个或多个变量，一起保持使用提供的功能更新运行的值long ，提供了自定义的函数操作</li>
-<li><code>LongAdder</code>：一个或多个变量一起维持初始为零long总和（重点），只能用来计算加法，且从0开始计算</li>
+<ul>
+<li><p>需求变更：希望各自分灶吃饭，各凭销售本事提成，按照出单数各自统计——-比如房产中介销售都有自己的销售额指标，自己专属自己的，不和别人参和。—-人手一份天下安</p>
+<p>需求2：</p>
+</li>
 </ul>
-<h4 id="1-5-1-常用API"><a href="#1-5-1-常用API" class="headerlink" title="1.5.1 常用API"></a>1.5.1 常用API</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/60.jpg"></p>
-<h4 id="1-5-2-面试题"><a href="#1-5-2-面试题" class="headerlink" title="1.5.2 面试题"></a>1.5.2 面试题</h4><ol>
-<li>热点商品点赞计算器，点赞数加加统计，不要求实时精确</li>
-<li>一个很大的list，里面都是int类型，如何实现加加，思路？</li>
-</ol>
-<h4 id="1-5-3-点赞计数器"><a href="#1-5-3-点赞计数器" class="headerlink" title="1.5.3 点赞计数器"></a>1.5.3 点赞计数器</h4><p>多种方式实现点赞计数器案例演示结果：</p>
-<pre class="line-numbers language-多种方式实现点赞计数器案例演示结果" data-language="多种方式实现点赞计数器案例演示结果"><code class="language-多种方式实现点赞计数器案例演示结果">class ClickNumber {
-    int number = 0;
+<pre class="line-numbers language-需求2" data-language="需求2"><code class="language-需求2">class House {
+    int saleCount = 0;
 
-    public synchronized void clickBySynchronized() {
-        number++;
+    public synchronized void saleHouse() {
+        saleCount++;
     }
 
-    AtomicLong atomicLong = new AtomicLong(0);
+    ThreadLocal&lt;Integer&gt; saleVolume = ThreadLocal.withInitial(() -&gt; 0);
 
-    public void clickByAtomicLong() {
-        atomicLong.getAndIncrement();
+    public void saleVolumeByThreadLocal() {
+        saleVolume.set(1 + saleVolume.get());
     }
 
-    LongAdder longAdder = new LongAdder();
 
-    public void clickByLongAdder() {
-        longAdder.increment();
-    }
-
-    LongAccumulator longAccumulator = new LongAccumulator((x, y) -&gt; x + y, 0);
-
-    public void clickByLongAccumulator() {
-        longAccumulator.accumulate(1);
-    }
 }
 
-public class AccumulatorCompareDemo {
-    public static final int _1W = 10000;
-    public static final int THREAD_NUMBER = 50;
-
-    public static void main(String[] args) throws InterruptedException {
-        ClickNumber clickNumber = new ClickNumber();
-        long StartTime;
-        long endTime;
-        CountDownLatch countDownLatch1 = new CountDownLatch(THREAD_NUMBER);
-        CountDownLatch countDownLatch2 = new CountDownLatch(THREAD_NUMBER);
-        CountDownLatch countDownLatch3 = new CountDownLatch(THREAD_NUMBER);
-        CountDownLatch countDownLatch4 = new CountDownLatch(THREAD_NUMBER);
-
-        StartTime = System.currentTimeMillis();
-        for (int i = 1; i &lt;= 50; i++) {
+public class ThreadLocalDemo {
+    public static void main(String[] args) {
+        House house = new House();
+        for (int i = 1; i &lt;= 5; i++) {
             new Thread(() -&gt; {
+                int size = new Random().nextInt(5) + 1;
                 try {
-                    for (int j = 1; j &lt;= 100 * _1W; j++) {
-                        clickNumber.clickBySynchronized();
+                    for (int j = 1; j &lt;= size; j++) {
+                        house.saleHouse();
+                        house.saleVolumeByThreadLocal();
                     }
+                    System.out.println(Thread.currentThread().getName() + "\t" + "号销售卖出：" + house.saleVolume.get());
                 } finally {
-                    countDownLatch1.countDown();
+                    house.saleVolume.remove();
                 }
             }, String.valueOf(i)).start();
-        }
-        countDownLatch1.await();
-        endTime = System.currentTimeMillis();
-        System.out.println("------costTime: " + (endTime - StartTime) + " 毫秒" + "\t clickBySynchronized: " + clickNumber.number);
 
-        StartTime = System.currentTimeMillis();
-        for (int i = 1; i &lt;= 50; i++) {
-            new Thread(() -&gt; {
-                try {
-                    for (int j = 1; j &lt;= 100 * _1W; j++) {
-                        clickNumber.clickByAtomicLong();
-                    }
-                } finally {
-                    countDownLatch2.countDown();
-                }
-            }, String.valueOf(i)).start();
         }
-        countDownLatch2.await();
-        endTime = System.currentTimeMillis();
-        System.out.println("------costTime: " + (endTime - StartTime) + " 毫秒" + "\t clickByAtomicLong: " + clickNumber.atomicLong.get());
-
-        StartTime = System.currentTimeMillis();
-        for (int i = 1; i &lt;= 50; i++) {
-            new Thread(() -&gt; {
-                try {
-                    for (int j = 1; j &lt;= 100 * _1W; j++) {
-                        clickNumber.clickByLongAdder();
-                    }
-                } finally {
-                    countDownLatch3.countDown();
-                }
-            }, String.valueOf(i)).start();
+        try {
+            TimeUnit.MILLISECONDS.sleep(300);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-        countDownLatch3.await();
-        endTime = System.currentTimeMillis();
-        System.out.println("------costTime: " + (endTime - StartTime) + " 毫秒" + "\t clickByLongAdder: " + clickNumber.longAdder.sum());
-
-        StartTime = System.currentTimeMillis();
-        for (int i = 1; i &lt;= 50; i++) {
-            new Thread(() -&gt; {
-                try {
-                    for (int j = 1; j &lt;= 100 * _1W; j++) {
-                        clickNumber.clickByLongAccumulator();
-                    }
-                } finally {
-                    countDownLatch4.countDown();
-                }
-            }, String.valueOf(i)).start();
-        }
-        countDownLatch4.await();
-        endTime = System.currentTimeMillis();
-        System.out.println("------costTime: " + (endTime - StartTime) + " 毫秒" + "\t clickByLongAccumulator: " + clickNumber.longAccumulator.get());
-
+        System.out.println(Thread.currentThread().getName() + "\t" + "共计卖出多少套： " + house.saleCount);
     }
 }
 /**
- * ------costTime: 1313 毫秒	 clickBySynchronized: 50000000
- * ------costTime: 825 毫秒	 clickByAtomicLong: 50000000
- * ------costTime: 92 毫秒	 clickByLongAdder: 50000000
- * ------costTime: 61 毫秒	 clickByLongAccumulator: 50000000
- */<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ * 3	号销售卖出：1
+ * 4	号销售卖出：3
+ * 5	号销售卖出：4
+ * 2	号销售卖出：3
+ * 1	号销售卖出：5
+ * main	共计卖出多少套： 16
+ */<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="1-5-4-源码、原理分析"><a href="#1-5-4-源码、原理分析" class="headerlink" title="1.5.4 源码、原理分析"></a>1.5.4 源码、原理分析</h4><ul>
-<li><p>架构</p>
+<h4 id="1-1-6-总结"><a href="#1-1-6-总结" class="headerlink" title="1.1.6 总结"></a>1.1.6 总结</h4><ul>
+<li><p>因为每个Thread内有自己的实例副本且该副本只有当前线程自己使用</p>
 </li>
-<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/61.jpg"></p>
+<li><p>既然其他ThreadLocal不可访问，那就不存在多线程间共享问题</p>
 </li>
-<li><p>原理（LongAdder为什么这么快）</p>
+<li><p>统一设置初始值，但是每个线程对这个值得修改都是各自线程互相独立得</p>
 </li>
-<li><ul>
-<li>如果是JDK8，推荐使用LongAdder对象，比AtomicLong性能更好（减少乐观锁的重试次数）</li>
-<li>LongAdder是Striped64的子类</li>
-<li>Striped64的基本结构</li>
-</ul>
+<li><p>如何才能不争抢</p>
 </li>
 <li><ul>
-<li><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/62.jpg"><ul>
-<li><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/63.jpg"></li>
+<li>加入synchronized或者Lock控制资源的访问顺序</li>
+<li>人手一份，大家各自安好，没有必要争抢</li>
 </ul>
 </li>
 </ul>
+<h2 id="1-2-ThreadLocal源码分析"><a href="#1-2-ThreadLocal源码分析" class="headerlink" title="1.2 ThreadLocal源码分析"></a>1.2 ThreadLocal源码分析</h2><h4 id="1-2-1-源码解读"><a href="#1-2-1-源码解读" class="headerlink" title="1.2.1 源码解读"></a>1.2.1 源码解读</h4><h4 id="1-2-2-Thread、ThreadLocal、ThreadLocalMap关系"><a href="#1-2-2-Thread、ThreadLocal、ThreadLocalMap关系" class="headerlink" title="1.2.2 Thread、ThreadLocal、ThreadLocalMap关系"></a>1.2.2 Thread、ThreadLocal、ThreadLocalMap关系</h4><ul>
+<li><p>Thread和ThreadLocal，人手一份</p>
 </li>
 <li><ul>
-<li>cell：是java.util.concurrent.atomic下Striped64的一个内部类</li>
-<li>LongAdder为什么这么快</li>
+<li>img</li>
 </ul>
 </li>
-<li><ul>
-<li><ul>
-<li>LongAdder的基本思路就是分散热点，将value值分散到一个Cell数组中，不同线程会命中到数组的不同槽中，各个线程只对自己槽中的那个值进行CAS操作，这样热点就被分散了，冲突的概率就小很多，如果要获取真正的long值，只要将各个槽中的变量值累加返回</li>
-<li>sum()会将所有的Cell数组中的value和base累加作为返回值，核心的思想就是将之前AtomicLong一个value的更新压力分散到多个value中去，从而降级更新热点。</li>
-<li>内部有一个base变量，一个Cell[]数组</li>
-</ul>
+<li><p>ThreadLocal和ThreadLocalMap</p>
 </li>
-</ul>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/69.jpg"></p>
+</li>
+<li><p>三者总概括</p>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/70.jpg"></p>
 </li>
 <li><ul>
-<li><ul>
-<li><ul>
-<li>base变量：低并发，直接累加到该变量上</li>
-<li>Cell[]数组：高并发，累加进各个线程自己的槽Cell[i]中</li>
-<li><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/64.jpg"></li>
-</ul>
+<li><p>ThreadLocalMap实际上就是一个以ThreadLocal实例为Key，任意对象为value的Entry对象</p>
+</li>
+<li><p>当我们为ThreadLocal变量赋值，实际上就是以当前ThreadLocal实例为Key，值为value的Entry往这个ThreadLocalMap中存放</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/71.jpg"></p>
 </li>
 </ul>
 </li>
 </ul>
+<h4 id="1-2-3-总结"><a href="#1-2-3-总结" class="headerlink" title="1.2.3 总结"></a>1.2.3 总结</h4><ul>
+<li><p>ThreadLocalMap从字面上就可以看出这是一个保存ThreadLocal对象的map（其实是以ThreadLocal为Key），不过是经过了两层包装的ThreadLocal对象：</p>
 </li>
-<li><p>源码解读深度分析</p>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/72.jpg"></p>
+</li>
+<li><p>JVM内部维护了一个线程版的Map&lt;ThreadLocal, Value&gt;（通过ThreadLocal对象的set方法，结果把ThreadLocal对象自己当作Key，放进了ThreadLocalMap中），每个线程要用到这个T的时候，用当前的线程去Map里面获取，通过这样让每个线程都拥有了自己独立的变量，人手一份，竞争条件被彻底消除，在并发模式下是绝对安全的变量。</p>
+</li>
+</ul>
+<h2 id="1-3-ThreadLocal内存泄漏问题"><a href="#1-3-ThreadLocal内存泄漏问题" class="headerlink" title="1.3 ThreadLocal内存泄漏问题"></a>1.3 ThreadLocal内存泄漏问题</h2><h4 id="1-3-1-什么是内存泄漏"><a href="#1-3-1-什么是内存泄漏" class="headerlink" title="1.3.1 什么是内存泄漏"></a>1.3.1 什么是内存泄漏</h4><p>不再会被使用的对象或者变量占用的内存不能被回收，就是内存泄漏</p>
+<h4 id="1-3-2-谁惹的祸？"><a href="#1-3-2-谁惹的祸？" class="headerlink" title="1.3.2 谁惹的祸？"></a>1.3.2 谁惹的祸？</h4><ul>
+<li><p>再回首ThreadLocalMap</p>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/73.jpg"></p>
+</li>
+<li><p>强软弱虚引用</p>
 </li>
 <li><ul>
-<li>LongAdder在无竞争的情况下，跟AtomicLong一样，对同一个base进行操作，当出现竞争关系时则是采用化整为零分散热点的做法，用空间换时间，用一个数组cells，将一个value值拆分进这个数组cells。多个线程需要同时对value进行操作的时候，可以对线程id进行hash得到hash值，再根据hash值映射到这个数组cells的某个下标，再对该下标所对应的值进行自增操作。当所有线程操作完毕，将数组cells的所有值和base都加起来作为最终结果</li>
-<li>add(1L)</li>
+<li><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/135.jpg"></li>
+<li>强引用：</li>
 </ul>
 </li>
 <li><ul>
 <li><ul>
-<li><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/65.jpg"></li>
-<li>1 如果Cells表为空，尝试用CAS更新base字段，成功则退出</li>
-<li>2 如果Cells表为空，CAS更新base字段失败，出现竞争，uncontended为true，调用longAccumulate（新建数组）</li>
-<li>3 如果Cells表非空，但当前线程映射的槽为空，uncontended为true，调用longAccumulate（初始化）</li>
-<li>4 如果Cells表非空，且当前线程映射的槽非空，CAS更新Cell的值，成功则返回，否则，uncontended设为false，调用longAccumulate（扩容）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li>longAccumulate</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/66.jpg"></li>
+<li>对于强引用的对象，就算是出现了OOM也不会对该对象进行回收，死都不收，当一个对象被强引用变量引用时，它处于可达状态，是不可能被垃圾回收机制回收的，即使该对象以后永远都不会被用到，JVM也不会回收，因此强引用是造成Java内存泄露的主要原因之一。</li>
 </ul>
 </li>
 </ul>
 </li>
 <li><ul>
-<li>sum</li>
+<li>软引用：</li>
 </ul>
 </li>
 <li><ul>
-<li><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/67.jpg"><ul>
-<li>sum()会将所有Cell数组中的value和base累加作为返回值。核心思想就是将之前AtomicLong一个value的更新压力分散到多个value中去，从而降级更新热点。</li>
-<li>sum执行时，并没有限制对base和cells的更新，所以LongAdder不是强一致性的，它是最终一致性的，对cell的读取无法保证是最后一次写入的值，所以在没有并发的场景下，可以获得正确的结果。</li>
+<li><ul>
+<li>是一种相对强引用弱化了一些的引用，对于只有软引用的对象而言，当系统内存充足时，不会被回收，当系统内存不足时，他会被回收，软引用通常用在对内存敏感的程序中，比如高速缓存，内存够用就保留，不够用就回收。</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p>使用总结</p>
 </li>
 <li><ul>
-<li>AtomicLong线程安全，可允许一些性能损耗，要求高精度时可使用，保证精度，多个线程对单个热点值value进行了原子操作—–保证精度，性能代码</li>
-<li>LongAdder当需要在高并发场景下有较好的性能表现，且对值得精确度要求不高时，可以使用，LongAdder时每个线程拥有自己得槽，各个线程一般只对自己槽中得那个值进行CAS操作—保证性能，精度代价</li>
+<li>弱引用：</li>
 </ul>
-</li>
-</ul>
-<h4 id="1-5-5-总结"><a href="#1-5-5-总结" class="headerlink" title="1.5.5 总结"></a>1.5.5 总结</h4><ul>
-<li><p>AtomicLong</p>
 </li>
 <li><ul>
-<li>原理：CAS+自旋</li>
-<li>场景：低并发下的全局计算，AtomicLong能保证并发情况下计数的准确性，其内部通过CAS来解决并发安全性问题</li>
-<li>缺陷：高并发后性能急剧下降—-AtomicLong的自旋会成为瓶颈（N个线程CAS操作修改线程的值，每次只有一个成功过，其他N-1失败，失败的不停自旋直至成功，这样大量失败自旋的情况，一下子cpu就打高了）</li>
+<li><ul>
+<li>比软引用的生命周期更短，对于只有弱引用的对象而言，只要垃圾回收机制一运行，不管JVM的内存空间是否足够，都会回收该对象占用的内存。</li>
 </ul>
 </li>
-<li><p>LongAdder</p>
+</ul>
 </li>
 <li><ul>
-<li>原理：CAS+Base+Cell数组分散—–空间换时间并分散了热点数据</li>
-<li>场景：高并发下的全局计算</li>
-<li>缺陷：sum求和后还有计算线程修改结果的话，最后结果不够准确</li>
+<li>软引用和弱引用的使用场景—–&gt;假如有一个应用需要读取大量的本地图片：</li>
 </ul>
 </li>
+<li><ul>
+<li><ul>
+<li>如果每次读取图片都从硬盘读取则会严重影响性能</li>
+<li>如果一次性全部加载到内存中又可能会造成内存溢出</li>
+<li>此时使用软应用来解决，设计思路时：用一个HashMap来保存图片的路径和与相应图片对象关联的软引用之间的映射关系，在内存不足时，JVM会自动回收这些缓存图片对象所占用的空间，有效避免了OOM的问题</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li>虚引用：</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>虚引用必须和引用队列联合使用，如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都有可能被垃圾回收器回收，它不能单独使用也不能通过它访问对象。</li>
+<li>虚引用的主要作用是跟踪对象被垃圾回收的状态。仅仅是提供了一种确保对象被finalize后，做某些事情的通知机制。换句话说就是在对象被GC的时候会收到一个系统通知或者后续添加进一步的处理，用来实现比finalize机制更灵活的回收操作。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-3-3-为什么要用弱引用？不用如何？"><a href="#1-3-3-为什么要用弱引用？不用如何？" class="headerlink" title="1.3.3 为什么要用弱引用？不用如何？"></a>1.3.3 为什么要用弱引用？不用如何？</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/74.jpg"></p>
+<ul>
+<li><p>为什么要用弱引用：</p>
+</li>
+<li><ul>
+<li>当方法执行完毕后，栈帧销毁，强引用t1也就没有了，但此时线程的ThreadLocalMap里某个entry的Key引用还指向这个对象，若这个Key是强引用，就会导致Key指向的ThreadLocal对象即V指向的对象不能被gc回收，造成内存泄露</li>
+<li>若这个引用时弱引用就大概率会减少内存泄漏的问题（当然，还得考虑key为null这个坑），使用弱引用就可以使ThreadLocal对象在方法执行完毕后顺利被回收且entry的key引用指向为null</li>
+</ul>
+</li>
+<li><p>这里有个需要注意的问题：</p>
+</li>
+<li><ul>
+<li>ThreadLocalMap使用ThreadLocal的弱引用作为Key，如果一个ThreadLocal没有外部强引用引用他，那么系统gc时，这个ThreadLocal势必会被回收，这样一来，ThreadLocalMap中就会出现Key为null的Entry，就没有办法访问这些Key为null的Entry的value，如果当前线程迟迟不结束的话（好比正在使用线程池），这些key为null的Entry的value就会一直存在一条强引用链</li>
+<li>虽然弱引用，保证了Key指向的ThreadLocal对象能够被及时回收，但是v指向的value对象是需要ThreadLocalMap调用get、set时发现key为null时才会去回收整个entry、value，因此弱引用不能100%保证内存不泄露，我们要在不使用某个ThreadLocal对象后，手动调用remove方法来删除它，尤其是在线程池中，不仅仅是内存泄漏的问题，因为线程池中的线程是重复使用的，意味着这个线程的ThreadLocalMap对象也是重复使用的，如果我们不手动调用remove方法，那么后面的线程就有可能获取到上个线程遗留下来的value值，造成bug。</li>
+<li>清除脏Entry—-key为null的entry</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>set()方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/75.jpg"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>get()方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/76.jpg"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>remove()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/77.jpg"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-3-4-最佳实践"><a href="#1-3-4-最佳实践" class="headerlink" title="1.3.4 最佳实践"></a>1.3.4 最佳实践</h4><ul>
+<li>ThreadLocal一定要初始化，避免空指针异常。</li>
+<li>建议把ThreadLocal修饰为static</li>
+<li>用完记得手动remove</li>
+</ul>
+<h2 id="1-4-小总结"><a href="#1-4-小总结" class="headerlink" title="1.4 小总结"></a>1.4 小总结</h2><ul>
+<li>ThreadLocal并不解决线程间共享数据的问题</li>
+<li>ThreadLocal适用于变量在线程间隔离且在方法间共享的场景</li>
+<li>ThreadLocal通过隐式的在不同线程内创建独立实例副本避免了实例线程安全的问题</li>
+<li>每个线程持有一个只属于它自己的专属map并维护了ThreadLocal对象与具体实例的映射，该Map由于只被持有他的线程访问，故不存在线程安全以及锁的问题</li>
+<li>ThreadLocalMap的Entry对ThreadLocal的引用为弱引用。避免了ThreadLocal对象无法被回收的问题</li>
+<li>都会通过expungeStaleEntry，cleanSomeSlots，replaceStaleEntry这三个方法回收键为null的Entry对象的值（即为具体实例）以及entry对象本身从而防止内存泄漏，属于安全加固的方法</li>
+<li>群雄逐鹿起纷争，人各一份天下安</li>
 </ul>
 
                 
@@ -1043,7 +885,7 @@ public class AccumulatorCompareDemo {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gitee.com/yunyd/yunyd/posts/d6c7d2ae.html">https://gitee.com/yunyd/yunyd/posts/d6c7d2ae.html</a>
+                    <a href="https://gitee.com/yunyd/yunyd/posts/a2a7cd7f.html">https://gitee.com/yunyd/yunyd/posts/a2a7cd7f.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1554,9 +1396,10 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/yunyd/posts/a2a7cd7f.html">
                     <div class="card-image">
@@ -1574,9 +1417,9 @@ new Valine({
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1589,6 +1432,7 @@ new Valine({
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1607,24 +1451,24 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yunyd/posts/ce927603.html">
+                <a href="/yunyd/posts/d6c7d2ae.html">
                     <div class="card-image">
                         
                         
-                        <img src="/yunyd/medias/g.jpg" class="responsive-img" alt="JUC-CAS -7">
+                        <img src="/yunyd/medias/f.jpg" class="responsive-img" alt="JUC-原子操作类 -8">
                         
-                        <span class="card-title">JUC-CAS -7</span>
+                        <span class="card-title">JUC-原子操作类 -8</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JUC-CAS -7
+                            JUC-原子操作类
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-14
                             </span>
                         <span class="publish-author">
                             

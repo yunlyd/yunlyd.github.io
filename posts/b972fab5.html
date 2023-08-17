@@ -529,7 +529,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-14
+                    2023-08-17
                 </div>
                 
 
@@ -561,13 +561,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="LockSupport与线程中断"><a href="#LockSupport与线程中断" class="headerlink" title="LockSupport与线程中断"></a>LockSupport与线程中断</h1><h2 id="4-1-线程中断机制"><a href="#4-1-线程中断机制" class="headerlink" title="4.1 线程中断机制"></a>4.1 线程中断机制</h2><h4 id="4-1-1-从阿里蚂蚁金服面试题讲起"><a href="#4-1-1-从阿里蚂蚁金服面试题讲起" class="headerlink" title="4.1.1 从阿里蚂蚁金服面试题讲起"></a>4.1.1 从阿里蚂蚁金服面试题讲起</h4><p>Java.lang.Thread下的三个方法:</p>
+                <h1 id="LockSupport与线程中断"><a href="#LockSupport与线程中断" class="headerlink" title="LockSupport与线程中断"></a>LockSupport与线程中断</h1><h2 id="1-1-线程中断机制"><a href="#1-1-线程中断机制" class="headerlink" title="1.1 线程中断机制"></a>1.1 线程中断机制</h2><h4 id="1-1-1-从阿里蚂蚁金服面试题讲起"><a href="#1-1-1-从阿里蚂蚁金服面试题讲起" class="headerlink" title="1.1.1 从阿里蚂蚁金服面试题讲起"></a>1.1.1 从阿里蚂蚁金服面试题讲起</h4><p>Java.lang.Thread下的三个方法:</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/19.jpg"></p>
 <ul>
 <li>如何中断一个运行中的线程？</li>
 <li>如何停止一个运行中的线程？</li>
 </ul>
-<h4 id="4-1-2-什么是中断机制"><a href="#4-1-2-什么是中断机制" class="headerlink" title="4.1.2 什么是中断机制"></a>4.1.2 什么是中断机制</h4><ul>
+<h4 id="1-1-2-什么是中断机制"><a href="#1-1-2-什么是中断机制" class="headerlink" title="1.1.2 什么是中断机制"></a>1.1.2 什么是中断机制</h4><ul>
 <li><p>首先，一个线程不应该由其他线程来强制中断或停止，而是应该由线程自己自行停止，自己来决定自己的命运，所以，Thread.stop,Thread.suspend,Thread.resume都已经被废弃了</p>
 </li>
 <li><p>其次，在Java中没有办法立即停止一条线程，然而停止线程却显得尤为重要，如取消一个耗时操作。因此，Java提供了一种用于停止线程的协商机制—-中断，也即中断标识协商机制</p>
@@ -578,7 +578,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="4-1-3-中断的相关API方法之三大方法说明"><a href="#4-1-3-中断的相关API方法之三大方法说明" class="headerlink" title="4.1.3 中断的相关API方法之三大方法说明"></a>4.1.3 中断的相关API方法之三大方法说明</h4><ul>
+<h4 id="1-1-3-中断的相关API方法之三大方法说明"><a href="#1-1-3-中断的相关API方法之三大方法说明" class="headerlink" title="1.1.3 中断的相关API方法之三大方法说明"></a>1.1.3 中断的相关API方法之三大方法说明</h4><ul>
 <li><p>public void interrupt()</p>
 </li>
 <li><ul>
@@ -610,7 +610,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="4-1-4-大厂面试题中断机制考点"><a href="#4-1-4-大厂面试题中断机制考点" class="headerlink" title="4.1.4 大厂面试题中断机制考点"></a>4.1.4 大厂面试题中断机制考点</h4><ul>
+<h4 id="1-1-4-大厂面试题中断机制考点"><a href="#1-1-4-大厂面试题中断机制考点" class="headerlink" title="1.1.4 大厂面试题中断机制考点"></a>1.1.4 大厂面试题中断机制考点</h4><ul>
 <li><p>如何停止中断运行中的线程？</p>
 </li>
 <li><ul>
@@ -873,18 +873,18 @@
 <li>实例方法isInterrupted则不会（传入的参数ClearInterrupted为false）</li>
 </ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/22.jpg"></p>
-<h4 id="4-1-5-总结"><a href="#4-1-5-总结" class="headerlink" title="4.1.5 总结"></a>4.1.5 总结</h4><ul>
+<h4 id="1-1-5-总结"><a href="#1-1-5-总结" class="headerlink" title="1.1.5 总结"></a>1.1.5 总结</h4><ul>
 <li>public void interrupt() 是一个实例方法，它通知目标线程中断，也仅仅是设置目标线程的中断标志位为true</li>
 <li>public boolean isInterrupted() 是一个实例方法，它判断当前线程是否被中断（通过检查中断标志位）并获取中断标志</li>
 <li>public static boolean interrupted() 是一个静态方法，返回当前线程的中断真实状态（boolean类型）后会将当前线程的中断状态设为false，此方法调用之后会清楚当前线程的中断标志位的状态（将中断标志置为false了），返回当前值并清零置为false。</li>
 </ul>
-<h2 id="4-2-LockSupport是什么"><a href="#4-2-LockSupport是什么" class="headerlink" title="4.2 LockSupport是什么"></a>4.2 LockSupport是什么</h2><p>LockSupport是用来创建锁和其他同步类的基本线程阻塞原语，其中park()和unpack()而作用分别是阻塞线程和解除阻塞线程.</p>
-<h2 id="4-3-线程等待唤醒机制"><a href="#4-3-线程等待唤醒机制" class="headerlink" title="4.3 线程等待唤醒机制"></a>4.3 线程等待唤醒机制</h2><h4 id="4-3-1-三种让线程等待和唤醒的方法"><a href="#4-3-1-三种让线程等待和唤醒的方法" class="headerlink" title="4.3.1 三种让线程等待和唤醒的方法"></a>4.3.1 三种让线程等待和唤醒的方法</h4><ul>
+<h2 id="1-2-LockSupport是什么"><a href="#1-2-LockSupport是什么" class="headerlink" title="1.2 LockSupport是什么"></a>1.2 LockSupport是什么</h2><p>LockSupport是用来创建锁和其他同步类的基本线程阻塞原语，其中park()和unpack()而作用分别是阻塞线程和解除阻塞线程.</p>
+<h2 id="1-3-线程等待唤醒机制"><a href="#1-3-线程等待唤醒机制" class="headerlink" title="1.3 线程等待唤醒机制"></a>1.3 线程等待唤醒机制</h2><h4 id="1-3-1-三种让线程等待和唤醒的方法"><a href="#1-3-1-三种让线程等待和唤醒的方法" class="headerlink" title="1.3.1 三种让线程等待和唤醒的方法"></a>1.3.1 三种让线程等待和唤醒的方法</h4><ul>
 <li>方式一：使用Object中的wait()方法让线程等待，使用Object中的notify()方法唤醒线程</li>
 <li>方式二：使用JUC包中的Condition的await()方法让线程等待，使用signal()方法唤醒线程</li>
 <li>方式三：LockSupport类可以阻塞当前线程以及唤醒指定被阻塞的线程</li>
 </ul>
-<h4 id="4-3-2-Object类中的wait和notify方法实现线程等待和唤醒"><a href="#4-3-2-Object类中的wait和notify方法实现线程等待和唤醒" class="headerlink" title="4.3.2 Object类中的wait和notify方法实现线程等待和唤醒"></a>4.3.2 Object类中的wait和notify方法实现线程等待和唤醒</h4><ul>
+<h4 id="1-3-2-Object类中的wait和notify方法实现线程等待和唤醒"><a href="#1-3-2-Object类中的wait和notify方法实现线程等待和唤醒" class="headerlink" title="1.3.2 Object类中的wait和notify方法实现线程等待和唤醒"></a>1.3.2 Object类中的wait和notify方法实现线程等待和唤醒</h4><ul>
 <li>wait和notify方法必须要在同步代码块或者方法里面，且成对出现使用</li>
 <li>先wait再notify才ok</li>
 </ul>
@@ -926,7 +926,7 @@
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="4-3-3-Condition接口中的await和signal方法实现线程的等待和唤醒"><a href="#4-3-3-Condition接口中的await和signal方法实现线程的等待和唤醒" class="headerlink" title="4.3.3 Condition接口中的await和signal方法实现线程的等待和唤醒"></a>4.3.3 Condition接口中的await和signal方法实现线程的等待和唤醒</h4><ul>
+<h4 id="1-3-3-Condition接口中的await和signal方法实现线程的等待和唤醒"><a href="#1-3-3-Condition接口中的await和signal方法实现线程的等待和唤醒" class="headerlink" title="1.3.3 Condition接口中的await和signal方法实现线程的等待和唤醒"></a>1.3.3 Condition接口中的await和signal方法实现线程的等待和唤醒</h4><ul>
 <li>Condition中的线程等待和唤醒方法，需要先获取锁</li>
 <li>一定要先await后signal，不要反了</li>
 </ul>
@@ -973,11 +973,11 @@
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="4-3-4-上述两个对象Object和Condition使用的限制条件"><a href="#4-3-4-上述两个对象Object和Condition使用的限制条件" class="headerlink" title="4.3.4 上述两个对象Object和Condition使用的限制条件"></a>4.3.4 上述两个对象Object和Condition使用的限制条件</h4><ul>
+<h4 id="1-3-4-上述两个对象Object和Condition使用的限制条件"><a href="#1-3-4-上述两个对象Object和Condition使用的限制条件" class="headerlink" title="1.3.4 上述两个对象Object和Condition使用的限制条件"></a>1.3.4 上述两个对象Object和Condition使用的限制条件</h4><ul>
 <li>线程需要先获得并持有锁，必须在锁块（synchronized或lock）中</li>
 <li>必须要先等待后唤醒，线程才能够被唤醒</li>
 </ul>
-<h4 id="4-3-5-LockSupport类中的park等待和unpark唤醒"><a href="#4-3-5-LockSupport类中的park等待和unpark唤醒" class="headerlink" title="4.3.5 LockSupport类中的park等待和unpark唤醒"></a>4.3.5 LockSupport类中的park等待和unpark唤醒</h4><ul>
+<h4 id="1-3-5-LockSupport类中的park等待和unpark唤醒"><a href="#1-3-5-LockSupport类中的park等待和unpark唤醒" class="headerlink" title="1.3.5 LockSupport类中的park等待和unpark唤醒"></a>1.3.5 LockSupport类中的park等待和unpark唤醒</h4><ul>
 <li><p>是什么</p>
 </li>
 <li><ul>
@@ -1948,7 +1948,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">154.9k</span>&nbsp;字
+                class="white-color">157.4k</span>&nbsp;字
             
             
             

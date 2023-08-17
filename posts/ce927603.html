@@ -529,7 +529,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-16
+                    2023-08-17
                 </div>
                 
 
@@ -561,9 +561,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="CAS"><a href="#CAS" class="headerlink" title="CAS"></a>CAS</h1><h2 id="7-1-原子类"><a href="#7-1-原子类" class="headerlink" title="7.1 原子类"></a>7.1 原子类</h2><p>Java.util.concurrent.atomic</p>
+                <h1 id="CAS"><a href="#CAS" class="headerlink" title="CAS"></a>CAS</h1><h2 id="1-1-原子类"><a href="#1-1-原子类" class="headerlink" title="1.1 原子类"></a>1.1 原子类</h2><p>Java.util.concurrent.atomic</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/50.jpg"></p>
-<h2 id="7-2-没有CAS之前"><a href="#7-2-没有CAS之前" class="headerlink" title="7.2 没有CAS之前"></a>7.2 没有CAS之前</h2><p>多线程环境中不使用原子类保证线程安全i++（基本数据类型）</p>
+<h2 id="1-2-没有CAS之前"><a href="#1-2-没有CAS之前" class="headerlink" title="1.2 没有CAS之前"></a>1.2 没有CAS之前</h2><p>多线程环境中不使用原子类保证线程安全i++（基本数据类型）</p>
 <pre class="line-numbers language-none"><code class="language-none">class Test {
         private volatile int count = 0;
         //若要线程安全执行执行count++，需要加锁
@@ -576,7 +576,7 @@
         }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="7-3-使用CAS之后"><a href="#7-3-使用CAS之后" class="headerlink" title="7.3 使用CAS之后"></a>7.3 使用CAS之后</h2><p>多线程环境中使用原子类保证线程安全i++（基本数据类型）———-&gt;类似于乐观锁</p>
+<h2 id="1-3-使用CAS之后"><a href="#1-3-使用CAS之后" class="headerlink" title="1.3 使用CAS之后"></a>1.3 使用CAS之后</h2><p>多线程环境中使用原子类保证线程安全i++（基本数据类型）———-&gt;类似于乐观锁</p>
 <pre class="line-numbers language-none"><code class="language-none">class Test2 {
         private AtomicInteger count = new AtomicInteger();
 
@@ -589,7 +589,7 @@
         }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="7-4-是什么？"><a href="#7-4-是什么？" class="headerlink" title="7.4 是什么？"></a>7.4 是什么？</h2><p>CAS(compare and swap)，中文翻译为比较并交换，实现并发算法时常用到的一种技术，用于保证共享变量的原子性更新，它包含三个操作数—内存位置、预期原值与更新值。</p>
+<h2 id="1-4-是什么？"><a href="#1-4-是什么？" class="headerlink" title="1.4 是什么？"></a>1.4 是什么？</h2><p>CAS(compare and swap)，中文翻译为比较并交换，实现并发算法时常用到的一种技术，用于保证共享变量的原子性更新，它包含三个操作数—内存位置、预期原值与更新值。</p>
 <p>执行CAS操作的时候，将内存位置的值与预期原值进行比较：</p>
 <ul>
 <li>如果相匹配，那么处理器会自动将该位置更新为新值</li>
@@ -607,14 +607,14 @@
 
 <p>compareAndSet 源码</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/52.jpg"></p>
-<h2 id="7-5-CAS底层原理？谈谈对Unsafe类的理解？"><a href="#7-5-CAS底层原理？谈谈对Unsafe类的理解？" class="headerlink" title="7.5 CAS底层原理？谈谈对Unsafe类的理解？"></a>7.5 CAS底层原理？谈谈对Unsafe类的理解？</h2><h4 id="7-5-1-Unsafe"><a href="#7-5-1-Unsafe" class="headerlink" title="7.5.1 Unsafe"></a>7.5.1 Unsafe</h4><p>Unsafe类是CAS的核心类，由于Java方法无法直接访问底层系统，需要通过本地（native）方法来访问，Unsafe相当于一个后门，基于该类可以直接操作特定内存的数据。Unsafe类存在于sun.misc包中，其内部方法操作可以像C的指针一样直接操作内存，因此Java中CAS操作的执行依赖于Unsafe类的方法。</p>
+<h2 id="1-5-CAS底层原理？谈谈对Unsafe类的理解？"><a href="#1-5-CAS底层原理？谈谈对Unsafe类的理解？" class="headerlink" title="1.5 CAS底层原理？谈谈对Unsafe类的理解？"></a>1.5 CAS底层原理？谈谈对Unsafe类的理解？</h2><h4 id="1-5-1-Unsafe"><a href="#1-5-1-Unsafe" class="headerlink" title="1.5.1 Unsafe"></a>1.5.1 Unsafe</h4><p>Unsafe类是CAS的核心类，由于Java方法无法直接访问底层系统，需要通过本地（native）方法来访问，Unsafe相当于一个后门，基于该类可以直接操作特定内存的数据。Unsafe类存在于sun.misc包中，其内部方法操作可以像C的指针一样直接操作内存，因此Java中CAS操作的执行依赖于Unsafe类的方法。</p>
 <p>注意：Unsafe类中的所有方法都是native修饰的，也就是说Unsafe类中的所有方法都直接调用操作系统底层资源执行相应任务。</p>
 <p>问题：我们知道i++是线程不安全的，那AtomicInteger.getAndIncrement()如何保证原子性？</p>
 <p>AtomicInteger类主要利用CAS+volatile和native方法来保证原子操作，从而避免synchronized的高开销，执行效率大为提升：</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/53.jpg"></p>
 <p>CAS并发原语体现在Java语言中就是sun.misc.Unsafe类中的各个方法。调用Unsafe类中的CAS方法，JVM会帮我们实现出CAS汇编指令。这是一种完全依赖于硬件的功能，通过它实现了原子操作。再次强调，由于CAS是一种系统原语，原语属于操作系统用语范畴，是由若干条指令组成的，用于完成某个功能的一个过程，并且原语的执行必须是连续的，在执行过程中不允许被中断，也就是说CAS是一条CPU的原子指令，不会造成所谓的数据不一致问题。</p>
-<h4 id="7-5-2-源码分析"><a href="#7-5-2-源码分析" class="headerlink" title="7.5.2 源码分析"></a>7.5.2 源码分析</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/54.jpg"></p>
-<h4 id="7-5-3-底层汇编"><a href="#7-5-3-底层汇编" class="headerlink" title="7.5.3 底层汇编"></a>7.5.3 底层汇编</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/55.jpg"></p>
+<h4 id="1-5-2-源码分析"><a href="#1-5-2-源码分析" class="headerlink" title="1.5.2 源码分析"></a>1.5.2 源码分析</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/54.jpg"></p>
+<h4 id="1-5-3-底层汇编"><a href="#1-5-3-底层汇编" class="headerlink" title="1.5.3 底层汇编"></a>1.5.3 底层汇编</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/55.jpg"></p>
 <p>JDK提供的CAS机制，在汇编层级会禁止变量两侧的指令优化，然后使用compxchg指令比较并更新变量值（原子性）</p>
 <p>总结：</p>
 <ul>
@@ -622,7 +622,7 @@
 <li>实现方式是基于硬件平台的汇编指令，在inter的CPU中，使用的是汇编指令compxchg指令</li>
 <li>核心思想就是比较要更新变量V的值和预期值E，相等才会将V的值设为新值N，如果不相等自旋再来</li>
 </ul>
-<h2 id="7-6-原子引用"><a href="#7-6-原子引用" class="headerlink" title="7.6 原子引用"></a>7.6 原子引用</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/56.jpg"></p>
+<h2 id="1-6-原子引用"><a href="#1-6-原子引用" class="headerlink" title="1.6 原子引用"></a>1.6 原子引用</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/56.jpg"></p>
 <p>原子引用演示：</p>
 <pre class="line-numbers language-none"><code class="language-none">@Data
 @AllArgsConstructor
@@ -645,8 +645,8 @@ public class AtomicReferenceDemo {
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="7-7-CAS与自旋锁，借鉴CAS思想"><a href="#7-7-CAS与自旋锁，借鉴CAS思想" class="headerlink" title="7.7 CAS与自旋锁，借鉴CAS思想"></a>7.7 CAS与自旋锁，借鉴CAS思想</h2><h4 id="7-7-1-是什么？"><a href="#7-7-1-是什么？" class="headerlink" title="7.7.1 是什么？"></a>7.7.1 是什么？</h4><p>CAS是实现自旋锁的基础，CAS利用CPU指令保证了操作的原子性，以达到锁的效果，至于自旋锁—字面意思自己旋转。是指尝试获取锁的线程不会立即阻塞，而是采用循环的方式去尝试获取锁，当线程发现锁被占用时，会不断循环判断锁的状态，直到获取。这样的好处是减少线程上下文切换的消耗，缺点是循环会消耗CPU。</p>
-<h4 id="7-7-2-自己实现一个自旋锁spinLockDemo"><a href="#7-7-2-自己实现一个自旋锁spinLockDemo" class="headerlink" title="7.7.2 自己实现一个自旋锁spinLockDemo"></a>7.7.2 自己实现一个自旋锁spinLockDemo</h4><p>题目：实现一个自旋锁，借鉴CAS思想</p>
+<h2 id="1-7-CAS与自旋锁，借鉴CAS思想"><a href="#1-7-CAS与自旋锁，借鉴CAS思想" class="headerlink" title="1.7 CAS与自旋锁，借鉴CAS思想"></a>1.7 CAS与自旋锁，借鉴CAS思想</h2><h4 id="1-7-1-是什么？"><a href="#1-7-1-是什么？" class="headerlink" title="1.7.1 是什么？"></a>1.7.1 是什么？</h4><p>CAS是实现自旋锁的基础，CAS利用CPU指令保证了操作的原子性，以达到锁的效果，至于自旋锁—字面意思自己旋转。是指尝试获取锁的线程不会立即阻塞，而是采用循环的方式去尝试获取锁，当线程发现锁被占用时，会不断循环判断锁的状态，直到获取。这样的好处是减少线程上下文切换的消耗，缺点是循环会消耗CPU。</p>
+<h4 id="1-7-2-自己实现一个自旋锁spinLockDemo"><a href="#1-7-2-自己实现一个自旋锁spinLockDemo" class="headerlink" title="1.7.2 自己实现一个自旋锁spinLockDemo"></a>1.7.2 自己实现一个自旋锁spinLockDemo</h4><p>题目：实现一个自旋锁，借鉴CAS思想</p>
 <p>通过CAS完成自旋锁，A线程先进来调用myLock方法自己持有锁5秒钟，B随后进来后发现当前有线程持有锁，所以只能通过自旋等待，直到A释放锁后B随后抢到。</p>
 <p>借鉴CAS思想实现自旋锁：</p>
 <pre class="line-numbers language-none"><code class="language-none">public class SpinLockDemo {
@@ -699,12 +699,12 @@ public class AtomicReferenceDemo {
  * B	 --------task over,unLock.........
  */<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="7-8-CAS缺点"><a href="#7-8-CAS缺点" class="headerlink" title="7.8 CAS缺点"></a>7.8 CAS缺点</h2><h4 id="7-8-1-循环时间长开销很大"><a href="#7-8-1-循环时间长开销很大" class="headerlink" title="7.8.1 循环时间长开销很大"></a>7.8.1 循环时间长开销很大</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/57.jpg"></p>
+<h2 id="1-8-CAS缺点"><a href="#1-8-CAS缺点" class="headerlink" title="1.8 CAS缺点"></a>1.8 CAS缺点</h2><h4 id="1-8-1-循环时间长开销很大"><a href="#1-8-1-循环时间长开销很大" class="headerlink" title="1.8.1 循环时间长开销很大"></a>1.8.1 循环时间长开销很大</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/57.jpg"></p>
 <ul>
 <li>getAndAddInt方法有一个do while</li>
 <li>如果CAS失败，会一直进行尝试，如果CAS长时间一直不成功，可能会给CPU带来很大开销</li>
 </ul>
-<h2 id="7-8-2-引出来ABA问题？"><a href="#7-8-2-引出来ABA问题？" class="headerlink" title="7.8.2 引出来ABA问题？"></a>7.8.2 引出来ABA问题？</h2><ul>
+<h4 id="1-8-2-引出来ABA问题？"><a href="#1-8-2-引出来ABA问题？" class="headerlink" title="1.8.2 引出来ABA问题？"></a>1.8.2 引出来ABA问题？</h4><ul>
 <li><p>ABA问题怎么产生的？</p>
 </li>
 <li><ul>
@@ -1687,7 +1687,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">154.9k</span>&nbsp;字
+                class="white-color">157.4k</span>&nbsp;字
             
             
             

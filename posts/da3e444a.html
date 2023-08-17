@@ -529,7 +529,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-14
+                    2023-08-17
                 </div>
                 
 
@@ -561,9 +561,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="说说Java”锁”事"><a href="#说说Java”锁”事" class="headerlink" title="说说Java”锁”事"></a>说说Java”锁”事</h1><h2 id="3-1-从轻松的乐观锁和悲观锁开讲"><a href="#3-1-从轻松的乐观锁和悲观锁开讲" class="headerlink" title="3.1 从轻松的乐观锁和悲观锁开讲"></a>3.1 从轻松的乐观锁和悲观锁开讲</h2><p>●悲观锁： 认为自己在使用数据的时候一定有别的线程来修改数据，因此在获取数据的时候会先加锁，确保数据不会被别的线程修改，synchronized和Lock的实现类都是悲观锁，适合写操作多的场景，先加锁可以保证写操作时数据正确，显示的锁定之后再操作同步资源—–狼性锁</p>
+                <h1 id="说说Java”锁”事"><a href="#说说Java”锁”事" class="headerlink" title="说说Java”锁”事"></a>说说Java”锁”事</h1><h2 id="1-1-从轻松的乐观锁和悲观锁开讲"><a href="#1-1-从轻松的乐观锁和悲观锁开讲" class="headerlink" title="1.1 从轻松的乐观锁和悲观锁开讲"></a>1.1 从轻松的乐观锁和悲观锁开讲</h2><p>●悲观锁： 认为自己在使用数据的时候一定有别的线程来修改数据，因此在获取数据的时候会先加锁，确保数据不会被别的线程修改，synchronized和Lock的实现类都是悲观锁，适合写操作多的场景，先加锁可以保证写操作时数据正确，显示的锁定之后再操作同步资源—–狼性锁</p>
 <p>●乐观锁： 认为自己在使用数据的时候不会有别的线程修改数据或资源，不会添加锁，Java中使用无锁编程来实现，只是在更新的时候去判断，之前有没有别的线程更新了这个数据，如果这个数据没有被更新，当前线程将自己修改的数据成功写入，如果已经被其他线程更新，则根据不同的实现方式执行不同的操作，比如：放弃修改、重试抢锁等等。判断规则有：版本号机制Version，最常采用的是CAS算法，Java原子类中的递增操作就通过CAS自旋实现的。—–适合读操作多的场景，不加锁的特性能够使其读操作的性能大幅提升，乐观锁则直接去操作同步资源，是一种无锁算法，得之我幸不得我命—佛系锁</p>
-<h2 id="3-2-通过8种情况演示锁运行案例，看看锁到底是什么"><a href="#3-2-通过8种情况演示锁运行案例，看看锁到底是什么" class="headerlink" title="3.2 通过8种情况演示锁运行案例，看看锁到底是什么"></a>3.2 通过8种情况演示锁运行案例，看看锁到底是什么</h2><h4 id="3-2-1-锁相关的8种案例演示code"><a href="#3-2-1-锁相关的8种案例演示code" class="headerlink" title="3.2.1 锁相关的8种案例演示code"></a>3.2.1 锁相关的8种案例演示code</h4><p>8种案例演示：</p>
+<h2 id="1-2-通过8种情况演示锁运行案例，看看锁到底是什么"><a href="#1-2-通过8种情况演示锁运行案例，看看锁到底是什么" class="headerlink" title="1.2 通过8种情况演示锁运行案例，看看锁到底是什么"></a>1.2 通过8种情况演示锁运行案例，看看锁到底是什么</h2><h4 id="1-2-1-锁相关的8种案例演示code"><a href="#1-2-1-锁相关的8种案例演示code" class="headerlink" title="1.2.1 锁相关的8种案例演示code"></a>1.2.1 锁相关的8种案例演示code</h4><p>8种案例演示：</p>
 <pre class="line-numbers language-none"><code class="language-none">class Phone {
     public synchronized void sendEmail() {
         try {
@@ -622,12 +622,12 @@ public class Lock8Demo {
 <li>对于静态同步方法，锁的时当前类的Class对象</li>
 <li>对于同步方法块，锁的时synchronized括号内的对象</li>
 </ul>
-<h4 id="3-2-2-synchronized有三种应用方式"><a href="#3-2-2-synchronized有三种应用方式" class="headerlink" title="3.2.2 synchronized有三种应用方式"></a>3.2.2 synchronized有三种应用方式</h4><ul>
+<h4 id="1-2-2-synchronized有三种应用方式"><a href="#1-2-2-synchronized有三种应用方式" class="headerlink" title="1.2.2 synchronized有三种应用方式"></a>1.2.2 synchronized有三种应用方式</h4><ul>
 <li>作用于实例方法，当前实例加锁，进入同步代码块前要获得当前实例的锁；</li>
 <li>作用于代码块，对括号里配置的对象加锁</li>
 <li>作用于静态方法，当前类加锁，进去同步代码前要获得当前类对象的锁</li>
 </ul>
-<h4 id="3-2-3-从字节码角度分析synchronized实现"><a href="#3-2-3-从字节码角度分析synchronized实现" class="headerlink" title="3.2.3 从字节码角度分析synchronized实现"></a>3.2.3 从字节码角度分析synchronized实现</h4><ul>
+<h4 id="1-2-3-从字节码角度分析synchronized实现"><a href="#1-2-3-从字节码角度分析synchronized实现" class="headerlink" title="1.2.3 从字节码角度分析synchronized实现"></a>1.2.3 从字节码角度分析synchronized实现</h4><ul>
 <li><p>javap -c(v附加信息) ***.class 文件反编译</p>
 </li>
 <li><p>synchronized同步代码块</p>
@@ -653,14 +653,14 @@ public class Lock8Demo {
 </li>
 </ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/13.jpg"></p>
-<h4 id="3-2-4-反编译synchronized锁的是什么"><a href="#3-2-4-反编译synchronized锁的是什么" class="headerlink" title="3.2.4 反编译synchronized锁的是什么"></a>3.2.4 反编译synchronized锁的是什么</h4><p>面试题：为什么任何一个对象都可以成为一个锁？</p>
+<h4 id="1-2-4-反编译synchronized锁的是什么"><a href="#1-2-4-反编译synchronized锁的是什么" class="headerlink" title="1.2.4 反编译synchronized锁的是什么"></a>1.2.4 反编译synchronized锁的是什么</h4><p>面试题：为什么任何一个对象都可以成为一个锁？</p>
 <p>C++源码：ObjectMonitor.java—&gt;ObjectMonitor.cpp—&gt;ObjectMonitor.hpp</p>
 <p>每个对象天生都带着一个对象监视器，每一个被锁住的对象都会和Monitor关联起来</p>
 <p>总结：指针指向Monitor对象（也称为管程或监视器）的真实地址。每个对象都存在着一个monitor与之关联，当一个monitor被某个线程持有后，它便处于锁定状态。在Java虚拟机（HotSpot）中，monitor是由OnjectMonitor实现的，其主要的数据结构如下（位于HotSpot虚拟机源码ObjectMonitor.hpp文件，C++实现）：</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/14.jpg"></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/15.jpg"></p>
-<h4 id="3-2-5-对于Synchronized关键字"><a href="#3-2-5-对于Synchronized关键字" class="headerlink" title="3.2.5 对于Synchronized关键字"></a>3.2.5 对于Synchronized关键字</h4><p>后面章节详说</p>
-<h2 id="3-3-公平锁和非公平锁"><a href="#3-3-公平锁和非公平锁" class="headerlink" title="3.3 公平锁和非公平锁"></a>3.3 公平锁和非公平锁</h2><h4 id="3-3-1-何为公平锁-非公平锁"><a href="#3-3-1-何为公平锁-非公平锁" class="headerlink" title="3.3.1 何为公平锁/非公平锁"></a>3.3.1 何为公平锁/非公平锁</h4><ul>
+<h4 id="1-2-5-对于Synchronized关键字"><a href="#1-2-5-对于Synchronized关键字" class="headerlink" title="1.2.5 对于Synchronized关键字"></a>1.2.5 对于Synchronized关键字</h4><p>后面章节详说</p>
+<h2 id="1-3-公平锁和非公平锁"><a href="#1-3-公平锁和非公平锁" class="headerlink" title="1.3 公平锁和非公平锁"></a>1.3 公平锁和非公平锁</h2><h4 id="1-3-1-何为公平锁-非公平锁"><a href="#1-3-1-何为公平锁-非公平锁" class="headerlink" title="1.3.1 何为公平锁/非公平锁"></a>1.3.1 何为公平锁/非公平锁</h4><ul>
 <li>公平锁：是指多个线程按照申请锁的顺序来获取锁，这里类似于排队买票，先来的人先买，后来的人再队尾排着，这是公平的—– Lock lock = new ReentrantLock(true)—表示公平锁，先来先得。</li>
 <li>非公平锁：是指多个线程获取锁的顺序并不是按照申请的顺序，有可能后申请的线程比先申请的线程优先获取锁，在高并发环境下，有可能造成优先级反转或者饥饿的状态（某个线程一直得不到锁）—- Lock lock = new  ReentrantLock(false)—表示非公平锁，后来的也可能先获得锁，默认为非公平锁。</li>
 </ul>
@@ -680,9 +680,9 @@ public class Lock8Demo {
 </ul>
 </li>
 </ul>
-<h4 id="3-3-2-预埋伏AQS"><a href="#3-3-2-预埋伏AQS" class="headerlink" title="3.3.2 预埋伏AQS"></a>3.3.2 预埋伏AQS</h4><p>后续深入分析</p>
-<h1 id="3-4-可重入锁（递归锁）"><a href="#3-4-可重入锁（递归锁）" class="headerlink" title="3.4 可重入锁（递归锁）"></a>3.4 可重入锁（递归锁）</h1><h2 id="3-4-1-概念说明"><a href="#3-4-1-概念说明" class="headerlink" title="3.4.1 概念说明"></a>3.4.1 概念说明</h2><p>是指在同一线程在外层方法获取到锁的时侯，在进入该线程的内层方法会自动获取锁（前提，锁对象的是同一个对象），不会因为之前已经获取过还没释放而阻塞———优点之一就是可一定程度避免死锁。</p>
-<h2 id="3-4-2-可重入锁种类"><a href="#3-4-2-可重入锁种类" class="headerlink" title="3.4.2 可重入锁种类"></a>3.4.2 可重入锁种类</h2><ul>
+<h4 id="1-3-2-预埋伏AQS"><a href="#1-3-2-预埋伏AQS" class="headerlink" title="1.3.2 预埋伏AQS"></a>1.3.2 预埋伏AQS</h4><p>后续深入分析</p>
+<h1 id="1-4-可重入锁（递归锁）"><a href="#1-4-可重入锁（递归锁）" class="headerlink" title="1.4 可重入锁（递归锁）"></a>1.4 可重入锁（递归锁）</h1><h2 id="1-4-1-概念说明"><a href="#1-4-1-概念说明" class="headerlink" title="1.4.1 概念说明"></a>1.4.1 概念说明</h2><p>是指在同一线程在外层方法获取到锁的时侯，在进入该线程的内层方法会自动获取锁（前提，锁对象的是同一个对象），不会因为之前已经获取过还没释放而阻塞———优点之一就是可一定程度避免死锁。</p>
+<h2 id="1-4-2-可重入锁种类"><a href="#1-4-2-可重入锁种类" class="headerlink" title="1.4.2 可重入锁种类"></a>1.4.2 可重入锁种类</h2><ul>
 <li><p>隐式锁（即synchronized关键字使用的锁），默认是可重入锁</p>
 </li>
 <li><ul>
@@ -744,7 +744,7 @@ public class Lock8Demo {
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="3-5-死锁及排查"><a href="#3-5-死锁及排查" class="headerlink" title="3.5 死锁及排查"></a>3.5 死锁及排查</h2><h4 id="3-5-1-概念"><a href="#3-5-1-概念" class="headerlink" title="3.5.1 概念"></a>3.5.1 概念</h4><p>死锁是指两个或两个以上的线程在执行过程中，因抢夺资源而造成的一种互相等待的现象，若无外力干涉，则它们无法再继续推进下去。</p>
+<h2 id="1-5-死锁及排查"><a href="#1-5-死锁及排查" class="headerlink" title="1.5 死锁及排查"></a>1.5 死锁及排查</h2><h4 id="1-5-1-概念"><a href="#1-5-1-概念" class="headerlink" title="1.5.1 概念"></a>1.5.1 概念</h4><p>死锁是指两个或两个以上的线程在执行过程中，因抢夺资源而造成的一种互相等待的现象，若无外力干涉，则它们无法再继续推进下去。</p>
 <p>产生原因：</p>
 <ul>
 <li>系统资源不足</li>
@@ -752,7 +752,7 @@ public class Lock8Demo {
 <li>系统资源分配不当</li>
 </ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/16.jpg"></p>
-<h4 id="3-5-2-写一个死锁代码case"><a href="#3-5-2-写一个死锁代码case" class="headerlink" title="3.5.2 写一个死锁代码case"></a>3.5.2 写一个死锁代码case</h4><p>实现死锁：</p>
+<h4 id="1-5-2-写一个死锁代码case"><a href="#1-5-2-写一个死锁代码case" class="headerlink" title="1.5.2 写一个死锁代码case"></a>1.5.2 写一个死锁代码case</h4><p>实现死锁：</p>
 <pre class="line-numbers language-none"><code class="language-none">public class DeadLockDemo {
     static  Object a=new Object();
     static  Object b=new Object();
@@ -788,7 +788,7 @@ public class Lock8Demo {
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="3-5-3-如何排查死锁"><a href="#3-5-3-如何排查死锁" class="headerlink" title="3.5.3 如何排查死锁"></a>3.5.3 如何排查死锁</h4><ul>
+<h4 id="1-5-3-如何排查死锁"><a href="#1-5-3-如何排查死锁" class="headerlink" title="1.5.3 如何排查死锁"></a>1.5.3 如何排查死锁</h4><ul>
 <li><p>纯命令</p>
 </li>
 <li><ul>
@@ -806,10 +806,10 @@ public class Lock8Demo {
 </li>
 </ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/18.jpg"></p>
-<h2 id="3-6-写锁（独占锁）-读锁（共享锁）"><a href="#3-6-写锁（独占锁）-读锁（共享锁）" class="headerlink" title="3.6 写锁（独占锁）/读锁（共享锁）"></a>3.6 写锁（独占锁）/读锁（共享锁）</h2><p>深度源码分析见后面</p>
-<h2 id="3-7-自旋锁spinLock"><a href="#3-7-自旋锁spinLock" class="headerlink" title="3.7 自旋锁spinLock"></a>3.7 自旋锁spinLock</h2><p>深度源码分析见后面</p>
-<h2 id="3-8-无锁-gt-独占锁-gt-读写锁-gt-邮戳锁"><a href="#3-8-无锁-gt-独占锁-gt-读写锁-gt-邮戳锁" class="headerlink" title="3.8 无锁->独占锁->读写锁->邮戳锁"></a>3.8 无锁-&gt;独占锁-&gt;读写锁-&gt;邮戳锁</h2><p>深度源码分析见后面</p>
-<h2 id="3-9-无锁-gt-偏向锁-gt-轻量锁-gt-重量锁"><a href="#3-9-无锁-gt-偏向锁-gt-轻量锁-gt-重量锁" class="headerlink" title="3.9 无锁->偏向锁->轻量锁->重量锁"></a>3.9 无锁-&gt;偏向锁-&gt;轻量锁-&gt;重量锁</h2><p>深度源码分析见后面</p>
+<h2 id="1-6-写锁（独占锁）-读锁（共享锁）"><a href="#1-6-写锁（独占锁）-读锁（共享锁）" class="headerlink" title="1.6 写锁（独占锁）/读锁（共享锁）"></a>1.6 写锁（独占锁）/读锁（共享锁）</h2><p>深度源码分析见后面</p>
+<h2 id="1-7-自旋锁spinLock"><a href="#1-7-自旋锁spinLock" class="headerlink" title="1.7 自旋锁spinLock"></a>1.7 自旋锁spinLock</h2><p>深度源码分析见后面</p>
+<h2 id="1-8-无锁-gt-独占锁-gt-读写锁-gt-邮戳锁"><a href="#1-8-无锁-gt-独占锁-gt-读写锁-gt-邮戳锁" class="headerlink" title="1.8 无锁->独占锁->读写锁->邮戳锁"></a>1.8 无锁-&gt;独占锁-&gt;读写锁-&gt;邮戳锁</h2><p>深度源码分析见后面</p>
+<h2 id="1-9-无锁-gt-偏向锁-gt-轻量锁-gt-重量锁"><a href="#1-9-无锁-gt-偏向锁-gt-轻量锁-gt-重量锁" class="headerlink" title="1.9 无锁->偏向锁->轻量锁->重量锁"></a>1.9 无锁-&gt;偏向锁-&gt;轻量锁-&gt;重量锁</h2><p>深度源码分析见后面</p>
 
                 
             </div>
@@ -1675,7 +1675,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">154.9k</span>&nbsp;字
+                class="white-color">157.4k</span>&nbsp;字
             
             
             
