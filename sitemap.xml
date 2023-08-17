@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://gitee.com/yunyd/posts/54e7bc9e.html</loc>
+    
+    <lastmod>2023-08-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/posts/1276cc28.html</loc>
+    
+    <lastmod>2023-08-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://gitee.com/yunyd/posts/a2a7cd7f.html</loc>
     
     <lastmod>2023-08-17</lastmod>
@@ -473,6 +491,20 @@
   </url>
   
   <url>
+    <loc>https://gitee.com/yunyd/tags/MyBatis/</loc>
+    <lastmod>2023-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/tags/MyBatis-Plus/</loc>
+    <lastmod>2023-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://gitee.com/yunyd/tags/%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2023-08-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -525,6 +557,20 @@
   
   <url>
     <loc>https://gitee.com/yunyd/categories/Linux/</loc>
+    <lastmod>2023-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/categories/MyBatis/</loc>
+    <lastmod>2023-08-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/categories/MyBatis-Plus/</loc>
     <lastmod>2023-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
