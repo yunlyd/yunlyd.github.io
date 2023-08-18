@@ -645,22 +645,14 @@ public final void lazySet(int i, int newValue)//最终 将index=i 位置的元�
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="1-3-引用类型原子类"><a href="#1-3-引用类型原子类" class="headerlink" title="1.3 引用类型原子类"></a>1.3 引用类型原子类</h2><ul>
-<li><p><code>AtomicReference</code> :引用类型原子类</p>
-</li>
-<li><p><code>AtomicStampedReference</code>：原子更新带有版本号的引用类型。该类将整数值与引用关联起来，可用于解决原子的更新数据和数据的版本号，可以解决使用 CAS 进行原子更新时可能出现的 ABA 问题。</p>
-</li>
-<li><ul>
+<li><code>AtomicReference</code> :引用类型原子类</li>
+<li><code>AtomicStampedReference</code>：原子更新带有版本号的引用类型。该类将整数值与引用关联起来，可用于解决原子的更新数据和数据的版本号，可以解决使用 CAS 进行原子更新时可能出现的 ABA 问题。</li>
 <li>解决修改过几次</li>
-</ul>
-</li>
-<li><p><code>AtomicMarkableReference</code>：原子更新带有标记的引用类型。该类将 boolean 标记与引用关联起来</p>
-</li>
-<li><ul>
+<li><code>AtomicMarkableReference</code>：原子更新带有标记的引用类型。该类将 boolean 标记与引用关联起来<ul>
 <li>解决是否修改过，它的定义就是将标记戳简化为true/false，类似于一次性筷子</li>
 </ul>
 </li>
-<li><p>AtomicMarkableReference案例演示：</p>
-</li>
+<li>AtomicMarkableReference案例演示：</li>
 </ul>
 <pre class="line-numbers language-AtomicMarkableReference案例演示" data-language="AtomicMarkableReference案例演示"><code class="language-AtomicMarkableReference案例演示">public class AtomicMarkableReferenceDemo {
     static AtomicMarkableReference markableReference = new AtomicMarkableReference(100, false);
@@ -910,40 +902,32 @@ public class AccumulatorCompareDemo {
 <li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/61.jpg"></p>
 </li>
 <li><p>原理（LongAdder为什么这么快）</p>
+<ul>
+<li><p>如果是JDK8，推荐使用LongAdder对象，比AtomicLong性能更好（减少乐观锁的重试次数）</p>
 </li>
-<li><ul>
-<li>如果是JDK8，推荐使用LongAdder对象，比AtomicLong性能更好（减少乐观锁的重试次数）</li>
-<li>LongAdder是Striped64的子类</li>
-<li>Striped64的基本结构</li>
-</ul>
+<li><p>LongAdder是Striped64的子类</p>
 </li>
-<li><ul>
-<li><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/62.jpg"><ul>
-<li><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/63.jpg"></li>
-</ul>
+<li><p>Striped64的基本结构</p>
 </li>
 </ul>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/62.jpg"></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/63.jpg"></p>
+<ul>
+<li><p>cell：是java.util.concurrent.atomic下Striped64的一个内部类</p>
 </li>
-<li><ul>
-<li>cell：是java.util.concurrent.atomic下Striped64的一个内部类</li>
-<li>LongAdder为什么这么快</li>
-</ul>
+<li><p>LongAdder为什么这么快</p>
+<ul>
+<li><p>LongAdder的基本思路就是分散热点，将value值分散到一个Cell数组中，不同线程会命中到数组的不同槽中，各个线程只对自己槽中的那个值进行CAS操作，这样热点就被分散了，冲突的概率就小很多，如果要获取真正的long值，只要将各个槽中的变量值累加返回</p>
 </li>
-<li><ul>
-<li><ul>
-<li>LongAdder的基本思路就是分散热点，将value值分散到一个Cell数组中，不同线程会命中到数组的不同槽中，各个线程只对自己槽中的那个值进行CAS操作，这样热点就被分散了，冲突的概率就小很多，如果要获取真正的long值，只要将各个槽中的变量值累加返回</li>
-<li>sum()会将所有的Cell数组中的value和base累加作为返回值，核心的思想就是将之前AtomicLong一个value的更新压力分散到多个value中去，从而降级更新热点。</li>
-<li>内部有一个base变量，一个Cell[]数组</li>
-</ul>
+<li><p>sum()会将所有的Cell数组中的value和base累加作为返回值，核心的思想就是将之前AtomicLong一个value的更新压力分散到多个value中去，从而降级更新热点。</p>
 </li>
-</ul>
+<li><p>内部有一个base变量，一个Cell[]数组</p>
+<ul>
+<li><p>base变量：低并发，直接累加到该变量上</p>
 </li>
-<li><ul>
-<li><ul>
-<li><ul>
-<li>base变量：低并发，直接累加到该变量上</li>
-<li>Cell[]数组：高并发，累加进各个线程自己的槽Cell[i]中</li>
-<li><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/64.jpg"></li>
+<li><p>Cell[]数组：高并发，累加进各个线程自己的槽Cell[i]中</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/64.jpg"></p>
+</li>
 </ul>
 </li>
 </ul>
@@ -951,69 +935,58 @@ public class AccumulatorCompareDemo {
 </ul>
 </li>
 <li><p>源码解读深度分析</p>
+<ul>
+<li><p>LongAdder在无竞争的情况下，跟AtomicLong一样，对同一个base进行操作，当出现竞争关系时则是采用化整为零分散热点的做法，用空间换时间，用一个数组cells，将一个value值拆分进这个数组cells。多个线程需要同时对value进行操作的时候，可以对线程id进行hash得到hash值，再根据hash值映射到这个数组cells的某个下标，再对该下标所对应的值进行自增操作。当所有线程操作完毕，将数组cells的所有值和base都加起来作为最终结果</p>
 </li>
-<li><ul>
-<li>LongAdder在无竞争的情况下，跟AtomicLong一样，对同一个base进行操作，当出现竞争关系时则是采用化整为零分散热点的做法，用空间换时间，用一个数组cells，将一个value值拆分进这个数组cells。多个线程需要同时对value进行操作的时候，可以对线程id进行hash得到hash值，再根据hash值映射到这个数组cells的某个下标，再对该下标所对应的值进行自增操作。当所有线程操作完毕，将数组cells的所有值和base都加起来作为最终结果</li>
-<li>add(1L)</li>
+<li><p>add(1L)</p>
+</li>
 </ul>
-</li>
-<li><ul>
-<li><ul>
-<li><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/65.jpg"></li>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/65.jpg"></p>
+<ul>
 <li>1 如果Cells表为空，尝试用CAS更新base字段，成功则退出</li>
 <li>2 如果Cells表为空，CAS更新base字段失败，出现竞争，uncontended为true，调用longAccumulate（新建数组）</li>
 <li>3 如果Cells表非空，但当前线程映射的槽为空，uncontended为true，调用longAccumulate（初始化）</li>
 <li>4 如果Cells表非空，且当前线程映射的槽非空，CAS更新Cell的值，成功则返回，否则，uncontended设为false，调用longAccumulate（扩容）</li>
 </ul>
 </li>
-</ul>
+<li><p>longAccumulate</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/66.jpg"></p>
 </li>
-<li><ul>
-<li>longAccumulate</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/66.jpg"></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li>sum</li>
-</ul>
-</li>
-<li><ul>
-<li><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/67.jpg"><ul>
+<li><p>sum</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/67.jpg"></p>
+<ul>
 <li>sum()会将所有Cell数组中的value和base累加作为返回值。核心思想就是将之前AtomicLong一个value的更新压力分散到多个value中去，从而降级更新热点。</li>
 <li>sum执行时，并没有限制对base和cells的更新，所以LongAdder不是强一致性的，它是最终一致性的，对cell的读取无法保证是最后一次写入的值，所以在没有并发的场景下，可以获得正确的结果。</li>
 </ul>
 </li>
-</ul>
-</li>
 <li><p>使用总结</p>
+<ul>
+<li><p>AtomicLong线程安全，可允许一些性能损耗，要求高精度时可使用，保证精度，多个线程对单个热点值value进行了原子操作—–保证精度，性能代码</p>
 </li>
-<li><ul>
-<li>AtomicLong线程安全，可允许一些性能损耗，要求高精度时可使用，保证精度，多个线程对单个热点值value进行了原子操作—–保证精度，性能代码</li>
-<li>LongAdder当需要在高并发场景下有较好的性能表现，且对值得精确度要求不高时，可以使用，LongAdder时每个线程拥有自己得槽，各个线程一般只对自己槽中得那个值进行CAS操作—保证性能，精度代价</li>
+<li><p>LongAdder当需要在高并发场景下有较好的性能表现，且对值得精确度要求不高时，可以使用，LongAdder时每个线程拥有自己得槽，各个线程一般只对自己槽中得那个值进行CAS操作—保证性能，精度代价</p>
+</li>
 </ul>
 </li>
 </ul>
 <h4 id="1-5-5-总结"><a href="#1-5-5-总结" class="headerlink" title="1.5.5 总结"></a>1.5.5 总结</h4><ul>
 <li><p>AtomicLong</p>
+<ul>
+<li><p>原理：CAS+自旋</p>
 </li>
-<li><ul>
-<li>原理：CAS+自旋</li>
-<li>场景：低并发下的全局计算，AtomicLong能保证并发情况下计数的准确性，其内部通过CAS来解决并发安全性问题</li>
-<li>缺陷：高并发后性能急剧下降—-AtomicLong的自旋会成为瓶颈（N个线程CAS操作修改线程的值，每次只有一个成功过，其他N-1失败，失败的不停自旋直至成功，这样大量失败自旋的情况，一下子cpu就打高了）</li>
+<li><p>场景：低并发下的全局计算，AtomicLong能保证并发情况下计数的准确性，其内部通过CAS来解决并发安全性问题</p>
+</li>
+<li><p>缺陷：高并发后性能急剧下降—-AtomicLong的自旋会成为瓶颈（N个线程CAS操作修改线程的值，每次只有一个成功过，其他N-1失败，失败的不停自旋直至成功，这样大量失败自旋的情况，一下子cpu就打高了）</p>
+</li>
 </ul>
 </li>
 <li><p>LongAdder</p>
+<ul>
+<li><p>原理：CAS+Base+Cell数组分散—–空间换时间并分散了热点数据</p>
 </li>
-<li><ul>
-<li>原理：CAS+Base+Cell数组分散—–空间换时间并分散了热点数据</li>
-<li>场景：高并发下的全局计算</li>
-<li>缺陷：sum求和后还有计算线程修改结果的话，最后结果不够准确</li>
+<li><p>场景：高并发下的全局计算</p>
+</li>
+<li><p>缺陷：sum求和后还有计算线程修改结果的话，最后结果不够准确</p>
+</li>
 </ul>
 </li>
 </ul>

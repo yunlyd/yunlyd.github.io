@@ -571,30 +571,29 @@
 <li><p>首先，一个线程不应该由其他线程来强制中断或停止，而是应该由线程自己自行停止，自己来决定自己的命运，所以，Thread.stop,Thread.suspend,Thread.resume都已经被废弃了</p>
 </li>
 <li><p>其次，在Java中没有办法立即停止一条线程，然而停止线程却显得尤为重要，如取消一个耗时操作。因此，Java提供了一种用于停止线程的协商机制—-中断，也即中断标识协商机制</p>
+<ul>
+<li><p>中断只是一种协作协商机制，Java没有给中断增加任何语法，中断的过程完全需要程序员自行实现。若要中断一个线程，你需要手动调用该线程interrupt方法，该方法也仅仅是将该线程对象的中断标识设置为true，接着你需要自己写代码不断检测当前线程的标识位，如果为true，表示别的线程请求这条线程中断，此时究竟应该做什么需要你自己写代码实现。</p>
 </li>
-<li><ul>
-<li>中断只是一种协作协商机制，Java没有给中断增加任何语法，中断的过程完全需要程序员自行实现。若要中断一个线程，你需要手动调用该线程interrupt方法，该方法也仅仅是将该线程对象的中断标识设置为true，接着你需要自己写代码不断检测当前线程的标识位，如果为true，表示别的线程请求这条线程中断，此时究竟应该做什么需要你自己写代码实现。</li>
-<li>每个线程对象都有一个中断标识位，用于表示线程是否被中断；该标识位为true表示中断，为false表示未中断；通过调用线程对象的interrupt方法将该线程的标识位设置为true；可以在别的线程中调用，也可以在自己的线程中调用。</li>
+<li><p>每个线程对象都有一个中断标识位，用于表示线程是否被中断；该标识位为true表示中断，为false表示未中断；通过调用线程对象的interrupt方法将该线程的标识位设置为true；可以在别的线程中调用，也可以在自己的线程中调用。</p>
+</li>
 </ul>
 </li>
 </ul>
 <h4 id="1-1-3-中断的相关API方法之三大方法说明"><a href="#1-1-3-中断的相关API方法之三大方法说明" class="headerlink" title="1.1.3 中断的相关API方法之三大方法说明"></a>1.1.3 中断的相关API方法之三大方法说明</h4><ul>
 <li><p>public void interrupt()</p>
+<ul>
+<li><p>实例方法 Just to set the interrupt flag</p>
 </li>
-<li><ul>
-<li>实例方法 Just to set the interrupt flag</li>
-<li>实例方法仅仅是设置线程的中断状态为true，发起一个协商而不会立刻停止线程</li>
+<li><p>实例方法仅仅是设置线程的中断状态为true，发起一个协商而不会立刻停止线程</p>
+</li>
 </ul>
 </li>
 <li><p>public static boolean interrupted()</p>
+<ul>
+<li><p>静态方法 Thread.interrupted();</p>
 </li>
-<li><ul>
-<li>静态方法 Thread.interrupted();</li>
-<li>判断线程是否被中断并清除当前中断状态（做了两件事情）</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
+<li><p>判断线程是否被中断并清除当前中断状态（做了两件事情）</p>
+<ul>
 <li>1.返回当前线程的中断状态，测试当前线程是否已被中断</li>
 <li>2.将当前线程的中断状态清零并重新设置为false，清除线程的中断状态</li>
 <li>3.这个方法有点不好理解在于如果连续两次调用此方法，则第二次返回false，因为连续调用两次的结果可能不一样</li>
@@ -603,48 +602,45 @@
 </ul>
 </li>
 <li><p>public boolean isInterrupted()</p>
+<ul>
+<li><p>实例方法</p>
 </li>
-<li><ul>
-<li>实例方法</li>
-<li>判断当前线程是否被中断（通过检查中断标志位）</li>
+<li><p>判断当前线程是否被中断（通过检查中断标志位）</p>
+</li>
 </ul>
 </li>
 </ul>
 <h4 id="1-1-4-大厂面试题中断机制考点"><a href="#1-1-4-大厂面试题中断机制考点" class="headerlink" title="1.1.4 大厂面试题中断机制考点"></a>1.1.4 大厂面试题中断机制考点</h4><ul>
 <li><p>如何停止中断运行中的线程？</p>
-</li>
-<li><ul>
-<li>通过一个volatile变量实现</li>
-</ul>
-</li>
-</ul>
+<ul>
+<li><p>通过一个volatile变量实现</p>
 <p>volatile中断线程演示：</p>
-<pre class="line-numbers language-none"><code class="language-none">public class InterruptDemo {
-    static volatile boolean isStop = false; //volatile表示的变量具有可见性
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">InterruptDemo</span> <span class="token punctuation">{</span>
+    <span class="token keyword">static</span> <span class="token keyword">volatile</span> <span class="token keyword">boolean</span> isStop <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">//volatile表示的变量具有可见性</span>
 
-    public static void main(String[] args) {
-        new Thread(() -&gt; {
-            while (true) {
-                if (isStop) {
-                    System.out.println(Thread.currentThread().getName() + " isStop的值被改为true，t1程序停止");
-                    break;
-                }
-                System.out.println("-----------hello volatile");
-            }
-        }, "t1").start();
-        try {
-            TimeUnit.MILLISECONDS.sleep(10);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>isStop<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" isStop的值被改为true，t1程序停止"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"-----------hello volatile"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"t1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span><span class="token constant">MILLISECONDS</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        new Thread(() -&gt; {
-            isStop = true;
-        }, "t2").start();
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+            isStop <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"t2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    }
-}
-/**
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/**
  * -----------hello volatile
  * -----------hello volatile
  * -----------hello volatile
@@ -652,53 +648,54 @@
  * -----------hello volatile
  * -----------hello volatile
  * t1 isStop的值被改为true，t1程序停止
- */
+ */</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<ul>
-<li><ul>
-<li>通过AutomicBoolean</li>
-</ul>
+
 </li>
-<li><p>AutomicBoolean中断线程演示：</p>
-<pre class="line-numbers language-none"><code class="language-none">public class InterruptDemo {
-    static AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+<li><p>通过AutomicBoolean</p>
+<p>AutomicBoolean中断线程演示：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">InterruptDemo</span> <span class="token punctuation">{</span>
+    <span class="token keyword">static</span> <span class="token class-name">AtomicBoolean</span> atomicBoolean <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AtomicBoolean</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 
-    public static void main(String[] args) {
-        new Thread(() -&gt; {
-            while (true) {
-                if (atomicBoolean.get()) {
-                    System.out.println(Thread.currentThread().getName() + " atomicBoolean的值被改为true，t1程序停止");
-                    break;
-                }
-                System.out.println("-----------hello atomicBoolean");
-            }
-        }, "t1").start();
-        try {
-            TimeUnit.MILLISECONDS.sleep(10);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>atomicBoolean<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token class-name">Thread</span><span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" atomicBoolean的值被改为true，t1程序停止"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"-----------hello atomicBoolean"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"t1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span><span class="token constant">MILLISECONDS</span><span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        new Thread(() -&gt; {
-            atomicBoolean.set(true);
-        }, "t2").start();
+        <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+            atomicBoolean<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"t2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    }
-}
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-/**
+<span class="token comment">/**
  * -----------hello atomicBoolean
  * -----------hello atomicBoolean
  * -----------hello atomicBoolean
  * -----------hello atomicBoolean
  * -----------hello atomicBoolean
  * t1 atomicBoolean的值被改为true，t1程序停止
- */<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+ */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>通过Thread类自带的中断API实例方法实现—-在需要中断的线程中不断监听中断状态，一旦发生中断，就执行相应的中断处理业务逻辑stop线程。</li>
+</ul>
 </li>
-<li><ul>
-<li><p>通过Thread类自带的中断API实例方法实现—-在需要中断的线程中不断监听中断状态，一旦发生中断，就执行相应的中断处理业务逻辑stop线程。</p>
+</ul>
 </li>
 <li><p>interrupt() 和isInterrupted()组合使用来中断某个线程演示：</p>
 <pre class="line-numbers language-none"><code class="language-none">public class InterruptDemo {
@@ -738,18 +735,16 @@
  * -----------hello isInterrupted()
  * t1 isInterrupted()的值被改为true，t1程序停止
  */<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><ul>
-<li>当前线程的中断标识为true，是不是线程就立刻停止？</li>
+
+<ul>
+<li><p>当前线程的中断标识为true，是不是线程就立刻停止？</p>
+<ul>
+<li>答案是不立刻停止，具体来说，当对一个线程，调用interrupt时：</li>
 </ul>
 </li>
-<li><p>答案是不立刻停止，具体来说，当对一个线程，调用interrupt时：</p>
+<li><p>如果线程处于正常活动状态，那么会将该线程的中断标志设置为true，仅此而已，被设置中断标志的线程将继续正常运行，不受影响，所以interrupt()并不能真正的中断线程，需要被调用的线程自己进行配合才行，对于不活动的线程没有任何影响。</p>
 </li>
-<li><ul>
-<li><ul>
-<li>如果线程处于正常活动状态，那么会将该线程的中断标志设置为true，仅此而已，被设置中断标志的线程将继续正常运行，不受影响，所以interrupt()并不能真正的中断线程，需要被调用的线程自己进行配合才行，对于不活动的线程没有任何影响。</li>
-<li>如果线程处于阻塞状态（例如sleep,wait,join状态等），在别的线程中调用当前线程对象的interrupt方法，那么线程将立即退出被阻塞状态（interrupt状态也将被清除），并抛出一个InterruptedException异常。</li>
-</ul>
+<li><p>如果线程处于阻塞状态（例如sleep,wait,join状态等），在别的线程中调用当前线程对象的interrupt方法，那么线程将立即退出被阻塞状态（interrupt状态也将被清除），并抛出一个InterruptedException异常。</p>
 </li>
 <li><p>第一种情况正常活动状态演示：</p>
 <pre class="line-numbers language-none"><code class="language-none">public class InterruptDemo2 {
@@ -834,8 +829,6 @@
 </li>
 <li><p>对于第二种情况的源码分析如下；</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/20.jpg"></p>
-</li>
-</ul>
 </li>
 </ul>
 </li>
@@ -979,31 +972,22 @@
 </ul>
 <h4 id="1-3-5-LockSupport类中的park等待和unpark唤醒"><a href="#1-3-5-LockSupport类中的park等待和unpark唤醒" class="headerlink" title="1.3.5 LockSupport类中的park等待和unpark唤醒"></a>1.3.5 LockSupport类中的park等待和unpark唤醒</h4><ul>
 <li><p>是什么</p>
+<ul>
+<li><p>LockSupport 是用于创建锁和其他同步类的基本线程阻塞原语</p>
 </li>
-<li><ul>
-<li>LockSupport 是用于创建锁和其他同步类的基本线程阻塞原语</li>
-<li>LockSupport类使用了一种名为Permit（许可）的概念来做到阻塞和唤醒线程的功能，每个线程都有一个许可（Permit），许可证只能有一个，累加上限是1。</li>
+<li><p>LockSupport类使用了一种名为Permit（许可）的概念来做到阻塞和唤醒线程的功能，每个线程都有一个许可（Permit），许可证只能有一个，累加上限是1。</p>
+</li>
 </ul>
 </li>
 <li><p>主要方法</p>
-</li>
-<li><ul>
-<li>阻塞: Peimit许可证默认没有不能放行，所以一开始调用park()方法当前线程会阻塞，直到别的线程给当前线程发放peimit，park方法才会被唤醒。</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
+<ul>
+<li><p>阻塞: Peimit许可证默认没有不能放行，所以一开始调用park()方法当前线程会阻塞，直到别的线程给当前线程发放peimit，park方法才会被唤醒。</p>
+<ul>
 <li>park/park(Object blocker)——-阻塞当前线程/阻塞传入的具体线程</li>
 </ul>
 </li>
-</ul>
-</li>
-<li><ul>
-<li>唤醒: 调用unpack(thread)方法后 就会将thread线程的许可证peimit发放，会自动唤醒park线程，即之前阻塞中的LockSupport.park()方法会立即返回。</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
+<li><p>唤醒: 调用unpack(thread)方法后 就会将thread线程的许可证peimit发放，会自动唤醒park线程，即之前阻塞中的LockSupport.park()方法会立即返回。</p>
+<ul>
 <li>unpark(Thread thread)——唤醒处于阻塞状态的指定线程</li>
 </ul>
 </li>
@@ -1044,8 +1028,7 @@
 
 <ul>
 <li><p>重点说明（重要）</p>
-</li>
-<li><ul>
+<ul>
 <li><p>LockSupport是用来创建锁和其他同步类的基本线程阻塞原语，所有的方法都是静态方法，可以让线程再任意位置阻塞，阻塞后也有对应的唤醒方法。归根结底，LockSupport时调用Unsafe中的native代码</p>
 </li>
 <li><p>LockSupport提供park()和unpark()方法实现阻塞线程和解除线程阻塞的过程，LockSupport和每个使用它的线程都有一个许可（Peimit）关联，每个线程都有一个相关的permit，peimit最多只有一个，重复调用unpark也不会积累凭证。</p>
@@ -1059,24 +1042,14 @@
 </ul>
 </li>
 <li><p>面试题</p>
-</li>
-<li><ul>
-<li>为什么LockSupport可以突破wait/notify的原有调用顺序？</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
+<ul>
+<li><p>为什么LockSupport可以突破wait/notify的原有调用顺序？</p>
+<ul>
 <li>因为unpark获得了一个凭证，之后再调用park方法，就可以名正言顺的凭证消费，故不会阻塞，先发放了凭证后续可以畅通无阻。</li>
 </ul>
 </li>
-</ul>
-</li>
-<li><ul>
-<li>为什么唤醒两次后阻塞两次，但最终结果还会阻塞线程？</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
+<li><p>为什么唤醒两次后阻塞两次，但最终结果还会阻塞线程？</p>
+<ul>
 <li>因为凭证的数量最多为1，连续调用两次unpark和调用一次unpark效果一样，只会增加一个凭证，而调用两次park却需要消费两个凭证，证不够，不能放行。</li>
 </ul>
 </li>
