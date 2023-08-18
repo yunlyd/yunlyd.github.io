@@ -536,7 +536,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    621
+                    646
                 </div>
                 
 
@@ -561,12 +561,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Java对象内存布局和对象头"><a href="#Java对象内存布局和对象头" class="headerlink" title="Java对象内存布局和对象头"></a>Java对象内存布局和对象头</h1><h2 id="1-1-面试题"><a href="#1-1-面试题" class="headerlink" title="1.1 面试题"></a>1.1 面试题</h2><p>●说下JUC，AQS的大致流程</p>
-<p>●CAS自旋锁，是获取不到锁就一直自旋吗？CAS和synchronized区别在哪里，为什么CAS好，具体优势在哪里？</p>
-<p>●sychronized底层是如何实现的，实现同步的时候用到了CAS 了吗？具体哪里用到了？</p>
-<p>●对象头存储那些信息？长度是多少位存储？</p>
-<h2 id="1-2-Object-object-new-Object-谈谈你对这句话的理解？"><a href="#1-2-Object-object-new-Object-谈谈你对这句话的理解？" class="headerlink" title="1.2 Object object = new Object()谈谈你对这句话的理解？"></a>1.2 Object object = new Object()谈谈你对这句话的理解？</h2><p>●位置所在——–&gt;JVM堆-&gt;新生区-&gt;伊甸园区</p>
-<p>●构成布局——–&gt;对象头+实例数据+对齐填充</p>
+                <h1 id="Java对象内存布局和对象头"><a href="#Java对象内存布局和对象头" class="headerlink" title="Java对象内存布局和对象头"></a>Java对象内存布局和对象头</h1><h2 id="1-1-面试题"><a href="#1-1-面试题" class="headerlink" title="1.1 面试题"></a>1.1 面试题</h2><ul>
+<li>说下JUC，AQS的大致流程</li>
+<li>CAS自旋锁，是获取不到锁就一直自旋吗？CAS和synchronized区别在哪里，为什么CAS好，具体优势在哪里？</li>
+<li>sychronized底层是如何实现的，实现同步的时候用到了CAS 了吗？具体哪里用到了？</li>
+<li>对象头存储那些信息？长度是多少位存储？</li>
+</ul>
+<h2 id="1-2-Object-object-new-Object-谈谈你对这句话的理解？"><a href="#1-2-Object-object-new-Object-谈谈你对这句话的理解？" class="headerlink" title="1.2 Object object = new Object()谈谈你对这句话的理解？"></a>1.2 Object object = new Object()谈谈你对这句话的理解？</h2><p>Object(模板，在方法区)       object(对象的引用，在栈内存)         =              new   Object()(对象，在堆内存)</p>
+<ul>
+<li>位置所在——–&gt;JVM堆-&gt;新生区-&gt;伊甸园区</li>
+<li>构成布局——–&gt;对象头+实例数据+对齐填充</li>
+</ul>
 <h2 id="1-3-对象在堆内存中布局"><a href="#1-3-对象在堆内存中布局" class="headerlink" title="1.3 对象在堆内存中布局"></a>1.3 对象在堆内存中布局</h2><h4 id="1-3-1-权威定义—-周志明老师JVM"><a href="#1-3-1-权威定义—-周志明老师JVM" class="headerlink" title="1.3.1 权威定义—-周志明老师JVM"></a>1.3.1 权威定义—-周志明老师JVM</h4><p>在HotSpot虚拟机里，对象在堆内存的存储布局可以划分为三个部分：对象头（Header）、实例数据（Instance Data） 和对齐填充（Padding）。</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/78.jpg"></p>
 <h4 id="1-3-2-对象在堆内存中的存储布局"><a href="#1-3-2-对象在堆内存中的存储布局" class="headerlink" title="1.3.2 对象在堆内存中的存储布局"></a>1.3.2 对象在堆内存中的存储布局</h4><ul>
@@ -589,15 +594,13 @@
 </ul>
 </li>
 <li><p><strong>实例数据</strong></p>
-</li>
-<li><ul>
+<ul>
 <li>存放类的属性（Field）数据信息，包括父类的属性信息</li>
 </ul>
 </li>
 <li><p><strong>对齐填充</strong>（保证8个字节的倍数）</p>
-</li>
-<li><ul>
-<li>虚拟机要求对象起始地址必须是8字节的整数倍，填充数据不是必须存在的，仅仅是为了字节对齐，这部分内存按8字节补充对齐。</li>
+<ul>
+<li>虚拟机要求对象起始地址必须是8字节的整数倍，填充数据不是必须存在的，仅仅是为了字节对齐，这部分内存按8字节补充对齐</li>
 </ul>
 </li>
 </ul>
