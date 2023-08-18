@@ -502,13 +502,6 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/Maven/</loc>
-    <lastmod>2023-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gitee.com/yunyd/tags/Linux/</loc>
     <lastmod>2023-08-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -516,7 +509,14 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/MyBatis-Plus/</loc>
+    <loc>https://gitee.com/yunyd/tags/%E9%A1%B9%E7%9B%AE/</loc>
+    <lastmod>2023-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/tags/Maven/</loc>
     <lastmod>2023-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -530,7 +530,14 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/%E9%A1%B9%E7%9B%AE/</loc>
+    <loc>https://gitee.com/yunyd/tags/MyBatis-Plus/</loc>
+    <lastmod>2023-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/tags/Spring/</loc>
     <lastmod>2023-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -545,13 +552,6 @@
   
   <url>
     <loc>https://gitee.com/yunyd/tags/SpringMVC/</loc>
-    <lastmod>2023-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gitee.com/yunyd/tags/Spring/</loc>
     <lastmod>2023-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -581,28 +581,7 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/categories/Maven/</loc>
-    <lastmod>2023-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gitee.com/yunyd/categories/Linux/</loc>
-    <lastmod>2023-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gitee.com/yunyd/categories/MyBatis-Plus/</loc>
-    <lastmod>2023-08-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gitee.com/yunyd/categories/MyBatis/</loc>
     <lastmod>2023-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -616,7 +595,28 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/categories/SpringBootf/</loc>
+    <loc>https://gitee.com/yunyd/categories/Maven/</loc>
+    <lastmod>2023-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/categories/MyBatis/</loc>
+    <lastmod>2023-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/categories/MyBatis-Plus/</loc>
+    <lastmod>2023-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/categories/Spring/</loc>
     <lastmod>2023-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -637,7 +637,7 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/categories/Spring/</loc>
+    <loc>https://gitee.com/yunyd/categories/SpringBootf/</loc>
     <lastmod>2023-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
