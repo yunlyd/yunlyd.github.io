@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="商家外卖, lucky_llllz 计算机 软件工程 后端">
+    <meta name="keywords" content="JUC-AbstractQueuedSynchronizer之AQS, lucky_llllz 计算机 软件工程 后端">
     <meta name="description" content="计算机 | 软件工程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>商家外卖 | llllz_liu</title>
+    <title>JUC-AbstractQueuedSynchronizer之AQS | llllz_liu</title>
 
     <link rel="icon" type="image/png" href="/yunyd/medias/favicon-32x32.png">
 
@@ -371,12 +371,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/yunyd/medias/i.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/yunyd/medias/z003.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">商家外卖</h1>
+                    <h1 class="description center-align post-title">JUC-AbstractQueuedSynchronizer之AQS</h1>
                 </div>
             </div>
         </div>
@@ -497,8 +497,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/yunyd/tags/%E9%A1%B9%E7%9B%AE/">
-                                <span class="chip bg-color">项目</span>
+                            <a href="/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                                <span class="chip bg-color">JUC并发编程</span>
                             </a>
                         
                     </div>
@@ -509,8 +509,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/yunyd/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                项目
+                            <a href="/yunyd/categories/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="post-category">
+                                JUC并发编程
                             </a>
                         
                     </div>
@@ -522,28 +522,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-07
+                    2023-08-19
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-12
+                    2023-08-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    6 分
                 </div>
                 
 
@@ -561,59 +561,223 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="商家外卖"><a href="#商家外卖" class="headerlink" title="商家外卖"></a>商家外卖</h1><h2 id="项目所用到的技术："><a href="#项目所用到的技术：" class="headerlink" title="项目所用到的技术："></a>项目所用到的技术：</h2><ul>
-<li>Spring Boot </li>
-<li>SSM  + Lombok</li>
-</ul>
+                <h1 id="AbstractQueuedSynchronizer之AQS"><a href="#AbstractQueuedSynchronizer之AQS" class="headerlink" title="AbstractQueuedSynchronizer之AQS"></a>AbstractQueuedSynchronizer之AQS</h1><h2 id="1-1-前置知识"><a href="#1-1-前置知识" class="headerlink" title="1.1 前置知识"></a>1.1 前置知识</h2><ul>
+<li><p>公平锁和非公平锁</p>
 <ul>
-<li>MyBatis Plus </li>
-<li> Spring Cache </li>
-<li> Redis </li>
-<li> Sharding JDBC 读写分离 </li>
+<li><p>公平锁：锁被释放以后，先申请的线程先得到锁。性能较差一些，因为公平锁为了保证时间上的绝对顺序，上下文切换更频繁</p>
+</li>
+<li><p>非公平锁：锁被释放以后，后申请的线程可能会先获取到锁，是随机或者按照其他优先级排序的。性能更好，但可能会导致某些线程永远无法获取到锁</p>
+</li>
 </ul>
-<h2 id="部署："><a href="#部署：" class="headerlink" title="部署："></a>部署：</h2><p>前后端不分离 jar 包部署</p>
-<h2 id="后端："><a href="#后端：" class="headerlink" title="后端："></a>后端：</h2><ol>
-<li>为集中处理系统异常，自定义统一的错误码，并封装了 <strong>全局异常处理器</strong> ，屏蔽了项目冗余的报错细节、便于接口调用方理解和统一处理。</li>
-<li>基于静态 ThreadLocal 封装了线程隔离的全局上下文对象，便于在请求内部存取用户信息，减少用户远程查询次数。</li>
-<li>为兼容请求参数 date 类型的序列化，自定义 Jackson 对象映射器处理日期；并扩展 SpringMVC 的消息转换器，实现自动序列化。</li>
-<li>自定义 MyBatis Plus 的 MetaObjectHandler，配合全局上下文实现写数据前的创建时间、用户 id 字段的自动填充。</li>
-<li>遵循 Restful 设计规范编写接口，降低前后端接口沟通和理解成本。</li>
-<li>为解决原生 Jdk 序列化器导致的缓存 key 值乱码问题，自定义 RedisTemplate Bean 的 Redis Key 序列化器为 StringRedisSerializer。</li>
-<li>使用 Knife4j + Swagger 自动生成后端接口文档，并通过编写 ApiOperation 等注解补充接口注释，避免了人工编写维护文档的麻烦。</li>
-<li>为省去重复编写用户校验的麻烦，基于 WebFilter 实现全局登录校验；并通过 AntPathMatcher 来匹配动态请求路径，实现灵活的可选鉴权。</li>
-<li>为保证数据的完整性和一致性，使用 @Transactional 实现数据库事务，并配置 rollbackFor = Exception.class 来支持受检异常的事务回滚。</li>
-<li>为提高信息页加载速度，基于 Spring Cache 注解 + Redis 实现对信息的自动缓存，来降低数据库压力的同时将接口响应耗时</li>
-<li>为降低开发成本，使用 MyBatis Plus 框架自动生成业务的增删改查重复代码，并使用 LambdaQueryWrapper 实现更灵活地自定义查询。</li>
-<li>为提高数据库整体读写性能，配置 MySQL 主从同步，并使用 sharding-jdbc 实现业务无侵入的读写分离。</li>
-<li>封装全局 Axios 请求实例，添加全局请求拦截和全局异常响应处理器，减少重复的状态码判断、提升项目可维护性。﻿</li>
-</ol>
-<h2 id="项目功能及各部分页面介绍，如下图："><a href="#项目功能及各部分页面介绍，如下图：" class="headerlink" title="项目功能及各部分页面介绍，如下图："></a>项目功能及各部分页面介绍，如下图：</h2><h3 id="项目分为用户端和管理端："><a href="#项目分为用户端和管理端：" class="headerlink" title="项目分为用户端和管理端："></a>项目分为用户端和管理端：</h3><h4 id="用户端介绍："><a href="#用户端介绍：" class="headerlink" title="用户端介绍："></a>用户端介绍：</h4><p>页面输入手机号，首先会对手机号码有一个校验，不符合规则的的手机号会进行提示。然后点击验证码会直接给出验证码，由于模拟真实的短信服务需要付费并调用XX云SDK接入短信服务，为了节省成本，我直接将返回的验证码写在输入框里（模拟一下接收短信的流程）</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/1-tuya.jpg"></p>
-<p>注册登录进来后就可以查看商家信息（都哪有些菜品，套餐之类的）</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/9-tuya.jpg"></p>
-<p>随机选择一个，点击选择规格，会弹出如下框，选择适合自己的口味并点击加入购物车</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/10-tuya.jpg"></p>
-<p>点击完加入购物车之后，即可在购物车中显示，如果同一菜品想要多份的话，就点击➕来增加份数，购物车显示的金额也会随之更新</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/11-tuya.jpg"></p>
-<p>点击去结算的按钮会到支付页面，当然如果是新注册的账号，则会先让你留下收货地址，如下图</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/12-tuya.jpg"></p>
-<p>保存完收货地址，就可以进行支付了</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/13-tuya.jpg"></p>
-<h4 id="管理端介绍："><a href="#管理端介绍：" class="headerlink" title="管理端介绍："></a>管理端介绍：</h4><p>管理端是用来商家来上传一些菜品，套餐之类的，并包括员工信息等，可以对员工信息、菜品、套餐等信息进行增删改查等功能</p>
-<p>下图为管理端的登陆页面：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/2-tuya.jpg"></p>
-<p>点击登录，来到管理端页面</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/3-tuya.jpg"></p>
-<p>分为左列几个功能，能对响应分类进行增上改查，拿员工管理界面的增上改查来举例子：</p>
-<p>点击编辑，可以修改员工信息。点击添加员工可以进行添加，启用禁用功能是指如果员工加入企业或者退出企业，可以对他的账号进行封禁或者开启</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/5-tuya.jpg"></p>
-<p>点击修改，效果如下图：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/4-tuya.jpg"></p>
-<p>其余界面如下，功能类似，都可以进行增删改查等功能：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/6-tuya.jpg"></p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/7-tuya.jpg"></p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/reggie/8-tuya.jpg"></p>
-<h4 id="（以上项目大体功能等仅粗略展示，如功能解释的不详细，还望见谅！！）"><a href="#（以上项目大体功能等仅粗略展示，如功能解释的不详细，还望见谅！！）" class="headerlink" title="（以上项目大体功能等仅粗略展示，如功能解释的不详细，还望见谅！！）"></a>（以上项目大体功能等仅粗略展示，如功能解释的不详细，还望见谅！！）</h4><p>.</p>
+</li>
+<li><p>可重入锁</p>
+<ul>
+<li>也叫做递归锁，指的是线程可以再次获取自己的内部锁，比如一个线程获取到了对象锁，此时这个对象锁还没有释放，当其想再次获取这个对象锁的时候还是可以获取的，如果不可重入的话，会导致死锁。</li>
+</ul>
+</li>
+<li><p>自旋思想</p>
+<ul>
+<li>当线程请求锁时，如果锁已经被其他线程持有，那么该线程会不断地重试获取锁，而不是被挂起等待，这种不断尝试获取锁的行为称为自旋</li>
+</ul>
+</li>
+<li><p>LockSupport</p>
+<ul>
+<li><p>一个工具类，用于线程的阻塞和唤醒操作，类似于wait()和notify()方法，但是更加灵活和可控</p>
+</li>
+<li><p>提供了park()和unpark()两个静态方法用于线程阻塞和唤醒操作。</p>
+</li>
+<li><p>优点在于可以在任意时刻阻塞和唤醒线程而不需要事先获取锁或监视器对象。</p>
+</li>
+</ul>
+</li>
+<li><p>数据结构之双向链表</p>
+<ul>
+<li>双向链表（Doubly Linked List）是一种常见的数据结构，它是由一系列结点（Node）组成的，每个结点包含三个部分：数据域、前驱指针和后继指针。其中，数据域存储结点的数据，前驱指针指向前一个结点，后继指针指向后一个结点。通过这种方式，双向链表可以实现双向遍历和插入、删除操作。</li>
+</ul>
+</li>
+<li><p>设计模式之模板设计模式</p>
+<ul>
+<li><p>模板设计模式是一种行为型设计模式，定义了一种算法的框架，并将某些步骤延迟到子类中事先，这种设计模式的主要目的是允许子类在不改变算法结构的情况下重新定义算法中的某些步骤。</p>
+</li>
+<li><p>优点是能够提高代码复用性和可维护性。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-2-AQS入门级别理论知识"><a href="#1-2-AQS入门级别理论知识" class="headerlink" title="1.2 AQS入门级别理论知识"></a>1.2 AQS入门级别理论知识</h2><h4 id="1-2-1-是什么？"><a href="#1-2-1-是什么？" class="headerlink" title="1.2.1 是什么？"></a>1.2.1 是什么？</h4><p>抽象的队列同步器</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/103.jpg"></p>
+<p>技术解释</p>
+<ul>
+<li>是用来实现锁或者其他同步器组件的公共基础部分的抽象实现</li>
+<li>是重量级基础框架及整个JUC体系的基石，只要用于解决锁分配给”谁“的问题。</li>
+<li>整体就是一个抽象的FIFO队列来完成资源获取线程的排队工作，并通过一个int类变量表示持有锁的状态</li>
+</ul>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/104.jpg"></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/105.jpg"></p>
+<h4 id="1-2-2-AQS为什么是JUC内容中最重要的基石"><a href="#1-2-2-AQS为什么是JUC内容中最重要的基石" class="headerlink" title="1.2.2 AQS为什么是JUC内容中最重要的基石"></a>1.2.2 AQS为什么是JUC内容中最重要的基石</h4><ul>
+<li><p>和AQS有关的</p>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/106.jpg"></p>
+<ul>
+<li>ReentrantLock</li>
+</ul>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/107.jpg"></p>
+<ul>
+<li><p>CountDownLatch</p>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/108.jpg"></p>
+</li>
+<li><p>ReentrantReadWriteLock</p>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/109.jpg"></p>
+</li>
+<li><p>Semaphore</p>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/110.jpg"></p>
+</li>
+<li><p>…………..</p>
+</li>
+</ul>
+</li>
+<li><p>进一步理解锁和同步器的关系</p>
+<ul>
+<li><p>锁，面向锁的使用者：定义了程序员和锁交互的使用层API，隐藏了实现细节，你调用即可</p>
+</li>
+<li><p>同步器，面向锁的实现者：Java并发大神DoungLee，提出了统一规范并简化了锁的实现，将其抽象出来，屏蔽了同步状态管理、同步队列的管理和维护、阻塞线程排队和通知、唤醒机制等，是一切锁和同步组件实现的—-公共基础部分</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-2-3-能干嘛？"><a href="#1-2-3-能干嘛？" class="headerlink" title="1.2.3 能干嘛？"></a>1.2.3 能干嘛？</h4><p>加锁会导致阻塞——有阻塞就需要排队，实现排队必然需要队列</p>
+<ul>
+<li><p>抢到资源的线程直接使用处理业务，抢不到资源的必然涉及一种排队等候机制。抢占失败的线程继续去等待（类似于银行办理窗口都满了，暂时没有受理窗口的顾客只能去候客区排队等待），但等候线程仍然保留获取锁的可能且获取锁流程仍在继续（候客区的顾客也在等着叫号，轮到了再去受理窗口办理业务）</p>
+</li>
+<li><p>既然说到了排队等候机制，那么就一定会有某种队列形成，这样的队列是什么数据结构呢？</p>
+<ul>
+<li>如果共享资源被占用，就需要一定的阻塞等待唤醒机制来保证锁分配。这个机制主要用的是CLH队列的变体实现的，将暂时获取不到锁的线程加入到队列中，这个队列就是AQS同步队列的抽象表现。它将要请求共享资源的线程及自身的等待状态封装成队列的节点对象（Node），通过CAS、自旋以及LockSupport.park()的方式，维护着state变量的状态，使其达到同步的状态。</li>
+</ul>
+</li>
+</ul>
+<p>  <img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/111.jpg"></p>
+<h4 id="1-2-4-小总结"><a href="#1-2-4-小总结" class="headerlink" title="1.2.4 小总结"></a>1.2.4 小总结</h4><p>AQS同步队列的基本结构</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/112.jpg"></p>
+<h2 id="1-3-AQS源码分析前置知识储备"><a href="#1-3-AQS源码分析前置知识储备" class="headerlink" title="1.3 AQS源码分析前置知识储备"></a>1.3 AQS源码分析前置知识储备</h2><h4 id="1-3-1-AQS内部体系架构图"><a href="#1-3-1-AQS内部体系架构图" class="headerlink" title="1.3.1 AQS内部体系架构图"></a>1.3.1 AQS内部体系架构图</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/113.jpg"></p>
+<h4 id="1-3-2-AQS内部体系架构—-AQS自身"><a href="#1-3-2-AQS内部体系架构—-AQS自身" class="headerlink" title="1.3.2 AQS内部体系架构—-AQS自身"></a>1.3.2 AQS内部体系架构—-AQS自身</h4><ul>
+<li><p>AQS的int类型变量state</p>
+<ul>
+<li><p>AQS的同步状态State成员变量</p>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/114.jpg"></p>
+</li>
+<li><p>银行办理业务的受理窗口状态</p>
+<ul>
+<li>零就是没人，自由状态可以去办理</li>
+<li>大于等于1，有人占用窗口，等着去</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>AQS的CLH队列</p>
+<ul>
+<li><p>CLH（三个大牛的名字组成）队列为一个双向队列</p>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/115.jpg"></p>
+</li>
+<li><p>银行候客区的等待顾客</p>
+</li>
+</ul>
+</li>
+<li><p>小总结</p>
+<ul>
+<li><p>有阻塞就需要排队，实现排队必然需要队列</p>
+</li>
+<li><p>State变量+CLH双端队列</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-3-1-AQS内部体系架构—-内部类Node"><a href="#1-3-1-AQS内部体系架构—-内部类Node" class="headerlink" title="1.3.1 AQS内部体系架构—-内部类Node"></a>1.3.1 AQS内部体系架构—-内部类Node</h4><ul>
+<li><p>Node的int变量</p>
+<ul>
+<li><p>Node的等待状态waitState成员变量</p>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/116.jpg"></p>
+</li>
+<li><p>说人话</p>
+<ul>
+<li>等候区其他顾客（其他线程）的等待状态</li>
+<li>队列中每个排队的个体就是一个Node</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Node此类的讲解</p>
+<ul>
+<li><p>内部结构</p>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/117.jpg"></p>
+</li>
+<li><p>属性说明</p>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/118.jpg"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-4-AQS源码深度讲解和分析"><a href="#1-4-AQS源码深度讲解和分析" class="headerlink" title="1.4 AQS源码深度讲解和分析"></a>1.4 AQS源码深度讲解和分析</h2><h4 id="1-4-1-ReentrantLock的原理"><a href="#1-4-1-ReentrantLock的原理" class="headerlink" title="1.4.1 ReentrantLock的原理"></a>1.4.1 ReentrantLock的原理</h4><p>Lock接口的实现类，基本都是通过聚合了一个队列同步器的子类完成线程访问控制的</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/119.jpg"></p>
+<h4 id="1-4-2-从最简单的lock方法开始看看公平和非公平"><a href="#1-4-2-从最简单的lock方法开始看看公平和非公平" class="headerlink" title="1.4.2 从最简单的lock方法开始看看公平和非公平"></a>1.4.2 从最简单的lock方法开始看看公平和非公平</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/120.jpg"></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/121.jpg"></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/122.jpg"></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/123.jpg"></p>
+<p>公平锁和非公平锁的lock()方法唯一的区别就在于公平锁在获取同步状态时多了一个限制条件：hasQueuedPredecessors()—–公平锁加锁时判断等待队列中是否存在有效节点的方法</p>
+<h4 id="1-4-3-以非公平锁ReentrantLock-为例作为突破走起—方法lock"><a href="#1-4-3-以非公平锁ReentrantLock-为例作为突破走起—方法lock" class="headerlink" title="1.4.3 以非公平锁ReentrantLock()为例作为突破走起—方法lock()"></a>1.4.3 以非公平锁ReentrantLock()为例作为突破走起—方法lock()</h4><p>对比公平锁和非公平锁的tryAcquire()方法的实现代码，其实差异就在于非公平锁获取锁时比公平锁中少了一个判断!hasQueuedPredecessors()，hasQueuedPredecessors()中判断了是否需要排队，导致公平锁和非公平锁的差异如下：</p>
+<ul>
+<li>公平锁：公平锁讲究先来后到，线程在获取锁时，如果这个锁的等待队列中已经有线程在等待，那么当前线程就会进入到等待队列中；</li>
+<li>非公平锁：不管是否有等待队列，如果可以获取到锁，则立刻占有锁对象。也就是说队列的第一个排队线程苏醒后，不一定就是排头的这个线程获得锁，它还需要参加竞争锁（存在线程竞争的情况下），后来的线程可能不讲武德插队夺锁了。</li>
+</ul>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/124.jpg"></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/125.jpg"></p>
+<p><strong>正式开始源码解读：</strong></p>
+<ul>
+<li><p>lock()</p>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/126.jpg"></p>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/127.jpg"></p>
+</li>
+<li><p>acquire()</p>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/128.jpg"></p>
+</li>
+<li><p>tryAcquire(arg)</p>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/129.jpg"></p>
+<ul>
+<li><p>return false：继续推进条件，走下一个方法</p>
+</li>
+<li><p>return true：结束</p>
+</li>
+</ul>
+</li>
+<li><p>addwaiter(Node.EXCLUSIVE)</p>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/130.jpg"></p>
+<ul>
+<li><p>注意：在双向链表中，第一个节点为虚节点（也叫做哨兵节点），其实不存储任何信息，只是占位。真正的第一个有数据的节点，是从第二个节点开始的</p>
+</li>
+<li><p>假如此时有线程C进入：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/131.jpg"></p>
+</li>
+</ul>
+</li>
+<li><p>acquireQueued(addWeiter(Node.EXCLUSIVE), arg)—–坐稳队列</p>
+</li>
+<li><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/132.jpg"></p>
+</li>
+</ul>
+<h2 id="1-4-4-unlock"><a href="#1-4-4-unlock" class="headerlink" title="1.4.4 unlock()"></a>1.4.4 unlock()</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/133.jpg"></p>
 
                 
             </div>
@@ -640,7 +804,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gitee.com/yunyd/yunyd/posts/7161264.html">https://gitee.com/yunyd/yunyd/posts/7161264.html</a>
+                    <a href="https://gitee.com/yunyd/yunyd/posts/6bfa0f2f.html">https://gitee.com/yunyd/yunyd/posts/6bfa0f2f.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -678,8 +842,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/yunyd/tags/%E9%A1%B9%E7%9B%AE/">
-                                    <span class="chip bg-color">项目</span>
+                                <a href="/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
+                                    <span class="chip bg-color">JUC并发编程</span>
                                 </a>
                             
                         </div>
@@ -1151,77 +1315,29 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/yunyd/posts/574f1a5b.html">
+                <a href="/yunyd/posts/6bfa0f2f.html">
                     <div class="card-image">
                         
                         
-                        <img src="/yunyd/medias/k.jpg" class="responsive-img" alt="OPEN-API开放平台">
+                        <img src="/yunyd/medias/z003.jpg" class="responsive-img" alt="JUC-AbstractQueuedSynchronizer之AQS">
                         
-                        <span class="card-title">OPEN-API开放平台</span>
+                        <span class="card-title">JUC-AbstractQueuedSynchronizer之AQS</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            api项目概述
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-07
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/yunyd/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                    项目
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/yunyd/tags/%E9%A1%B9%E7%9B%AE/">
-                        <span class="chip bg-color">项目</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/yunyd/posts/b972fab5.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/yunyd/medias/d.jpg" class="responsive-img" alt="JUC-LockSupport与线程中断">
-                        
-                        <span class="card-title">JUC-LockSupport与线程中断</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            JUC-LockSupport与线程中断
+                            AbstractQueuedSynchronizer之AQS
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-19
                             </span>
                         <span class="publish-author">
                             
@@ -1235,11 +1351,61 @@ new Valine({
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
                     <a href="/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
                         <span class="chip bg-color">JUC并发编程</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/yunyd/posts/2eca33fa.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/yunyd/medias/b.jpg" class="responsive-img" alt="RabbitMQ复习">
+                        
+                        <span class="card-title">RabbitMQ复习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            RabbitMQ复习
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/yunyd/categories/MQ/" class="post-category">
+                                    MQ
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/yunyd/tags/MQ/">
+                        <span class="chip bg-color">MQ</span>
                     </a>
                     
                 </div>
