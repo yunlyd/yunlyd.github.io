@@ -529,7 +529,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-18
+                    2023-08-19
                 </div>
                 
 
@@ -773,13 +773,13 @@
         factory.setUsername("admin");
         factory.setPassword("123");
 //channel 实现了自动 close 接口 自动关闭 不需要显示关闭
-        try (Connection connection = factory.newConnection(); Channel
-                connection.createChannel()){
+        try (Connection connection = factory.newConnection(); 
+             Channel channel = connection.createChannel()){
 /**
  * 生成一个队列
  * 1.队列名称
  * 2.队列里面的消息是否持久化 默认消息存储在内存中
- * 3.该队列是否只供一个消费者进行消费 是否进行共享 true 可以多个消费者消费
+ * 3.该队列是否只供一个消费者进行消费 是否进行共享 false 可以多个消费者消费
  * 4.是否自动删除 最后一个消费者端开连接以后 该队列是否自动删除 true 自动删除
  * 5.其他参数
  */
@@ -942,11 +942,11 @@
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/RabbitMQ/22.jpg"></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/RabbitMQ/23.jpg"></p>
 <p>​          意思就是如果这个任务我还没有处理完或者我还没有应答你，你先别分配给我，我目前只能处理一个任务，然后 rabbitmq 就会把该任务分配给没有那么忙的那个空闲消费者，当然如果所有的消费者都没有完成手上任务，队列还在不停的添加新任务，队列有可能就会遇到队列被撑满的情况，这个时候就只能添加新的 worker 或者改变其他存储任务的策略。</p>
-<h4 id="3-3-5-预取值"><a href="#3-3-5-预取值" class="headerlink" title="3.3.5. 预取值"></a><strong>3.3.5.</strong> <strong>预取值</strong></h4><p>​          本身消息的发送就是异步发送的，所以在任何时候，channel 上肯定不止只有一个消息另外来自消费者的手动确认本质上也是异步的。因此这里就存在一个未确认的消息缓冲区，因此希望开发人员能<strong>限制此**</strong>缓冲区的大小，以避免缓冲区里面无限制的未确认消息问题<strong>。这个时候就可以通过使用 basic.qos 方法设置“预取计数”值来完成的。</strong>该值定义通道上允许的未确认消息的<strong>最大数量</strong>。</p>
+<h4 id="3-3-5-预取值"><a href="#3-3-5-预取值" class="headerlink" title="3.3.5. 预取值"></a><strong>3.3.5.</strong> <strong>预取值</strong></h4><p>​          本身消息的发送就是异步发送的，所以在任何时候，channel 上肯定不止只有一个消息另外来自消费者的手动确认本质上也是异步的。因此这里就存在一个未确认的消息缓冲区，因此希望开发人员能<strong>限制此</strong>缓冲区的大小，以避免缓冲区里面无限制的未确认消息问题<strong>。这个时候就可以通过使用 basic.qos 方法设置“预取计数”值来完成的。</strong>该值定义通道上允许的未确认消息的<strong>最大数量</strong>。</p>
 <p>​          一旦数量达到配置的数量，RabbitMQ 将停止在通道上传递更多消息，除非至少有一个未处理的消息被确认，例如，假设在通道上有未确认的消息 5、6、7，8，并且通道的预取计数设置为 4，此时RabbitMQ 将不会在该通道上再传递任何消息，除非至少有一个未应答的消息被 ack。比方说 tag=6 这个消息刚刚被确认 ACK，RabbitMQ 将会感知这个情况到并再发送一条消息。消息应答和 QoS 预取值对用户吞吐量有重大影响。</p>
-<p>​          通常，增加预取将提高向消费者传递消息的速度。<strong>虽然自动应答传输消息速率是最佳的，但是，在这种情况下已传递但尚未处理**</strong>的消息的数量也会增加，从而增加了消费者的** <strong>RAM</strong> <strong>消耗</strong>(随机存取存储器)应该小心使用具有无限预处理的自动确认模式或手动确认模式，消费者消费了大量的消息如果没有确认的话，会导致消费者连接节点的内存消耗变大，所以找到合适的预取值是一个反复试验的过程，不同的负载该值取值也不同 100 到 300 范围内的值通常可提供最佳的吞吐量，并且不会给消费者带来太大的风险。预取值为 1 是最保守的。当然这将使吞吐量变得很低，特别是消费者连接延迟很严重的情况下，特别是在消费者连接等待时间较长的环境中。对于大多数应用来说，稍微高一点的值将是最佳的。</p>
+<p>​          通常，增加预取将提高向消费者传递消息的速度。<strong>虽然自动应答传输消息速率是最佳的，但是，在这种情况下已传递但尚未处理</strong>的消息的数量也会增加，从而增加了消费者的 <strong>RAM</strong> <strong>消耗</strong>(随机存取存储器)应该小心使用具有无限预处理的自动确认模式或手动确认模式，消费者消费了大量的消息如果没有确认的话，会导致消费者连接节点的内存消耗变大，所以找到合适的预取值是一个反复试验的过程，不同的负载该值取值也不同 100 到 300 范围内的值通常可提供最佳的吞吐量，并且不会给消费者带来太大的风险。预取值为 1 是最保守的。当然这将使吞吐量变得很低，特别是消费者连接延迟很严重的情况下，特别是在消费者连接等待时间较长的环境中。对于大多数应用来说，稍微高一点的值将是最佳的。</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/RabbitMQ/24.jpg"></p>
-<h2 id="4-发布确认"><a href="#4-发布确认" class="headerlink" title="4.   发布确认"></a>4.   发布确认</h2><h3 id="4-1-发布确认原理"><a href="#4-1-发布确认原理" class="headerlink" title="4.1. 发布确认原理"></a><strong>4.1.</strong> <strong>发布确认原理</strong></h3><p>​        生产者将信道设置成 confirm 模式，一旦信道进入 confirm 模式，所有在该信道上面发布的消息都将会被指派一个唯一的 ID**(从 1 开始)，一旦消息被投递到所有匹配的队列之后，broker 就会发送一个确认给生产者(包含消息的唯一 ID)，这就使得生产者知道消息已经正确到达目的队列了，如果消息和队列是可持久化的，那么确认消息会在将消息写入磁盘之后发出，broker 回传给生产者的确认消息中 delivery-tag 域包含了确认消息的序列号，此外 broker 也可以设置basic.ack 的multiple 域，表示到这个序列号之前的所有消息都已经得到了处理。confirm 模式最大的好处在于他是异步的，一旦发布一条消息，生产者应用程序就可以在等信道返回确认的同时继续发送下一条消息，当消息最终得到确认之后，生产者应用便可以通过回调方法来处理该确认消息，如果 RabbitMQ 因为自身内部错误导致消息丢失，就会发送一条 nack 消息，生产者应用程序同样可以在回调方法中处理该 nack 消息。</p>
+<h2 id="4-发布确认"><a href="#4-发布确认" class="headerlink" title="4.   发布确认"></a>4.   发布确认</h2><h3 id="4-1-发布确认原理"><a href="#4-1-发布确认原理" class="headerlink" title="4.1. 发布确认原理"></a><strong>4.1.</strong> <strong>发布确认原理</strong></h3><p>​        生产者将信道设置成 confirm 模式，一旦信道进入 confirm 模式，所有在该信道上面发布的消息都将会被指派一个<strong>唯一的 ID</strong>(从 1 开始)，一旦消息被投递到所有匹配的队列之后，broker 就会发送一个确认给生产者(包含消息的唯一 ID)，这就使得生产者知道消息已经正确到达目的队列了，如果消息和队列是可持久化的，那么确认消息会在将消息写入磁盘之后发出，broker 回传给生产者的确认消息中 delivery-tag 域包含了确认消息的序列号，此外 broker 也可以设置basic.ack 的multiple 域，表示到这个序列号之前的所有消息都已经得到了处理。confirm 模式最大的好处在于他是异步的，一旦发布一条消息，生产者应用程序就可以在等信道返回确认的同时继续发送下一条消息，当消息最终得到确认之后，生产者应用便可以通过回调方法来处理该确认消息，如果 RabbitMQ 因为自身内部错误导致消息丢失，就会发送一条 nack 消息，生产者应用程序同样可以在回调方法中处理该 nack 消息。</p>
 <h3 id="4-2-发布确认的策略"><a href="#4-2-发布确认的策略" class="headerlink" title="4.2. 发布确认的策略"></a><strong>4.2.</strong> <strong>发布确认的策略</strong></h3><h4 id="4-2-1-开启发布确认的方法"><a href="#4-2-1-开启发布确认的方法" class="headerlink" title="4.2.1. 开启发布确认的方法"></a><strong>4.2.1.</strong> <strong>开启发布确认的方法</strong></h4><p>​          发布确认默认是没有开启的，如果要开启需要调用方法 confirmSelect，每当你要想使用发布确认，都需要在 channel 上调用该方法</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/RabbitMQ/25.jpg"></p>
 <h4 id="4-2-2-单个确认发布"><a href="#4-2-2-单个确认发布" class="headerlink" title="4.2.2. 单个确认发布"></a><strong>4.2.2.</strong> <strong>单个确认发布</strong></h4><p>​          这是一种简单的确认方式，它是一种<strong>同步确认发布</strong>的方式，也就是发布一个消息之后只有它被确认发布，后续的消息才能继续发布,waitForConfirmsOrDie(long)这个方法只有在消息被确认的时候才返回，如果在指定时间范围内这个消息没有被确认那么它将抛出异常。这种确认方式有一个最大的缺点就是:<strong>发布速度特别的慢，</strong>因为如果没有确认发布的消息就会阻塞所有后续消息的发布，这种方式最多提供每秒不超过数百条发布消息的吞吐量。当然对于某些应用程序来说这可能已经足够了。</p>
@@ -1194,7 +1194,7 @@
 <h4 id="5-5-2-Direct-exchange-介绍"><a href="#5-5-2-Direct-exchange-介绍" class="headerlink" title="5.5.2. Direct exchange 介绍"></a><strong>5.5.2.</strong> <strong>Direct exchange 介绍</strong></h4><p>​          上一节中的我们的日志系统将所有消息广播给所有消费者，对此我们想做一些改变，例如我们希望将日志消息写入磁盘的程序仅接收严重错误(errros)，而不存储哪些警告(warning)或信息(info)日志消息避免浪费磁盘空间。Fanout 这种交换类型并不能给我们带来很大的灵活性-它只能进行无意识的广播，在这里我们将使用 direct 这种类型来进行替换，这种类型的工作方式是，消息只去到它绑定的routingKey 队列中去。</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/RabbitMQ/34.jpg"></p>
 <p>​          在上面这张图中，我们可以看到 X 绑定了两个队列，绑定类型是 direct。队列Q1 绑定键为 orange，队列 Q2 绑定键有两个:一个绑定键为 black，另一个绑定键为 green.</p>
-<p>​          在这种绑定情况下，生产者发布消息到 exchange 上，绑定键为 orange 的消息会被发布到队列Q1。绑定键为 blackgreen 和的消息会被发布到队列 Q2，其他消息类型的消息将被丢弃。</p>
+<p>​          在这种绑定情况下，生产者发布消息到 exchange 上，绑定键为 orange 的消息会被发布到队列Q1。绑定键为 black 和green的消息会被发布到队列 Q2，其他消息类型的消息将被丢弃。</p>
 <h4 id="5-5-3-多重绑定"><a href="#5-5-3-多重绑定" class="headerlink" title="5.5.3. 多重绑定"></a><strong>5.5.3.</strong> <strong>多重绑定</strong></h4><p> <img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/RabbitMQ/35.jpg"></p>
 <p>​          当然如果 exchange 的绑定类型是direct，<strong>但是它绑定的多个队列的</strong> <strong>key</strong> <strong>如果都相同</strong>，在这种情况下虽然绑定类型是 direct <strong>但是它表现的就和</strong> <strong>fanout</strong> <strong>有点类似了</strong>，就跟广播差不多，如上图所示。</p>
 <h4 id="5-5-4-实战"><a href="#5-5-4-实战" class="headerlink" title="5.5.4. 实战"></a><strong>5.5.4.</strong> <strong>实战</strong></h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/RabbitMQ/36.jpg"></p>
@@ -1401,18 +1401,16 @@
                 <span class="token class-name">BuiltinExchangeType</span><span class="token punctuation">.</span><span class="token constant">DIRECT</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">//设置消息的 TTL 时间</span>
             <span class="token class-name">AMQP<span class="token punctuation">.</span>BasicProperties</span> properties <span class="token operator">=</span>
-                    <span class="token keyword">new</span>
-                            <span class="token class-name">AMQP<span class="token punctuation">.</span>BasicProperties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">expiration</span><span class="token punctuation">(</span><span class="token string">"10000"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">new</span> <span class="token class-name">AMQP<span class="token punctuation">.</span>BasicProperties</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">expiration</span><span class="token punctuation">(</span><span class="token string">"10000"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">//该信息是用作演示队列个数限制</span>
             <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span><span class="token number">11</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
                 <span class="token class-name">String</span> message<span class="token operator">=</span><span class="token string">"info"</span><span class="token operator">+</span>i<span class="token punctuation">;</span>
-                channel<span class="token punctuation">.</span><span class="token function">basicPublish</span><span class="token punctuation">(</span><span class="token constant">NORMAL_EXCHANGE</span><span class="token punctuation">,</span>
-                        message<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                channel<span class="token punctuation">.</span><span class="token function">basicPublish</span><span class="token punctuation">(</span><span class="token constant">NORMAL_EXCHANGE</span><span class="token punctuation">,</span><span class="token string">"zhangsan"</span><span class="token punctuation">,</span>properties<span class="token punctuation">,</span>message<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
                 <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"生产者发送消息:"</span><span class="token operator">+</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>消费者 C1 代码(<strong>启动之后关闭该消费者</strong> <strong>模拟其接收不到消息</strong>)</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Consumer01</span> <span class="token punctuation">{</span>
@@ -3078,7 +3076,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">219.7k</span>&nbsp;字
+                class="white-color">226k</span>&nbsp;字
             
             
             
