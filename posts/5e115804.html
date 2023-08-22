@@ -529,21 +529,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-21
+                    2023-08-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.4k
+                    8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    29 分
                 </div>
                 
 
@@ -735,7 +735,116 @@ main 主线程结束---&gt;在main主线程结束后，守护线程会伴随着J
 
 
 
-<h2 id="ThreadPool-线程池"><a href="#ThreadPool-线程池" class="headerlink" title="ThreadPool 线程池"></a>ThreadPool 线程池</h2><h3 id="10-1-线程池简介"><a href="#10-1-线程池简介" class="headerlink" title="10.1 线程池简介"></a><strong>10.1 线程池简介</strong></h3><p>线程池（英语：thread pool）：一种线程使用模式。线程过多会带来调度开销，进而影响缓存局部性和整体性能。而线程池维护着多个线程，等待着监督管理者分配可并发执行的任务。这避免了在处理短时间任务时创建与销毁线程的代价。线程池不仅能够保证内核的充分利用，还能防止过分调度。例子： 10 年前单核 CPU 电脑，假的多线程，像马戏团小丑玩多个球，CPU 需要来回切换。 现在是多核电脑，多个线程各自跑在独立的 CPU 上，不用切换效率高。</p>
+<h2 id="阻塞队列"><a href="#阻塞队列" class="headerlink" title="阻塞队列"></a>阻塞队列</h2><h3 id="1-1-BlockingQueue-简介"><a href="#1-1-BlockingQueue-简介" class="headerlink" title="1.1 BlockingQueue 简介"></a><strong>1.1 BlockingQueue 简介</strong></h3><p>Concurrent 包中，BlockingQueue 很好的解决了多线程中，如何高效安全“传输”数据的问题。通过这些高效并且线程安全的队列类，为我们快速搭建高质量的多线程程序带来极大的便利。本文详细介绍了 BlockingQueue 家庭中的所有成员，包括他们各自的功能以及常见使用场景。阻塞队列，顾名思义，首先它是一个队列, 通过一个共享的队列，可以使得数据由队列的一端输入，从另外一端输出；</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/140.jpg"></p>
+<p>当队列是空的，从队列中获取元素的操作将会被阻塞</p>
+<p>当队列是满的，从队列中添加元素的操作将会被阻塞</p>
+<p>试图从空的队列中获取元素的线程将会被阻塞，直到其他线程往空的队列插入新的元素</p>
+<p>试图向已满的队列中添加新元素的线程将会被阻塞，直到其他线程从队列中移除一个或多</p>
+<p>个元素或者完全清空，使队列变得空闲起来并后续新增</p>
+<p>常用的队列主要有以下两种：</p>
+<ul>
+<li>先进先出（FIFO）：先插入的队列的元素也最先出队列，类似于排队的功能。从某种程度上来说这种队列也体现了一种公平性</li>
+<li>后进先出（LIFO）：后插入队列的元素最先出队列，这种队列优先处理最近发生的事件(栈)</li>
+</ul>
+<p>在多线程领域：所谓阻塞，在某些情况下会挂起线程（即阻塞），一旦条件满足，被挂起的线程又会自动被唤起</p>
+<p><strong>为什么需要 BlockingQueue</strong></p>
+<p>好处是我们不需要关心什么时候需要阻塞线程，什么时候需要唤醒线程，因为这一切BlockingQueue 都给你一手包办了</p>
+<p>在 concurrent 包发布以前，在多线程环境下，我们每个程序员都必须去自己控制这些细节，尤其还要兼顾效率和线程安全，而这会给我们的程序带来不小的复杂度。</p>
+<p>​      多线程环境中，通过队列可以很容易实现数据共享，比如经典的“生产者”和“消费者”模型中，通过队列可以很便利地实现两者之间的数据共享。假设我们有若干生产者线程，另外又有若干个消费者线程。如果生产者线程需要把准备好的数据共享给消费者线程，利用队列的方式来传递数据，就可以很方便地解决他们之间的数据共享问题。但如果生产者和消费者在某个时间段内，万一发生数据处理速度不匹配的情况呢？理想情况下，如果生产者产出数据的速度大于消费者消费的速度，并且当生产出来的数据累积到一定程度的时候，那么生产者必须暂停等待一下（阻塞生产者线程），以便等待消费者线程把累积的数据处理完毕，反之亦然</p>
+<ul>
+<li>当队列中没有数据的情况下，消费者端的所有线程都会被自动阻塞（挂起），直到有数据放入队列</li>
+<li>当队列中填满数据的情况下，生产者端的所有线程都会被自动阻塞（挂起），直到队列中有空的位置，线程被自动唤醒</li>
+</ul>
+<h3 id="1-2-BlockingQueue-核心方法"><a href="#1-2-BlockingQueue-核心方法" class="headerlink" title="1.2 BlockingQueue 核心方法"></a><strong>1.2 BlockingQueue 核心方法</strong></h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/141.jpg"></p>
+<p><strong>BlockingQueue 的核心方法</strong>：</p>
+<ol>
+<li><strong>放入数据</strong>• offer(anObject):表示如果可能的话,将 anObject 加到 BlockingQueue 里,即如果 BlockingQueue 可以容纳,则返回 true,否则返回 false.<strong>（本方法不阻塞当前执行方法的线程）</strong><ul>
+<li>offer(E o, long timeout, TimeUnit unit)：可以设定等待的时间，如果在指定的时间内，还不能往队列中加入 BlockingQueue，则返回失败</li>
+<li>put(anObject):把 anObject 加到 BlockingQueue 里,如果 BlockQueue 没有空间,则调用此方法的线程被阻断直到 BlockingQueue 里面有空间再继续</li>
+</ul>
+</li>
+<li>获取数据<ul>
+<li>poll(time): 取走 BlockingQueue 里排在首位的对象,若不能立即取出,<strong>则可以等time 参数规定的时间,取不到时返回 null</strong></li>
+<li> poll(long timeout, TimeUnit unit)：从 BlockingQueue 取出一个队首的对象，如果在指定时间内，队列一旦有数据可取，则立即返回队列中的数据。否则知道时间超时还没有数据可取，返回失败。</li>
+<li>take(): 取走 BlockingQueue 里排在首位的对象,若 BlockingQueue 为空,<strong>阻断进入等待状态直到 BlockingQueue 有新的数据被加入</strong></li>
+<li>drainTo(): 一次性从 BlockingQueue 获取所有可用的数据对象（还可以指定获取数据的个数），通过该方法，可以提升获取数据效率；不需要多次分批加锁或释放锁。</li>
+</ul>
+</li>
+</ol>
+<h3 id="1-3-入门案例"><a href="#1-3-入门案例" class="headerlink" title="1.3 入门案例"></a><strong>1.3 入门案例</strong></h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
+ * 阻塞队列
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BlockingQueueDemo</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+<span class="token comment">// List list = new ArrayList();</span>
+        <span class="token class-name">BlockingQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> blockingQueue <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayBlockingQueue</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//第一组</span>
+<span class="token comment">// System.out.println(blockingQueue.add("a"));</span>
+<span class="token comment">// System.out.println(blockingQueue.add("b"));</span>
+<span class="token comment">// System.out.println(blockingQueue.add("c"));</span>
+<span class="token comment">// System.out.println(blockingQueue.element());</span>
+<span class="token comment">//System.out.println(blockingQueue.add("x"));</span>
+<span class="token comment">// System.out.println(blockingQueue.remove());</span>
+<span class="token comment">// System.out.println(blockingQueue.remove());</span>
+<span class="token comment">// System.out.println(blockingQueue.remove());</span>
+<span class="token comment">// System.out.println(blockingQueue.remove());</span>
+<span class="token comment">// 第二组</span>
+<span class="token comment">// System.out.println(blockingQueue.offer("a"));</span>
+<span class="token comment">// System.out.println(blockingQueue.offer("b"));</span>
+<span class="token comment">// System.out.println(blockingQueue.offer("c"));</span>
+<span class="token comment">// System.out.println(blockingQueue.offer("x"));</span>
+<span class="token comment">// System.out.println(blockingQueue.poll());</span>
+<span class="token comment">// System.out.println(blockingQueue.poll());</span>
+<span class="token comment">// System.out.println(blockingQueue.poll());</span>
+<span class="token comment">// System.out.println(blockingQueue.poll());</span>
+<span class="token comment">// 第三组</span>
+<span class="token comment">// blockingQueue.put("a");</span>
+<span class="token comment">// blockingQueue.put("b");</span>
+<span class="token comment">// blockingQueue.put("c");</span>
+<span class="token comment">// //blockingQueue.put("x");</span>
+<span class="token comment">// System.out.println(blockingQueue.take());</span>
+<span class="token comment">// System.out.println(blockingQueue.take());</span>
+<span class="token comment">// System.out.println(blockingQueue.take());</span>
+<span class="token comment">// System.out.println(blockingQueue.take());</span>
+<span class="token comment">// 第四组</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>blockingQueue<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>blockingQueue<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span><span class="token string">"b"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>blockingQueue<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span><span class="token string">"c"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>blockingQueue<span class="token punctuation">.</span><span class="token function">offer</span><span class="token punctuation">(</span><span class="token string">"a"</span><span class="token punctuation">,</span><span class="token number">3L</span><span class="token punctuation">,</span> <span class="token class-name">TimeUnit</span><span class="token punctuation">.</span><span class="token constant">SECONDS</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="1-4-常见的-BlockingQueue"><a href="#1-4-常见的-BlockingQueue" class="headerlink" title="1.4 常见的 BlockingQueue"></a>1.4 常见的 BlockingQueue</h3><h4 id="1-4-1-ArrayBlockingQueue-常用"><a href="#1-4-1-ArrayBlockingQueue-常用" class="headerlink" title="1.4.1 ArrayBlockingQueue(常用)"></a><strong>1.4.1 ArrayBlockingQueue(常用)</strong></h4><p>基于数组的阻塞队列实现，在 ArrayBlockingQueue 内部，维护了一个定长数组，以便缓存队列中的数据对象，这是一个常用的阻塞队列，除了一个定长数组外，ArrayBlockingQueue 内部还保存着两个整形变量，分别标识着队列的头部和尾部在数组中的位置。ArrayBlockingQueue 在生产者放入数据和消费者获取数据，都是共用同一个锁对象，由此也意味着两者无法真正并行运行，这点尤其不同于LinkedBlockingQueue；按照实现原理来分析，ArrayBlockingQueue 完全可以采用分离锁，从而实现生产者和消费者操作的完全并行运行。Doug Lea 之所以没这样去做，也许是因为 ArrayBlockingQueue 的数据写入和获取操作已经足够轻巧，以至于引入独立的锁机制，除了给代码带来额外的复杂性外，其在性能上完全占不到任何便宜。 ArrayBlockingQueue 和LinkedBlockingQueue 间还有一个明显的不同之处在于，前者在插入或删除元素时不会产生或销毁任何额外的对象实例，而后者则会生成一个额外的Node 对象。这在长时间内需要高效并发地处理大批量数据的系统中，其对于GC 的影响还是存在一定的区别。而在创建 ArrayBlockingQueue 时，我们还可以控制对象的内部锁是否采用公平锁，默认采用非公平锁。</p>
+<p>==<strong>一句话总结: 由数组结构组成的有界阻塞队列。</strong>==</p>
+<h4 id="1-4-2-LinkedBlockingQueue-常用"><a href="#1-4-2-LinkedBlockingQueue-常用" class="headerlink" title="1**.4.2 LinkedBlockingQueue(常用)**"></a>1**.4.2 LinkedBlockingQueue(常用)**</h4><p>基于链表的阻塞队列，同 ArrayListBlockingQueue 类似，其内部也维持着一个数据缓冲队列（该队列由一个链表构成），当生产者往队列中放入一个数据时，队列会从生产者手中获取数据，并缓存在队列内部，而生产者立即返回；只有当队列缓冲区达到最大值缓存容量时（LinkedBlockingQueue 可以通过构造函数指定该值），才会阻塞生产者队列，直到消费者从队列中消费掉一份数据，生产者线程会被唤醒，反之对于消费者这端的处理也基于同样的原理。而 LinkedBlockingQueue 之所以能够高效的处理并发数据，还因为其对于生产者端和消费者端分别采用了独立的锁来控制数据同步，这也意味着在高并发的情况下生产者和消费者可以并行地操作队列中的数据，以此来提高整个队列的并发性能。</p>
+<p><strong>ArrayBlockingQueue 和 LinkedBlockingQueue 是两个最普通也是最常用的阻塞队列，一般情况下，在处理多线程间的生产者消费者问题，使用这两个类足以。</strong></p>
+<p>==<strong>一句话总结: 由链表结构组成的有界（但大小默认值为integer.MAX_VALUE）阻塞队列。</strong>==</p>
+<h4 id="1-4-3-DelayQueue"><a href="#1-4-3-DelayQueue" class="headerlink" title="1.4.3 DelayQueue"></a><strong>1.4.3 DelayQueue</strong></h4><p>DelayQueue 中的元素只有当其指定的延迟时间到了，才能够从队列中获取到该元素。DelayQueue 是一个没有大小限制的队列，因此往队列中插入数据的操作（生产者）永远不会被阻塞，而只有获取数据的操作（消费者）才会被阻塞。</p>
+<p>==<strong>一句话总结: 使用优先级队列实现的延迟无界阻塞队列。</strong>==</p>
+<h4 id="1-4-4-PriorityBlockingQueue"><a href="#1-4-4-PriorityBlockingQueue" class="headerlink" title="1.4.4 PriorityBlockingQueue"></a><strong>1.4.4 PriorityBlockingQueue</strong></h4><p>基于优先级的阻塞队列（优先级的判断通过构造函数传入的 Compator 对象来决定），但需要注意的是 PriorityBlockingQueue 并<strong>不会阻塞数据生产者，而只会在没有可消费的数据时，阻塞数据的消费者</strong>。因此使用的时候要特别注意，<strong>生产者生产数据的速度绝对不能快于消费者消费数据的速度</strong>，否则时间一长，会最终耗尽所有的可用堆内存空间。在实现 PriorityBlockingQueue 时，内部控制线程同步的锁采用的是<strong>公平锁</strong>。</p>
+<p>==<strong>一句话总结: 支持优先级排序的无界阻塞队列。</strong>==</p>
+<h4 id="1-4-5-SynchronousQueue"><a href="#1-4-5-SynchronousQueue" class="headerlink" title="1.4.5 SynchronousQueue"></a><strong>1.4.5 SynchronousQueue</strong></h4><p>一种无缓冲的等待队列，类似于无中介的直接交易，有点像原始社会中的生产者和消费者，生产者拿着产品去集市销售给产品的最终消费者，而消费者必须亲自去集市找到所要商品的直接生产者，如果一方没有找到合适的目标，那么对不起，大家都在集市等待。相对于有缓冲的 BlockingQueue 来说，少了一个中间经销商的环节（缓冲区），如果有经销商，生产者直接把产品批发给经</p>
+<p>销商，而无需在意经销商最终会将这些产品卖给那些消费者，由于经销商可以库存一部分商品，因此相对于直接交易模式，总体来说采用中间经销商的模式会吞吐量高一些（可以批量买卖）；但另一方面，又因为经销商的引入，使得产品从生产者到消费者中间增加了额外的交易环节，单个产品的及时响应性能可能会降低。声明一个 SynchronousQueue 有两种不同的方式，它们之间有着不太一样的行为。</p>
+<p><strong>公平模式和非公平模式的区别:</strong></p>
+<ul>
+<li>公平模式：SynchronousQueue 会采用公平锁，并配合一个 FIFO 队列来阻塞多余的生产者和消费者，从而体系整体的公平策略；</li>
+<li>非公平模式（SynchronousQueue 默认）：SynchronousQueue 采用非公平锁，同时配合一个 LIFO 队列来管理多余的生产者和消费者，而后一种模式，如果生产者和消费者的处理速度有差距，则很容易出现饥渴的情况，即可能有某些生产者或者是消费者的数据永远都得不到处理。</li>
+</ul>
+<p>==<strong>一句话总结: 不存储元素的阻塞队列，也即单个元素的队列。</strong>==</p>
+<h4 id="1-4-6-LinkedTransferQueue"><a href="#1-4-6-LinkedTransferQueue" class="headerlink" title="1.4.6 LinkedTransferQueue"></a><strong>1.4.6 LinkedTransferQueue</strong></h4><p>LinkedTransferQueue 是一个由链表结构组成的无界阻塞 TransferQueue 队列。相对于其他阻塞队列，LinkedTransferQueue 多了 tryTransfer 和transfer 方法。LinkedTransferQueue 采用一种预占模式。意思就是消费者线程取元素时，如果队列不为空，则直接取走数据，若队列为空，那就生成一个节点（节点元素为 null）入队，然后消费者线程被等待在这个节点上，后面生产者线程入队时发现有一个元素为 null 的节点，生产者线程就不入队了，直接就将元素填充到该节点，并唤醒该节点等待的线程，被唤醒的消费者线程取走元素，从调用的方法返回。</p>
+<p>==<strong>一句话总结: 由链表组成的无界阻塞队列。</strong>==</p>
+<h4 id="1-4-7-LinkedBlockingDeque"><a href="#1-4-7-LinkedBlockingDeque" class="headerlink" title="1.4.7 LinkedBlockingDeque"></a><strong>1.4.7 LinkedBlockingDeque</strong></h4><p>LinkedBlockingDeque 是一个由链表结构组成的双向阻塞队列，即可以从队列的两端插入和移除元素。对于一些指定的操作，在插入或者获取队列元素时如果队列状态不允许该操作可能会阻塞住该线程直到队列状态变更为允许操作，这里的阻塞一般有两种情况</p>
+<ul>
+<li> 插入元素时: 如果当前队列已满将会进入阻塞状态，一直等到队列有空的位置时再讲该元素插入，该操作可以通过设置超时参数，超时后返回 false 表示操作失败，也可以不设置超时参数一直阻塞，中断后抛出 InterruptedException 异常</li>
+<li>读取元素时: 如果当前队列为空会阻塞住直到队列不为空然后返回元素，同样可以通过设置超时参数</li>
+</ul>
+<p>==<strong>一句话总结: 由链表组成的双向阻塞队列</strong>==</p>
+<h4 id="1-5-小结"><a href="#1-5-小结" class="headerlink" title="1.5 小结"></a><strong>1.5 小结</strong></h4><ol>
+<li>在多线程领域：所谓阻塞，在某些情况下会挂起线程（即阻塞），一旦条件满足，被挂起的线程又会自动被唤起</li>
+<li><strong>为什么需要 BlockingQueue?</strong> 在 concurrent 包发布以前，在多线程环境下，我们每个程序员都必须去自己控制这些细节，尤其还要兼顾效率和线程安全，而这会给我们的程序带来不小的复杂度。使用后我们不需要关心什么时候需要阻塞线程，什么时候需要唤醒线程，因为这一切 BlockingQueue 都给你一手包办了</li>
+</ol>
+<h2 id="ThreadPool-线程池"><a href="#ThreadPool-线程池" class="headerlink" title="ThreadPool 线程池"></a>ThreadPool 线程池</h2><h3 id="1-1-线程池简介"><a href="#1-1-线程池简介" class="headerlink" title="1.1 线程池简介"></a><strong>1.1 线程池简介</strong></h3><p>线程池（英语：thread pool）：一种线程使用模式。线程过多会带来调度开销，进而影响缓存局部性和整体性能。而线程池维护着多个线程，等待着监督管理者分配可并发执行的任务。这避免了在处理短时间任务时创建与销毁线程的代价。线程池不仅能够保证内核的充分利用，还能防止过分调度。例子： 10 年前单核 CPU 电脑，假的多线程，像马戏团小丑玩多个球，CPU 需要来回切换。 现在是多核电脑，多个线程各自跑在独立的 CPU 上，不用切换效率高。</p>
 <p><strong>线程池的优势：</strong> 线程池做的工作只要是控制运行的线程数量，处理过程中将任务放入队列，然后在线程创建后启动这些任务，如果线程数量超过了最大数量，超出数量的线程排队等候，等其他线程执行完毕，再从队列中取出任务来执行。</p>
 <p><strong>它的主要特点为：</strong></p>
 <ul>
@@ -745,8 +854,8 @@ main 主线程结束---&gt;在main主线程结束后，守护线程会伴随着J
 <li><strong>Java</strong> 中的线程池是通过 <strong>Executor</strong> 框架实现的，该框架中用到了 <strong>Executor</strong>，<strong>Executors</strong>，<strong>ExecutorService</strong>，<strong>ThreadPoolExecutor</strong> 这几个类</li>
 </ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/136.jpg"></p>
-<h3 id="10-2-线程池参数说明"><a href="#10-2-线程池参数说明" class="headerlink" title="10.2 线程池参数说明"></a><strong>10.2 线程池参数说明</strong></h3><p>本次介绍 5 种类型的线程池</p>
-<h4 id="10-2-1-常用参数-重点"><a href="#10-2-1-常用参数-重点" class="headerlink" title="10.2.1 常用参数(重点)"></a><strong>10.2.1 常用参数(重点)</strong></h4><ul>
+<h3 id="1-2-线程池参数说明"><a href="#1-2-线程池参数说明" class="headerlink" title="1.2 线程池参数说明"></a><strong>1.2 线程池参数说明</strong></h3><p>本次介绍 5 种类型的线程池</p>
+<h4 id="1-2-1-常用参数-重点"><a href="#1-2-1-常用参数-重点" class="headerlink" title="1.2.1 常用参数(重点)"></a><strong>1.2.1 常用参数(重点)</strong></h4><ul>
 <li> corePoolSize 线程池的核心线程数</li>
 <li>maximumPoolSize 能容纳的最大线程数</li>
 <li>keepAliveTime 空闲线程存活时间</li>
@@ -756,10 +865,10 @@ main 主线程结束---&gt;在main主线程结束后，守护线程会伴随着J
 <li>handler 等待队列满后的拒绝策略</li>
 </ul>
 <p>线程池中，有三个重要的参数，决定影响了拒绝策略：corePoolSize - 核心线程数，也即最小的线程数。workQueue - 阻塞队列 。 maximumPoolSize -最大线程数当提交任务数大于 corePoolSize 的时候，会优先将任务放到 workQueue 阻塞队列中。当阻塞队列饱和后，会扩充线程池中线程数，直到达到maximumPoolSize 最大线程数配置。此时，再多余的任务，则会触发线程池的拒绝策略了。总结起来，也就是一句话，<strong>当提交的任务数大于（workQueue.size() +</strong> <strong>maximumPoolSize ），就会触发线程池的拒绝策略</strong>。</p>
-<h4 id="10-2-2-拒绝策略-重点"><a href="#10-2-2-拒绝策略-重点" class="headerlink" title="10.2.2 拒绝策略(重点)"></a><strong>10.2.2 拒绝策略(重点)</strong></h4><p><strong>CallerRunsPolicy</strong>: 当触发拒绝策略，只要线程池没有关闭的话，则使用调用线程直接运行任务。一般并发比较小，性能要求不高，不允许失败。但是，由于调用者自己运行任务，如果任务提交速度过快，可能导致程序阻塞，性能效率上必然的损失较大</p>
+<h4 id="1-2-2-拒绝策略-重点"><a href="#1-2-2-拒绝策略-重点" class="headerlink" title="1.2.2 拒绝策略(重点)"></a><strong>1.2.2 拒绝策略(重点)</strong></h4><p><strong>CallerRunsPolicy</strong>: 当触发拒绝策略，只要线程池没有关闭的话，则使用调用线程直接运行任务。一般并发比较小，性能要求不高，不允许失败。但是，由于调用者自己运行任务，如果任务提交速度过快，可能导致程序阻塞，性能效率上必然的损失较大</p>
 <p><strong>AbortPolicy</strong>: 丢弃任务，并抛出拒绝执行 RejectedExecutionException 异常信息。线程池默认的拒绝策略。必须处理好抛出的异常，否则会打断当前的执行流程，影响后续的任务执行。</p>
 <p><strong>DiscardPolicy</strong>: 直接丢弃，其他啥都没有<strong>DiscardOldestPolicy</strong>: 当触发拒绝策略，只要线程池没有关闭的话，丢弃阻塞队列 workQueue 中最老的一个任务，并将新任务加入</p>
-<h3 id="10-3-线程池的种类与创建"><a href="#10-3-线程池的种类与创建" class="headerlink" title="10.3 线程池的种类与创建"></a><strong>10.3 线程池的种类与创建</strong></h3><h4 id="10-3-1-newCachedThreadPool-常用"><a href="#10-3-1-newCachedThreadPool-常用" class="headerlink" title="10.3.1 newCachedThreadPool(常用)"></a><strong>10.3.1 newCachedThreadPool(常用)</strong></h4><p><strong>作用</strong>：创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空</p>
+<h3 id="1-3-线程池的种类与创建"><a href="#1-3-线程池的种类与创建" class="headerlink" title="1.3 线程池的种类与创建"></a><strong>1.3 线程池的种类与创建</strong></h3><h4 id="1-3-1-newCachedThreadPool-常用"><a href="#1-3-1-newCachedThreadPool-常用" class="headerlink" title="1.3.1 newCachedThreadPool(常用)"></a><strong>1.3.1 newCachedThreadPool(常用)</strong></h4><p><strong>作用</strong>：创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空</p>
 <p>闲线程，若无可回收，则新建线程.</p>
 <p><strong>特点</strong>: </p>
 <ul>
@@ -792,7 +901,7 @@ main 主线程结束---&gt;在main主线程结束后，守护线程会伴随着J
     <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>场景:</strong> 适用于创建一个可无限扩大的线程池，服务器负载压力较轻，执行时间较短，任务多的场景</p>
-<h4 id="10-3-2-newFixedThreadPool-常用"><a href="#10-3-2-newFixedThreadPool-常用" class="headerlink" title="10.3.2 newFixedThreadPool(常用)"></a><strong>10.3.2 newFixedThreadPool(常用)</strong></h4><p><strong>作用</strong>：创建一个可重用固定线程数的线程池，以共享的无界队列方式来运行这些线程。在任意点，在大多数线程会处于处理任务的活动状态。如果在所有线程处于活动状态时提交附加任务，则在有可用线程之前，附加任务将在队列中等待。如果在关闭前的执行期间由于失败而导致任何线程终止，那么一个新线程将代替它执行后续的任务（如果需要）。在某个线程被显式地关闭之前，池中的线程将一直存在。</p>
+<h4 id="1-3-2-newFixedThreadPool-常用"><a href="#1-3-2-newFixedThreadPool-常用" class="headerlink" title="1.3.2 newFixedThreadPool(常用)"></a><strong>1.3.2 newFixedThreadPool(常用)</strong></h4><p><strong>作用</strong>：创建一个可重用固定线程数的线程池，以共享的无界队列方式来运行这些线程。在任意点，在大多数线程会处于处理任务的活动状态。如果在所有线程处于活动状态时提交附加任务，则在有可用线程之前，附加任务将在队列中等待。如果在关闭前的执行期间由于失败而导致任何线程终止，那么一个新线程将代替它执行后续的任务（如果需要）。在某个线程被显式地关闭之前，池中的线程将一直存在。</p>
 <p><strong>特征：</strong></p>
 <ul>
 <li>线程池中的线程处于一定的量，可以很好的控制线程的并发量</li>
@@ -824,7 +933,7 @@ main 主线程结束---&gt;在main主线程结束后，守护线程会伴随着J
     <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>场景:</strong> 适用于可以预测线程数量的业务中，或者服务器负载较重，对线程数有严格限制的场景</p>
-<h4 id="10-3-3-newSingleThreadExecutor-常用"><a href="#10-3-3-newSingleThreadExecutor-常用" class="headerlink" title="10.3.3 newSingleThreadExecutor(常用)"></a><strong>10.3.3 newSingleThreadExecutor(常用)</strong></h4><p><strong>作用</strong>：创建一个使用单个 worker 线程的 Executor，以无界队列方式来运行该线程。（注意，如果因为在关闭前的执行期间出现失败而终止了此单个线程，那么如果需要，一个新线程将代替它执行后续的任务）。可保证顺序地执行各个任务，并且在任意给定的时间不会有多个线程是活动的。与其他等效的newFixedThreadPool 不同，可保证无需重新配置此方法所返回的执行程序即可使用其他的线程。</p>
+<h4 id="1-3-3-newSingleThreadExecutor-常用"><a href="#1-3-3-newSingleThreadExecutor-常用" class="headerlink" title="1.3.3 newSingleThreadExecutor(常用)"></a><strong>1.3.3 newSingleThreadExecutor(常用)</strong></h4><p><strong>作用</strong>：创建一个使用单个 worker 线程的 Executor，以无界队列方式来运行该线程。（注意，如果因为在关闭前的执行期间出现失败而终止了此单个线程，那么如果需要，一个新线程将代替它执行后续的任务）。可保证顺序地执行各个任务，并且在任意给定的时间不会有多个线程是活动的。与其他等效的newFixedThreadPool 不同，可保证无需重新配置此方法所返回的执行程序即可使用其他的线程。</p>
 <p><strong>特征：</strong></p>
 <p> 线程池中最多执行 1 个线程，之后提交的线程活动将会排在队列中以此执行</p>
 <p><strong>创建方式：</strong></p>
@@ -852,7 +961,7 @@ main 主线程结束---&gt;在main主线程结束后，守护线程会伴随着J
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>场景:</strong> 适用于需要保证顺序执行各个任务，并且在任意时间点，不会同时有多个线程的场景</p>
-<h4 id="10-3-4-newScheduleThreadPool-了解"><a href="#10-3-4-newScheduleThreadPool-了解" class="headerlink" title="10.3.4 newScheduleThreadPool(了解)"></a><strong>10.3.4 newScheduleThreadPool(了解)</strong></h4><p><strong>作用:</strong> 线程池支持定时以及周期性执行任务，创建一个 corePoolSize 为传入参数，最大线程数为整形的最大数的线程池</p>
+<h4 id="1-3-4-newScheduleThreadPool-了解"><a href="#1-3-4-newScheduleThreadPool-了解" class="headerlink" title="1.3.4 newScheduleThreadPool(了解)"></a><strong>1.3.4 newScheduleThreadPool(了解)</strong></h4><p><strong>作用:</strong> 线程池支持定时以及周期性执行任务，创建一个 corePoolSize 为传入参数，最大线程数为整形的最大数的线程池</p>
 <p><strong>特征:</strong></p>
 <ol>
 <li>线程池中具有指定数量的线程，即便是空线程也将保留 </li>
@@ -866,7 +975,7 @@ main 主线程结束---&gt;在main主线程结束后，守护线程会伴随着J
     <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>场景:</strong> 适用于需要多个后台线程执行周期任务的场景</p>
-<h4 id="10-3-5-newWorkStealingPool"><a href="#10-3-5-newWorkStealingPool" class="headerlink" title="10.3.5 newWorkStealingPool"></a><strong>10.3.5 newWorkStealingPool</strong></h4><p>jdk1.8 提供的线程池，底层使用的是 ForkJoinPool 实现，创建一个拥有多个任务队列的线程池，可以减少连接数，创建当前可用 cpu 核数的线程来并行执行任务</p>
+<h4 id="1-3-5-newWorkStealingPool"><a href="#1-3-5-newWorkStealingPool" class="headerlink" title="1.3.5 newWorkStealingPool"></a><strong>1.3.5 newWorkStealingPool</strong></h4><p>jdk1.8 提供的线程池，底层使用的是 ForkJoinPool 实现，创建一个拥有多个任务队列的线程池，可以减少连接数，创建当前可用 cpu 核数的线程来并行执行任务</p>
 <p><strong>创建方式:</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">ExecutorService</span> <span class="token function">newWorkStealingPool</span><span class="token punctuation">(</span><span class="token keyword">int</span> parallelism<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">/**
@@ -882,7 +991,7 @@ main 主线程结束---&gt;在main主线程结束后，守护线程会伴随着J
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>场景:</strong> 适用于大耗时，可并行执行的场景</p>
-<h3 id="10-4-线程池入门案例"><a href="#10-4-线程池入门案例" class="headerlink" title="10.4 线程池入门案例"></a><strong>10.4 线程池入门案例</strong></h3><p><strong>场景: 火车站 3 个售票口, 10 个用户买票</strong></p>
+<h3 id="1-4-线程池入门案例"><a href="#1-4-线程池入门案例" class="headerlink" title="1.4 线程池入门案例"></a><strong>1.4 线程池入门案例</strong></h3><p><strong>场景: 火车站 3 个售票口, 10 个用户买票</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
  * 火车站 3 个售票口, 10 个用户买票
  *
@@ -922,7 +1031,7 @@ main 主线程结束---&gt;在main主线程结束后，守护线程会伴随着J
 
 
 
-<h3 id="10-5-线程池底层工作原理-重要"><a href="#10-5-线程池底层工作原理-重要" class="headerlink" title="10.5 线程池底层工作原理(重要)"></a><strong>10.5 线程池底层工作原理(重要)</strong></h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/137.jpg"></p>
+<h3 id="1-5-线程池底层工作原理-重要"><a href="#1-5-线程池底层工作原理-重要" class="headerlink" title="1.5 线程池底层工作原理(重要)"></a><strong>1.5 线程池底层工作原理(重要)</strong></h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/137.jpg"></p>
 <ol>
 <li><p>在创建了线程池后，线程池中的线程数为零</p>
 </li>
@@ -949,7 +1058,7 @@ main 主线程结束---&gt;在main主线程结束后，守护线程会伴随着J
 </li>
 </ol>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/138.jpg"></p>
-<h3 id="10-6-注意事项-重要"><a href="#10-6-注意事项-重要" class="headerlink" title="10.6 注意事项(重要)"></a><strong>10.6 注意事项(重要)</strong></h3><ol>
+<h3 id="1-6-注意事项-重要"><a href="#1-6-注意事项-重要" class="headerlink" title="1.6 注意事项(重要)"></a><strong>1.6 注意事项(重要)</strong></h3><ol>
 <li>项目中创建多线程时，使用常见的三种线程池创建方式，单一、可变、定长都有一定问题，原因是 FixedThreadPool 和 SingleThreadExecutor 底层都是用LinkedBlockingQueue 实现的，这个队列最大长度为 Integer.MAX_VALUE，容易导致 OOM。所以实际生产一般自己通过 ThreadPoolExecutor 的 7 个参数，自定义线程池</li>
 <li>创建线程池推荐适用 ThreadPoolExecutor 及其 7 个参数手动创建<ul>
 <li>corePoolSize 线程池的核心线程数</li>
@@ -1833,7 +1942,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">231.5k</span>&nbsp;字
+                class="white-color">258.6k</span>&nbsp;字
             
             
             
