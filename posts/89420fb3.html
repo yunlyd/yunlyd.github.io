@@ -529,7 +529,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-22
+                    2023-08-23
                 </div>
                 
 
@@ -579,7 +579,7 @@
 <p><strong>短信验证码登录、注册：</strong></p>
 <p>用户将验证码和手机号进行输入，后台从session中拿到当前验证码，然后和用户输入的验证码进行校验，如果不一致，则无法通过校验，如果一致，则后台根据手机号查询用户，如果用户不存在，则为用户创建账号信息，保存到数据库，无论是否存在，都会将用户信息保存到session中，方便后续获得当前登录信息</p>
 <p><strong>校验登录状态:</strong></p>
-<p>用户在请求时候，会从cookie中携带者JsessionId到后台，后台通过JsessionId从session中拿到用户信息，如果没有session信息，则进行拦截，如果有session信息，则将用户信息保存到threadLocal中，并且放行</p>
+<p>用户在请求时候，会从cookie中携带着JsessionId到后台，后台通过JsessionId从session中拿到用户信息，如果没有session信息，则进行拦截，如果有session信息，则将用户信息保存到threadLocal中，并且放行</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Redis/41.jpg"></p>
 <h3 id="1-2-、实现发送短信验证码功能"><a href="#1-2-、实现发送短信验证码功能" class="headerlink" title="1.2 、实现发送短信验证码功能"></a>1.2 、实现发送短信验证码功能</h3><p><strong>页面流程</strong></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Redis/42.jpg"></p>
