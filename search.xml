@@ -140,12 +140,16 @@
           
           <category> MQ </category>
           
+          <category> SpringCloud </category>
+          
       </categories>
       
       
         <tags>
             
             <tag> MQ </tag>
+            
+            <tag> SpringCloud </tag>
             
         </tags>
       
