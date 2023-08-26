@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JUC-Synchronized与锁升级, lucky_llllz 计算机 软件工程 后端">
+    <meta name="keywords" content="Eureka复习回顾, lucky_llllz 计算机 软件工程 后端">
     <meta name="description" content="计算机 | 软件工程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>JUC-Synchronized与锁升级 | llllz_liu</title>
+    <title>Eureka复习回顾 | llllz_liu</title>
 
     <link rel="icon" type="image/png" href="/yunyd/medias/favicon-32x32.png">
 
@@ -352,12 +352,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/yunyd/medias/z011.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/yunyd/medias/u.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">JUC-Synchronized与锁升级</h1>
+                    <h1 class="description center-align post-title">Eureka复习回顾</h1>
                 </div>
             </div>
         </div>
@@ -478,8 +478,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
-                                <span class="chip bg-color">JUC并发编程</span>
+                            <a href="/yunyd/tags/Eureka/">
+                                <span class="chip bg-color">Eureka</span>
+                            </a>
+                        
+                            <a href="/yunyd/tags/SpringCloud/">
+                                <span class="chip bg-color">SpringCloud</span>
                             </a>
                         
                     </div>
@@ -494,28 +498,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-18
+                    2023-08-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-25
+                    2023-08-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    4.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    16 分
                 </div>
                 
 
@@ -533,200 +537,424 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="11-Synchronized与锁升级"><a href="#11-Synchronized与锁升级" class="headerlink" title="11. Synchronized与锁升级"></a>11. Synchronized与锁升级</h1><h2 id="11-1-面试题"><a href="#11-1-面试题" class="headerlink" title="11.1 面试题"></a>11.1 面试题</h2><ul>
-<li>谈谈你对Synchronized的理解</li>
-<li>Sychronized的锁升级你聊聊</li>
-<li>Synchronized实现原理，monitor对象什么时候生成的？知道monitor的monitorenter和monitorexit这两个是怎么保证同步的嘛？或者说这两个操作计算机底层是如何执行的</li>
-<li>偏向锁和轻量级锁有什么区别</li>
-</ul>
-<h2 id="11-2-Synchronized的性能变化"><a href="#11-2-Synchronized的性能变化" class="headerlink" title="11.2 Synchronized的性能变化"></a>11.2 Synchronized的性能变化</h2><ul>
-<li><p>Java5以前，只有Synchronized，这个是操作系统级别的重量级操作</p>
-<p>重量级锁，假如锁的竞争比较激烈的话，性能下降</p>
+                <h1 id="Eureka复习回顾"><a href="#Eureka复习回顾" class="headerlink" title="Eureka复习回顾"></a>Eureka复习回顾</h1><h1 id="1-微服务"><a href="#1-微服务" class="headerlink" title="1.微服务"></a>1.微服务</h1><h2 id="1-1-单体架构"><a href="#1-1-单体架构" class="headerlink" title="1.1.单体架构"></a>1.1.单体架构</h2><p><strong>单体架构</strong>：将业务的所有功能集中在一个项目中开发，打成一个包部署。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/1.jpg"></p>
+<p>单体架构的优缺点如下：</p>
+<p><strong>优点：</strong></p>
 <ul>
-<li>Java 5之前 用户态和内核态之间的转换</li>
+<li>架构简单</li>
+<li>部署成本低</li>
 </ul>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/85.jpg"></p>
-</li>
-<li><p>Java6 之后为了减少获得锁和释放锁所带来的性能消耗，引入了轻量级锁和偏向锁</p>
-</li>
-</ul>
-<h2 id="11-3-Synchronized锁种类及升级步骤"><a href="#11-3-Synchronized锁种类及升级步骤" class="headerlink" title="11.3 Synchronized锁种类及升级步骤"></a>11.3 Synchronized锁种类及升级步骤</h2><h4 id="11-3-1-多线程访问情况"><a href="#11-3-1-多线程访问情况" class="headerlink" title="11.3.1 多线程访问情况"></a>11.3.1 多线程访问情况</h4><ul>
-<li>只有一个线程来访问，有且唯一Only One</li>
-<li>有两个线程（2个线程交替访问）</li>
-<li>竞争激烈，更多线程来访问</li>
-</ul>
-<h4 id="11-3-2-升级流程"><a href="#11-3-2-升级流程" class="headerlink" title="11.3.2 升级流程"></a>11.3.2 升级流程</h4><ul>
-<li><p>Synchronized用的锁是存在Java对象头里的MarkWord中，锁升级功能主要依赖MarkWord中锁标志位和释放偏向锁标志位</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/86.jpg"></p>
-</li>
-<li><p>锁指向，请牢记</p>
+<p><strong>缺点：</strong></p>
 <ul>
-<li><p>偏向锁：MarkWord存储的是偏向的线程ID</p>
-</li>
-<li><p>轻量锁：MarkWord存储的是指向线程栈中Lock Record的指针</p>
-</li>
-<li><p>重量锁：MarkWord存储的是指向堆中的monitor对象（系统互斥量指针）</p>
-</li>
+<li>耦合度高（维护困难、升级困难）</li>
 </ul>
-</li>
-</ul>
-<h4 id="11-3-3-无锁"><a href="#11-3-3-无锁" class="headerlink" title="11.3.3 无锁"></a>11.3.3 无锁</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/87.jpg"></p>
-<h4 id="11-3-4-偏锁"><a href="#11-3-4-偏锁" class="headerlink" title="11.3.4 偏锁"></a>11.3.4 偏锁</h4><p>偏向锁：单线程竞争，当线程A第一次竞争到锁时，通过修改MarkWord中的偏向线程ID、偏向模式。如果不存在其他线程竞争，那么持有偏向锁的线程将永远不需要进行同步。</p>
-<p>主要作用：</p>
+<h2 id="1-2-分布式架构"><a href="#1-2-分布式架构" class="headerlink" title="1.2.分布式架构"></a>1.2.分布式架构</h2><p><strong>分布式架构</strong>：根据业务功能对系统做拆分，每个业务功能模块作为独立项目开发，称为一个服务。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/2.jpg"></p>
+<p>分布式架构的优缺点：</p>
+<p><strong>优点：</strong></p>
 <ul>
-<li>当一段同步代码一直被同一个线程多次访问，由于只有一个线程那么该线程在后续访问时便会自动获得锁</li>
-<li>同一个老顾客来访，直接老规矩行方便</li>
+<li>降低服务耦合</li>
+<li>有利于服务升级和拓展</li>
 </ul>
-<p>结论：</p>
+<p><strong>缺点：</strong></p>
 <ul>
-<li>HotSpot的作者经过研究发现，大多数情况下：在多线程情况下，锁不仅存在多线程竞争，还存在由同一个线程多次获得的情况，偏向锁就是在这种情况下出现的，它的出现是为了解决只有一个线程执行同步时提高性能。</li>
-<li>偏向锁会偏向于第一个访问锁的线程，如果在接下来的运行过程中，该锁没有被其他线程访问，则持有偏向锁的线程将永远不需要出发同步。也即偏向锁在资源在没有竞争情况下消除了同步语句，懒得连CAS操作都不做了，直接提高程序性能。</li>
+<li>服务调用关系错综复杂</li>
 </ul>
-<p>理论落地：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/88.jpg"></p>
-<p>技术实现：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/89.jpg"></p>
-<p>偏向锁JVM命令：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/90.jpg"></p>
-<p>案例演示：</p>
+<p>分布式架构虽然降低了服务耦合，但是服务拆分时也有很多问题需要思考：</p>
 <ul>
-<li><p>偏向锁默认情况演示—只有一个线程：</p>
-<pre class="line-numbers language-偏向锁默认情况演示---只有一个线程" data-language="偏向锁默认情况演示---只有一个线程"><code class="language-偏向锁默认情况演示---只有一个线程">public class SynchronizedUpDemo {
+<li>服务拆分的粒度如何界定？</li>
+<li>服务之间如何调用？</li>
+<li>服务的调用关系如何管理？</li>
+</ul>
+<p>人们需要制定一套行之有效的标准来约束分布式架构。</p>
+<h2 id="1-3-微服务"><a href="#1-3-微服务" class="headerlink" title="1.3.微服务"></a>1.3.微服务</h2><p>微服务的架构特征：</p>
+<ul>
+<li>单一职责：微服务拆分粒度更小，每一个服务都对应唯一的业务能力，做到单一职责</li>
+<li>自治：团队独立、技术独立、数据独立，独立部署和交付</li>
+<li>面向服务：服务提供统一标准的接口，与语言和技术无关</li>
+<li>隔离性强：服务调用做好隔离、容错、降级，避免出现级联问题</li>
+</ul>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/3.jpg"></p>
+<p>微服务的上述特性其实是在给分布式架构制定一个标准，进一步降低服务之间的耦合度，提供服务的独立性和灵活性。做到高内聚，低耦合。</p>
+<p>因此，可以认为<strong>微服务</strong>是一种经过良好架构设计的<strong>分布式架构方案</strong> 。</p>
+<p>但方案该怎么落地？选用什么样的技术栈？全球的互联网公司都在积极尝试自己的微服务落地方案。</p>
+<p>其中在Java领域最引人注目的就是SpringCloud提供的方案了。</p>
+<h2 id="1-4-SpringCloud"><a href="#1-4-SpringCloud" class="headerlink" title="1.4.SpringCloud"></a>1.4.SpringCloud</h2><p>SpringCloud是目前国内使用最广泛的微服务框架。官网地址：<a target="_blank" rel="noopener" href="https://spring.io/projects/spring-cloud%E3%80%82">https://spring.io/projects/spring-cloud。</a></p>
+<p>SpringCloud集成了各种微服务功能组件，并基于SpringBoot实现了这些组件的自动装配，从而提供了良好的开箱即用体验。</p>
+<p>其中常见的组件包括：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/4.jpg"></p>
+<p>另外，SpringCloud底层是依赖于SpringBoot的，并且有版本的兼容关系，如下：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/5.jpg"></p>
+<p>我们课堂学习的版本是 Hoxton.SR10，因此对应的SpringBoot版本是2.3.x版本。</p>
+<h2 id="1-5-总结"><a href="#1-5-总结" class="headerlink" title="1.5.总结"></a>1.5.总结</h2><ul>
+<li><p>单体架构：简单方便，高度耦合，扩展性差，适合小型项目。例如：学生管理系统</p>
+</li>
+<li><p>分布式架构：松耦合，扩展性好，但架构复杂，难度大。适合大型互联网项目，例如：京东、淘宝</p>
+</li>
+<li><p>微服务：一种良好的分布式架构方案</p>
+<p>①优点：拆分粒度更小、服务更独立、耦合度更低</p>
+<p>②缺点：架构非常复杂，运维、监控、部署难度提高</p>
+</li>
+<li><p>SpringCloud是微服务架构的一站式解决方案，集成了各种优秀微服务功能组件</p>
+</li>
+</ul>
+<h1 id="2-服务拆分和远程调用"><a href="#2-服务拆分和远程调用" class="headerlink" title="2.服务拆分和远程调用"></a>2.服务拆分和远程调用</h1><p>任何分布式架构都离不开服务的拆分，微服务也是一样。</p>
+<h2 id="2-1-服务拆分原则"><a href="#2-1-服务拆分原则" class="headerlink" title="2.1.服务拆分原则"></a>2.1.服务拆分原则</h2><p>这里我总结了微服务拆分时的几个原则：</p>
+<ul>
+<li>不同微服务，不要重复开发相同业务</li>
+<li>微服务数据独立，不要访问其它微服务的数据库</li>
+<li>微服务可以将自己的业务暴露为接口，供其它微服务调用</li>
+</ul>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/6.jpg"></p>
+<h2 id="2-2-服务拆分示例"><a href="#2-2-服务拆分示例" class="headerlink" title="2.2.服务拆分示例"></a>2.2.服务拆分示例</h2><p>以cloud-demo为例，其结构如下：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/7.jpg"></p>
+<p>cloud-demo：父工程，管理依赖</p>
+<ul>
+<li>order-service：订单微服务，负责订单相关业务</li>
+<li>user-service：用户微服务，负责用户相关业务</li>
+</ul>
+<p>要求：</p>
+<ul>
+<li>订单微服务和用户微服务都必须有各自的数据库，相互独立</li>
+<li>订单服务和用户服务都对外暴露Restful的接口</li>
+<li>订单服务如果需要查询用户信息，只能调用用户服务的Restful接口，不能查询用户数据库</li>
+</ul>
+<h3 id="2-2-1-导入Sql语句"><a href="#2-2-1-导入Sql语句" class="headerlink" title="2.2.1.导入Sql语句"></a>2.2.1.导入Sql语句</h3><p>首先，将<code>cloud-order.sql</code>和<code>cloud-user.sql</code>导入到mysql中：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/8.jpg"></p>
+<p>cloud-user表中初始数据如下：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/9.jpg"></p>
+<p>cloud-order表中初始数据如下：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/10.jpg"></p>
+<p>cloud-order表中持有cloud-user表中的id字段。</p>
+<h3 id="2-2-2-导入demo工程"><a href="#2-2-2-导入demo工程" class="headerlink" title="2.2.2.导入demo工程"></a>2.2.2.导入demo工程</h3><p>用IDEA导入Demo：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/11.jpg"></p>
+<p>项目结构如下：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/12.jpg"></p>
+<p>导入后，会在IDEA右下角出现弹窗：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/13.jpg"></p>
+<p>点击弹窗，然后按下图选择：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/14.jpg"></p>
+<p>会出现这样的菜单：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/15.jpg"></p>
+<p>配置下项目使用的JDK：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/16.jpg"></p>
+<h2 id="2-3-实现远程调用案例"><a href="#2-3-实现远程调用案例" class="headerlink" title="2.3.实现远程调用案例"></a>2.3.实现远程调用案例</h2><p>在order-service服务中，有一个根据id查询订单的接口：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/17.jpg"></p>
+<p>根据id查询订单，返回值是Order对象，如图：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/18.jpg"></p>
+<p>其中的user为null</p>
+<p>在user-service中有一个根据id查询用户的接口：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/19.jpg"></p>
+<p>查询的结果如图：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/20.jpg"></p>
+<h3 id="2-3-1-案例需求："><a href="#2-3-1-案例需求：" class="headerlink" title="2.3.1.案例需求："></a>2.3.1.案例需求：</h3><p>修改order-service中的根据id查询订单业务，要求在查询订单的同时，根据订单中包含的userId查询出用户信息，一起返回。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/21.jpg"></p>
+<p>因此，我们需要在order-service中 向user-service发起一个http的请求，调用<a target="_blank" rel="noopener" href="http://localhost:8081/user/%7BuserId%7D%E8%BF%99%E4%B8%AA%E6%8E%A5%E5%8F%A3%E3%80%82">http://localhost:8081/user/{userId}这个接口。</a></p>
+<p>大概的步骤是这样的：</p>
+<ul>
+<li>注册一个RestTemplate的实例到Spring容器</li>
+<li>修改order-service服务中的OrderService类中的queryOrderById方法，根据Order对象中的userId查询User</li>
+<li>将查询的User填充到Order对象，一起返回</li>
+</ul>
+<h3 id="2-3-2-注册RestTemplate"><a href="#2-3-2-注册RestTemplate" class="headerlink" title="2.3.2.注册RestTemplate"></a>2.3.2.注册RestTemplate</h3><p>首先，我们在order-service服务中的OrderApplication启动类中，注册RestTemplate实例：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>order</span><span class="token punctuation">;</span>
 
-    public static void main(String[] args) {
-        /**
-         * 这里偏向锁在JDK6以上默认开启，开启后程序启动几秒后才会被激活，可以通过JVM参数来关闭延迟 -XX:BiasedLockingStartupDelay=0
-         */
-//        try { TimeUnit.SECONDS.sleep(5); } catch (InterruptedException e) { e.printStackTrace(); }
-        Object o = new Object();
-        synchronized (o) {
-            System.out.println(ClassLayout.parseInstance(o).toPrintable());
-        }
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>mybatis<span class="token punctuation">.</span>spring<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">MapperScan</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span></span><span class="token class-name">SpringApplication</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>autoconfigure<span class="token punctuation">.</span></span><span class="token class-name">SpringBootApplication</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Bean</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>client<span class="token punctuation">.</span></span><span class="token class-name">RestTemplate</span></span><span class="token punctuation">;</span>
 
-</li>
-</ul>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/91.jpg"></p>
-<p>偏向锁的撤销：</p>
+<span class="token annotation punctuation">@MapperScan</span><span class="token punctuation">(</span><span class="token string">"cn.itcast.order.mapper"</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OrderApplication</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">OrderApplication</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Bean</span>
+    <span class="token keyword">public</span> <span class="token class-name">RestTemplate</span> <span class="token function">restTemplate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">RestTemplate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="2-3-3-实现远程调用"><a href="#2-3-3-实现远程调用" class="headerlink" title="2.3.3.实现远程调用"></a>2.3.3.实现远程调用</h3><p>修改order-service服务中的cn.itcast.order.service包下的OrderService类中的queryOrderById方法：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/22.jpg"></p>
+<h2 id="2-4-提供者与消费者"><a href="#2-4-提供者与消费者" class="headerlink" title="2.4.提供者与消费者"></a>2.4.提供者与消费者</h2><p>在服务调用关系中，会有两个不同的角色：</p>
+<p><strong>服务提供者</strong>：一次业务中，被其它微服务调用的服务。（提供接口给其它微服务）</p>
+<p><strong>服务消费者</strong>：一次业务中，调用其它微服务的服务。（调用其它微服务提供的接口）</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/23.jpg"></p>
+<p>但是，服务提供者与服务消费者的角色并不是绝对的，而是相对于业务而言。</p>
+<p>如果服务A调用了服务B，而服务B又调用了服务C，服务B的角色是什么？</p>
 <ul>
-<li><p>当有另外一个线程逐步来竞争锁的时候，就不能再使用偏向锁了，要升级为轻量级锁，使用的是等到竞争出现才释放锁的机制</p>
-</li>
-<li><p>竞争线程尝试CAS更新对象头失败，会等到全局安全点（此时不会执行任何代码）撤销偏向锁，同时检查持有偏向锁的线程是否还在执行：</p>
+<li>对于A调用B的业务而言：A是服务消费者，B是服务提供者</li>
+<li>对于B调用C的业务而言：B是服务消费者，C是服务提供者</li>
+</ul>
+<p>因此，服务B既可以是服务提供者，也可以是服务消费者。</p>
+<h1 id="3-Eureka注册中心"><a href="#3-Eureka注册中心" class="headerlink" title="3.Eureka注册中心"></a>3.Eureka注册中心</h1><p>假如我们的服务提供者user-service部署了多个实例，如图：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/24.jpg"></p>
+<p>大家思考几个问题：</p>
 <ul>
-<li><p>第一个线程正在执行Synchronized方法（处于同步块），它还没有执行完，其他线程来抢夺，该偏向锁会被取消掉并出现锁升级，此时轻量级锁由原来持有偏向锁的线程持有，继续执行同步代码块，而正在竞争的线程会自动进入自旋等待获得该轻量级锁</p>
-</li>
-<li><p>第一个线程执行完Synchronized（退出同步块），则将对象头设置为无所状态并撤销偏向锁，重新偏向。</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/92.jpg"></p>
-</li>
+<li>order-service在发起远程调用的时候，该如何得知user-service实例的ip地址和端口？</li>
+<li>有多个user-service实例地址，order-service调用时该如何选择？</li>
+<li>order-service如何得知某个user-service实例是否依然健康，是不是已经宕机？</li>
 </ul>
-</li>
-</ul>
-<p>题外话：Java15以后逐步废弃偏向锁，需要手动开启——-&gt;维护成本高</p>
-<h4 id="11-3-5-轻锁"><a href="#11-3-5-轻锁" class="headerlink" title="11.3.5 轻锁"></a>11.3.5 轻锁</h4><p>概念：多线程竞争，但是任意时候最多只有一个线程竞争，即不存在锁竞争太激烈的情况，也就没有线程阻塞。</p>
-<p>主要作用：有线程来参与锁的竞争，但是获取锁的冲突时间极短———-&gt;本质是自旋锁CAS</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/93.jpg"></p>
-<p>轻量锁的获取：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/94.jpg"></p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/95.jpg"></p>
-<p>案例演示：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/96.jpg"></p>
-<p>自旋一定程度和次数（Java8 之后是自适应自旋锁——意味着自旋的次数不是固定不变的）：</p>
+<h2 id="3-1-Eureka的结构和作用"><a href="#3-1-Eureka的结构和作用" class="headerlink" title="3.1.Eureka的结构和作用"></a>3.1.Eureka的结构和作用</h2><p>这些问题都需要利用SpringCloud中的注册中心来解决，其中最广为人知的注册中心就是Eureka，其结构如下：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/25.jpg"></p>
+<p>回答之前的各个问题。</p>
+<p>问题1：order-service如何得知user-service实例地址？</p>
+<p>获取地址信息的流程如下：</p>
 <ul>
-<li>线程如果自旋成功了，那下次自旋的最大次数会增加，因为JVM认为既然上次成功了，那么这一次也大概率会成功</li>
-<li>如果很少会自选成功，那么下次会减少自旋的次数甚至不自旋，避免CPU空转</li>
+<li>user-service服务实例启动后，将自己的信息注册到eureka-server（Eureka服务端）。这个叫服务注册</li>
+<li>eureka-server保存服务名称到服务实例地址列表的映射关系</li>
+<li>order-service根据服务名称，拉取实例地址列表。这个叫服务发现或服务拉取</li>
 </ul>
-<p>轻量锁和偏向锁的区别：</p>
+<p>问题2：order-service如何从多个user-service实例中选择具体的实例？</p>
 <ul>
-<li>争夺轻量锁失败时，自旋尝试抢占锁</li>
-<li>轻量级锁每次退出同步块都需要释放锁，而偏向锁是在竞争发生时才释放锁</li>
+<li>order-service从实例列表中利用负载均衡算法选中一个实例地址</li>
+<li>向该实例地址发起远程调用</li>
 </ul>
-<h4 id="11-3-6-重锁"><a href="#11-3-6-重锁" class="headerlink" title="11.3.6 重锁"></a>11.3.6 重锁</h4><p>有大量线程参与锁的竞争，冲突性很高</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/97.jpg"></p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/98.jpg"></p>
-<h4 id="11-3-7-小总结"><a href="#11-3-7-小总结" class="headerlink" title="11.3.7 小总结"></a>11.3.7 小总结</h4><ul>
-<li>锁升级的过程</li>
-</ul>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/99.jpg"></p>
+<p>问题3：order-service如何得知某个user-service实例是否依然健康，是不是已经宕机？</p>
 <ul>
-<li><p>锁升级后，hashcode去哪儿了?</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/100.jpg"></p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/101.jpg"></p>
-</li>
-<li><p>各种锁优缺点、synchronized锁升级和实现原理</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/102.jpg"></p>
-</li>
+<li>user-service会每隔一段时间（默认30秒）向eureka-server发起请求，报告自己状态，称为心跳</li>
+<li>当超过一定时间没有发送心跳时，eureka-server会认为微服务实例故障，将该实例从服务列表中剔除</li>
+<li>order-service拉取服务时，就能将故障实例排除了</li>
 </ul>
-<h2 id="11-4-JIT编译器对锁的优化"><a href="#11-4-JIT编译器对锁的优化" class="headerlink" title="11.4 JIT编译器对锁的优化"></a>11.4 JIT编译器对锁的优化</h2><h4 id="11-4-1-JIT"><a href="#11-4-1-JIT" class="headerlink" title="11.4.1 JIT"></a>11.4.1 JIT</h4><p>Just In Time Compiler 即时编译器</p>
-<h4 id="11-4-2-锁消除"><a href="#11-4-2-锁消除" class="headerlink" title="11.4.2 锁消除"></a>11.4.2 锁消除</h4><p>锁消除案例演示:</p>
-<pre class="line-numbers language-锁消除案例演示" data-language="锁消除案例演示"><code class="language-锁消除案例演示">public class LockClearUpDemo {
-    static Object object = new Object();
+<blockquote>
+<p>注意：一个微服务，既可以是服务提供者，又可以是服务消费者，因此eureka将服务注册、服务发现等功能统一封装到了eureka-client端</p>
+</blockquote>
+<p>因此，接下来我们动手实践的步骤包括：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/26.jpg"></p>
+<h2 id="3-2-搭建eureka-server"><a href="#3-2-搭建eureka-server" class="headerlink" title="3.2.搭建eureka-server"></a>3.2.搭建eureka-server</h2><p>首先大家注册中心服务端：eureka-server，这必须是一个独立的微服务</p>
+<h3 id="3-2-1-创建eureka-server服务"><a href="#3-2-1-创建eureka-server服务" class="headerlink" title="3.2.1.创建eureka-server服务"></a>3.2.1.创建eureka-server服务</h3><p>在cloud-demo父工程下，创建一个子模块：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/27.jpg"></p>
+<p>填写模块信息：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/28.jpg"></p>
+<p>然后填写服务信息：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/29.jpg"></p>
+<h3 id="3-2-2-引入eureka依赖"><a href="#3-2-2-引入eureka依赖" class="headerlink" title="3.2.2.引入eureka依赖"></a>3.2.2.引入eureka依赖</h3><p>引入SpringCloud为eureka提供的starter依赖：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-cloud-starter-netflix-eureka-server<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-    public void m1() {
-        //锁消除问题，JIT会无视它，synchronized(o)每次new出来的，都不存在了，非正常的
-        Object o = new Object();
-        synchronized (o) {
-            System.out.println("-----------hello LockClearUpDemo" + "\t" + o.hashCode() + "\t" + object.hashCode());
-        }
-    }
 
-    public static void main(String[] args) {
-        LockClearUpDemo lockClearUpDemo = new LockClearUpDemo();
-        for (int i = 0; i &lt; 10; i++) {
-            new Thread(() -&gt; {
-                lockClearUpDemo.m1();
-            }, String.valueOf(i)).start();
-        }
-    }
-}
-/**
- * -----------hello LockClearUpDemo	229465744	57319765
- * -----------hello LockClearUpDemo	219013680	57319765
- * -----------hello LockClearUpDemo	1109337020	57319765
- * -----------hello LockClearUpDemo	94808467	57319765
- * -----------hello LockClearUpDemo	973369600	57319765
- * -----------hello LockClearUpDemo	64667370	57319765
- * -----------hello LockClearUpDemo	1201983305	57319765
- * -----------hello LockClearUpDemo	573110659	57319765
- * -----------hello LockClearUpDemo	1863380256	57319765
- * -----------hello LockClearUpDemo	1119787251	57319765
- */<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="11-4-3-锁粗化"><a href="#11-4-3-锁粗化" class="headerlink" title="11.4.3 锁粗化"></a>11.4.3 锁粗化</h4><p>锁粗化案例演示:</p>
-<pre class="line-numbers language-锁粗化案例演示" data-language="锁粗化案例演示"><code class="language-锁粗化案例演示">public class LockBigDemo {
-    static Object objectLock = new Object();
+<h3 id="3-2-3-编写启动类"><a href="#3-2-3-编写启动类" class="headerlink" title="3.2.3.编写启动类"></a>3.2.3.编写启动类</h3><p>给eureka-server服务编写一个启动类，一定要添加一个@EnableEurekaServer注解，开启eureka的注册中心功能：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>eureka</span><span class="token punctuation">;</span>
 
-    public static void main(String[] args) {
-        new Thread(() -&gt; {
-            synchronized (objectLock) {
-                System.out.println("111111111111");
-            }
-            synchronized (objectLock) {
-                System.out.println("222222222222");
-            }
-            synchronized (objectLock) {
-                System.out.println("333333333333");
-            }
-            synchronized (objectLock) {
-                System.out.println("444444444444");
-            }
-            //底层JIT的锁粗化优化
-            synchronized (objectLock) {
-                System.out.println("111111111111");
-                System.out.println("222222222222");
-                System.out.println("333333333333");
-                System.out.println("444444444444");
-            }
-        }, "t1").start();
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span></span><span class="token class-name">SpringApplication</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>autoconfigure<span class="token punctuation">.</span></span><span class="token class-name">SpringBootApplication</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>cloud<span class="token punctuation">.</span>netflix<span class="token punctuation">.</span>eureka<span class="token punctuation">.</span>server<span class="token punctuation">.</span></span><span class="token class-name">EnableEurekaServer</span></span><span class="token punctuation">;</span>
 
-<h2 id="11-5-小总结"><a href="#11-5-小总结" class="headerlink" title="11.5 小总结"></a>11.5 小总结</h2><ul>
-<li>没有锁：自由自在</li>
-<li>偏向锁：唯我独尊</li>
-<li>轻量锁：楚汉争霸</li>
-<li>重量锁：群雄逐鹿</li>
+<span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token annotation punctuation">@EnableEurekaServer</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EurekaApplication</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">SpringApplication</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token class-name">EurekaApplication</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="3-2-4-编写配置文件"><a href="#3-2-4-编写配置文件" class="headerlink" title="3.2.4.编写配置文件"></a>3.2.4.编写配置文件</h3><p>编写一个application.yml文件，内容如下：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
+  <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">10086</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> eureka<span class="token punctuation">-</span>server
+<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
+  <span class="token key atrule">client</span><span class="token punctuation">:</span>
+    <span class="token key atrule">service-url</span><span class="token punctuation">:</span> 
+      <span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//127.0.0.1<span class="token punctuation">:</span>10086/eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="3-2-5-启动服务"><a href="#3-2-5-启动服务" class="headerlink" title="3.2.5.启动服务"></a>3.2.5.启动服务</h3><p>启动微服务，然后在浏览器访问：<a target="_blank" rel="noopener" href="http://127.0.0.1:10086/">http://127.0.0.1:10086</a></p>
+<p>看到下面结果应该是成功了：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/30.jpg"></p>
+<h2 id="3-3-服务注册"><a href="#3-3-服务注册" class="headerlink" title="3.3.服务注册"></a>3.3.服务注册</h2><p>下面，我们将user-service注册到eureka-server中去。</p>
+<h3 id="1）引入依赖"><a href="#1）引入依赖" class="headerlink" title="1）引入依赖"></a>1）引入依赖</h3><p>在user-service的pom文件中，引入下面的eureka-client依赖：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-cloud-starter-netflix-eureka-client<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="2）配置文件"><a href="#2）配置文件" class="headerlink" title="2）配置文件"></a>2）配置文件</h3><p>在user-service中，修改application.yml文件，添加服务名称、eureka地址：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> userservice
+<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
+  <span class="token key atrule">client</span><span class="token punctuation">:</span>
+    <span class="token key atrule">service-url</span><span class="token punctuation">:</span>
+      <span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//127.0.0.1<span class="token punctuation">:</span>10086/eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="3）启动多个user-service实例"><a href="#3）启动多个user-service实例" class="headerlink" title="3）启动多个user-service实例"></a>3）启动多个user-service实例</h3><p>为了演示一个服务有多个实例的场景，我们添加一个SpringBoot的启动配置，再启动一个user-service。</p>
+<p>首先，复制原来的user-service启动配置：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/31.jpg"></p>
+<p>然后，在弹出的窗口中，填写信息：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/32.jpg"></p>
+<p>现在，SpringBoot窗口会出现两个user-service启动配置：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/33.jpg"></p>
+<p>不过，第一个是8081端口，第二个是8082端口。</p>
+<p>启动两个user-service实例：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/34.jpg"></p>
+<p>查看eureka-server管理页面：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/35.jpg"></p>
+<h2 id="3-4-服务发现"><a href="#3-4-服务发现" class="headerlink" title="3.4.服务发现"></a>3.4.服务发现</h2><p>下面，我们将order-service的逻辑修改：向eureka-server拉取user-service的信息，实现服务发现。</p>
+<h3 id="1）引入依赖-1"><a href="#1）引入依赖-1" class="headerlink" title="1）引入依赖"></a>1）引入依赖</h3><p>之前说过，服务发现、服务注册统一都封装在eureka-client依赖，因此这一步与服务注册时一致。</p>
+<p>在order-service的pom文件中，引入下面的eureka-client依赖：</p>
+<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-cloud-starter-netflix-eureka-client<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="2）配置文件-1"><a href="#2）配置文件-1" class="headerlink" title="2）配置文件"></a>2）配置文件</h3><p>服务发现也需要知道eureka地址，因此第二步与服务注册一致，都是配置eureka信息：</p>
+<p>在order-service中，修改application.yml文件，添加服务名称、eureka地址：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">application</span><span class="token punctuation">:</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> orderservice
+<span class="token key atrule">eureka</span><span class="token punctuation">:</span>
+  <span class="token key atrule">client</span><span class="token punctuation">:</span>
+    <span class="token key atrule">service-url</span><span class="token punctuation">:</span>
+      <span class="token key atrule">defaultZone</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//127.0.0.1<span class="token punctuation">:</span>10086/eureka<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="3）服务拉取和负载均衡"><a href="#3）服务拉取和负载均衡" class="headerlink" title="3）服务拉取和负载均衡"></a>3）服务拉取和负载均衡</h3><p>最后，我们要去eureka-server中拉取user-service服务的实例列表，并且实现负载均衡。</p>
+<p>不过这些动作不用我们去做，只需要添加一些注解即可。</p>
+<p>在order-service的OrderApplication中，给RestTemplate这个Bean添加一个@LoadBalanced注解：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/36.jpg"></p>
+<p>修改order-service服务中的cn.itcast.order.service包下的OrderService类中的queryOrderById方法。修改访问的url路径，用服务名代替ip、端口：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/37.jpg"></p>
+<p>spring会自动帮助我们从eureka-server端，根据userservice这个服务名称，获取实例列表，而后完成负载均衡。</p>
+<h1 id="4-Ribbon负载均衡"><a href="#4-Ribbon负载均衡" class="headerlink" title="4.Ribbon负载均衡"></a>4.Ribbon负载均衡</h1><p>上一节中，我们添加了@LoadBalanced注解，即可实现负载均衡功能，这是什么原理呢？</p>
+<h2 id="4-1-负载均衡原理"><a href="#4-1-负载均衡原理" class="headerlink" title="4.1.负载均衡原理"></a>4.1.负载均衡原理</h2><p>SpringCloud底层其实是利用了一个名为Ribbon的组件，来实现负载均衡功能的。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/38.jpg"></p>
+<p>那么我们发出的请求明明是<a target="_blank" rel="noopener" href="http://userservice/user/1%EF%BC%8C%E6%80%8E%E4%B9%88%E5%8F%98%E6%88%90%E4%BA%86http://localhost:8081%E7%9A%84%E5%91%A2%EF%BC%9F">http://userservice/user/1，怎么变成了http://localhost:8081的呢？</a></p>
+<h2 id="4-2-源码跟踪"><a href="#4-2-源码跟踪" class="headerlink" title="4.2.源码跟踪"></a>4.2.源码跟踪</h2><p>为什么我们只输入了service名称就可以访问了呢？之前还要获取ip和端口。</p>
+<p>显然有人帮我们根据service名称，获取到了服务实例的ip和端口。它就是<code>LoadBalancerInterceptor</code>，这个类会在对RestTemplate的请求进行拦截，然后从Eureka根据服务id获取服务列表，随后利用负载均衡算法得到真实的服务地址信息，替换服务id。</p>
+<p>我们进行源码跟踪：</p>
+<h3 id="1）LoadBalancerIntercepor"><a href="#1）LoadBalancerIntercepor" class="headerlink" title="1）LoadBalancerIntercepor"></a>1）LoadBalancerIntercepor</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/39.jpg"></p>
+<p>可以看到这里的intercept方法，拦截了用户的HttpRequest请求，然后做了几件事：</p>
+<ul>
+<li><code>request.getURI()</code>：获取请求uri，本例中就是 <a target="_blank" rel="noopener" href="http://user-service/user/8">http://user-service/user/8</a></li>
+<li><code>originalUri.getHost()</code>：获取uri路径的主机名，其实就是服务id，<code>user-service</code></li>
+<li><code>this.loadBalancer.execute()</code>：处理服务id，和用户请求。</li>
 </ul>
+<p>这里的<code>this.loadBalancer</code>是<code>LoadBalancerClient</code>类型，我们继续跟入。</p>
+<h3 id="2）LoadBalancerClient"><a href="#2）LoadBalancerClient" class="headerlink" title="2）LoadBalancerClient"></a>2）LoadBalancerClient</h3><p>继续跟入execute方法：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/40.jpg"></p>
+<p>代码是这样的：</p>
+<ul>
+<li>getLoadBalancer(serviceId)：根据服务id获取ILoadBalancer，而ILoadBalancer会拿着服务id去eureka中获取服务列表并保存起来。</li>
+<li>getServer(loadBalancer)：利用内置的负载均衡算法，从服务列表中选择一个。本例中，可以看到获取了8082端口的服务</li>
+</ul>
+<p>放行后，再次访问并跟踪，发现获取的是8081：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/41.jpg"></p>
+<p>果然实现了负载均衡。</p>
+<h3 id="3）负载均衡策略IRule"><a href="#3）负载均衡策略IRule" class="headerlink" title="3）负载均衡策略IRule"></a>3）负载均衡策略IRule</h3><p>在刚才的代码中，可以看到获取服务使通过一个<code>getServer</code>方法来做负载均衡:</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/42.jpg"></p>
+<p>我们继续跟入：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/43.jpg"></p>
+<p>继续跟踪源码chooseServer方法，发现这么一段代码：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/44.jpg"></p>
+<p>我们看看这个rule是谁：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/45.jpg"></p>
+<p>这里的rule默认值是一个<code>RoundRobinRule</code>，看类的介绍：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/46.jpg"></p>
+<p>这不就是轮询的意思嘛。</p>
+<p>到这里，整个负载均衡的流程我们就清楚了。</p>
+<h3 id="4）总结"><a href="#4）总结" class="headerlink" title="4）总结"></a>4）总结</h3><p>SpringCloudRibbon的底层采用了一个拦截器，拦截了RestTemplate发出的请求，对地址做了修改。用一幅图来总结一下：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/47.jpg"></p>
+<p>基本流程如下：</p>
+<ul>
+<li>拦截我们的RestTemplate请求<a target="_blank" rel="noopener" href="http://userservice/user/1">http://userservice/user/1</a></li>
+<li>RibbonLoadBalancerClient会从请求url中获取服务名称，也就是user-service</li>
+<li>DynamicServerListLoadBalancer根据user-service到eureka拉取服务列表</li>
+<li>eureka返回列表，localhost:8081、localhost:8082</li>
+<li>IRule利用内置负载均衡规则，从列表中选择一个，例如localhost:8081</li>
+<li>RibbonLoadBalancerClient修改请求地址，用localhost:8081替代userservice，得到<a target="_blank" rel="noopener" href="http://localhost:8081/user/1%EF%BC%8C%E5%8F%91%E8%B5%B7%E7%9C%9F%E5%AE%9E%E8%AF%B7%E6%B1%82">http://localhost:8081/user/1，发起真实请求</a></li>
+</ul>
+<h2 id="4-3-负载均衡策略"><a href="#4-3-负载均衡策略" class="headerlink" title="4.3.负载均衡策略"></a>4.3.负载均衡策略</h2><h3 id="4-3-1-负载均衡策略"><a href="#4-3-1-负载均衡策略" class="headerlink" title="4.3.1.负载均衡策略"></a>4.3.1.负载均衡策略</h3><p>负载均衡的规则都定义在IRule接口中，而IRule有很多不同的实现类：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Eureka/48.jpg"></p>
+<p>不同规则的含义如下：</p>
+<table>
+<thead>
+<tr>
+<th><strong>内置负载均衡规则类</strong></th>
+<th><strong>规则描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RoundRobinRule</td>
+<td>简单轮询服务列表来选择服务器。它是Ribbon默认的负载均衡规则。</td>
+</tr>
+<tr>
+<td>AvailabilityFilteringRule</td>
+<td>对以下两种服务器进行忽略：   （1）在默认情况下，这台服务器如果3次连接失败，这台服务器就会被设置为“短路”状态。短路状态将持续30秒，如果再次连接失败，短路的持续时间就会几何级地增加。  （2）并发数过高的服务器。如果一个服务器的并发连接数过高，配置了AvailabilityFilteringRule规则的客户端也会将其忽略。并发连接数的上限，可以由客户端的<clientname>.<clientconfignamespace>.ActiveConnectionsLimit属性进行配置。</clientconfignamespace></clientname></td>
+</tr>
+<tr>
+<td>WeightedResponseTimeRule</td>
+<td>为每一个服务器赋予一个权重值。服务器响应时间越长，这个服务器的权重就越小。这个规则会随机选择服务器，这个权重值会影响服务器的选择。</td>
+</tr>
+<tr>
+<td><strong>ZoneAvoidanceRule</strong></td>
+<td>以区域可用的服务器为基础进行服务器的选择。使用Zone对服务器进行分类，这个Zone可以理解为一个机房、一个机架等。而后再对Zone内的多个服务做轮询。</td>
+</tr>
+<tr>
+<td>BestAvailableRule</td>
+<td>忽略那些短路的服务器，并选择并发数较低的服务器。</td>
+</tr>
+<tr>
+<td>RandomRule</td>
+<td>随机选择一个可用的服务器。</td>
+</tr>
+<tr>
+<td>RetryRule</td>
+<td>重试机制的选择逻辑</td>
+</tr>
+</tbody></table>
+<p>默认的实现就是ZoneAvoidanceRule，是一种轮询方案</p>
+<h3 id="4-3-2-自定义负载均衡策略"><a href="#4-3-2-自定义负载均衡策略" class="headerlink" title="4.3.2.自定义负载均衡策略"></a>4.3.2.自定义负载均衡策略</h3><p>通过定义IRule实现可以修改负载均衡规则，有两种方式：</p>
+<ol>
+<li>代码方式：在order-service中的OrderApplication类中，定义一个新的IRule：</li>
+</ol>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">IRule</span> <span class="token function">randomRule</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">RandomRule</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<ol start="2">
+<li>配置文件方式：在order-service的application.yml文件中，添加新的配置也可以修改规则：</li>
+</ol>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">userservice</span><span class="token punctuation">:</span> <span class="token comment"># 给某个微服务配置负载均衡规则，这里是userservice服务</span>
+  <span class="token key atrule">ribbon</span><span class="token punctuation">:</span>
+    <span class="token key atrule">NFLoadBalancerRuleClassName</span><span class="token punctuation">:</span> com.netflix.loadbalancer.RandomRule <span class="token comment"># 负载均衡规则 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<blockquote>
+<p><strong>注意</strong>，一般用默认的负载均衡规则，不做修改。</p>
+</blockquote>
+<h2 id="4-4-饥饿加载"><a href="#4-4-饥饿加载" class="headerlink" title="4.4.饥饿加载"></a>4.4.饥饿加载</h2><p>Ribbon默认是采用懒加载，即第一次访问时才会去创建LoadBalanceClient，请求时间会很长。</p>
+<p>而饥饿加载则会在项目启动时创建，降低第一次访问的耗时，通过下面配置开启饥饿加载：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">ribbon</span><span class="token punctuation">:</span>
+  <span class="token key atrule">eager-load</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">clients</span><span class="token punctuation">:</span> userservice<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -753,7 +981,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gitee.com/yunyd/yunyd/posts/f7c5edf7.html">https://gitee.com/yunyd/yunyd/posts/f7c5edf7.html</a>
+                    <a href="https://gitee.com/yunyd/yunyd/posts/7b1e2515.html">https://gitee.com/yunyd/yunyd/posts/7b1e2515.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -791,8 +1019,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
-                                    <span class="chip bg-color">JUC并发编程</span>
+                                <a href="/yunyd/tags/Eureka/">
+                                    <span class="chip bg-color">Eureka</span>
+                                </a>
+                            
+                                <a href="/yunyd/tags/SpringCloud/">
+                                    <span class="chip bg-color">SpringCloud</span>
                                 </a>
                             
                         </div>
@@ -1264,29 +1496,30 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/yunyd/posts/2eca33fa.html">
+                <a href="/yunyd/posts/7b1e2515.html">
                     <div class="card-image">
                         
                         
-                        <img src="/yunyd/medias/b.jpg" class="responsive-img" alt="RabbitMQ复习">
+                        <img src="/yunyd/medias/u.jpg" class="responsive-img" alt="Eureka复习回顾">
                         
-                        <span class="card-title">RabbitMQ复习</span>
+                        <span class="card-title">Eureka复习回顾</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            RabbitMQ复习
+                            Eureka复习
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1295,15 +1528,16 @@ new Valine({
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/yunyd/tags/SpringCloud/">
-                        <span class="chip bg-color">SpringCloud</span>
+                    <a href="/yunyd/tags/Eureka/">
+                        <span class="chip bg-color">Eureka</span>
                     </a>
                     
-                    <a href="/yunyd/tags/MQ/">
-                        <span class="chip bg-color">MQ</span>
+                    <a href="/yunyd/tags/SpringCloud/">
+                        <span class="chip bg-color">SpringCloud</span>
                     </a>
                     
                 </div>
@@ -1317,24 +1551,24 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yunyd/posts/1962ba96.html">
+                <a href="/yunyd/posts/11f4b451.html">
                     <div class="card-image">
                         
                         
-                        <img src="/yunyd/medias/s.jpg" class="responsive-img" alt="Maven复习">
+                        <img src="/yunyd/medias/h.jpg" class="responsive-img" alt="Dubbo复习">
                         
-                        <span class="card-title">Maven复习</span>
+                        <span class="card-title">Dubbo复习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Maven复习
+                            Dubbo复习
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-24
                             </span>
                         <span class="publish-author">
                             
@@ -1347,8 +1581,8 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/yunyd/tags/Maven/">
-                        <span class="chip bg-color">Maven</span>
+                    <a href="/yunyd/tags/Dubbo/">
+                        <span class="chip bg-color">Dubbo</span>
                     </a>
                     
                 </div>
