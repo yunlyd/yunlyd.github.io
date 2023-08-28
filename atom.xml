@@ -34,9 +34,9 @@
     
     
     
-    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
-    
     <category term="Docker" scheme="https://gitee.com/yunyd/tags/Docker/"/>
+    
+    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
     
   </entry>
   
@@ -130,9 +130,9 @@
     
     
     
-    <category term="Eureka" scheme="https://gitee.com/yunyd/tags/Eureka/"/>
-    
     <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
+    
+    <category term="Eureka" scheme="https://gitee.com/yunyd/tags/Eureka/"/>
     
   </entry>
   

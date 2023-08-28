@@ -14,9 +14,9 @@
       
         <tags>
             
-            <tag> SpringCloud </tag>
-            
             <tag> Docker </tag>
+            
+            <tag> SpringCloud </tag>
             
         </tags>
       
@@ -98,9 +98,9 @@
       
         <tags>
             
-            <tag> Eureka </tag>
-            
             <tag> SpringCloud </tag>
+            
+            <tag> Eureka </tag>
             
         </tags>
       
@@ -425,9 +425,9 @@
       
         <tags>
             
-            <tag> SSMP </tag>
-            
             <tag> MyBatis-Plus </tag>
+            
+            <tag> SSMP </tag>
             
         </tags>
       
@@ -545,9 +545,9 @@
       
         <tags>
             
-            <tag> MyBatis </tag>
-            
             <tag> SSMP </tag>
+            
+            <tag> MyBatis </tag>
             
         </tags>
       
