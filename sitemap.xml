@@ -641,7 +641,7 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/List/galleries/%E4%BA%8C%E6%AC%A1%E5%85%83%E9%A3%8E/index.html</loc>
+    <loc>https://gitee.com/yunyd/List/galleries/%E4%B9%96%E5%B7%A7%E5%B0%8F%E7%8B%97/index.html</loc>
     
     <lastmod>2023-08-01</lastmod>
     
@@ -650,7 +650,7 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/List/galleries/%E4%B9%96%E5%B7%A7%E5%B0%8F%E7%8B%97/index.html</loc>
+    <loc>https://gitee.com/yunyd/List/galleries/%E4%BA%8C%E6%AC%A1%E5%85%83%E9%A3%8E/index.html</loc>
     
     <lastmod>2023-08-01</lastmod>
     
@@ -693,6 +693,13 @@
   </url>
   
   <url>
+    <loc>https://gitee.com/yunyd/tags/Dubbo/</loc>
+    <lastmod>2023-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://gitee.com/yunyd/tags/Docker/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -714,13 +721,6 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/Eureka/</loc>
-    <lastmod>2023-09-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gitee.com/yunyd/tags/Feign/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -728,21 +728,7 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/Git/</loc>
-    <lastmod>2023-09-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gitee.com/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2023-09-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gitee.com/yunyd/tags/Dubbo/</loc>
+    <loc>https://gitee.com/yunyd/tags/Eureka/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -756,28 +742,21 @@
   </url>
   
   <url>
+    <loc>https://gitee.com/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2023-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/tags/Git/</loc>
+    <lastmod>2023-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://gitee.com/yunyd/tags/Linux/</loc>
-    <lastmod>2023-09-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gitee.com/yunyd/tags/MyBatis-Plus/</loc>
-    <lastmod>2023-09-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gitee.com/yunyd/tags/SSMP/</loc>
-    <lastmod>2023-09-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gitee.com/yunyd/tags/MyBatis/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -791,6 +770,13 @@
   </url>
   
   <url>
+    <loc>https://gitee.com/yunyd/tags/Nacos/</loc>
+    <lastmod>2023-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://gitee.com/yunyd/tags/%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -798,7 +784,14 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/Nacos/</loc>
+    <loc>https://gitee.com/yunyd/tags/MyBatis/</loc>
+    <lastmod>2023-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/tags/SSMP/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -813,6 +806,13 @@
   
   <url>
     <loc>https://gitee.com/yunyd/tags/Redis/</loc>
+    <lastmod>2023-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/tags/MyBatis-Plus/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
