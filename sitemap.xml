@@ -746,13 +746,6 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/Gateway/</loc>
-    <lastmod>2023-09-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gitee.com/yunyd/tags/Feign/</loc>
     <lastmod>2023-09-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -761,6 +754,13 @@
   
   <url>
     <loc>https://gitee.com/yunyd/tags/Git/</loc>
+    <lastmod>2023-09-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/tags/Gateway/</loc>
     <lastmod>2023-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -781,7 +781,7 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/MyBatis-Plus/</loc>
+    <loc>https://gitee.com/yunyd/tags/MyBatis/</loc>
     <lastmod>2023-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -809,7 +809,7 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/MyBatis/</loc>
+    <loc>https://gitee.com/yunyd/tags/Nginx/</loc>
     <lastmod>2023-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -823,14 +823,14 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/Nginx/</loc>
+    <loc>https://gitee.com/yunyd/tags/MQ/</loc>
     <lastmod>2023-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/MQ/</loc>
+    <loc>https://gitee.com/yunyd/tags/MyBatis-Plus/</loc>
     <lastmod>2023-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -844,14 +844,14 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/SpringMVC/</loc>
+    <loc>https://gitee.com/yunyd/tags/SpringBoot/</loc>
     <lastmod>2023-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/SpringBoot/</loc>
+    <loc>https://gitee.com/yunyd/tags/SpringMVC/</loc>
     <lastmod>2023-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
