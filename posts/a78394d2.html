@@ -501,7 +501,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-09-06
+                    2023-09-08
                 </div>
                 
 
@@ -538,8 +538,11 @@
 <h2 id="1-2、Nginx-作为-web-服务器"><a href="#1-2、Nginx-作为-web-服务器" class="headerlink" title="1.2、Nginx 作为 web 服务器"></a>1.2、Nginx 作为 web 服务器</h2><p>Nginx 可以作为静态页面的 web 服务器，同时还支持 CGI 协议的动态语言，比如 perl、php等。但是不支持 java。Java 程序只能通过与 tomcat 配合完成。Nginx 专为性能优化而开发，性能是其最重要的考量,实现上非常注重效率 ，能经受高负载的考验,有报告表明能支持高达 50,000 个并发连接数。</p>
 <p><a target="_blank" rel="noopener" href="https://lnmp.org/nginx.html">https://lnmp.org/nginx.html</a></p>
 <hr>
-<h2 id="1-3、正向代理"><a href="#1-3、正向代理" class="headerlink" title="1.3、正向代理"></a>1.3、正向代理</h2><hr>
-<h2 id="1-4、反向代理"><a href="#1-4、反向代理" class="headerlink" title="1.4、反向代理"></a>1.4、反向代理</h2><p>反向代理，其实客户端对代理是无感知的，因为客户端不需要任何配置就可以访问，我们只需要将请求发送到反向代理服务器，由<code>反向代理服务器去选择目标服务器获取数据后，在返回给客户端</code>，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是代理服务器地址，隐藏了真实服务器 IP 地址。</p>
+<h2 id="1-3、正向代理"><a href="#1-3、正向代理" class="headerlink" title="1.3、正向代理"></a>1.3、正向代理</h2><p><strong>正向代理：需要在客户端配置代理服务器进行指定网站访问</strong></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/37.jpg"></p>
+<hr>
+<h2 id="1-4、反向代理"><a href="#1-4、反向代理" class="headerlink" title="1.4、反向代理"></a>1.4、反向代理</h2><p><strong>反向代理：暴露的是代理服务器地址，隐藏了真实服务器 IP 地址</strong>。其实客户端对代理是无感知的，因为客户端不需要任何配置就可以访问，我们只需要将请求发送到反向代理服务器，由<code>反向代理服务器去选择目标服务器获取数据后，在返回给客户端</code>，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是代理服务器地址，隐藏了真实服务器 IP 地址。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/38.jpg"></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/1.jpg"></p>
 <hr>
 <h2 id="1-5、负载均衡"><a href="#1-5、负载均衡" class="headerlink" title="1.5、负载均衡"></a>1.5、负载均衡</h2><p>客户端发送多个请求到服务器，服务器处理请求，有一些可能要与数据库进行交互，服务器处理完毕后，再将结果返回给客户端。</p>
@@ -1756,7 +1759,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">320.4k</span>&nbsp;字
+                class="white-color">320.5k</span>&nbsp;字
             
             
             
