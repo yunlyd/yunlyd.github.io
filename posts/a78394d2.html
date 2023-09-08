@@ -533,31 +533,31 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Nginx复习回顾"><a href="#Nginx复习回顾" class="headerlink" title="Nginx复习回顾"></a>Nginx复习回顾</h1><h1 id="一、Nginx简介"><a href="#一、Nginx简介" class="headerlink" title="一、Nginx简介"></a>一、<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Nginx&amp;spm=1001.2101.3001.7020">Nginx</a>简介</h1><h2 id="1-1、Nginx-概述"><a href="#1-1、Nginx-概述" class="headerlink" title="1.1、Nginx 概述"></a>1.1、Nginx 概述</h2><p>Nginx (“engine x”) 是一个高性能的 HTTP 和<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86&amp;spm=1001.2101.3001.7020">反向代理</a>服务器,特点是占有<code>内存少</code>，<code>并发能力强</code>，事实上nginx的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等</p>
+                <h1 id="Nginx复习回顾"><a href="#Nginx复习回顾" class="headerlink" title="Nginx复习回顾"></a>Nginx复习回顾</h1><h2 id="一、Nginx简介"><a href="#一、Nginx简介" class="headerlink" title="一、Nginx简介"></a>一、<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Nginx&amp;spm=1001.2101.3001.7020">Nginx</a>简介</h2><h3 id="1-1、Nginx-概述"><a href="#1-1、Nginx-概述" class="headerlink" title="1.1、Nginx 概述"></a>1.1、Nginx 概述</h3><p>Nginx (“engine x”) 是一个高性能的 HTTP 和<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86&amp;spm=1001.2101.3001.7020">反向代理</a>服务器,特点是占有<code>内存少</code>，<code>并发能力强</code>，事实上nginx的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等</p>
 <hr>
-<h2 id="1-2、Nginx-作为-web-服务器"><a href="#1-2、Nginx-作为-web-服务器" class="headerlink" title="1.2、Nginx 作为 web 服务器"></a>1.2、Nginx 作为 web 服务器</h2><p>Nginx 可以作为静态页面的 web 服务器，同时还支持 CGI 协议的动态语言，比如 perl、php等。但是不支持 java。Java 程序只能通过与 tomcat 配合完成。Nginx 专为性能优化而开发，性能是其最重要的考量,实现上非常注重效率 ，能经受高负载的考验,有报告表明能支持高达 50,000 个并发连接数。</p>
+<h3 id="1-2、Nginx-作为-web-服务器"><a href="#1-2、Nginx-作为-web-服务器" class="headerlink" title="1.2、Nginx 作为 web 服务器"></a>1.2、Nginx 作为 web 服务器</h3><p>Nginx 可以作为静态页面的 web 服务器，同时还支持 CGI 协议的动态语言，比如 perl、php等。但是不支持 java。Java 程序只能通过与 tomcat 配合完成。Nginx 专为性能优化而开发，性能是其最重要的考量,实现上非常注重效率 ，能经受高负载的考验,有报告表明能支持高达 50,000 个并发连接数。</p>
 <p><a target="_blank" rel="noopener" href="https://lnmp.org/nginx.html">https://lnmp.org/nginx.html</a></p>
 <hr>
-<h2 id="1-3、正向代理"><a href="#1-3、正向代理" class="headerlink" title="1.3、正向代理"></a>1.3、正向代理</h2><p><strong>正向代理：需要在客户端配置代理服务器进行指定网站访问</strong></p>
+<h3 id="1-3、正向代理"><a href="#1-3、正向代理" class="headerlink" title="1.3、正向代理"></a>1.3、正向代理</h3><p><strong>正向代理：需要在客户端配置代理服务器进行指定网站访问</strong></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/37.jpg"></p>
 <hr>
-<h2 id="1-4、反向代理"><a href="#1-4、反向代理" class="headerlink" title="1.4、反向代理"></a>1.4、反向代理</h2><p><strong>反向代理：暴露的是代理服务器地址，隐藏了真实服务器 IP 地址</strong>。其实客户端对代理是无感知的，因为客户端不需要任何配置就可以访问，我们只需要将请求发送到反向代理服务器，由<code>反向代理服务器去选择目标服务器获取数据后，在返回给客户端</code>，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是代理服务器地址，隐藏了真实服务器 IP 地址。</p>
+<h3 id="1-4、反向代理"><a href="#1-4、反向代理" class="headerlink" title="1.4、反向代理"></a>1.4、反向代理</h3><p><strong>反向代理：暴露的是代理服务器地址，隐藏了真实服务器 IP 地址</strong>。其实客户端对代理是无感知的，因为客户端不需要任何配置就可以访问，我们只需要将请求发送到反向代理服务器，由<code>反向代理服务器去选择目标服务器获取数据后，在返回给客户端</code>，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是代理服务器地址，隐藏了真实服务器 IP 地址。</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/38.jpg"></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/1.jpg"></p>
 <hr>
-<h2 id="1-5、负载均衡"><a href="#1-5、负载均衡" class="headerlink" title="1.5、负载均衡"></a>1.5、负载均衡</h2><p>客户端发送多个请求到服务器，服务器处理请求，有一些可能要与数据库进行交互，服务器处理完毕后，再将结果返回给客户端。</p>
+<h3 id="1-5、负载均衡"><a href="#1-5、负载均衡" class="headerlink" title="1.5、负载均衡"></a>1.5、负载均衡</h3><p>客户端发送多个请求到服务器，服务器处理请求，有一些可能要与数据库进行交互，服务器处理完毕后，再将结果返回给客户端。</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/2.jpg"></p>
 <p>这种架构模式对于早期的系统相对单一，并发请求相对较少的情况下是比较适合的，成本也低。但是随着信息数量的不断增长，访问量和数据量的飞速增长，以及系统业务的复杂度增加，这种架构会造成服务器相应客户端的请求日益缓慢，并发量特别大的时候，还容易造成服务器直接崩溃。很明显这是由于服务器性能的瓶颈造成的问题，那么如何解决这种情况呢？<br>我们首先想到的可能是升级服务器的配置，比如提高 CPU 执行频率，加大内存等提高机器的物理性能来解决此问题，但是我们知道摩尔定律的日益失效，硬件的性能提升已经不能满足日益提升的需求了。最明显的一个例子，天猫双十一当天，某个热销商品的瞬时访问量是极其庞大的，那么类似上面的系统架构，将机器都增加到现有的顶级物理配置，都是不能够满足需求的。那么怎么办呢？<br>上面的分析我们去掉了增加服务器物理配置来解决问题的办法，也就是说纵向解决问题的办法行不通了，那么横向增加服务器的数量呢？这时候集群的概念产生了，单个服务器解决不了，我们<code>增加服务器的数量，然后将请求分发到各个服务器上，将原先请求集中到单个服务器上的情况改为将请求分发到多个服务器上，将负载分发到不同的服务器，也就是我们所说的负载均衡</code></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/3.jpg"></p>
 <hr>
-<h2 id="1-6、动静分离"><a href="#1-6、动静分离" class="headerlink" title="1.6、动静分离"></a>1.6、动静分离</h2><p><code>为了加快网站的解析速度</code>，可以把动态页面和静态页面由不同的服务器来解析，加快解析速度。降低原来单个服务器的压力。</p>
+<h3 id="1-6、动静分离"><a href="#1-6、动静分离" class="headerlink" title="1.6、动静分离"></a>1.6、动静分离</h3><p><code>为了加快网站的解析速度</code>，可以把动态页面和静态页面由不同的服务器来解析，加快解析速度。降低原来单个服务器的压力。</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/4.jpg"></p>
 <hr>
-<h1 id="二、Nginx-安装"><a href="#二、Nginx-安装" class="headerlink" title="二、Nginx 安装"></a>二、Nginx 安装</h1><h2 id="2-1、进入-nginx-官网，下载"><a href="#2-1、进入-nginx-官网，下载" class="headerlink" title="2.1、进入 nginx 官网，下载"></a>2.1、进入 nginx 官网，下载</h2><p><a target="_blank" rel="noopener" href="http://nginx.org/">http://nginx.org/</a></p>
+<h2 id="二、Nginx-安装"><a href="#二、Nginx-安装" class="headerlink" title="二、Nginx 安装"></a>二、Nginx 安装</h2><h3 id="2-1、进入-nginx-官网，下载"><a href="#2-1、进入-nginx-官网，下载" class="headerlink" title="2.1、进入 nginx 官网，下载"></a>2.1、进入 nginx 官网，下载</h3><p><a target="_blank" rel="noopener" href="http://nginx.org/">http://nginx.org/</a></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/5.jpg"></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/6.jpg"></p>
 <hr>
-<h2 id="2-2、安装-nginx"><a href="#2-2、安装-nginx" class="headerlink" title="2.2、安装 nginx"></a>2.2、安装 nginx</h2><ul>
+<h3 id="2-2、安装-nginx"><a href="#2-2、安装-nginx" class="headerlink" title="2.2、安装 nginx"></a>2.2、安装 nginx</h3><ul>
 <li><strong>第一步， 安装 pcre</strong></li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> http://downloads.sourceforge.net/project/pcre/pcre/8.37/pcre-8.37.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -595,7 +595,7 @@
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd –reload<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <hr>
-<h1 id="三、Nginx-常用的命令和配置文件"><a href="#三、Nginx-常用的命令和配置文件" class="headerlink" title="三、Nginx 常用的命令和配置文件"></a>三、Nginx 常用的命令和配置文件</h1><h2 id="3-1、nginx-常用的命令"><a href="#3-1、nginx-常用的命令" class="headerlink" title="3.1、nginx 常用的命令"></a>3.1、nginx 常用的命令</h2><ul>
+<h2 id="三、Nginx-常用的命令和配置文件"><a href="#三、Nginx-常用的命令和配置文件" class="headerlink" title="三、Nginx 常用的命令和配置文件"></a>三、Nginx 常用的命令和配置文件</h2><h3 id="3-1、nginx-常用的命令"><a href="#3-1、nginx-常用的命令" class="headerlink" title="3.1、nginx 常用的命令"></a>3.1、nginx 常用的命令</h3><ul>
 <li><strong>启动命令</strong></li>
 </ul>
 <p>在/usr/local/nginx/sbin 目录下执行</p>
@@ -619,7 +619,7 @@
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./nginx <span class="token parameter variable">-v</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <hr>
-<h2 id="3-2、nginx-conf-配置文件"><a href="#3-2、nginx-conf-配置文件" class="headerlink" title="3.2、nginx.conf 配置文件"></a>3.2、nginx.conf 配置文件</h2><p>nginx 安装目录下，其默认的配置文件都放在这个目录的 conf 目录下，而主配置文件nginx.conf 也在其中，后续对 nginx 的使用基本上都是对此配置文件进行相应的修改</p>
+<h3 id="3-2、nginx-conf-配置文件"><a href="#3-2、nginx-conf-配置文件" class="headerlink" title="3.2、nginx.conf 配置文件"></a>3.2、nginx.conf 配置文件</h3><p>nginx 安装目录下，其默认的配置文件都放在这个目录的 conf 目录下，而主配置文件nginx.conf 也在其中，后续对 nginx 的使用基本上都是对此配置文件进行相应的修改</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/8.jpg"></p>
 <p>配置文件中有很多#， 开头的表示注释内容，我们去掉所有以 # 开头的段落，精简之后的内容如下：</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/9.jpg"></p>
@@ -658,8 +658,8 @@
 </ul>
 <p>这块的主要作用是基于 Nginx 服务器接收到的请求字符串（例如 server_name/uri-string），对虚拟主机名称（也可以是 IP 别名）之外的字符串（例如 前面的 /uri-string）进行匹配，对特定的请求进行处理。地址定向、数据缓存和应答控制等功能，还有许多第三方模块的配置也在这里进行。</p>
 <hr>
-<h1 id="四、nginx-配置实例-反向代理"><a href="#四、nginx-配置实例-反向代理" class="headerlink" title="四、nginx 配置实例- 反向代理"></a>四、nginx 配置实例- 反向代理</h1><h2 id="4-1、反向代理实例一"><a href="#4-1、反向代理实例一" class="headerlink" title="4.1、反向代理实例一"></a>4.1、反向代理实例一</h2><p>实现效果：使用 <code>nginx 反向代理</code>，访问 <a href="http://www.123">www.123</a> .com 直接跳转到 127.0.0.1:8080</p>
-<h2 id="4-2、实验代码"><a href="#4-2、实验代码" class="headerlink" title="4.2、实验代码"></a>4.2、实验代码</h2><ul>
+<h2 id="四、nginx-配置实例-反向代理"><a href="#四、nginx-配置实例-反向代理" class="headerlink" title="四、nginx 配置实例- 反向代理"></a>四、nginx 配置实例- 反向代理</h2><h3 id="4-1、反向代理实例一"><a href="#4-1、反向代理实例一" class="headerlink" title="4.1、反向代理实例一"></a>4.1、反向代理实例一</h3><p>实现效果：使用 <code>nginx 反向代理</code>，访问 <a href="http://www.123">www.123</a> .com 直接跳转到 127.0.0.1:8080</p>
+<h3 id="4-2、实验代码"><a href="#4-2、实验代码" class="headerlink" title="4.2、实验代码"></a>4.2、实验代码</h3><ul>
 <li>1） 启动一个 tomcat，浏览器地址栏输入 127.0.0.1:8080，出现如下界面</li>
 </ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/13.jpg"></p>
@@ -675,7 +675,7 @@
 <p>如上配置，我们监听 80 端口，访问域名为 <a target="_blank" rel="noopener" href="http://www.123.com,不加端口号时默认为/">www.123.com，不加端口号时默认为</a> 80 端口，故访问该域名时会跳转到 127.0.0.1:8080 路径上。在浏览器端输入 <a target="_blank" rel="noopener" href="http://www.123.com/">www.123.com</a> 结果如下：</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/16.jpg"></p>
 <hr>
-<h2 id="4-3、反向代理实例二"><a href="#4-3、反向代理实例二" class="headerlink" title="4.3、反向代理实例二"></a>4.3、反向代理实例二</h2><p>实现效果：使用 nginx 反向代理，根据访问的路径跳转到不同端口的服务中nginx 监听端口为 9001，</p>
+<h3 id="4-3、反向代理实例二"><a href="#4-3、反向代理实例二" class="headerlink" title="4.3、反向代理实例二"></a>4.3、反向代理实例二</h3><p>实现效果：使用 nginx 反向代理，根据访问的路径跳转到不同端口的服务中nginx 监听端口为 9001，</p>
 <p>访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:9001/edu/">http://127.0.0.1:9001/edu/</a> 直接跳转到 127.0.0.1:8081</p>
 <p>访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:9001/vod/">http://127.0.0.1:9001/vod/</a> 直接跳转到 127.0.0.1:8082</p>
 <h3 id="①实验代码"><a href="#①实验代码" class="headerlink" title="①实验代码"></a>①实验代码</h3><ul>
@@ -691,8 +691,8 @@
 <hr>
 </li>
 </ul>
-<h1 id="五、nginx-配置实例-负载均衡"><a href="#五、nginx-配置实例-负载均衡" class="headerlink" title="五、nginx 配置实例-负载均衡"></a>五、nginx 配置实例-负载均衡</h1><p><strong>实现效果： 配置负载均衡</strong></p>
-<h2 id="5-1、实验代码"><a href="#5-1、实验代码" class="headerlink" title="5.1、实验代码"></a>5.1、实验代码</h2><ul>
+<h2 id="五、nginx-配置实例-负载均衡"><a href="#五、nginx-配置实例-负载均衡" class="headerlink" title="五、nginx 配置实例-负载均衡"></a>五、nginx 配置实例-负载均衡</h2><p><strong>实现效果： 配置负载均衡</strong></p>
+<h3 id="5-1、实验代码"><a href="#5-1、实验代码" class="headerlink" title="5.1、实验代码"></a>5.1、实验代码</h3><ul>
 <li>1） 首先准备两个同时启动的 Tomcat</li>
 <li>2） 在 在 nginx.conf 中进行配置</li>
 </ul>
@@ -728,7 +728,7 @@ fair <span class="token punctuation">;</span>
 </li>
 </ul>
 <hr>
-<h1 id="六、nginx-配置实例-动静分离"><a href="#六、nginx-配置实例-动静分离" class="headerlink" title="六、nginx 配置实例- 动静分离"></a>六、nginx 配置实例- 动静分离</h1><p>Nginx 动静分离简单来说就是把动态跟静态请求分开，不能理解成只是单纯的把动态页面和静态页面物理分离。严格意义上说应该是<code>动态请求跟静态请求分开</code>，可以理解成使用 Nginx处理静态页面，Tomcat 处理动态页面。</p>
+<h2 id="六、nginx-配置实例-动静分离"><a href="#六、nginx-配置实例-动静分离" class="headerlink" title="六、nginx 配置实例- 动静分离"></a>六、nginx 配置实例- 动静分离</h2><p>Nginx 动静分离简单来说就是把动态跟静态请求分开，不能理解成只是单纯的把动态页面和静态页面物理分离。严格意义上说应该是<code>动态请求跟静态请求分开</code>，可以理解成使用 Nginx处理静态页面，Tomcat 处理动态页面。</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/20.jpg"></p>
 <p>动静分离从目前实现角度来讲大致分为两种，</p>
 <ul>
@@ -737,7 +737,7 @@ fair <span class="token punctuation">;</span>
 </ul>
 <p>通过<code>location</code> 指定不同的后缀名实现不同的请求转发。</p>
 <p>通过 <code>expires</code> 参数设置，可以使浏览器缓存过期时间，减少与服务器之前的请求和流量。具体 Expires 定义：是给一个资源设定一个过期时间，也就是说无需去服务端验证，直接通过浏览器自身确认是否过期即可，所以不会产生额外的流量。此种方法非常适合不经常变动的资源。（如果经常更新的文件，不建议使用 Expires 来缓存），我这里设置 3d，表示在这 3 天之内访问这个 URL，发送一个请求，比对服务器该文件最后更新时间没有变化，则不会从服务器抓取，返回状态码304，如果有修改，则直接从服务器重新下载，返回状态码 200。</p>
-<h2 id="6-1、实验代码"><a href="#6-1、实验代码" class="headerlink" title="6.1、实验代码"></a>6.1、实验代码</h2><ul>
+<h3 id="6-1、实验代码"><a href="#6-1、实验代码" class="headerlink" title="6.1、实验代码"></a>6.1、实验代码</h3><ul>
 <li><p><strong>项目资源准备</strong></p>
 <p>在linux系统中准备静态资源，用于访问</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/21.jpg"></p>
@@ -763,7 +763,7 @@ fair <span class="token punctuation">;</span>
 </li>
 </ul>
 <hr>
-<h1 id="七、nginx-原理-amp-优化参数配置"><a href="#七、nginx-原理-amp-优化参数配置" class="headerlink" title="七、nginx 原理&amp;优化参数配置"></a>七、nginx 原理&amp;优化参数配置</h1><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/25.jpg"></p>
+<h2 id="七、nginx-原理-amp-优化参数配置"><a href="#七、nginx-原理-amp-优化参数配置" class="headerlink" title="七、nginx 原理&amp;优化参数配置"></a>七、nginx 原理&amp;优化参数配置</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/25.jpg"></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/26.jpg"></p>
 <ul>
 <li><strong>work如何进行工作的</strong></li>
@@ -798,7 +798,7 @@ worker_cpu_affinity 0000001 00000010 00000100 00001000<span aria-hidden="true" c
 </ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/29.jpg"></p>
 <hr>
-<h1 id="八、nginx-搭建高可用集群"><a href="#八、nginx-搭建高可用集群" class="headerlink" title="八、nginx 搭建高可用集群"></a>八、nginx 搭建高可用集群</h1><h2 id="8-1、高可用集群"><a href="#8-1、高可用集群" class="headerlink" title="8.1、高可用集群"></a>8.1、高可用集群</h2><ul>
+<h2 id="八、nginx-搭建高可用集群"><a href="#八、nginx-搭建高可用集群" class="headerlink" title="八、nginx 搭建高可用集群"></a>八、nginx 搭建高可用集群</h2><h3 id="8-1、高可用集群"><a href="#8-1、高可用集群" class="headerlink" title="8.1、高可用集群"></a>8.1、高可用集群</h3><ul>
 <li><strong>问题</strong></li>
 </ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/30.jpg"></p>
@@ -822,7 +822,7 @@ worker_cpu_affinity 0000001 00000010 00000100 00001000<span aria-hidden="true" c
 
 <p>安装之后，在 etc 里面生成目录 keepalived ，有文件 <code>keepalived.conf</code></p>
 <hr>
-<h2 id="8-2、Keepalived-Nginx-高可用集群"><a href="#8-2、Keepalived-Nginx-高可用集群" class="headerlink" title="8.2、Keepalived+Nginx 高可用集群"></a>8.2、Keepalived+Nginx 高可用集群</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/33.jpg"></p>
+<h3 id="8-2、Keepalived-Nginx-高可用集群"><a href="#8-2、Keepalived-Nginx-高可用集群" class="headerlink" title="8.2、Keepalived+Nginx 高可用集群"></a>8.2、Keepalived+Nginx 高可用集群</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Nginx/33.jpg"></p>
 <ul>
 <li><strong>修改/etc/keepalived/keepalivec.conf 配置文件</strong></li>
 </ul>
@@ -1759,7 +1759,7 @@ new Valine({
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">320.5k</span>&nbsp;字
+                class="white-color">323.4k</span>&nbsp;字
             
             
             

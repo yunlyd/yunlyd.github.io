@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JUC-Java内存模型之JMM, lucky_llllz 计算机 软件工程 后端">
+    <meta name="keywords" content="计网-物理层, lucky_llllz 计算机 软件工程 后端">
     <meta name="description" content="计算机 | 软件工程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>JUC-Java内存模型之JMM | llllz_liu</title>
+    <title>计网-物理层 | llllz_liu</title>
 
     <link rel="icon" type="image/png" href="/yunyd/medias/favicon-32x32.png">
 
@@ -352,12 +352,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/yunyd/medias/t.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/yunyd/medias/r.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">JUC-Java内存模型之JMM</h1>
+                    <h1 class="description center-align post-title">计网-物理层</h1>
                 </div>
             </div>
         </div>
@@ -478,8 +478,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
-                                <span class="chip bg-color">JUC并发编程</span>
+                            <a href="/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">计算机网络</span>
                             </a>
                         
                     </div>
@@ -494,28 +494,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-08-09
+                    2023-09-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-25
+                    2023-09-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.6k
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    10 分
                 </div>
                 
 
@@ -533,181 +533,327 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Java内存模型之JMM"><a href="#Java内存模型之JMM" class="headerlink" title="Java内存模型之JMM"></a>Java内存模型之JMM</h1><h2 id="1-1-先从大场面试开始"><a href="#1-1-先从大场面试开始" class="headerlink" title="1.1 先从大场面试开始"></a>1.1 先从大场面试开始</h2><p>●你知道什么是Java内存模型JMM吗？</p>
-<p>●JMM和volatile他们两个之间的关系？</p>
-<p>●JMM没有那些特征或者它的三大特征是什么？</p>
-<p>●为什么要有JMM，它为什么出现？作用和功能是什么？</p>
-<p>●happens-before先行并发原则你有了解过吗？</p>
-<h2 id="1-2-计算机硬件存储体系"><a href="#1-2-计算机硬件存储体系" class="headerlink" title="1.2 计算机硬件存储体系"></a>1.2 计算机硬件存储体系</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/23.jpg"></p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/24.jpg"></p>
-<p>CPU的运行并不是直接操作内存而是先把内存里面的数据读到缓存，而内存的读和写操作的时候会造成不一致的问题。JVM规范中试图定义一种Java内存模型来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致性的内存访问效果。</p>
-<h2 id="1-3-Java内存模型Java-Memory-Model"><a href="#1-3-Java内存模型Java-Memory-Model" class="headerlink" title="1.3 Java内存模型Java Memory Model"></a>1.3 Java内存模型Java Memory Model</h2><p>JMM（Java内存模型Java Memory Model）本身是一种抽象的概念并不真实存在，它仅仅描述的是一组约定或规范，通过这组规范定义了程序中（尤其是多线程）各个变量的读写访问方式并决定一个线程对共享变量的写入以及如何变成对另一个线程可见，关键技术点都是围绕多线程的原子性、可见性和有序性展开的。</p>
-<p>能干嘛？</p>
+                <h1 id="计算机网络第2章（物理层）"><a href="#计算机网络第2章（物理层）" class="headerlink" title="计算机网络第2章（物理层）"></a>计算机网络第2章（物理层）</h1><h2 id="2-1、物理层的基本概念"><a href="#2-1、物理层的基本概念" class="headerlink" title="2.1、物理层的基本概念"></a>2.1、物理层的基本概念</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/73.jpg"></p>
+<p>image-</p>
+<hr>
+<h2 id="2-2、物理层下面的传输媒体"><a href="#2-2、物理层下面的传输媒体" class="headerlink" title="2.2、物理层下面的传输媒体"></a>2.2、物理层下面的传输媒体</h2><p><strong>传输媒体</strong>也称为传输介质或传输媒介，他就是数据传输系统中在发送器和接收器之间的物理通路。<strong>传输媒体</strong>课分为两大类，即<strong>导引型传输媒体</strong>和<strong>非导引型传输媒体</strong></p>
+<p>传输媒体不属于计算机网络体系结构的任何一层。如果非要将它添加到体系结构中，那只能将其放置到物理层之下。</p>
+<h3 id="导引型传输媒体"><a href="#导引型传输媒体" class="headerlink" title="导引型传输媒体"></a>导引型传输媒体</h3><p>在导引型传输媒体中，电磁波被导引沿着固体媒体传播。</p>
+<p><strong>同轴电缆</strong></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/74.jpg"></p>
+<p>image-</p>
+<p><strong>双绞线</strong></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/75.jpg"></p>
+<p>image-</p>
+<p><strong>光纤</strong></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/76.jpg"></p>
+<p>image-</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/77.jpg"></p>
+<p>image-</p>
+<blockquote>
+<p><strong>多模光纤</strong></p>
 <ul>
-<li>通过JMM来实现线程和主内存之间的抽象关系</li>
-<li>屏蔽各个硬件平台和操作系统的内存访问差异以实现让Java程序再各种平台下都能达到一致性的内存访问效果。</li>
+<li>可以存在多条不同角度入射的光线在一条光纤中传输。这种光纤就称为<strong>多模光纤</strong>。</li>
 </ul>
-<h2 id="1-4-JMM规范下三大特性"><a href="#1-4-JMM规范下三大特性" class="headerlink" title="1.4 JMM规范下三大特性"></a>1.4 JMM规范下三大特性</h2><ul>
-<li><strong>可见性</strong>：是指当一个线程修改了某一个共享变量的值，其他线程是否能够立即知道该变更，JMM规定了所有的变量都存储在主内存中。</li>
-</ul>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/25.jpg"></p>
-<p>系统中主内存共享变量数据修改被写入的时机是不确定的，多线程并发下很可能出现“脏读”，所以每个线程都有自己的工作内存，线程自己的工作内存中保存了该线程使用到的变量的主内存副本拷贝，线程对变量的所有操作（读取、赋值等）都必须在线程自己的工作内存中进行，而不能够直接写入主内存中的变量，不同线程之间也无法直接访问对方工作内存中的变量，线程间变量值的传递均需要通过主内存来完成。</p>
-<p>线程脏读</p>
-<table>
-<thead>
-<tr>
-<th>主内存中有变量X，初始值为0</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>线程A要将X加1，先将X=0拷贝到自己的私有内存中，然后更新X的值</td>
-</tr>
-<tr>
-<td>线程A将更新后的X值回刷到主内存的时间是不固定的</td>
-</tr>
-<tr>
-<td>刚好在线程A没有回刷x到主内存时，线程B同样从主内存中读取X，此时为0，和线程A一样的操作，最后期盼的X=2就会变成X=1</td>
-</tr>
-</tbody></table>
+<p><strong>单模光纤</strong></p>
 <ul>
-<li><p><strong>原子性：</strong>指一个操作是不可被打断的，即多线程环境下，操作不能被其他线程干扰</p>
-</li>
-<li><p><strong>有序性：</strong>对于一个线程的执行代码而言，我们总是习惯性地认为代码的执行总是从上到下，有序执行。但为了提升性能，编译器和处理器通常会对指令序列进行重新排序。Java规范规定JVM线程内部维持顺序化语义，即只要程序的最终结果与它顺序话执行的结果相等，那么指令的执行顺序可以与代码顺序不一致，此过程叫指令的重排序。</p>
+<li>若光纤的直径减小到只有一个光的波长，则光纤就像一根波导那样，它可使光线一直向前传播，而不会产生多次反射。这样的光纤称为<strong>单模光纤</strong>。</li>
+</ul>
+</blockquote>
+<p><strong>电力线</strong></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/78.jpg"></p>
+<p>image-</p>
+<h3 id="非导引型传输媒体"><a href="#非导引型传输媒体" class="headerlink" title="非导引型传输媒体"></a>非导引型传输媒体</h3><p>非导引型传输媒体是指自由空间。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/79.jpg"></p>
+<p>image-</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/80.jpg"></p>
+<p>image-</p>
+<p><strong>无线电波</strong></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/81.jpg"></p>
+<p>image-</p>
+<p><strong>微波</strong></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/82.jpg"></p>
+<p>image-</p>
+<p><strong>红外线</strong></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/83.jpg"></p>
+<p>image-</p>
+<p><strong>可见光</strong></p>
+<p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://baike.baidu.com/item/%E5%8F%AF%E8%A7%81%E5%85%89%E6%97%A0%E7%BA%BF%E9%80%9A%E4%BF%A1/16268518?fromtitle=LiFi&amp;fromid=5675729&amp;fr=aladdin">LIFI</a></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/84.jpg"></p>
+<p>image-</p>
+<hr>
+<h2 id="2-3、传输方式"><a href="#2-3、传输方式" class="headerlink" title="2.3、传输方式"></a>2.3、传输方式</h2><h3 id="串行传输和并行传输"><a href="#串行传输和并行传输" class="headerlink" title="串行传输和并行传输"></a>串行传输和并行传输</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/85.jpg"></p>
+<p>image-</p>
+<blockquote>
+<p><strong>串行传输</strong>：</p>
 <ul>
-<li>优缺点：<ul>
-<li>JVM能根据处理器特性（CPU多级缓存系统、多核处理器等）适当的对机器指令进行重排序，使机器指令更符合CPU的执行特性，最大限度的发挥机器性能。</li>
-<li>但是指令重排可以保证串行语义一致，但没有义务保证多线程的语义也一致（即可能产生“脏读”），简单而言就是两行以上不相干的代码在执行的时候有可能先执行的不是第一条，不见得是从上到下顺序执行，执行顺序会被优化。</li>
+<li>数据是一个比特一个比特依次发送的，因此在发送端与接收端之间，只需要一条数据传输线路即可</li>
 </ul>
-</li>
-<li>从源码到最终执行示例图：<ul>
-<li><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/26.jpg"></li>
-<li>单线程环境里确实能够保证程序最终执行结果和代码顺序执行的结果一致</li>
-<li>处理器在进行重排序时必须考虑到指令之间的数据依赖性</li>
-<li>多线程环境中线程交替执行，由于编译器优化重排的存在，可能出现乱序现象，两个线程使用的变量能否保证一致性是无法确定的，结果无法预测</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="1-5JMM规范下多线程对变量的读写过程"><a href="#1-5JMM规范下多线程对变量的读写过程" class="headerlink" title="1.5JMM规范下多线程对变量的读写过程"></a>1.5JMM规范下多线程对变量的读写过程</h2><p>由于JVM运行程序的实体是线程，而每个线程创建时JVM都会为其创建一个工作内存（有的地方成为栈空间），工作内存是每个线程的私有数据区域，而Java内存模型中规定所有变量都存储在主内存，主内存是共享内存区域，所有线程都可以访问，但线程对变量的操作（读写赋值等）必须在工作内存中进行，首先要将变量从主内存拷贝到线程自己的工作内存空间，然后对变量进行操作，操作完成后再将变量写回主内存，不能直接操作主内存中的变量，各个线程中的工作内存存储着主内存中的变量副本拷贝，因此不同的线程无法访问对方的工作内存，线程间的通信（传值）必须通过主内存来完成，其简要访问过程如下图：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/27.jpg"></p>
-<p>JMM定义了线程和主内存之间的抽象关系：</p>
+<p><strong>并行传输</strong>：</p>
 <ul>
-<li>线程之间的共享变量存储在主内存中（从硬件角度讲就是内存条）</li>
-<li>每个线程都有一个自己的本地工作内存，本地工作内存中存储了该线程用来读写共享变量的副本（从硬件角度来说就是CPU的缓存）</li>
+<li><p>一次发送n个比特，因此，在发送端和接收端之间需要有n条传输线路</p>
+</li>
+<li><p>并行传输的优点是比串行传输的速度n倍，但成本高</p>
+</li>
 </ul>
-<p>小总结：</p>
+<p>数据在传输线路上的传输采用是<strong>串行传输</strong>，计算机内部的数据传输常用<strong>并行传输</strong></p>
+</blockquote>
+<h3 id="同步传输和异步传输"><a href="#同步传输和异步传输" class="headerlink" title="同步传输和异步传输"></a>同步传输和异步传输</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/86.jpg"></p>
+<p>image-</p>
+<blockquote>
+<p><strong>同步传输</strong>：</p>
 <ul>
-<li>我们定义的所有共享变量都储存在物理主内存中</li>
-<li>每个线程都有自己独立的工作内存，里面保证该线程使用到的共享变量的副本（主内存中该变量的一份拷贝）</li>
-<li>线程对共享变量所有的操作都必须先在线程自己的工作内存中进行后写回主内存，不能直接从主内存在读写（不能越级）</li>
-<li>不同线程之间也无法直接访问其他线程的工作内存中的变量，线程间变量值的传递需要通过主内存来进行（同级不能互相访问）</li>
-</ul>
-<h2 id="1-6-JMM规范下多线程先行发生原则之happens-before"><a href="#1-6-JMM规范下多线程先行发生原则之happens-before" class="headerlink" title="1.6 JMM规范下多线程先行发生原则之happens-before"></a>1.6 JMM规范下多线程先行发生原则之happens-before</h2><p>在JVM中，如果一个操作执行的结果需要对另一个操作可见或者代码重排序，那么这两个操作之间必须存在happens-before（先行发生）原则，逻辑上的先后关系。</p>
-<h4 id="1-6-1-x-y案例说明"><a href="#1-6-1-x-y案例说明" class="headerlink" title="1.6.1 x,y案例说明"></a>1.6.1 x,y案例说明</h4><table>
-<thead>
-<tr>
-<th>——————-</th>
-<th>——————-</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>x = 5</td>
-<td>线程A执行</td>
-</tr>
-<tr>
-<td>y = x</td>
-<td>线程B执行</td>
-</tr>
-<tr>
-<td>上述称之为： 写后读</td>
-<td></td>
-</tr>
-</tbody></table>
-<p>问题？</p>
-<p>y是否等于5呢？如果线程A的操作（x=5）happens-before（先行发生）线程B的操作(y=x)，那么可以确定线程B执行y=5一定成立；如果他们不存在happens-before原则，那么y=5不一定成立这就是happens-before原则的为例———–&gt;包含可见性和有序性的约束</p>
-<h4 id="1-6-2-先行并发原则说明"><a href="#1-6-2-先行并发原则说明" class="headerlink" title="1.6.2 先行并发原则说明"></a>1.6.2 先行并发原则说明</h4><p>如果Java内存模型中所有的有序性都仅靠volatile和synchronized来完成，那么有很多操作都将变得非常罗嗦，但是我们在编写Java并发代码的时候并没有察觉到这一点。</p>
-<p>我们没有时时、处处、次次，添加volatile和synchronized来完成程序，这是因为Java语言中JMM原则下，有一个“先行发生”（happens-before）的原则限制和规矩，给你理好了规矩！</p>
-<p>这个原则非常重要：它是判断数据是否存在竞争，线程是否安全的非常有用的手段。依赖这个原则，我们可以通过几条简单规则一揽子解决并发环境下两个操作之间是否可能存在冲突的所有问题，而不需要陷入Java内存模型晦涩难懂的底层编译原理之中。</p>
-<h4 id="1-6-3-happens-before总原则"><a href="#1-6-3-happens-before总原则" class="headerlink" title="1.6.3 happens-before总原则"></a>1.6.3 happens-before总原则</h4><ul>
-<li>如果一个操作happens-before另一个操作，那么第一个操作的执行结果将对第二个操作可见，而且第一个操作的执行顺序排在第二个操作之前</li>
-<li>如果两个操作之间存在happens-before关系，并不意味着一定要按照happens-before原则制定的顺序来执行。如果重排之后的执行结果与按照happens-before关系来执行的结果一致，那么这种重排序并不非法。</li>
-</ul>
-<h4 id="1-6-4-happens-before之8条"><a href="#1-6-4-happens-before之8条" class="headerlink" title="1.6.4 happens-before之8条"></a>1.6.4 happens-before之8条</h4><p>从JDK 5开始，Java使用新的JSR-133内存模型，提供了 happens-before 原则来辅助保证程序执行的原子性、可见性以及有序性的问题，它是判断数据是否存在竞争、线程是否安全的依据，happens-before 原则内容如下：</p>
-<ol>
-<li>次序规则：一个线程内，按照代码的顺序，写在前面的操作先行发生于写在后面的操作，也就是说前一个操作的结果可以被后续的操作获取（保证语义串行性，按照代码顺序执行）。比如前一个操作把变量x赋值为1，那后面一个操作肯定能知道x已经变成了1</li>
-<li>锁定规则：一个unLock操作先行发生于后面对同一个锁的lock操作（后面指时间上的先后）</li>
-<li>volatile变量规则：对一个volatile变量的写操作先行发生于后面对这个变量的读操作，前面的写对后面的读是可见的，这里的后面同样指时间上的先后</li>
-<li>传递规则：如果操作A先行发生于操作B，而操作B又先行发生于操作C，则可以得出操作A先行发生于操作C</li>
-<li>线程启动规则（Thread start Rule）：Thread对象的start()方法先行发生于此线程的每一个动作</li>
-<li>线程中断规则（Thread Interruption Rule）：<ul>
-<li>对线程interrupt()方法的调用先行发生于被中断线程的代码检测到中断事件的发生</li>
-<li>可以通过Thread.interrupted()检测到是否发生中断</li>
-<li>也就是说你要先调用interrupt()方法设置过中断标志位，我才能检测到中断发生</li>
-</ul>
+<li><p>数据块以稳定的比特流的形式传输。字节之间没有间隔</p>
 </li>
-<li>线程终止规则（Thread Termination Rule）：线程中的所有操作都优先发生于对此线程的终止检测，我们可以通过isAlive()等手段检测线程是否已经终止执行</li>
-<li>对象终结规则（Finalizer Rule）：一个对象的初始化完成（构造函数执行结束）先行发生于它的finalize(）方法的开始——-&gt;对象没有完成初始化之前，是不能调用finalized()方法的</li>
-</ol>
-<h4 id="1-6-5-happens-before小总结"><a href="#1-6-5-happens-before小总结" class="headerlink" title="1.6.5 happens-before小总结"></a>1.6.5 happens-before小总结</h4><ul>
-<li>在Java语言里面，Happens-before的语义本质上是一种可见性</li>
-<li>A happens-before B ,意味着A发生过的事情对B而言是可见的，无论A事件和B事件是否发生在同一线程里</li>
-<li>JVM的设计分为两部分：<ul>
-<li>一部分是面向我们程序员提供的，也就是happens-before规则，它通俗易懂的向我们程序员阐述了一个强内存模型，我们只要理解happens-before规则，就可以编写并发安全的程序了</li>
-<li>另一部分是针对JVM实现的，为了尽可能少的对编译器和处理器做约束从而提升性能，JMM在不影响程序执行结果的前提下对其不做要求，即允许优化重排序，我们只要关注前者就好了，也就是理解happens-before规则即可，其他繁杂的内容由JMM规范结合操作系统给我们搞定，我们只写好代码即可</li>
-</ul>
+<li><p>接收端在每个比特信号的中间时刻进行检测，以判别接收到的是比特0还是比特1</p>
+</li>
+<li><p>由于不同设备的时钟频率存在一定差异，不可能做到完全相同，在传输大量数据的过程中，所产生的判别时刻的累计误差，会导致接收端对比特信号的判别错位</p>
 </li>
 </ul>
-<h4 id="1-6-6-案例说明"><a href="#1-6-6-案例说明" class="headerlink" title="1.6.6 案例说明"></a>1.6.6 案例说明</h4><p>初始案例演示：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">int</span> value <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> value<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">setValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token operator">++</span>value<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>所以要使收发双发时钟保持同步</p>
+</blockquote>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/87.jpg"></p>
+<p>image-</p>
+<blockquote>
+<p><strong>异步传输</strong>：</p>
+<ul>
+<li><p>以字节为独立的传输单位，字节之间的时间间隔不是固定</p>
+</li>
+<li><p>接收端仅在每个字节的起始处对字节内的比特实现同步</p>
+</li>
+<li><p>通常在每个字节前后分别加上起始位和结束位</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="单向通信（单工）、双向交替通信（半双工）和双向同时通信（全双工）"><a href="#单向通信（单工）、双向交替通信（半双工）和双向同时通信（全双工）" class="headerlink" title="单向通信（单工）、双向交替通信（半双工）和双向同时通信（全双工）"></a>单向通信（单工）、双向交替通信（半双工）和双向同时通信（全双工）</h3><p>在许多情况下，我们要使用“<strong>信道（channel）</strong>”这一名词。信道和电路并不等同。信道一般都是用来表示向某一个方向传送信息的媒体。因此，一条通信电路往往包含一条发送信道和一条接收信道。</p>
+<p>从通信的双方信息交互的方式来看，可以有以下三种基本方式：</p>
+<p><strong>单向通信</strong>：</p>
+<p>又称为<strong>单工通信</strong>，即只能有一个方向的通信而没有反方向的交互。无线电广播或有线电以及电视广播就属于这种类型</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/88.jpg"></p>
+<p>image-</p>
+<p><strong>双向交替通信</strong>：</p>
+<p>又称为<strong>半双工通信</strong>，即通信的双方可以发送信息，但不能双方同时发送（当然也就不能同时接收）。这种通信方式使一方发送另一方接收，过一段时间后可以再反过来</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/89.jpg"></p>
+<p>image-</p>
+<p><strong>双向同时通信</strong>：</p>
+<p>又称为<strong>全双工通信</strong>，即通信的双发可以同时发送和接收信息。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/90.jpg"></p>
+<p>image-</p>
+<blockquote>
+<p><strong>单向通信</strong>只需要一条信道，而<strong>双向交替通信</strong>或<strong>双向同时通信</strong>则需要两条信道（每个方向各一条）</p>
+<p><strong>双向同时通信</strong>的传输效率最高</p>
+</blockquote>
+<h2 id="2-4、编码与调制"><a href="#2-4、编码与调制" class="headerlink" title="2.4、编码与调制"></a>2.4、编码与调制</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/91.jpg"></p>
+<p>image-</p>
+<blockquote>
+<p><strong>常用术语</strong></p>
+<ul>
+<li><p><strong>数据 (data)</strong> —— 运送消息的实体。</p>
+</li>
+<li><p><strong>信号 (signal)</strong> —— 数据的电气的或电磁的表现。</p>
+</li>
+<li><p><strong>模拟信号 (analogous signal)</strong> —— 代表消息的参数的取值是连续的。</p>
+</li>
+<li><p><strong>数字信号 (digital signal)</strong> —— 代表消息的参数的取值是离散的。</p>
+</li>
+<li><p><strong>码元 (code)</strong> —— 在使用时间域（或简称为时域）的波形表示数字信号时，代表不同离散数值的基本波形。</p>
+</li>
+<li><p><strong>基带信号</strong>（即基本频带信号）—— 来自信源的信号。像计算机输出的代表各种文字或图像文件的数据信号都属于基带信号。</p>
+</li>
+<li><p>基带信号往往包含有较多的低频成分，甚至有直流成分，而许多信道并不能传输这种低频分量或直流分量。因此必须对基带信号进行<strong>调制</strong> (modulation)。</p>
+</li>
+</ul>
+</blockquote>
+<p>在计算机网络中，常见的是将数字基带信号通过编码或调制的方法在相应信道进行传输</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/92.jpg"></p>
+<p>image-</p>
+<h3 id="传输媒体与信道的关系"><a href="#传输媒体与信道的关系" class="headerlink" title="传输媒体与信道的关系"></a><strong>传输媒体与信道的关系</strong></h3><blockquote>
+<p><strong>信道的几个基本概念</strong></p>
+<ul>
+<li><p><strong>信道</strong> —— 一般用来表示向某一个方向传送信息的媒体。</p>
+</li>
+<li><p><strong>单向通信（单工通信）</strong>——只能有一个方向的通信而没有反方向的交互。</p>
+</li>
+<li><p><strong>双向交替通信（半双工通信）</strong>——通信的双方都可以发送信息，但不能双方同时发送(当然也就不能同时接收)。</p>
+</li>
+<li><p><strong>双向同时通信（全双工通信）</strong>——通信的双方可以同时发送和接收信息。</p>
+</li>
+</ul>
+</blockquote>
+<p>严格来说，传输媒体不能和信道划等号</p>
+<p>对于单工传输，传输媒体只包含一个信道，要么是发送信道，要么是接收信道</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/93.jpg"></p>
+<p>image-</p>
+<p>对于半双工和全双工，传输媒体中要包含两个信道，一个发送信道，另一个是接收信道</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/94.jpg"></p>
+<p>image-</p>
+<blockquote>
+<p>如果使用信道复用技术，一条传输媒体还可以包含多个信道</p>
+</blockquote>
+<h3 id="常用编码"><a href="#常用编码" class="headerlink" title="常用编码"></a>常用编码</h3><p><strong>不归零编码</strong></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/95.jpg"></p>
+<p>image-</p>
+<blockquote>
+<ul>
+<li><p>正电平表示比特1/0</p>
+</li>
+<li><p>负电平表示比特0/1</p>
+</li>
+</ul>
+<p>中间的虚线是零电平，所谓不归零编码，就是指在整个码元时间内，电平不会出现零电平</p>
+<p><strong>实际比特1和比特0的表示要看现实怎么规定</strong></p>
+</blockquote>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/96.jpg"></p>
+<p>image-</p>
+<blockquote>
+<p>这需要发送方的发送与接收方的接收做到严格的同步</p>
+<ul>
+<li><p>需要<strong>额外一根传输线来传输时钟信号</strong>，使发送方和接收方同步，接收方按时钟信号的节拍来逐个接收码元</p>
+</li>
+<li><p><strong>但是</strong>对于计算机网络，<strong>宁愿利用这根传输线传输数据信号</strong>，而不是传输时钟信号</p>
+</li>
+</ul>
+<p>由于<strong>不归零编码</strong>存在<strong>同步问题</strong>，因此计算机网络中的数据传输不采用这类编码！</p>
+</blockquote>
+<p><strong>归零编码</strong></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/97.jpg"></p>
+<p>image-</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/98.jpg"></p>
+<p>image-</p>
+<blockquote>
+<p><strong>归零编码</strong>虽然<strong>自同步</strong>，但<strong>编码效率低</strong></p>
+</blockquote>
+<p><strong>曼彻斯特编码</strong></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/99.jpg"></p>
+<p>image-</p>
+<blockquote>
+<p>在每个码元时间的中间时刻，信号都会发生跳变</p>
+<ul>
+<li><p>负跳变表示比特1/0</p>
+</li>
+<li><p>正跳变表示比特0/1</p>
+</li>
+<li><p>码元中间时刻的跳变即表示时钟，又表示数据</p>
+</li>
+</ul>
+<p><strong>实际比特1和比特0的表示要看现实怎么规定</strong></p>
+<p>传统以太网使用的就是曼切斯特编码</p>
+</blockquote>
+<p><strong>差分曼彻斯特编码</strong></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/100.jpg"></p>
+<p>image-</p>
+<blockquote>
+<p>在每个码元时间的中间时刻，信号都会发送跳变，但与<strong>曼彻斯特不同</strong></p>
+<ul>
+<li><p><strong>跳变仅表示时钟</strong></p>
+</li>
+<li><p><strong>码元开始处电平是否变换表示数据</strong></p>
+</li>
+</ul>
+<pre class="line-numbers language-undefined" data-language="undefined"><code class="language-undefined">*   变化表示比特1/0
 
-<p>问题描述：假设存在线程A和B，线程A先（时间上的先后）调用了setValue()方法，然后线程B调用了同一个对象的getValue()方法，那么线程B收到的返回值是什么？</p>
-<p>答案：不一定</p>
-<pre class="line-numbers language-none"><code class="language-none">分析happens-before规则（规则5，6，7，8可以忽略，和代码无关）
-1 由于两个方法由不同线程调用，不满足一个线程的条件，不满足程序次序规则
-2 两个方法都没有用锁，不满足锁定规则
-3 变量没有使用volatile修饰，所以不满足volatile变量规则
-4 传递规则肯定不满足
-综上：无法通过happens-before原则推导出线程A happens-before 线程B，虽然可以确定时间上线程A优于线程B，但就是无法确定线程B获得的结果是什么，所以这段代码不是线程安全的
 
-注意：
-● 如果两个操作的执行次序无法从happens-before原则推导出来，那么就不能保证他们的有序性，虚拟机可以随意对他们进行重排序<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+*   不变化表示比特0/1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>如何修复？</p>
+<p><strong>实际比特1和比特0的表示要看现实怎么规定</strong></p>
+<p>比曼彻斯特编码变化少，更适合较高的传输速率</p>
+</blockquote>
+<p><strong>总结</strong></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/101.jpg"></p>
+<p>image-</p>
+<p>调制</p>
+<p>数字信号转换为模拟信号，在模拟信道中传输，例如WiFi，采用补码键控CCK/直接序列扩频DSSS/正交频分复用OFDM等<strong>调制</strong>方式。</p>
+<p>模拟信号转换为另一种模拟信号，在模拟信道中传输，例如，语音数据加载到模拟的载波信号中传输。频分复用FDM技术，充分利用带宽资源。</p>
+<p><strong>基本调制方法</strong></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/102.jpg"></p>
+<p>image-</p>
+<blockquote>
 <ul>
-<li>把getter/setter方法都定义为synchronized方法——-&gt;不好，重量锁，并发性下降</li>
-<li>把getter/setter方法都定义为synchronized方法：</li>
+<li><p><strong>调幅AM</strong>：所调制的信号由两种不同振幅的基本波形构成。每个基本波形只能表示1比特信息量。</p>
+</li>
+<li><p><strong>调频FM</strong>：所调制的信号由两种不同频率的基本波形构成。每个基本波形只能表示1比特信息量。</p>
+</li>
+<li><p><strong>调相PM</strong>：所调制的信号由两种不同初相位的基本波形构成。每个基本波形只能表示1比特信息量。</p>
+</li>
 </ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">int</span> value <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token keyword">int</span> <span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> value<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token keyword">int</span> <span class="token function">setValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token operator">++</span>value<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<p>但是使用基本调制方法，1个码元只能包含1个比特信息</p>
+</blockquote>
+<p><strong>混合调制</strong></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/103.jpg"></p>
+<p>image-</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/104.jpg"></p>
+<p>image-</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/105.jpg"></p>
+<p>image-</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/106.jpg"></p>
+<p>image-</p>
+<blockquote>
+<p>上图码元所对应的4个比特是错误的，码元不能随便对应4个比特</p>
+</blockquote>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/107.jpg"></p>
+<p>image-</p>
+<h3 id="码元"><a href="#码元" class="headerlink" title="码元"></a>码元</h3><p>在使用时间域的波形表示数字信号时，代表不同离散数值的基本波形。</p>
+<h2 id="2-5、信道的极限容量"><a href="#2-5、信道的极限容量" class="headerlink" title="2.5、信道的极限容量"></a>2.5、信道的极限容量</h2><ul>
+<li>任何实际的信道都不是理想的，在传输信号时会产生各种失真以及带来多种干扰。</li>
+<li>码元传输的速率越高，或信号传输的距离越远，或传输媒体质量越差，在信道的输出端的波形的失真就越严重。</li>
+</ul>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/108.jpg"></p>
+<p>image-</p>
+<p>失真的原因：</p>
 <ul>
-<li>把Value定义为volatile变量，由于setter方法对value的修改不依赖value的原值，满足volatile关键字使用场景</li>
+<li>码元传输的速率越高</li>
+<li>信号传输的距离越远</li>
+<li>噪声干扰越大</li>
+<li>传输媒体质量越差</li>
 </ul>
-<p>把Value定义为volatile变量：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/**
-* 利用volatile保证读取操作的可见性，
-* 利用synchronized保证符合操作的原子性结合使用锁和volatile变量来减少同步的开销
-*/</span>
-<span class="token keyword">private</span> <span class="token keyword">volatile</span> <span class="token keyword">int</span> value <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> value<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">public</span> <span class="token keyword">synchronized</span> <span class="token keyword">int</span> <span class="token function">setValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token operator">++</span>value<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/109.jpg"></p>
+<p>image-</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/110.jpg"></p>
+<p>image-</p>
+<p>奈氏准则和香农公式对比：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/111.jpg"></p>
+<p>image-</p>
+<h3 id="补充：信道复用技术"><a href="#补充：信道复用技术" class="headerlink" title="补充：信道复用技术"></a>补充：信道复用技术</h3><p>本节内容视频未讲到，是《计算机网络（第7版）谢希仁》物理层的内容</p>
+<h3 id="频分复用、时分复用和统计时分复用"><a href="#频分复用、时分复用和统计时分复用" class="headerlink" title="频分复用、时分复用和统计时分复用"></a>频分复用、时分复用和统计时分复用</h3><p>复用 (multiplexing) 是通信技术中的基本概念。</p>
+<p>它允许用户使用一个共享信道进行通信，降低成本，提高利用率。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/112.jpg"></p>
+<p>image-</p>
+<p><strong>频分复用 FDM (Frequency Division Multiplexing)</strong></p>
+<ul>
+<li>将整个带宽分为多份，用户在分配到一定的频带后，在通信过程中自始至终都占用这个频带。</li>
+<li><strong>频分复用</strong>的所有用户在同样的时间<strong>占用不同的带宽资源</strong>（请注意，这里的“带宽”是频率带宽而不是数据的发送速率）。</li>
+</ul>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/113.jpg"></p>
+<p>image-</p>
+<p><strong>时分复用TDM (Time Division Multiplexing)</strong></p>
+<ul>
+<li><strong>时分复用</strong>则是将时间划分为一段段等长的<strong>时分复用帧（TDM帧）</strong>。每一个时分复用的用户在每一个 TDM 帧中占用固定序号的时隙。</li>
+<li>每一个用户所占用的时隙是<strong>周期性地出现</strong>（其周期就是TDM帧的长度）的。</li>
+<li>TDM 信号也称为<strong>等时</strong> (isochronous) 信号。</li>
+<li><strong>时分复用的所有用户在不同的时间占用同样的频带宽度。</strong></li>
+</ul>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/114.jpg"></p>
+<p>image-</p>
+<ul>
+<li><strong>时分复用可能会造成线路资源的浪费</strong><ul>
+<li>使用时分复用系统传送计算机数据时，由于计算机数据的突发性质，用户对分配到的子信道的利用率一般是不高的。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/115.jpg"></p>
+<p>image-</p>
+<p><strong>统计时分复用 STDM (Statistic TDM)</strong></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/116.jpg"></p>
+<p>image-</p>
+<h3 id="波分复用"><a href="#波分复用" class="headerlink" title="波分复用"></a>波分复用</h3><p>波分复用 WDM(Wavelength Division Multiplexing)</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/117.jpg"></p>
+<p>image-</p>
+<h3 id="码分复用"><a href="#码分复用" class="headerlink" title="码分复用"></a>码分复用</h3><p>码分复用 CDM (Code Division Multiplexing)</p>
+<ul>
+<li>常用的名词是<strong>码分多址</strong> CDMA (Code Division Multiple Access)。</li>
+<li>各用户使用经过特殊挑选的不同码型，因此彼此不会造成干扰。</li>
+<li>这种系统发送的信号有很强的抗干扰能力，其频谱类似于白噪声，不易被敌人发现。</li>
+</ul>
 
                 
             </div>
@@ -734,7 +880,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gitee.com/yunyd/yunyd/posts/6c9d84e4.html">https://gitee.com/yunyd/yunyd/posts/6c9d84e4.html</a>
+                    <a href="https://gitee.com/yunyd/yunyd/posts/1a887d87.html">https://gitee.com/yunyd/yunyd/posts/1a887d87.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -772,8 +918,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
-                                    <span class="chip bg-color">JUC并发编程</span>
+                                <a href="/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">计算机网络</span>
                                 </a>
                             
                         </div>
@@ -1245,29 +1391,30 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/yunyd/posts/38f0fa30.html">
+                <a href="/yunyd/posts/1a887d87.html">
                     <div class="card-image">
                         
                         
-                        <img src="/yunyd/medias/a.jpg" class="responsive-img" alt="校园美食圈">
+                        <img src="/yunyd/medias/r.jpg" class="responsive-img" alt="计网-物理层">
                         
-                        <span class="card-title">校园美食圈</span>
+                        <span class="card-title">计网-物理层</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            校园美食圈
+                            计网-物理层
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1276,11 +1423,12 @@ new Valine({
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/yunyd/tags/%E9%A1%B9%E7%9B%AE/">
-                        <span class="chip bg-color">项目</span>
+                    <a href="/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
                     </a>
                     
                 </div>
@@ -1294,24 +1442,24 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yunyd/posts/1276cc28.html">
+                <a href="/yunyd/posts/c68d923.html">
                     <div class="card-image">
                         
                         
-                        <img src="/yunyd/medias/z011.jpg" class="responsive-img" alt="MyBatis-Plus">
+                        <img src="/yunyd/medias/z005.jpg" class="responsive-img" alt="计网-概述">
                         
-                        <span class="card-title">MyBatis-Plus</span>
+                        <span class="card-title">计网-概述</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            MyBatis-Plus复习
+                            计网-概述
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-07
                             </span>
                         <span class="publish-author">
                             
@@ -1324,12 +1472,8 @@ new Valine({
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/yunyd/tags/MyBatis-Plus/">
-                        <span class="chip bg-color">MyBatis-Plus</span>
-                    </a>
-                    
-                    <a href="/yunyd/tags/SSMP/">
-                        <span class="chip bg-color">SSMP</span>
+                    <a href="/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
                     </a>
                     
                 </div>
