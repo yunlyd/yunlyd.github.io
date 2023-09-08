@@ -381,7 +381,9 @@
 
 
 <script>
-    $('.bg-cover').css('background-image', 'url(/yunyd/medias/banner/0.jpg)');
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/yunyd/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
 
@@ -446,10 +448,19 @@
                 </a>
                 
                 
+                <a href="/yunyd/tags/Gateway/" title="Gateway: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Gateway" style="background-color: #F8F9F9;">Gateway
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/yunyd/tags/Eureka/" title="Eureka: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Eureka" style="background-color: #F8F9F9;">Eureka
+                            data-tagname="Eureka" style="background-color: #82E0AA;">Eureka
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -458,7 +469,7 @@
                 <a href="/yunyd/tags/Feign/" title="Feign: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Feign" style="background-color: #82E0AA;">Feign
+                            data-tagname="Feign" style="background-color: #D7BDE2;">Feign
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -467,16 +478,7 @@
                 <a href="/yunyd/tags/Git/" title="Git: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Git" style="background-color: #D7BDE2;">Git
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/yunyd/tags/Gateway/" title="Gateway: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Gateway" style="background-color: #A3E4D7;">Gateway
+                            data-tagname="Git" style="background-color: #A3E4D7;">Git
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -500,10 +502,28 @@
                 </a>
                 
                 
-                <a href="/yunyd/tags/MyBatis/" title="MyBatis: 1">
+                <a href="/yunyd/tags/Maven/" title="Maven: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="MyBatis" style="background-color: #F9E79F;">MyBatis
+                            data-tagname="Maven" style="background-color: #F9E79F;">Maven
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/yunyd/tags/Nginx/" title="Nginx: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Nginx" style="background-color: #F9E79F;">Nginx
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/yunyd/tags/MyBatis-Plus/" title="MyBatis-Plus: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="MyBatis-Plus" style="background-color: #F9E79F;">MyBatis-Plus
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -527,28 +547,10 @@
                 </a>
                 
                 
-                <a href="/yunyd/tags/%E9%A1%B9%E7%9B%AE/" title="项目: 3">
+                <a href="/yunyd/tags/MyBatis/" title="MyBatis: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="项目" style="background-color: #85C1E9;">项目
-                        <span class="tag-length">3</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/yunyd/tags/Nginx/" title="Nginx: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Nginx" style="background-color: #F9E79F;">Nginx
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/yunyd/tags/Maven/" title="Maven: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Maven" style="background-color: #F9E79F;">Maven
+                            data-tagname="MyBatis" style="background-color: #F5EEF8;">MyBatis
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -563,11 +565,11 @@
                 </a>
                 
                 
-                <a href="/yunyd/tags/MyBatis-Plus/" title="MyBatis-Plus: 1">
+                <a href="/yunyd/tags/%E9%A1%B9%E7%9B%AE/" title="项目: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="MyBatis-Plus" style="background-color: #F9E79F;">MyBatis-Plus
-                        <span class="tag-length">1</span>
+                            data-tagname="项目" style="background-color: #85C1E9;">项目
+                        <span class="tag-length">3</span>
                     </span>
                 </a>
                 
@@ -576,15 +578,6 @@
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="Redis" style="background-color: #F9EBEA;">Redis
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/yunyd/tags/SpringBoot/" title="SpringBoot: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="SpringBoot" style="background-color: #F9E79F;">SpringBoot
                         <span class="tag-length">2</span>
                     </span>
                 </a>
@@ -599,11 +592,11 @@
                 </a>
                 
                 
-                <a href="/yunyd/tags/Spring/" title="Spring: 3">
+                <a href="/yunyd/tags/SpringBoot/" title="SpringBoot: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Spring" style="background-color: #F9E79F;">Spring
-                        <span class="tag-length">3</span>
+                            data-tagname="SpringBoot" style="background-color: #F9E79F;">SpringBoot
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -622,6 +615,15 @@
                              chip-default "
                             data-tagname="计算机网络" style="background-color: #A3E4D7;">计算机网络
                         <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/yunyd/tags/Spring/" title="Spring: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Spring" style="background-color: #F9E79F;">Spring
+                        <span class="tag-length">3</span>
                     </span>
                 </a>
                 

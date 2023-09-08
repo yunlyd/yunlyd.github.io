@@ -388,7 +388,9 @@
 
 
 <script>
-    $('.bg-cover').css('background-image', 'url(/yunyd/medias/banner/0.jpg)');
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/yunyd/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
 
@@ -642,7 +644,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["JUC并发编程","SpringCloud","SSMP","项目笔记","ElasticSearch","项目","Spring","MQ","Redis","SpringBoot"]
+                data: ["JUC并发编程","SpringCloud","SSMP","项目笔记","ElasticSearch","项目","Spring","MQ","Redis","SpringMVC"]
             }
         ],
         yAxis: [
@@ -803,6 +805,12 @@
             
             
             
+            <a href="/yunyd/tags/Gateway/">
+                <span class="chip center-align waves-effect waves-light chip-default">Gateway</span>
+            </a>
+            
+            
+            
             <a href="/yunyd/tags/Eureka/">
                 <span class="chip center-align waves-effect waves-light chip-default">Eureka</span>
             </a>
@@ -821,12 +829,6 @@
             
             
             
-            <a href="/yunyd/tags/Gateway/">
-                <span class="chip center-align waves-effect waves-light chip-default">Gateway</span>
-            </a>
-            
-            
-            
             <a href="/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">
                 <span class="chip center-align waves-effect waves-light chip-default">JUC并发编程</span>
             </a>
@@ -839,8 +841,20 @@
             
             
             
-            <a href="/yunyd/tags/MyBatis/">
-                <span class="chip center-align waves-effect waves-light chip-default">MyBatis</span>
+            <a href="/yunyd/tags/Maven/">
+                <span class="chip center-align waves-effect waves-light chip-default">Maven</span>
+            </a>
+            
+            
+            
+            <a href="/yunyd/tags/Nginx/">
+                <span class="chip center-align waves-effect waves-light chip-default">Nginx</span>
+            </a>
+            
+            
+            
+            <a href="/yunyd/tags/MyBatis-Plus/">
+                <span class="chip center-align waves-effect waves-light chip-default">MyBatis-Plus</span>
             </a>
             
             
@@ -857,20 +871,8 @@
             
             
             
-            <a href="/yunyd/tags/%E9%A1%B9%E7%9B%AE/">
-                <span class="chip center-align waves-effect waves-light chip-default">项目</span>
-            </a>
-            
-            
-            
-            <a href="/yunyd/tags/Nginx/">
-                <span class="chip center-align waves-effect waves-light chip-default">Nginx</span>
-            </a>
-            
-            
-            
-            <a href="/yunyd/tags/Maven/">
-                <span class="chip center-align waves-effect waves-light chip-default">Maven</span>
+            <a href="/yunyd/tags/MyBatis/">
+                <span class="chip center-align waves-effect waves-light chip-default">MyBatis</span>
             </a>
             
             
@@ -881,8 +883,8 @@
             
             
             
-            <a href="/yunyd/tags/MyBatis-Plus/">
-                <span class="chip center-align waves-effect waves-light chip-default">MyBatis-Plus</span>
+            <a href="/yunyd/tags/%E9%A1%B9%E7%9B%AE/">
+                <span class="chip center-align waves-effect waves-light chip-default">项目</span>
             </a>
             
             
@@ -893,20 +895,14 @@
             
             
             
-            <a href="/yunyd/tags/SpringBoot/">
-                <span class="chip center-align waves-effect waves-light chip-default">SpringBoot</span>
-            </a>
-            
-            
-            
             <a href="/yunyd/tags/SpringMVC/">
                 <span class="chip center-align waves-effect waves-light chip-default">SpringMVC</span>
             </a>
             
             
             
-            <a href="/yunyd/tags/Spring/">
-                <span class="chip center-align waves-effect waves-light chip-default">Spring</span>
+            <a href="/yunyd/tags/SpringBoot/">
+                <span class="chip center-align waves-effect waves-light chip-default">SpringBoot</span>
             </a>
             
             
@@ -919,6 +915,12 @@
             
             <a href="/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
                 <span class="chip center-align waves-effect waves-light chip-default">计算机网络</span>
+            </a>
+            
+            
+            
+            <a href="/yunyd/tags/Spring/">
+                <span class="chip center-align waves-effect waves-light chip-default">Spring</span>
             </a>
             
             
