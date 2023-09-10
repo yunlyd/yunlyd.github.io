@@ -533,7 +533,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="计算机网络第3章（数据链路层）"><a href="#计算机网络第3章（数据链路层）" class="headerlink" title="计算机网络第3章（数据链路层）"></a>计算机网络第3章（数据链路层）</h1><h1 id="3-1、数据链路层概述"><a href="#3-1、数据链路层概述" class="headerlink" title="3.1、数据链路层概述"></a>3.1、数据链路层概述</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>链路</strong>是从一个结点到相邻结点的一段物理线路，<strong>数据链路</strong>则是在链路的基础上增加了一些必要的硬件（如网络适配器）和软件（如协议的实现）</p>
+                <h1 id="计算机网络第3章（数据链路层）"><a href="#计算机网络第3章（数据链路层）" class="headerlink" title="计算机网络第3章（数据链路层）"></a>计算机网络第3章（数据链路层）</h1><h2 id="3-1、数据链路层概述"><a href="#3-1、数据链路层概述" class="headerlink" title="3.1、数据链路层概述"></a>3.1、数据链路层概述</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p><strong>链路</strong>是从一个结点到相邻结点的一段物理线路，<strong>数据链路</strong>则是在链路的基础上增加了一些必要的硬件（如网络适配器）和软件（如协议的实现）</p>
 <p><strong>网络中的主机、路由器等都必须实现数据链路层</strong></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/118.jpg"></p>
 <p>image-</p>
@@ -565,7 +565,7 @@
 <p>局域网虽然是个网络。但我们并不把局域网放在网络层中讨论。这是因为在网络层要讨论的是多个网络互连的问题，是讨论分组怎么从一个网络，通过路由器，转发到另一个网络。</p>
 <p>而在同一个局域网中，分组怎么从一台主机传送到另一台主机，但并不经过路由器转发。从整个互联网来看，<strong>局域网仍属于数据链路层</strong>的范围</p>
 </blockquote>
-<h2 id="三个重要问题"><a href="#三个重要问题" class="headerlink" title="三个重要问题"></a>三个重要问题</h2><p>数据链路层传送的协议数据单元是<strong>帧</strong></p>
+<h3 id="三个重要问题"><a href="#三个重要问题" class="headerlink" title="三个重要问题"></a>三个重要问题</h3><p>数据链路层传送的协议数据单元是<strong>帧</strong></p>
 <p><strong>封装成帧</strong></p>
 <ul>
 <li><strong>封装成帧</strong> (framing) 就是在一段数据的前后分别添加首部和尾部，然后就构成了一个帧。</li>
@@ -603,7 +603,7 @@
 <p>在无线局域网中仍然使用的是共享信道技术</p>
 </blockquote>
 <hr>
-<h1 id="3-2、封装成帧"><a href="#3-2、封装成帧" class="headerlink" title="3.2、封装成帧"></a>3.2、封装成帧</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>封装成帧是指数据链路层给上层交付的协议数据单元添加帧头和帧尾使之成为帧</p>
+<h2 id="3-2、封装成帧"><a href="#3-2、封装成帧" class="headerlink" title="3.2、封装成帧"></a>3.2、封装成帧</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>封装成帧是指数据链路层给上层交付的协议数据单元添加帧头和帧尾使之成为帧</p>
 <ul>
 <li><strong>帧头和帧尾中包含有重要的控制信息</strong></li>
 </ul>
@@ -628,7 +628,7 @@
 <p>另外以太网还规定了帧间间隔为96比特时间，因此，MAC帧不需要帧结束定界符</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/133.jpg"></p>
 <p>image-</p>
-<h2 id="透明传输"><a href="#透明传输" class="headerlink" title="透明传输"></a>透明传输</h2><blockquote>
+<h3 id="透明传输"><a href="#透明传输" class="headerlink" title="透明传输"></a>透明传输</h3><blockquote>
 <p><strong>透明</strong></p>
 <p>指某一个实际存在的事物看起来却好像不存在一样。</p>
 </blockquote>
@@ -651,14 +651,14 @@
 <p><strong>帧的数据部分长度</strong></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/136.jpg"></p>
 <p>image-</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/137.jpg"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/137.jpg"></p>
 <p>image-</p>
 <hr>
-<h1 id="3-3、差错检测"><a href="#3-3、差错检测" class="headerlink" title="3.3、差错检测"></a>3.3、差错检测</h1><h2 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/138.jpg"></p>
+<h2 id="3-3、差错检测"><a href="#3-3、差错检测" class="headerlink" title="3.3、差错检测"></a>3.3、差错检测</h2><h3 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/138.jpg"></p>
 <p>image-</p>
-<h2 id="奇偶校验"><a href="#奇偶校验" class="headerlink" title="奇偶校验"></a>奇偶校验</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/139.jpg"></p>
+<h3 id="奇偶校验"><a href="#奇偶校验" class="headerlink" title="奇偶校验"></a>奇偶校验</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/139.jpg"></p>
 <p>image-</p>
-<h2 id="循环冗余校验CRC-Cyclic-Redundancy-Check"><a href="#循环冗余校验CRC-Cyclic-Redundancy-Check" class="headerlink" title="循环冗余校验CRC(Cyclic Redundancy Check)"></a>循环冗余校验CRC(Cyclic Redundancy Check)</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/140.jpg"></p>
+<h3 id="循环冗余校验CRC-Cyclic-Redundancy-Check"><a href="#循环冗余校验CRC-Cyclic-Redundancy-Check" class="headerlink" title="循环冗余校验CRC(Cyclic Redundancy Check)"></a>循环冗余校验CRC(Cyclic Redundancy Check)</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/140.jpg"></p>
 <p>image-</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/141.jpg"></p>
 <p>image-</p>
@@ -674,7 +674,7 @@
 <p>循环冗余校验 CRC 是一种检错方法，而帧校验序列 FCS 是添加在数据后面的冗余码</p>
 </blockquote>
 <hr>
-<h1 id="3-4、可靠传输"><a href="#3-4、可靠传输" class="headerlink" title="3.4、可靠传输"></a>3.4、可靠传输</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><strong>下面是比特差错</strong></p>
+<h2 id="3-4、可靠传输"><a href="#3-4、可靠传输" class="headerlink" title="3.4、可靠传输"></a>3.4、可靠传输</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p><strong>下面是比特差错</strong></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/145.jpg"></p>
 <p>image-</p>
 <p><strong>其他传输差错</strong></p>
@@ -698,7 +698,7 @@
 <p>由于某些原因，有些分组在网络中滞留了，没有及时到达接收端，这可能会造成发送端对该分组的重发，重发的分组到达接收端，但一段时间后，滞留在网络的分组也到达了接收端，这就造成<strong>分组重复</strong>的传输差错</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/149.jpg"></p>
 <p>image-</p>
-<h2 id="三种可靠协议"><a href="#三种可靠协议" class="headerlink" title="三种可靠协议"></a>三种可靠协议</h2><ul>
+<h4 id="三种可靠协议"><a href="#三种可靠协议" class="headerlink" title="三种可靠协议"></a>三种可靠协议</h4><ul>
 <li>停止-等待协议SW</li>
 <li>回退N帧协议GBN</li>
 <li>选择重传协议SR</li>
@@ -706,7 +706,7 @@
 <blockquote>
 <p>这三种可靠传输实现机制的基本原理并不仅限于数据链路层，可以应用到计算机网络体系结构的各层协议中</p>
 </blockquote>
-<h2 id="停止-等待协议"><a href="#停止-等待协议" class="headerlink" title="停止-等待协议"></a>停止-等待协议</h2><h3 id="停止-等待协议可能遇到的四个问题"><a href="#停止-等待协议可能遇到的四个问题" class="headerlink" title="停止-等待协议可能遇到的四个问题"></a>停止-等待协议可能遇到的四个问题</h3><p><strong>确认与否认</strong></p>
+<h4 id="停止-等待协议"><a href="#停止-等待协议" class="headerlink" title="停止-等待协议"></a>停止-等待协议</h4><h4 id="停止-等待协议可能遇到的四个问题"><a href="#停止-等待协议可能遇到的四个问题" class="headerlink" title="停止-等待协议可能遇到的四个问题"></a>停止-等待协议可能遇到的四个问题</h4><p><strong>确认与否认</strong></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/150.jpg"></p>
 <p>image-</p>
 <p><strong>超时重传</strong></p>
@@ -730,7 +730,7 @@
 <p><strong>注意事项</strong></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/155.jpg"></p>
 <p>image-</p>
-<h3 id="停止-等待协议的信道利用率"><a href="#停止-等待协议的信道利用率" class="headerlink" title="停止-等待协议的信道利用率"></a>停止-等待协议的信道利用率</h3><p>假设收发双方之间是一条直通的信道</p>
+<h4 id="停止-等待协议的信道利用率"><a href="#停止-等待协议的信道利用率" class="headerlink" title="停止-等待协议的信道利用率"></a>停止-等待协议的信道利用率</h4><p>假设收发双方之间是一条直通的信道</p>
 <ul>
 <li><strong>TD</strong>：是发送方发送数据分组所耗费的发送时延</li>
 <li><strong>RTT</strong>：是收发双方之间的往返时间</li>
@@ -746,13 +746,13 @@
 <blockquote>
 <p>像停止-等待协议这样通过确认和重传机制实现的可靠传输协议，常称为自动请求重传协议ARQ(<strong>A</strong>utomatic <strong>R</strong>epeat re<strong>Q</strong>uest)，意思是重传的请求是自动进行，因为不需要接收方显式地请求，发送方重传某个发送的分组</p>
 </blockquote>
-<h2 id="回退N帧协议GBN"><a href="#回退N帧协议GBN" class="headerlink" title="回退N帧协议GBN"></a>回退N帧协议GBN</h2><h3 id="为什么用回退N帧协议"><a href="#为什么用回退N帧协议" class="headerlink" title="为什么用回退N帧协议"></a>为什么用回退N帧协议</h3><p>在相同的时间内，使用停止-等待协议的发送方只能发送一个数据分组，而采用流水线传输的发送方，可以发送多个数据分组</p>
+<h3 id="回退N帧协议GBN"><a href="#回退N帧协议GBN" class="headerlink" title="回退N帧协议GBN"></a>回退N帧协议GBN</h3><h4 id="为什么用回退N帧协议"><a href="#为什么用回退N帧协议" class="headerlink" title="为什么用回退N帧协议"></a>为什么用回退N帧协议</h4><p>在相同的时间内，使用停止-等待协议的发送方只能发送一个数据分组，而采用流水线传输的发送方，可以发送多个数据分组</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/159.jpg"></p>
 <p>image-</p>
 <p>回退N帧协议在流水线传输的基础上，利用发送窗口来限制发送方可连续发送数据分组的个数</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/160.jpg"></p>
 <p>image-</p>
-<h3 id="无差错情况流程"><a href="#无差错情况流程" class="headerlink" title="无差错情况流程"></a>无差错情况流程</h3><p>发送方将序号落在发送窗口内的0~4号数据分组，依次连续发送出去</p>
+<h4 id="无差错情况流程"><a href="#无差错情况流程" class="headerlink" title="无差错情况流程"></a>无差错情况流程</h4><p>发送方将序号落在发送窗口内的0~4号数据分组，依次连续发送出去</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/161.jpg"></p>
 <p>image-</p>
 <p>他们经过互联网传输正确到达接收方，就是没有乱序和误码，接收方按序接收它们，每接收一个，接收窗口就向前滑动一个位置，并给发送方发送针对所接收分组的确认分组，在通过互联网的传输正确到达了发送方</p>
@@ -761,7 +761,7 @@
 <p>发送方每接收一个、发送窗口就向前滑动一个位置，这样就有新的序号落入发送窗口，发送方可以将收到确认的数据分组从缓存中删除了，而接收方可以择机将已接收的数据分组交付上层处理</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/163.jpg"></p>
 <p>image-</p>
-<h3 id="累计确认"><a href="#累计确认" class="headerlink" title="累计确认"></a><strong>累计确认</strong></h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/164.jpg"></p>
+<h4 id="累计确认"><a href="#累计确认" class="headerlink" title="累计确认"></a><strong>累计确认</strong></h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/164.jpg"></p>
 <p>image-</p>
 <blockquote>
 <p>累计确认</p>
@@ -779,7 +779,7 @@
 <li>不能向发送方及时反映出接收方已经正确接收的数据分组信息</li>
 </ul>
 </blockquote>
-<h3 id="有差错情况"><a href="#有差错情况" class="headerlink" title="有差错情况"></a><strong>有差错情况</strong></h3><p>例如</p>
+<h4 id="有差错情况"><a href="#有差错情况" class="headerlink" title="有差错情况"></a><strong>有差错情况</strong></h4><p>例如</p>
 <p>在传输数据分组时，5号数据分组出现误码，接收方通过数据分组中的检错码发现了错误</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/165.jpg"></p>
 <p>image-</p>
@@ -809,7 +809,7 @@
 <li>在协议的工作过程中发送窗口和接收窗口不断向前滑动，因此这类协议又称为滑动窗口协议</li>
 <li>由于回退N帧协议的特性，当通信线路质量不好时，其信道利用率并不比停止-等待协议高</li>
 </ul>
-<h2 id="选择重传协议SR"><a href="#选择重传协议SR" class="headerlink" title="选择重传协议SR"></a>选择重传协议SR</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/173.jpg"></p>
+<h3 id="选择重传协议SR"><a href="#选择重传协议SR" class="headerlink" title="选择重传协议SR"></a>选择重传协议SR</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/173.jpg"></p>
 <p>image-</p>
 <p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://www.bilibili.com/video/BV1c4411d7jb?p=27">具体流程请看视频</a></p>
 <p><strong>习题</strong></p>
@@ -821,7 +821,7 @@
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/176.jpg"></p>
 <p>image-</p>
 <hr>
-<h1 id="3-5、点对点协议PPP"><a href="#3-5、点对点协议PPP" class="headerlink" title="3.5、点对点协议PPP"></a>3.5、点对点协议PPP</h1><ul>
+<h2 id="3-5、点对点协议PPP"><a href="#3-5、点对点协议PPP" class="headerlink" title="3.5、点对点协议PPP"></a>3.5、点对点协议PPP</h2><ul>
 <li>点对点协议PPP（Point-to-Point Protocol）是目前使用最广泛的点对点数据链路层协议</li>
 <li>PPP协议是因特网工程任务组IEIF在1992年制定的。经过1993年和1994年的修订，现在的PPP协议已成为因特网的正式标准[RFC1661，RFC1662]</li>
 <li>数据链路层使用的一种协议，它的特点是：简单；只检测差错，而不是纠正差错；不使用序号，也不进行流量控制；可同时支持多种网络层协议</li>
@@ -833,10 +833,10 @@
 </ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/178.jpg"></p>
 <p>image-</p>
-<h2 id="帧格式"><a href="#帧格式" class="headerlink" title="帧格式"></a>帧格式</h2><p>必须规定特殊的字符作为帧定界符</p>
+<h3 id="帧格式"><a href="#帧格式" class="headerlink" title="帧格式"></a>帧格式</h3><p>必须规定特殊的字符作为帧定界符</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/179.jpg"></p>
 <p>image-</p>
-<h2 id="透明传输-1"><a href="#透明传输-1" class="headerlink" title="透明传输"></a>透明传输</h2><p>必须保证数据传输的透明性</p>
+<h3 id="透明传输-1"><a href="#透明传输-1" class="headerlink" title="透明传输"></a>透明传输</h3><p>必须保证数据传输的透明性</p>
 <p>实现透明传输的方法</p>
 <ul>
 <li>面向字节的异步链路：字节填充法（插入“转义字符”）</li>
@@ -848,10 +848,10 @@
 </ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/181.jpg"></p>
 <p>image-</p>
-<h2 id="差错检测"><a href="#差错检测" class="headerlink" title="差错检测"></a>差错检测</h2><p>能够对接收端收到的帧进行检测，并立即丢弃有差错的帧。</p>
+<h3 id="差错检测"><a href="#差错检测" class="headerlink" title="差错检测"></a>差错检测</h3><p>能够对接收端收到的帧进行检测，并立即丢弃有差错的帧。</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/182.jpg"></p>
 <p>image-</p>
-<h2 id="工作状态"><a href="#工作状态" class="headerlink" title="工作状态"></a>工作状态</h2><ul>
+<h3 id="工作状态"><a href="#工作状态" class="headerlink" title="工作状态"></a>工作状态</h3><ul>
 <li>当用户拨号接入 ISP 时，路由器的调制解调器对拨号做出确认，并建立一条物理连接。</li>
 <li>PC 机向路由器发送一系列的 LCP 分组（封装成多个 PPP 帧）。</li>
 <li>这些分组及其响应选择一些 PPP 参数，并进行网络层配置，NCP 给新接入的 PC 机</li>
@@ -864,7 +864,7 @@
 <p>可见，PPP 协议已不是纯粹的数据链路层的协议，它还包含了物理层和网络层的内容。</p>
 </blockquote>
 <hr>
-<h1 id="3-6、媒体接入控制（介质访问控制）——广播信道"><a href="#3-6、媒体接入控制（介质访问控制）——广播信道" class="headerlink" title="3.6、媒体接入控制（介质访问控制）——广播信道"></a>3.6、媒体接入控制（介质访问控制）——广播信道</h1><p><strong>媒体接入控制（介质访问控制）使用一对多的广播通信方式</strong></p>
+<h2 id="3-6、媒体接入控制（介质访问控制）——广播信道"><a href="#3-6、媒体接入控制（介质访问控制）——广播信道" class="headerlink" title="3.6、媒体接入控制（介质访问控制）——广播信道"></a>3.6、媒体接入控制（介质访问控制）——广播信道</h2><p><strong>媒体接入控制（介质访问控制）使用一对多的广播通信方式</strong></p>
 <blockquote>
 <p><strong>Medium Access Control</strong>翻译成媒体接入控制，有些翻译成介质访问控制</p>
 </blockquote>
@@ -895,7 +895,7 @@
 <p>与接入到传输媒体有关的内容都放在 MAC子层，而 LLC 子层则与传输媒体无关。 <strong>不管采用何种协议的局域网，对 LLC 子层来说都是透明的。</strong></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/186.jpg"></p>
 <p>image-</p>
-<h2 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h2><p>为什么要媒体接入控制（介质访问控制）？</p>
+<h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><p>为什么要媒体接入控制（介质访问控制）？</p>
 <p><strong>共享信道带来的问题</strong></p>
 <p>若多个设备在共享信道上同时发送数据，则会造成彼此干扰，导致发送失败。</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/187.jpg"></p>
@@ -905,7 +905,7 @@
 <blockquote>
 <p>随着技术的发展，交换技术的成熟和成本的降低，具有更高性能的使用点对点链路和链路层交换机的交换式局域网在有线领域已完全取代了共享式局域网，但由于无线信道的广播天性，无线局域网仍然使用的是共享媒体技术</p>
 </blockquote>
-<h2 id="静态划分信道"><a href="#静态划分信道" class="headerlink" title="静态划分信道"></a>静态划分信道</h2><p><strong>信道复用</strong></p>
+<h3 id="静态划分信道"><a href="#静态划分信道" class="headerlink" title="静态划分信道"></a>静态划分信道</h3><p><strong>信道复用</strong></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/189.jpg"></p>
 <p>image-</p>
 <p><strong>频分复用FDM (Frequency Division Multiplexing)</strong></p>
@@ -940,12 +940,12 @@
 <p>image-</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/196.jpg"></p>
 <p>image-</p>
-<h2 id="动态接入控制"><a href="#动态接入控制" class="headerlink" title="动态接入控制"></a>动态接入控制</h2><p>受控接入</p>
+<h3 id="动态接入控制"><a href="#动态接入控制" class="headerlink" title="动态接入控制"></a>动态接入控制</h3><p>受控接入</p>
 <p><strong>受控接入在局域网中使用得较少，本书不再讨论</strong></p>
 <p><strong>随机接入</strong></p>
 <p><strong>重点</strong></p>
-<h2 id="随机接入（CSMA-CD协议）"><a href="#随机接入（CSMA-CD协议）" class="headerlink" title="随机接入（CSMA/CD协议）"></a>随机接入（CSMA/CD协议）</h2><p><strong>总线局域网使用协议：CSMA/CD</strong></p>
-<h3 id="基本概念-2"><a href="#基本概念-2" class="headerlink" title="基本概念"></a>基本概念</h3><p><strong>最初</strong>的<strong>以太网</strong>是将许多计算机都连接到一根总线上。易于实现广播通信。当初认为这样的连接方法既简单又可靠，因为总线上没有有源器件。</p>
+<h3 id="随机接入（CSMA-CD协议）"><a href="#随机接入（CSMA-CD协议）" class="headerlink" title="随机接入（CSMA/CD协议）"></a>随机接入（CSMA/CD协议）</h3><p><strong>总线局域网使用协议：CSMA/CD</strong></p>
+<h4 id="基本概念-2"><a href="#基本概念-2" class="headerlink" title="基本概念"></a>基本概念</h4><p><strong>最初</strong>的<strong>以太网</strong>是将许多计算机都连接到一根总线上。易于实现广播通信。当初认为这样的连接方法既简单又可靠，因为总线上没有有源器件。</p>
 <blockquote>
 <p><strong>以太网（Ethernet）</strong>是一种计算机<strong>局域网技术</strong>。IEEE组织的IEEE 802.3标准制定了<strong>以太网（Ethernet）</strong>的技术标准</p>
 <p>以太网采用无连接的工作方式，对发送的数据帧不进行编号，也不要求对方发回确认。目的站收到有差错帧就把它丢弃，其他什么也不做</p>
@@ -954,14 +954,14 @@
 <p>image-</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/198.jpg"></p>
 <p>image-</p>
-<h3 id="多址接入MA"><a href="#多址接入MA" class="headerlink" title="多址接入MA"></a>多址接入MA</h3><p>表示许多主机以多点接入的方式连接在一根总线上。</p>
+<h4 id="多址接入MA"><a href="#多址接入MA" class="headerlink" title="多址接入MA"></a>多址接入MA</h4><p>表示许多主机以多点接入的方式连接在一根总线上。</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/199.jpg"></p>
 <p>image-</p>
-<h3 id="载波监听CS"><a href="#载波监听CS" class="headerlink" title="载波监听CS"></a>载波监听CS</h3><p>是指每一个站在发送数据之前先要检测一下总线上是否有其他计算机在发送数据，如果有，则暂时不要发送数据，以免发生碰撞。</p>
+<h4 id="载波监听CS"><a href="#载波监听CS" class="headerlink" title="载波监听CS"></a>载波监听CS</h4><p>是指每一个站在发送数据之前先要检测一下总线上是否有其他计算机在发送数据，如果有，则暂时不要发送数据，以免发生碰撞。</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/200.jpg"></p>
 <p>image-</p>
 <p>总线上并没有什么“载波”。因此， <strong>“载波监听”就是用电子技术检测总线上有没有其他计算机发送的数据信号。</strong></p>
-<h3 id="碰撞检测CD"><a href="#碰撞检测CD" class="headerlink" title="碰撞检测CD"></a>碰撞检测CD</h3><ul>
+<h4 id="碰撞检测CD"><a href="#碰撞检测CD" class="headerlink" title="碰撞检测CD"></a>碰撞检测CD</h4><ul>
 <li><strong>“碰撞检测”</strong>就是计算机<strong>边发送数据边检测</strong>信道上的信号电压大小。</li>
 <li>当几个站同时在总线上发送数据时，总线上的信号电压摆动值将会增大（互相叠加）。</li>
 <li>当一个站检测到的信号电压摆动值超过一定的门限值时，就认为总线上至少有两个站同时在发送数据，表明产生了碰撞。</li>
@@ -977,21 +977,21 @@
 <p>image-</p>
 <p>A 需要单程传播时延的 2 倍的时间，才能检测到与 B 的发送产生了冲突</p>
 </blockquote>
-<h3 id="CSMA-CD-协议工作流程"><a href="#CSMA-CD-协议工作流程" class="headerlink" title="CSMA/CD 协议工作流程"></a>CSMA/CD 协议工作流程</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/203.jpg"></p>
+<h4 id="CSMA-CD-协议工作流程"><a href="#CSMA-CD-协议工作流程" class="headerlink" title="CSMA/CD 协议工作流程"></a>CSMA/CD 协议工作流程</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/203.jpg"></p>
 <p>image-</p>
-<h3 id="CSMA-CD-协议工作——争用期（碰撞窗口）"><a href="#CSMA-CD-协议工作——争用期（碰撞窗口）" class="headerlink" title="CSMA/CD 协议工作——争用期（碰撞窗口）"></a>CSMA/CD 协议工作——争用期（碰撞窗口）</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/204.jpg"></p>
+<h4 id="CSMA-CD-协议工作——争用期（碰撞窗口）"><a href="#CSMA-CD-协议工作——争用期（碰撞窗口）" class="headerlink" title="CSMA/CD 协议工作——争用期（碰撞窗口）"></a>CSMA/CD 协议工作——争用期（碰撞窗口）</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/204.jpg"></p>
 <p>image-</p>
-<h3 id="CSMA-CD-协议工作——最小帧长"><a href="#CSMA-CD-协议工作——最小帧长" class="headerlink" title="CSMA/CD 协议工作——最小帧长"></a>CSMA/CD 协议工作——最小帧长</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/205.jpg"></p>
+<h4 id="CSMA-CD-协议工作——最小帧长"><a href="#CSMA-CD-协议工作——最小帧长" class="headerlink" title="CSMA/CD 协议工作——最小帧长"></a>CSMA/CD 协议工作——最小帧长</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/205.jpg"></p>
 <p>image-</p>
-<h3 id="CSMA-CD-协议工作——最大帧长"><a href="#CSMA-CD-协议工作——最大帧长" class="headerlink" title="CSMA/CD 协议工作——最大帧长"></a>CSMA/CD 协议工作——最大帧长</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/206.jpg"></p>
+<h4 id="CSMA-CD-协议工作——最大帧长"><a href="#CSMA-CD-协议工作——最大帧长" class="headerlink" title="CSMA/CD 协议工作——最大帧长"></a>CSMA/CD 协议工作——最大帧长</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/206.jpg"></p>
 <p>image-</p>
-<h3 id="CSMA-CD-协议工作——截断二进制指数退避算法"><a href="#CSMA-CD-协议工作——截断二进制指数退避算法" class="headerlink" title="CSMA/CD 协议工作——截断二进制指数退避算法"></a>CSMA/CD 协议工作——截断二进制指数退避算法</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/207.jpg"></p>
+<h4 id="CSMA-CD-协议工作——截断二进制指数退避算法"><a href="#CSMA-CD-协议工作——截断二进制指数退避算法" class="headerlink" title="CSMA/CD 协议工作——截断二进制指数退避算法"></a>CSMA/CD 协议工作——截断二进制指数退避算法</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/207.jpg"></p>
 <p>image-</p>
-<h3 id="CSMA-CD-协议工作——信道利用率"><a href="#CSMA-CD-协议工作——信道利用率" class="headerlink" title="CSMA/CD 协议工作——信道利用率"></a>CSMA/CD 协议工作——信道利用率</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/208.jpg"></p>
+<h4 id="CSMA-CD-协议工作——信道利用率"><a href="#CSMA-CD-协议工作——信道利用率" class="headerlink" title="CSMA/CD 协议工作——信道利用率"></a>CSMA/CD 协议工作——信道利用率</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/208.jpg"></p>
 <p>image-</p>
-<h3 id="CSMA-CD-协议工作——帧接收流程"><a href="#CSMA-CD-协议工作——帧接收流程" class="headerlink" title="CSMA/CD 协议工作——帧接收流程"></a>CSMA/CD 协议工作——帧接收流程</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/209.jpg"></p>
+<h4 id="CSMA-CD-协议工作——帧接收流程"><a href="#CSMA-CD-协议工作——帧接收流程" class="headerlink" title="CSMA/CD 协议工作——帧接收流程"></a>CSMA/CD 协议工作——帧接收流程</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/209.jpg"></p>
 <p>image-</p>
-<h3 id="CSMA-CD-协议的重要特性"><a href="#CSMA-CD-协议的重要特性" class="headerlink" title="CSMA/CD 协议的重要特性"></a>CSMA/CD 协议的重要特性</h3><ul>
+<h4 id="CSMA-CD-协议的重要特性"><a href="#CSMA-CD-协议的重要特性" class="headerlink" title="CSMA/CD 协议的重要特性"></a>CSMA/CD 协议的重要特性</h4><ul>
 <li>使用 CSMA/CD 协议的以太网不能进行全双工通信而<strong>只能进行双向交替通信（半双工通信）。</strong></li>
 <li>每个站在发送数据之后的一小段时间内，存在着遭遇碰撞的可能性。</li>
 <li>这种<strong>发送的不确定性</strong>使整个以太网的平均通信量远小于以太网的最高数据率。</li>
@@ -1000,12 +1000,12 @@
 <p>CSMA/CD协议曾经用于各种总线结构以太网和双绞线以太网的早起版本中。</p>
 <p><strong>现在的以太网基于交换机和全双工连接，不会有碰撞，因此没有必要使用CSMA/CS协议</strong></p>
 </blockquote>
-<h2 id="随机接入（CSMA-CA协议）"><a href="#随机接入（CSMA-CA协议）" class="headerlink" title="随机接入（CSMA/CA协议）"></a>随机接入（CSMA/CA协议）</h2><p><strong>无线局域网使用的协议：CSMA/CA</strong></p>
-<h3 id="为什么无线局域网要使用CSMA-CA协议"><a href="#为什么无线局域网要使用CSMA-CA协议" class="headerlink" title="为什么无线局域网要使用CSMA/CA协议"></a>为什么无线局域网要使用CSMA/CA协议</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/210.jpg"></p>
+<h3 id="随机接入（CSMA-CA协议）"><a href="#随机接入（CSMA-CA协议）" class="headerlink" title="随机接入（CSMA/CA协议）"></a>随机接入（CSMA/CA协议）</h3><p><strong>无线局域网使用的协议：CSMA/CA</strong></p>
+<h4 id="为什么无线局域网要使用CSMA-CA协议"><a href="#为什么无线局域网要使用CSMA-CA协议" class="headerlink" title="为什么无线局域网要使用CSMA/CA协议"></a>为什么无线局域网要使用CSMA/CA协议</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/210.jpg"></p>
 <p>image-</p>
-<h3 id="帧间间隔IFS（InterFrame-Space）"><a href="#帧间间隔IFS（InterFrame-Space）" class="headerlink" title="帧间间隔IFS（InterFrame Space）"></a>帧间间隔IFS（InterFrame Space）</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/211.jpg"></p>
+<h4 id="帧间间隔IFS（InterFrame-Space）"><a href="#帧间间隔IFS（InterFrame-Space）" class="headerlink" title="帧间间隔IFS（InterFrame Space）"></a>帧间间隔IFS（InterFrame Space）</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/211.jpg"></p>
 <p>image-</p>
-<h3 id="CSMA-CA协议的工作原理"><a href="#CSMA-CA协议的工作原理" class="headerlink" title="CSMA/CA协议的工作原理"></a>CSMA/CA协议的工作原理</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/212.jpg"></p>
+<h4 id="CSMA-CA协议的工作原理"><a href="#CSMA-CA协议的工作原理" class="headerlink" title="CSMA/CA协议的工作原理"></a>CSMA/CA协议的工作原理</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/212.jpg"></p>
 <p>image-</p>
 <blockquote>
 <p><strong>源站为什么在检测到信道空闲后还要再等待一段时间DIFS？</strong></p>
@@ -1026,12 +1026,12 @@
 <p><strong>使用退避算法的时机</strong></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/214.jpg"></p>
 <p>image-</p>
-<h3 id="CSMA-CA协议的退避算法"><a href="#CSMA-CA协议的退避算法" class="headerlink" title="CSMA/CA协议的退避算法"></a>CSMA/CA协议的退避算法</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/215.jpg"></p>
+<h4 id="CSMA-CA协议的退避算法"><a href="#CSMA-CA协议的退避算法" class="headerlink" title="CSMA/CA协议的退避算法"></a>CSMA/CA协议的退避算法</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/215.jpg"></p>
 <p>image-</p>
 <p><strong>退避算法的示例</strong></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/216.jpg"></p>
 <p>image-</p>
-<h3 id="CSMA-CA协议的信道预约和虚拟载波监听"><a href="#CSMA-CA协议的信道预约和虚拟载波监听" class="headerlink" title="CSMA/CA协议的信道预约和虚拟载波监听"></a>CSMA/CA协议的信道预约和虚拟载波监听</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/217.jpg"></p>
+<h4 id="CSMA-CA协议的信道预约和虚拟载波监听"><a href="#CSMA-CA协议的信道预约和虚拟载波监听" class="headerlink" title="CSMA/CA协议的信道预约和虚拟载波监听"></a>CSMA/CA协议的信道预约和虚拟载波监听</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/217.jpg"></p>
 <p>image-</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/218.jpg"></p>
 <p>image-</p>
@@ -1039,9 +1039,9 @@
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/219.jpg"></p>
 <p>image-</p>
 <hr>
-<h1 id="3-7、MAC地址、IP地址以及ARP协议"><a href="#3-7、MAC地址、IP地址以及ARP协议" class="headerlink" title="3.7、MAC地址、IP地址以及ARP协议"></a>3.7、MAC地址、IP地址以及ARP协议</h1><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/220.jpg"></p>
+<h2 id="3-7、MAC地址、IP地址以及ARP协议"><a href="#3-7、MAC地址、IP地址以及ARP协议" class="headerlink" title="3.7、MAC地址、IP地址以及ARP协议"></a>3.7、MAC地址、IP地址以及ARP协议</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/220.jpg"></p>
 <p>image-</p>
-<h2 id="MAC地址"><a href="#MAC地址" class="headerlink" title="MAC地址"></a>MAC地址</h2><blockquote>
+<h3 id="MAC地址"><a href="#MAC地址" class="headerlink" title="MAC地址"></a>MAC地址</h3><blockquote>
 <ul>
 <li><p>使用点对点信道的数据链路层不需要使用地址</p>
 </li>
@@ -1051,12 +1051,12 @@
 </blockquote>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/221.jpg"></p>
 <p>image-</p>
-<h3 id="广播信道的数据链路层必须使用地址（MAC）"><a href="#广播信道的数据链路层必须使用地址（MAC）" class="headerlink" title="广播信道的数据链路层必须使用地址（MAC）"></a>广播信道的数据链路层必须使用地址（MAC）</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/222.jpg"></p>
+<h4 id="广播信道的数据链路层必须使用地址（MAC）"><a href="#广播信道的数据链路层必须使用地址（MAC）" class="headerlink" title="广播信道的数据链路层必须使用地址（MAC）"></a>广播信道的数据链路层必须使用地址（MAC）</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/222.jpg"></p>
 <p>image-</p>
 <blockquote>
 <p><strong>MAC地址又称为硬件地址或物理地址</strong>。请注意：不要被 “物理” 二字误导认为物理地址属于物理层范畴，物理地址属于数据链路层范畴</p>
 </blockquote>
-<h3 id="IEEE-802局域网的MAC地址格式"><a href="#IEEE-802局域网的MAC地址格式" class="headerlink" title="IEEE 802局域网的MAC地址格式"></a>IEEE 802局域网的MAC地址格式</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/223.jpg"></p>
+<h4 id="IEEE-802局域网的MAC地址格式"><a href="#IEEE-802局域网的MAC地址格式" class="headerlink" title="IEEE 802局域网的MAC地址格式"></a>IEEE 802局域网的MAC地址格式</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/223.jpg"></p>
 <p>image-</p>
 <blockquote>
 <p><strong>组织唯一标识符OUI</strong></p>
@@ -1088,9 +1088,10 @@
 <blockquote>
 <p><strong>对于检查出的无效</strong> <strong>MAC</strong> <strong>帧就简单地丢弃。以太网不负责重传丢弃的帧。</strong></p>
 </blockquote>
-<h3 id="IEEE-802局域网的MAC地址发送顺序"><a href="#IEEE-802局域网的MAC地址发送顺序" class="headerlink" title="IEEE 802局域网的MAC地址发送顺序"></a>IEEE 802局域网的MAC地址发送顺序</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/225.jpg"></p>
+<h4 id="IEEE-802局域网的MAC地址发送顺序"><a href="#IEEE-802局域网的MAC地址发送顺序" class="headerlink" title="IEEE 802局域网的MAC地址发送顺序"></a>IEEE 802局域网的MAC地址发送顺序</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/225.jpg"></p>
 <p>image-</p>
-<h3 id="单播MAC地址举例"><a href="#单播MAC地址举例" class="headerlink" title="单播MAC地址举例"></a>单播MAC地址举例</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/226.jpg"></p>
+<p>单播MAC地址举例</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/226.jpg"></p>
 <p>image-</p>
 <blockquote>
 <p>主机B给主机C发送<strong>单播帧</strong>，主机B首先要构建该<strong>单播帧</strong>，<strong>在帧首部中的目的地址字段填入主机C的MAC地址</strong>，源地址字段填入自己的MAC地址，再加上帧首部的其他字段、数据载荷以及帧尾部，就构成了该<strong>单播帧</strong></p>
@@ -1103,7 +1104,7 @@
 <p>主机C的网卡发现该<strong>单播帧</strong>的目的MAC地址与自己的MAC地址匹配，接受该帧</p>
 <p>并将该帧交给其上层处理</p>
 </blockquote>
-<h3 id="广播MAC地址举例"><a href="#广播MAC地址举例" class="headerlink" title="广播MAC地址举例"></a>广播MAC地址举例</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/228.jpg"></p>
+<h4 id="广播MAC地址举例"><a href="#广播MAC地址举例" class="headerlink" title="广播MAC地址举例"></a>广播MAC地址举例</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/228.jpg"></p>
 <p>image-</p>
 <blockquote>
 <p>假设主机B要发送一个<strong>广播帧</strong>，主机B首先要构建该<strong>广播帧</strong>，<strong>在帧首部中的目的地址字段填入广播地址</strong>，也就是十六进制的全F，源地址字段填入自己的MAC地址，再加上帧首部中的其他字段、数据载荷以及帧尾部，就构成了该<strong>广播帧</strong></p>
@@ -1113,7 +1114,7 @@
 <blockquote>
 <p>主机B讲该<strong>广播帧</strong>发送出去，主机A和C都会收到该<strong>广播帧</strong>，<strong>发现该帧首部中的目的地址字段的内容是广播地址</strong>，就知道该帧是<strong>广播帧</strong>，主机A和主机C都接受该帧，并将该帧交给上层处理</p>
 </blockquote>
-<h3 id="多播MAC地址举例"><a href="#多播MAC地址举例" class="headerlink" title="多播MAC地址举例"></a>多播MAC地址举例</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/230.jpg"></p>
+<h4 id="多播MAC地址举例"><a href="#多播MAC地址举例" class="headerlink" title="多播MAC地址举例"></a>多播MAC地址举例</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/230.jpg"></p>
 <p>image-</p>
 <blockquote>
 <p>假设主机A要发送<strong>多播帧</strong>给该<strong>多播地址</strong>。将该<strong>多播地址</strong>的左起第一个字节写成8个比特，第一个字节的最低比特位是1，这就表明该地址是<strong>多播地址</strong>。</p>
@@ -1140,13 +1141,13 @@
 <blockquote>
 <p>给主机配置多播组列表进行私有应用时，不得使用公有的标准多播地址</p>
 </blockquote>
-<h2 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h2><p>IP地址属于网络层的范畴，不属于数据链路层的范畴</p>
+<h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h3><p>IP地址属于网络层的范畴，不属于数据链路层的范畴</p>
 <p>下面内容讲的是IP地址的使用，详细的IP地址内容在网络层中介绍</p>
-<h3 id="基本概念-3"><a href="#基本概念-3" class="headerlink" title="基本概念"></a>基本概念</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/234.jpg"></p>
+<h4 id="基本概念-3"><a href="#基本概念-3" class="headerlink" title="基本概念"></a>基本概念</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/234.jpg"></p>
 <p>image-</p>
-<h3 id="从网络体系结构看IP地址与MAC地址"><a href="#从网络体系结构看IP地址与MAC地址" class="headerlink" title="从网络体系结构看IP地址与MAC地址"></a>从网络体系结构看IP地址与MAC地址</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/235.jpg"></p>
+<h4 id="从网络体系结构看IP地址与MAC地址"><a href="#从网络体系结构看IP地址与MAC地址" class="headerlink" title="从网络体系结构看IP地址与MAC地址"></a>从网络体系结构看IP地址与MAC地址</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/235.jpg"></p>
 <p>image-</p>
-<h3 id="数据包转发过程中IP地址与MAC地址的变化情况"><a href="#数据包转发过程中IP地址与MAC地址的变化情况" class="headerlink" title="数据包转发过程中IP地址与MAC地址的变化情况"></a>数据包转发过程中IP地址与MAC地址的变化情况</h3><p>图上各主机和路由器各接口的IP地址和MAC地址用简单的标识符来表示</p>
+<h4 id="数据包转发过程中IP地址与MAC地址的变化情况"><a href="#数据包转发过程中IP地址与MAC地址的变化情况" class="headerlink" title="数据包转发过程中IP地址与MAC地址的变化情况"></a>数据包转发过程中IP地址与MAC地址的变化情况</h4><p>图上各主机和路由器各接口的IP地址和MAC地址用简单的标识符来表示</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/236.jpg"></p>
 <p>image-</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/237.jpg"></p>
@@ -1155,9 +1156,9 @@
 <p>如何从IP地址找出其对应的MAC地址？</p>
 <p>ARP协议</p>
 </blockquote>
-<h2 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h2><p>如何从IP地址找出其对应的MAC地址？</p>
+<h3 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h3><p>如何从IP地址找出其对应的MAC地址？</p>
 <p>ARP（地址解析协议）</p>
-<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/238.jpg"></p>
+<h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/238.jpg"></p>
 <p>image-</p>
 <p>ARP高速缓存表</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/239.jpg"></p>
@@ -1193,13 +1194,13 @@
 <blockquote>
 <p>ARP协议的使用是逐段链路进行的</p>
 </blockquote>
-<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/246.jpg"></p>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/246.jpg"></p>
 <p>image-</p>
 <blockquote>
 <p>ARP表中的IP地址与MAC地址的对应关系记录，是<strong>会定期自动删除的</strong>，<strong>因为IP地址与MAC地址的对应关系不是永久性的</strong></p>
 </blockquote>
 <hr>
-<h1 id="3-8、集线器与交换机的区别"><a href="#3-8、集线器与交换机的区别" class="headerlink" title="3.8、集线器与交换机的区别"></a>3.8、集线器与交换机的区别</h1><h2 id="集线器-在物理层扩展以太网"><a href="#集线器-在物理层扩展以太网" class="headerlink" title="集线器-在物理层扩展以太网"></a>集线器-在物理层扩展以太网</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/247.jpg"></p>
+<h2 id="3-8、集线器与交换机的区别"><a href="#3-8、集线器与交换机的区别" class="headerlink" title="3.8、集线器与交换机的区别"></a>3.8、集线器与交换机的区别</h2><h3 id="集线器-在物理层扩展以太网"><a href="#集线器-在物理层扩展以太网" class="headerlink" title="集线器-在物理层扩展以太网"></a>集线器-在物理层扩展以太网</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/247.jpg"></p>
 <p>image-</p>
 <blockquote>
 <ul>
@@ -1213,7 +1214,7 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="集线器HUB在物理层扩展以太网"><a href="#集线器HUB在物理层扩展以太网" class="headerlink" title="集线器HUB在物理层扩展以太网"></a>集线器HUB在物理层扩展以太网</h3><p><strong>使用集线器扩展</strong>：将多个以太网段连成更大的、多级星形结构的以太网</p>
+<h4 id="集线器HUB在物理层扩展以太网"><a href="#集线器HUB在物理层扩展以太网" class="headerlink" title="集线器HUB在物理层扩展以太网"></a>集线器HUB在物理层扩展以太网</h4><p><strong>使用集线器扩展</strong>：将多个以太网段连成更大的、多级星形结构的以太网</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/248.jpg"></p>
 <p>image-</p>
 <blockquote>
@@ -1238,7 +1239,7 @@
 <li><strong>碰撞域（collision domain）</strong>又称为<strong>冲突域</strong>，是指网络中一个站点发出的帧会与其他站点发出的帧产生碰撞或冲突的那部分网络。</li>
 <li>碰撞域越大，发生碰撞的概率越高。</li>
 </ul>
-<h2 id="以太网交换机-在数据链路层扩展以太网"><a href="#以太网交换机-在数据链路层扩展以太网" class="headerlink" title="以太网交换机-在数据链路层扩展以太网"></a>以太网交换机-在数据链路层扩展以太网</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><ul>
+<h3 id="以太网交换机-在数据链路层扩展以太网"><a href="#以太网交换机-在数据链路层扩展以太网" class="headerlink" title="以太网交换机-在数据链路层扩展以太网"></a>以太网交换机-在数据链路层扩展以太网</h3><h4 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h4><ul>
 <li>扩展以太网更常用的方法是在数据链路层进行。</li>
 <li>早期使用<strong>网桥</strong>，现在使用<strong>以太网交换机</strong>。</li>
 </ul>
@@ -1264,7 +1265,7 @@
 </li>
 </ul>
 </blockquote>
-<h3 id="集线器HUB与交换机SWITCH区别"><a href="#集线器HUB与交换机SWITCH区别" class="headerlink" title="集线器HUB与交换机SWITCH区别"></a><strong>集线器HUB与交换机SWITCH区别</strong></h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/250.jpg"></p>
+<h4 id="集线器HUB与交换机SWITCH区别"><a href="#集线器HUB与交换机SWITCH区别" class="headerlink" title="集线器HUB与交换机SWITCH区别"></a><strong>集线器HUB与交换机SWITCH区别</strong></h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/250.jpg"></p>
 <p>image-</p>
 <blockquote>
 <p>使用<strong>集线器</strong>互连而成的共享总线式以太网上的某个主机，要给另一个主机发送单播帧，该单播帧会通过共享总线传输到<strong>总线上的其他各个主机</strong></p>
@@ -1314,7 +1315,7 @@
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/257.jpg"></p>
 <p>image-</p>
 <p>广播域（broadcast domain）：指这样一部分网络，其中任何一台设备发出的广播通信都能被该部分网络中的所有其他设备所接收。</p>
-<h2 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/258.jpg"></p>
+<h4 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/258.jpg"></p>
 <p>image-</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/259.jpg"></p>
 <p>image-</p>
@@ -1322,9 +1323,9 @@
 <p>工作在数据链路层的以太网交换机，其性能远远超过工作在物理层的集线器，而且价格并不贵，这就使得集线器逐渐被市场淘汰</p>
 </blockquote>
 <hr>
-<h1 id="3-9、以太网交换机自学习和转发帧的流程"><a href="#3-9、以太网交换机自学习和转发帧的流程" class="headerlink" title="3.9、以太网交换机自学习和转发帧的流程"></a>3.9、以太网交换机自学习和转发帧的流程</h1><h2 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/260.jpg"></p>
+<h2 id="3-9、以太网交换机自学习和转发帧的流程"><a href="#3-9、以太网交换机自学习和转发帧的流程" class="headerlink" title="3.9、以太网交换机自学习和转发帧的流程"></a>3.9、以太网交换机自学习和转发帧的流程</h2><h3 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/260.jpg"></p>
 <p>image-</p>
-<h2 id="自学习和转发帧的例子"><a href="#自学习和转发帧的例子" class="headerlink" title="自学习和转发帧的例子"></a>自学习和转发帧的例子</h2><p>以下例子假设各主机知道网络中其他各主机的MAC地址（无需进行ARP）</p>
+<h3 id="自学习和转发帧的例子"><a href="#自学习和转发帧的例子" class="headerlink" title="自学习和转发帧的例子"></a>自学习和转发帧的例子</h3><p>以下例子假设各主机知道网络中其他各主机的MAC地址（无需进行ARP）</p>
 <p><strong>A -&gt; B</strong></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/261.jpg"></p>
 <p>image-</p>
@@ -1409,18 +1410,18 @@
 <p>考虑到可能有时要在交换机的接口更换主机，或者主机要更换其网络适配器，这就需要更改交换表中的项目。为此，在交换表中每个项目都设有一定的<strong>有效时间</strong>。<strong>过期的项目就自动被删除</strong>。</p>
 <p><strong>以太网交换机的这种自学习方法使得以太网交换机能够即插即用，不必人工进行配置，因此非常方便。</strong></p>
 </blockquote>
-<h2 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h2><p><strong>交换机自学习和转发帧的步骤归纳</strong></p>
+<h3 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h3><p><strong>交换机自学习和转发帧的步骤归纳</strong></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/266.jpg"></p>
 <p>image-</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/267.jpg"></p>
 <p>image-</p>
 <hr>
-<h1 id="3-10、以太网交换机的生成树协议STP"><a href="#3-10、以太网交换机的生成树协议STP" class="headerlink" title="3.10、以太网交换机的生成树协议STP"></a>3.10、以太网交换机的生成树协议STP</h1><h2 id="如何提高以太网的可靠性"><a href="#如何提高以太网的可靠性" class="headerlink" title="如何提高以太网的可靠性"></a>如何提高以太网的可靠性</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/268.jpg"></p>
+<h2 id="3-10、以太网交换机的生成树协议STP"><a href="#3-10、以太网交换机的生成树协议STP" class="headerlink" title="3.10、以太网交换机的生成树协议STP"></a>3.10、以太网交换机的生成树协议STP</h2><h3 id="如何提高以太网的可靠性"><a href="#如何提高以太网的可靠性" class="headerlink" title="如何提高以太网的可靠性"></a>如何提高以太网的可靠性</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/268.jpg"></p>
 <p>image-</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/269.jpg"></p>
 <p>image-</p>
 <p>image-</p>
-<h2 id="生成树协议STP"><a href="#生成树协议STP" class="headerlink" title="生成树协议STP"></a>生成树协议STP</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/270.jpg"></p>
+<h3 id="生成树协议STP"><a href="#生成树协议STP" class="headerlink" title="生成树协议STP"></a>生成树协议STP</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/270.jpg"></p>
 <p>image-</p>
 <blockquote>
 <ul>
@@ -1433,7 +1434,7 @@
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/271.jpg"></p>
 <p>image-</p>
 <hr>
-<h1 id="3-11、虚拟局域网VLAN"><a href="#3-11、虚拟局域网VLAN" class="headerlink" title="3.11、虚拟局域网VLAN"></a>3.11、虚拟局域网VLAN</h1><h2 id="为什么要虚拟局域网VLAN"><a href="#为什么要虚拟局域网VLAN" class="headerlink" title="为什么要虚拟局域网VLAN"></a>为什么要虚拟局域网VLAN</h2><p><strong>广播风暴</strong></p>
+<h2 id="3-11、虚拟局域网VLAN"><a href="#3-11、虚拟局域网VLAN" class="headerlink" title="3.11、虚拟局域网VLAN"></a>3.11、虚拟局域网VLAN</h2><h3 id="为什么要虚拟局域网VLAN"><a href="#为什么要虚拟局域网VLAN" class="headerlink" title="为什么要虚拟局域网VLAN"></a>为什么要虚拟局域网VLAN</h3><p><strong>广播风暴</strong></p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/272.jpg"></p>
 <p>image-</p>
 <p><strong>分割广播域的方法</strong></p>
@@ -1442,7 +1443,7 @@
 <blockquote>
 <p>为了分割广播域，所以虚拟局域网VLAN技术应运而生</p>
 </blockquote>
-<h2 id="概念-3"><a href="#概念-3" class="headerlink" title="概念"></a>概念</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/274.jpg"></p>
+<h3 id="概念-3"><a href="#概念-3" class="headerlink" title="概念"></a>概念</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/274.jpg"></p>
 <p>image-</p>
 <blockquote>
 <ul>
@@ -1458,7 +1459,7 @@
 </li>
 </ul>
 </blockquote>
-<h2 id="虚拟局域网VLAN的实现机制"><a href="#虚拟局域网VLAN的实现机制" class="headerlink" title="虚拟局域网VLAN的实现机制"></a>虚拟局域网VLAN的实现机制</h2><p>虚拟局域网VLAN技术是在交换机上实现的，需要交换机能够实现以下功能</p>
+<h3 id="虚拟局域网VLAN的实现机制"><a href="#虚拟局域网VLAN的实现机制" class="headerlink" title="虚拟局域网VLAN的实现机制"></a>虚拟局域网VLAN的实现机制</h3><p>虚拟局域网VLAN技术是在交换机上实现的，需要交换机能够实现以下功能</p>
 <ul>
 <li>能够处理带有VLAN标记的帧——IEEE 802.1 Q帧</li>
 <li>交换机的各端口可以支持不同的端口类型，不同端口类型的端口对帧的处理方式有所不同</li>
@@ -1486,7 +1487,7 @@
 <p>image-</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/281.jpg"></p>
 <p>image-</p>
-<h2 id="总结-4"><a href="#总结-4" class="headerlink" title="总结"></a>总结</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/282.jpg"></p>
+<h3 id="总结-4"><a href="#总结-4" class="headerlink" title="总结"></a>总结</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/282.jpg"></p>
 <p>image-</p>
 <blockquote>
 <p><strong>虚拟局域网优点</strong></p>
