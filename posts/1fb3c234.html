@@ -501,7 +501,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-08-25
+                    2023-09-13
                 </div>
                 
 
@@ -537,8 +537,10 @@
 <p>举例：比如主线程让一个子线程去执行任务，子线程可能比较耗时，启动子线程开始执行任务后，主线程就去做其他事情了，忙完其他事情或者先执行完，过了一会再才去获取子任务的执行结果或变更的任务状态（老师上课时间想喝水，他继续讲课不结束上课这个主线程，让学生去小卖部帮老师买水完成这个耗时和费力的任务）。</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/1.jpg"></p>
 <h2 id="1-2-Future接口常用实现类FutureTask异步任务"><a href="#1-2-Future接口常用实现类FutureTask异步任务" class="headerlink" title="1.2 Future接口常用实现类FutureTask异步任务"></a>1.2 Future接口常用实现类FutureTask异步任务</h2><h4 id="1-2-1-Future接口能干什么"><a href="#1-2-1-Future接口能干什么" class="headerlink" title="1.2.1 Future接口能干什么"></a>1.2.1 Future接口能干什么</h4><p>Future是Java5新加的一个接口，它提供一种异步并行计算的功能，如果主线程需要执行一个很耗时的计算任务，我们会就可以通过Future把这个任务放进异步线程中执行，主线程继续处理其他任务或者先行结束，再通过Future获取计算结果。</p>
-<h4 id="1-2-2-Future接口相关架构"><a href="#1-2-2-Future接口相关架构" class="headerlink" title="1.2.2 Future接口相关架构"></a>1.2.2 Future接口相关架构</h4><p>●目的：异步多线程任务执行且返回有结果，三个特点：多线程、有返回、异步任务（班长为老师去买水作为新启动的异步多线程任务且买到水有结果返回）</p>
-<p>●代码实现：Runnable接口+Callable接口+Future接口和FutureTask实现类。</p>
+<h4 id="1-2-2-Future接口相关架构"><a href="#1-2-2-Future接口相关架构" class="headerlink" title="1.2.2 Future接口相关架构"></a>1.2.2 Future接口相关架构</h4><ul>
+<li>目的：异步多线程任务执行且返回有结果，三个特点：多线程、有返回、异步任务（班长为老师去买水作为新启动的异步多线程任务且买到水有结果返回）</li>
+<li>代码实现：Runnable接口+Callable接口+Future接口和FutureTask实现类。</li>
+</ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/2.jpg"></p>
 <p>FutureTask开启异步任务：</p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class CompletableFutureDemo {
@@ -563,11 +565,15 @@ class MyThread implements Callable&lt;String&gt; {
 
 
 
-<h4 id="1-2-3-Future编码实战和优缺点分析"><a href="#1-2-3-Future编码实战和优缺点分析" class="headerlink" title="1.2.3 Future编码实战和优缺点分析"></a>1.2.3 Future编码实战和优缺点分析</h4><p>●优点：Future+线程池异步多线程任务配合，能显著提高程序的运行效率。</p>
-<p>●缺点：</p>
-<p>​    ○get()阻塞—一旦调用get()方法求结果，一旦调用不见不散，非要等到结果才会离开，不管你是否计算完成，如果没有计算完成容易程序堵塞。</p>
-<p>​    ○isDone()轮询—轮询的方式会耗费无谓的cpu资源，而且也不见得能及时得到计算结果，如果想要异步获取结果，通常会以轮询的方式去获取结果，尽量不要阻塞。</p>
-<p>●结论：Future对于结果的获取不是很友好，只能通过阻塞或轮询的方式得到任务的结果。</p>
+<h4 id="1-2-3-Future编码实战和优缺点分析"><a href="#1-2-3-Future编码实战和优缺点分析" class="headerlink" title="1.2.3 Future编码实战和优缺点分析"></a>1.2.3 Future编码实战和优缺点分析</h4><ul>
+<li>优点：Future+线程池异步多线程任务配合，能显著提高程序的运行效率。</li>
+<li>缺点：<ul>
+<li>get()阻塞—一旦调用get()方法求结果，一旦调用不见不散，非要等到结果才会离开，不管你是否计算完成，如果没有计算完成容易程序堵塞。</li>
+<li>isDone()轮询—轮询的方式会耗费无谓的cpu资源，而且也不见得能及时得到计算结果，如果想要异步获取结果，通常会以轮询的方式去获取结果，尽量不要阻塞。</li>
+</ul>
+</li>
+<li>结论：Future对于结果的获取不是很友好，只能通过阻塞或轮询的方式得到任务的结果。</li>
+</ul>
 <p>Future获取结果get()和轮询：</p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class FutureApiDemo {
     public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
@@ -617,32 +623,55 @@ class MyThread implements Callable&lt;String&gt; {
 
 
 
-<h4 id="1-2-4-完成一些复杂的任务"><a href="#1-2-4-完成一些复杂的任务" class="headerlink" title="1.2.4 完成一些复杂的任务"></a>1.2.4 完成一些复杂的任务</h4><p>●对于简单的业务场景使用Future完全ok</p>
-<p>●回调通知：</p>
-<p>​            ○应对Future的完成时间，完成了可以告诉我，也就是我们的回调通知</p>
-<p>​            ○通过轮询的方式去判断任务是否完成这样非常占cpu并且代码也不优雅</p>
-<p>●创建异步任务：Future+线程池组合</p>
-<p>●多个任务前后依赖可以组合处理（水煮鱼—&gt;买鱼—&gt;调料—&gt;下锅）：</p>
-<p>​            ○想将多个异步任务的结果组合起来，后一个异步任务的计算结果需要钱一个异步任务的值</p>
-<p>​            ○想将两个或多个异步计算合并成为一个异步计算，这几个异步计算互相独立，同时后面这个又依赖前一个处理的结果</p>
-<p>●对计算速度选最快的：</p>
-<p>​            ○当Future集合中某个任务最快结束时，返回结果，返回第一名处理结果</p>
-<p>●结论：</p>
-<p>​           ○使用Future之前提供的那点API就囊中羞涩，处理起来不够优雅，这时候还是让CompletableFuture以声明式的方式优雅的处理这些需求。</p>
-<p>​            ○从i到i++</p>
-<p>​            ○Future能干的，CompletableFuture都能干</p>
-<h2 id="1-3-CompletableFuture对Future的改进"><a href="#1-3-CompletableFuture对Future的改进" class="headerlink" title="1.3 CompletableFuture对Future的改进"></a>1.3 CompletableFuture对Future的改进</h2><h4 id="1-3-1-CompletableFuture为什么会出现"><a href="#1-3-1-CompletableFuture为什么会出现" class="headerlink" title="1.3.1 CompletableFuture为什么会出现"></a>1.3.1 CompletableFuture为什么会出现</h4><p>●get()方法在Future计算完成之前会一直处在阻塞状态下，阻塞的方式和异步编程的设计理念相违背。</p>
-<p>●isDene()方法容易耗费cpu资源（cpu空转），</p>
-<p>●对于真正的异步处理我们希望是可以通过传入回调函数，在Future结束时自动调用该回调函数，这样，我们就不用等待结果</p>
-<p>jdk8设计出CompletableFuture，CompletableFuture提供了一种观察者模式类似的机制，可以让任务执行完成后通知监听的一方。</p>
+<h4 id="1-2-4-完成一些复杂的任务"><a href="#1-2-4-完成一些复杂的任务" class="headerlink" title="1.2.4 完成一些复杂的任务"></a>1.2.4 完成一些复杂的任务</h4><ul>
+<li>对于简单的业务场景使用Future完全ok</li>
+<li>回调通知：<ul>
+<li>应对Future的完成时间，完成了可以告诉我，也就是我们的回调通知</li>
+<li>通过轮询的方式去判断任务是否完成这样非常占cpu并且代码也不优雅</li>
+</ul>
+</li>
+<li>创建异步任务：Future+线程池组合</li>
+<li>多个任务前后依赖可以组合处理（水煮鱼—&gt;买鱼—&gt;调料—&gt;下锅）：<ul>
+<li>想将多个异步任务的结果组合起来，后一个异步任务的计算结果需要钱一个异步任务的值</li>
+<li>想将两个或多个异步计算合并成为一个异步计算，这几个异步计算互相独立，同时后面这个又依赖前一个处理的结果</li>
+</ul>
+</li>
+<li>对计算速度选最快的：<ul>
+<li>当Future集合中某个任务最快结束时，返回结果，返回第一名处理结果</li>
+</ul>
+</li>
+<li>结论：<ul>
+<li>使用Future之前提供的那点API就囊中羞涩，处理起来不够优雅，这时候还是让CompletableFuture以声明式的方式优雅的处理这些需求。</li>
+<li>从i到i++</li>
+<li>Future能干的，CompletableFuture都能干</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-3-CompletableFuture对Future的改进"><a href="#1-3-CompletableFuture对Future的改进" class="headerlink" title="1.3 CompletableFuture对Future的改进"></a>1.3 CompletableFuture对Future的改进</h2><h4 id="1-3-1-CompletableFuture为什么会出现"><a href="#1-3-1-CompletableFuture为什么会出现" class="headerlink" title="1.3.1 CompletableFuture为什么会出现"></a>1.3.1 CompletableFuture为什么会出现</h4><ul>
+<li><p>get()方法在Future计算完成之前会一直处在阻塞状态下，阻塞的方式和异步编程的设计理念相违背。</p>
+</li>
+<li><p>isDene()方法容易耗费cpu资源（cpu空转）</p>
+</li>
+<li><p>对于真正的异步处理我们希望是可以通过传入回调函数，在Future结束时自动调用该回调函数，这样，我们就不用等待结果</p>
+<p>jdk8设计出CompletableFuture，CompletableFuture提供了一种观察者模式类似的机制，可以让任务执行完成后通知监听的一方</p>
+</li>
+</ul>
 <h4 id="1-3-2-CompletableFuture和CompletionStage介绍"><a href="#1-3-2-CompletableFuture和CompletionStage介绍" class="headerlink" title="1.3.2 CompletableFuture和CompletionStage介绍"></a>1.3.2 CompletableFuture和CompletionStage介绍</h4><p>类架构说明：</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/3.jpg"></p>
-<p><strong>●</strong>接口CompletionStage</p>
-<p>​            ○代表异步计算过程中的某一个阶段，一个阶段完成以后可能会触发另外一个阶段。</p>
-<p>​            ○一个阶段的执行可能是被单个阶段的完成触发，也可能是由多个阶段一起触发</p>
-<p><strong>●</strong>类CompletableFuture</p>
-<p>​            ○提供了非常强大的Future的扩展功能，可以帮助我们简化异步编程的复杂性，并且提供了函数式编程的能力，可以通过回调的方式处理计算结果，也提供了转换和组合CompletableFuture的方法</p>
-<p>​            ○它可能代表一个明确完成的Future，也可能代表一个完成阶段（CompletionStage），它支持在计算完成以后触发一些函数或执行某些动作</p>
+<ul>
+<li><p>接口CompletionStage</p>
+<ul>
+<li>代表异步计算过程中的某一个阶段，一个阶段完成以后可能会触发另外一个阶段</li>
+<li>一个阶段的执行可能是被单个阶段的完成触发，也可能是由多个阶段一起触发</li>
+</ul>
+</li>
+<li><p>类CompletableFuture</p>
+<ul>
+<li>提供了非常强大的Future的扩展功能，可以帮助我们简化异步编程的复杂性，并且提供了函数式编程的能力，可以通过回调的方式处理计算结果，也提供了转换和组合CompletableFuture的方法</li>
+<li>它可能代表一个明确完成的Future，也可能代表一个完成阶段（CompletionStage），它支持在计算完成以后触发一些函数或执行某些动作</li>
+</ul>
+</li>
+</ul>
 <h4 id="1-3-3-核心的四个静态方法，来创建一个异步任务"><a href="#1-3-3-核心的四个静态方法，来创建一个异步任务" class="headerlink" title="1.3.3 核心的四个静态方法，来创建一个异步任务"></a>1.3.3 核心的四个静态方法，来创建一个异步任务</h4><p>四个静态构造方法</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/4.jpg"></p>
 <p>对于上述Executor参数说明：若没有指定，则使用默认的ForkJoinPoolcommonPool（）作为它的线程池执行异步代码，如果指定线程池，则使用我们自定义的或者特别指定的线程池执行异步代码</p>
@@ -731,20 +760,34 @@ class MyThread implements Callable&lt;String&gt; {
 
 
 <p>CompletableFuture优点：</p>
-<p>●异步任务结束时，会自动回调某个对象的方法</p>
-<p>●主线程设置好回调后，不用关心异步任务的执行，异步任务之间可以顺序执行</p>
-<p>●异步任务出错时，会自动回调某个对象的方法</p>
+<ul>
+<li>异步任务结束时，会自动回调某个对象的方法</li>
+<li>主线程设置好回调后，不用关心异步任务的执行，异步任务之间可以顺序执行</li>
+<li>异步任务出错时，会自动回调某个对象的方法</li>
+</ul>
 <h2 id="1-4-案例精讲-从电商网站的比价需求展开"><a href="#1-4-案例精讲-从电商网站的比价需求展开" class="headerlink" title="1.4 案例精讲-从电商网站的比价需求展开"></a>1.4 案例精讲-从电商网站的比价需求展开</h2><h4 id="1-4-1-函数式编程已成为主流"><a href="#1-4-1-函数式编程已成为主流" class="headerlink" title="1.4.1 函数式编程已成为主流"></a>1.4.1 函数式编程已成为主流</h4><p>Lambda表达式+Stream流式调用+Chain链式调用+Java8函数式编程</p>
 <p>函数时接口：</p>
-<p>●Runnable：无参数、无返回值</p>
+<ul>
+<li>Runnable：无参数、无返回值</li>
+</ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/5.jpg"></p>
-<p>●Function：接受一个参数，并且有返回值</p>
+<ul>
+<li>Function：接受一个参数，并且有返回值</li>
+</ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/6.jpg"></p>
-<p>●Consumer：接受一个参数，没有返回值</p>
+<ul>
+<li><p>Consumer：接受一个参数，没有返回值</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/7.jpg"></p>
-<p>​        ○BiConsumer：接受两个参数，没有返回值</p>
+<ul>
+<li><p>BiConsumer：接受两个参数，没有返回值</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/8.jpg"></p>
-<p>●Supplier：没有参数，有返回值</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Supplier：没有参数，有返回值</li>
+</ul>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/9.jpg"></p>
 <p>小结：</p>
 <p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/JUC/10.jpg"></p>
@@ -872,17 +915,27 @@ class NetMall {
 
 
 
-<h4 id="1-4-4-CompletableFuture常用方法"><a href="#1-4-4-CompletableFuture常用方法" class="headerlink" title="1.4.4 CompletableFuture常用方法"></a>1.4.4 CompletableFuture常用方法</h4><p><strong>●</strong>获得结果和触发计算</p>
-<p>​                ○获取结果</p>
-<p>​                            ■public T get()</p>
-<p>​                            ■public T get(long timeout,TimeUnit unit)</p>
-<p>​                            ■public T join() —&gt;和get一样的作用，只是不需要抛出异常</p>
-<p>​                            ■public T getNow(T valuelfAbsent) —&gt;计算完成就返回正常值，否则返回备胎值（传入的参数），立即获取结果不阻塞</p>
-<p>​                ○主动触发计算</p>
-<p>​                            ■public boolean complete(T value) —-&gt;是否打断get方法立即返回括号值</p>
-<p><strong>●</strong>对计算结果进行处理</p>
-<p>​            ○thenApply —&gt;计算结果存在依赖关系，这两个线程串行化—-&gt;由于存在依赖关系（当前步错，不走下一步），当前步骤有异常的话就叫停</p>
-<p>​            ○handle —&gt;计算结果存在依赖关系，这两个线程串行化—-&gt;有异常也可以往下走一步</p>
+<h4 id="1-4-4-CompletableFuture常用方法"><a href="#1-4-4-CompletableFuture常用方法" class="headerlink" title="1.4.4 CompletableFuture常用方法"></a>1.4.4 CompletableFuture常用方法</h4><ul>
+<li>获得结果和触发计算<ul>
+<li>获取结果<ul>
+<li>public T get()</li>
+<li>public T get(long timeout,TimeUnit unit)</li>
+<li>public T join() —&gt;和get一样的作用，只是不需要抛出异常</li>
+<li>public T getNow(T valuelfAbsent) —&gt;计算完成就返回正常值，否则返回备胎值（传入的参数），立即获取结果不阻塞</li>
+</ul>
+</li>
+<li>主动触发计算<ul>
+<li>public boolean complete(T value) —-&gt;是否打断get方法立即返回括号值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>对计算结果进行处理<ul>
+<li>thenApply —&gt;计算结果存在依赖关系，这两个线程串行化—-&gt;由于存在依赖关系（当前步错，不走下一步），当前步骤有异常的话就叫停</li>
+<li>handle —&gt;计算结果存在依赖关系，这两个线程串行化—-&gt;有异常也可以往下走一步</li>
+</ul>
+</li>
+</ul>
 <p>对计算结果进行处理演示:</p>
 <pre class="line-numbers language-none"><code class="language-none">public class CompletableFutureApiDemo {
     public static void main(String[] args) throws ExecutionException, InterruptedException, TimeoutException {
@@ -918,9 +971,13 @@ class NetMall {
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><strong>●</strong>对计算结果进行消费</p>
-<p>​            ○接受任务的处理结果，并消费处理，无返回结果</p>
-<p>​            ○thenAccept</p>
+<ul>
+<li>对计算结果进行消费<ul>
+<li>接受任务的处理结果，并消费处理，无返回结果</li>
+<li>thenAccept</li>
+</ul>
+</li>
+</ul>
 <p>thenAccetp演示:</p>
 <pre class="line-numbers language-none"><code class="language-none">public class CompletableFutureApi2Demo {
     public static void main(String[] args) {
@@ -937,10 +994,14 @@ class NetMall {
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>​            ○对比补充</p>
-<p>​                        ■thenRun(Runnable runnable) :任务A执行完执行B，并且不需要A的结果</p>
-<p>​                        ■thenAccept(Consumer action): 任务A执行完执行B，B需要A的结果，但是任务B没有返回值</p>
-<p>​                        ■thenApply(Function fn): 任务A执行完执行B，B需要A的结果，同时任务B有返回值</p>
+<ul>
+<li>对比补充<ul>
+<li>thenRun(Runnable runnable) :任务A执行完执行B，并且不需要A的结果</li>
+<li>thenAccept(Consumer action): 任务A执行完执行B，B需要A的结果，但是任务B没有返回值</li>
+<li>thenApply(Function fn): 任务A执行完执行B，B需要A的结果，同时任务B有返回值</li>
+</ul>
+</li>
+</ul>
 <p>对比补充:</p>
 <pre class="line-numbers language-none"><code class="language-none">public class CompletableFutureApi2Demo {
     public static void main(String[] args) {
@@ -950,15 +1011,27 @@ class NetMall {
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>​            ○CompletableFuture和线程池说明</p>
-<p>​                    ■如果没有传入自定义线程池，都用默认线程池ForkJoinPool</p>
-<p>​                    ■传入一个线程池，如果你执行第一个任务时，传入了一个自定义线程池</p>
-<p>●调用thenRun方法执行第二个任务时，则第二个任务和第一个任务时共用同一个线程池</p>
-<p>●调用thenRunAsync执行第二个任务时，则第一个任务使用的是你自定义的线程池，第二个任务使用的是ForkJoin线程池</p>
-<p>​                    ■备注：可能是线程处理太快，系统优化切换原则， 直接使用main线程处理，thenAccept和thenAcceptAsync，thenApply和thenApplyAsync等，之间的区别同理。</p>
-<p><strong>●</strong>对计算速度进行选用</p>
-<p>​        ○谁快用谁</p>
-<p>​        ○applyToEither</p>
+<ul>
+<li><p>CompletableFuture和线程池说明</p>
+<ul>
+<li>如果没有传入自定义线程池，都用默认线程池ForkJoinPool</li>
+<li>传入一个线程池，如果你执行第一个任务时，传入了一个自定义线程池</li>
+</ul>
+</li>
+<li><p>调用thenRun方法执行第二个任务时，则第二个任务和第一个任务时共用同一个线程池</p>
+</li>
+<li><p>调用thenRunAsync执行第二个任务时，则第一个任务使用的是你自定义的线程池，第二个任务使用的是ForkJoin线程池</p>
+<ul>
+<li>备注：可能是线程处理太快，系统优化切换原则， 直接使用main线程处理，thenAccept和thenAcceptAsync，thenApply和thenApplyAsync等，之间的区别同理</li>
+</ul>
+</li>
+<li><p>对计算速度进行选用</p>
+<ul>
+<li>谁快用谁</li>
+<li>applyToEither</li>
+</ul>
+</li>
+</ul>
 <p>applyToEither演示:</p>
 <pre class="line-numbers language-none"><code class="language-none">public class CompletableFutureApiDemo {
     public static void main(String[] args) {
@@ -999,11 +1072,13 @@ class NetMall {
 
 
 
-
-
-<p><strong>●</strong>对计算结果进行合并</p>
-<p>​                ○两个CompletableStage任务都完成后，最终能把两个任务的结果一起交给thenCombine来处理</p>
-<p>​                ○先完成的先等着，等待其他分支任务</p>
+<ul>
+<li>对计算结果进行合并<ul>
+<li>两个CompletableStage任务都完成后，最终能把两个任务的结果一起交给thenCombine来处理</li>
+<li>先完成的先等着，等待其他分支任务</li>
+</ul>
+</li>
+</ul>
 <p>thenCombine演示:</p>
 <pre class="line-numbers language-none"><code class="language-none">public class CompletableFutureApi3Demo {
     public static void main(String[] args) {
