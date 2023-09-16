@@ -824,14 +824,14 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/ElasticSearch/</loc>
+    <loc>https://gitee.com/yunyd/tags/Eureka/</loc>
     <lastmod>2023-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/Eureka/</loc>
+    <loc>https://gitee.com/yunyd/tags/ElasticSearch/</loc>
     <lastmod>2023-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -922,14 +922,14 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/MyBatis/</loc>
+    <loc>https://gitee.com/yunyd/tags/%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2023-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/%E9%A1%B9%E7%9B%AE/</loc>
+    <loc>https://gitee.com/yunyd/tags/MyBatis/</loc>
     <lastmod>2023-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
