@@ -3,11 +3,11 @@
   <title>llllz_liu</title>
   
   <subtitle>llllzの博客</subtitle>
-  <link href="http://yunyd.cloud/atom.xml" rel="self"/>
+  <link href="https://gitee.com/yunyd/atom.xml" rel="self"/>
   
-  <link href="http://yunyd.cloud/"/>
+  <link href="https://gitee.com/yunyd/"/>
   <updated>2023-09-21T00:33:02.974Z</updated>
-  <id>http://yunyd.cloud/</id>
+  <id>https://gitee.com/yunyd/</id>
   
   <author>
     <name>llllz.</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>计网-应用层</title>
-    <link href="http://yunyd.cloud/posts/43e5bbc0.html"/>
-    <id>http://yunyd.cloud/posts/43e5bbc0.html</id>
+    <link href="https://gitee.com/yunyd/posts/43e5bbc0.html"/>
+    <id>https://gitee.com/yunyd/posts/43e5bbc0.html</id>
     <published>2023-09-21T00:30:22.000Z</published>
     <updated>2023-09-21T00:33:02.974Z</updated>
     
@@ -34,14 +34,14 @@
     
     
     
-    <category term="计算机网络" scheme="http://yunyd.cloud/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="https://gitee.com/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络题库</title>
-    <link href="http://yunyd.cloud/posts/90f616cd.html"/>
-    <id>http://yunyd.cloud/posts/90f616cd.html</id>
+    <link href="https://gitee.com/yunyd/posts/90f616cd.html"/>
+    <id>https://gitee.com/yunyd/posts/90f616cd.html</id>
     <published>2023-09-17T23:34:20.000Z</published>
     <updated>2023-09-17T23:58:37.080Z</updated>
     
@@ -56,14 +56,14 @@
     
     
     
-    <category term="计算机网络" scheme="http://yunyd.cloud/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="https://gitee.com/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>计网-运输层</title>
-    <link href="http://yunyd.cloud/posts/53088c30.html"/>
-    <id>http://yunyd.cloud/posts/53088c30.html</id>
+    <link href="https://gitee.com/yunyd/posts/53088c30.html"/>
+    <id>https://gitee.com/yunyd/posts/53088c30.html</id>
     <published>2023-09-16T07:10:05.000Z</published>
     <updated>2023-09-16T07:25:05.649Z</updated>
     
@@ -78,14 +78,14 @@
     
     
     
-    <category term="计算机网络" scheme="http://yunyd.cloud/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="https://gitee.com/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>计网-网络层</title>
-    <link href="http://yunyd.cloud/posts/93662db.html"/>
-    <id>http://yunyd.cloud/posts/93662db.html</id>
+    <link href="https://gitee.com/yunyd/posts/93662db.html"/>
+    <id>https://gitee.com/yunyd/posts/93662db.html</id>
     <published>2023-09-13T22:00:30.000Z</published>
     <updated>2023-09-14T03:49:29.580Z</updated>
     
@@ -100,14 +100,14 @@
     
     
     
-    <category term="计算机网络" scheme="http://yunyd.cloud/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="https://gitee.com/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>MySQL进阶学习</title>
-    <link href="http://yunyd.cloud/posts/ff2d31e5.html"/>
-    <id>http://yunyd.cloud/posts/ff2d31e5.html</id>
+    <link href="https://gitee.com/yunyd/posts/ff2d31e5.html"/>
+    <id>https://gitee.com/yunyd/posts/ff2d31e5.html</id>
     <published>2023-09-11T22:10:40.000Z</published>
     <updated>2023-09-13T09:48:32.942Z</updated>
     
@@ -122,14 +122,14 @@
     
     
     
-    <category term="MySQL" scheme="http://yunyd.cloud/tags/MySQL/"/>
+    <category term="MySQL" scheme="https://gitee.com/yunyd/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>RabbitMQ快速回顾</title>
-    <link href="http://yunyd.cloud/posts/b22d840b.html"/>
-    <id>http://yunyd.cloud/posts/b22d840b.html</id>
+    <link href="https://gitee.com/yunyd/posts/b22d840b.html"/>
+    <id>https://gitee.com/yunyd/posts/b22d840b.html</id>
     <published>2023-09-11T00:43:21.000Z</published>
     <updated>2023-09-11T12:57:33.313Z</updated>
     
@@ -144,16 +144,16 @@
     
     
     
-    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
     
-    <category term="MQ" scheme="http://yunyd.cloud/tags/MQ/"/>
+    <category term="MQ" scheme="https://gitee.com/yunyd/tags/MQ/"/>
     
   </entry>
   
   <entry>
     <title>计网-数据链路层</title>
-    <link href="http://yunyd.cloud/posts/c01737cc.html"/>
-    <id>http://yunyd.cloud/posts/c01737cc.html</id>
+    <link href="https://gitee.com/yunyd/posts/c01737cc.html"/>
+    <id>https://gitee.com/yunyd/posts/c01737cc.html</id>
     <published>2023-09-10T02:00:30.000Z</published>
     <updated>2023-09-10T08:11:14.430Z</updated>
     
@@ -168,14 +168,14 @@
     
     
     
-    <category term="计算机网络" scheme="http://yunyd.cloud/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="https://gitee.com/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>Docker</title>
-    <link href="http://yunyd.cloud/posts/f5f9fa9b.html"/>
-    <id>http://yunyd.cloud/posts/f5f9fa9b.html</id>
+    <link href="https://gitee.com/yunyd/posts/f5f9fa9b.html"/>
+    <id>https://gitee.com/yunyd/posts/f5f9fa9b.html</id>
     <published>2023-09-07T01:02:17.000Z</published>
     <updated>2023-09-11T13:01:03.405Z</updated>
     
@@ -190,16 +190,16 @@
     
     
     
-    <category term="Docker" scheme="http://yunyd.cloud/tags/Docker/"/>
+    <category term="Docker" scheme="https://gitee.com/yunyd/tags/Docker/"/>
     
-    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
     
   </entry>
   
   <entry>
     <title>Feign远程调用复习</title>
-    <link href="http://yunyd.cloud/posts/dc362a43.html"/>
-    <id>http://yunyd.cloud/posts/dc362a43.html</id>
+    <link href="https://gitee.com/yunyd/posts/dc362a43.html"/>
+    <id>https://gitee.com/yunyd/posts/dc362a43.html</id>
     <published>2023-09-06T02:01:57.000Z</published>
     <updated>2023-09-11T23:07:54.802Z</updated>
     
@@ -214,16 +214,16 @@
     
     
     
-    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
     
-    <category term="Feign" scheme="http://yunyd.cloud/tags/Feign/"/>
+    <category term="Feign" scheme="https://gitee.com/yunyd/tags/Feign/"/>
     
   </entry>
   
   <entry>
     <title>计网-物理层</title>
-    <link href="http://yunyd.cloud/posts/1a887d87.html"/>
-    <id>http://yunyd.cloud/posts/1a887d87.html</id>
+    <link href="https://gitee.com/yunyd/posts/1a887d87.html"/>
+    <id>https://gitee.com/yunyd/posts/1a887d87.html</id>
     <published>2023-09-04T03:37:48.000Z</published>
     <updated>2023-09-11T13:01:30.193Z</updated>
     
@@ -238,14 +238,14 @@
     
     
     
-    <category term="计算机网络" scheme="http://yunyd.cloud/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="https://gitee.com/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>Gateway服务网关</title>
-    <link href="http://yunyd.cloud/posts/596a9b7e.html"/>
-    <id>http://yunyd.cloud/posts/596a9b7e.html</id>
+    <link href="https://gitee.com/yunyd/posts/596a9b7e.html"/>
+    <id>https://gitee.com/yunyd/posts/596a9b7e.html</id>
     <published>2023-09-02T02:08:14.000Z</published>
     <updated>2023-09-11T23:05:26.459Z</updated>
     
@@ -260,16 +260,16 @@
     
     
     
-    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
     
-    <category term="Gateway" scheme="http://yunyd.cloud/tags/Gateway/"/>
+    <category term="Gateway" scheme="https://gitee.com/yunyd/tags/Gateway/"/>
     
   </entry>
   
   <entry>
     <title>计网-概述</title>
-    <link href="http://yunyd.cloud/posts/c68d923.html"/>
-    <id>http://yunyd.cloud/posts/c68d923.html</id>
+    <link href="https://gitee.com/yunyd/posts/c68d923.html"/>
+    <id>https://gitee.com/yunyd/posts/c68d923.html</id>
     <published>2023-08-31T00:45:47.000Z</published>
     <updated>2023-09-11T13:01:20.780Z</updated>
     
@@ -284,14 +284,14 @@
     
     
     
-    <category term="计算机网络" scheme="http://yunyd.cloud/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="https://gitee.com/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>Nginx复习</title>
-    <link href="http://yunyd.cloud/posts/a78394d2.html"/>
-    <id>http://yunyd.cloud/posts/a78394d2.html</id>
+    <link href="https://gitee.com/yunyd/posts/a78394d2.html"/>
+    <id>https://gitee.com/yunyd/posts/a78394d2.html</id>
     <published>2023-08-28T12:41:40.000Z</published>
     <updated>2023-09-11T23:08:09.565Z</updated>
     
@@ -306,14 +306,14 @@
     
     
     
-    <category term="Nginx" scheme="http://yunyd.cloud/tags/Nginx/"/>
+    <category term="Nginx" scheme="https://gitee.com/yunyd/tags/Nginx/"/>
     
   </entry>
   
   <entry>
     <title>Nacos复习回顾</title>
-    <link href="http://yunyd.cloud/posts/270777eb.html"/>
-    <id>http://yunyd.cloud/posts/270777eb.html</id>
+    <link href="https://gitee.com/yunyd/posts/270777eb.html"/>
+    <id>https://gitee.com/yunyd/posts/270777eb.html</id>
     <published>2023-08-26T04:35:26.000Z</published>
     <updated>2023-08-26T04:40:56.460Z</updated>
     
@@ -328,16 +328,16 @@
     
     
     
-    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
     
-    <category term="Nacos" scheme="http://yunyd.cloud/tags/Nacos/"/>
+    <category term="Nacos" scheme="https://gitee.com/yunyd/tags/Nacos/"/>
     
   </entry>
   
   <entry>
     <title>Eureka复习回顾</title>
-    <link href="http://yunyd.cloud/posts/7b1e2515.html"/>
-    <id>http://yunyd.cloud/posts/7b1e2515.html</id>
+    <link href="https://gitee.com/yunyd/posts/7b1e2515.html"/>
+    <id>https://gitee.com/yunyd/posts/7b1e2515.html</id>
     <published>2023-08-26T00:41:40.000Z</published>
     <updated>2023-08-26T00:48:45.166Z</updated>
     
@@ -352,16 +352,16 @@
     
     
     
-    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
     
-    <category term="Eureka" scheme="http://yunyd.cloud/tags/Eureka/"/>
+    <category term="Eureka" scheme="https://gitee.com/yunyd/tags/Eureka/"/>
     
   </entry>
   
   <entry>
     <title>ElasticSearch分布式搜索引擎 -Ⅲ</title>
-    <link href="http://yunyd.cloud/posts/bbe6edac.html"/>
-    <id>http://yunyd.cloud/posts/bbe6edac.html</id>
+    <link href="https://gitee.com/yunyd/posts/bbe6edac.html"/>
+    <id>https://gitee.com/yunyd/posts/bbe6edac.html</id>
     <published>2023-08-25T01:40:04.000Z</published>
     <updated>2023-09-03T02:01:08.949Z</updated>
     
@@ -376,16 +376,16 @@
     
     
     
-    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
     
-    <category term="ElasticSearch" scheme="http://yunyd.cloud/tags/ElasticSearch/"/>
+    <category term="ElasticSearch" scheme="https://gitee.com/yunyd/tags/ElasticSearch/"/>
     
   </entry>
   
   <entry>
     <title>ElasticSearch分布式搜索引擎 -Ⅱ</title>
-    <link href="http://yunyd.cloud/posts/22efbc16.html"/>
-    <id>http://yunyd.cloud/posts/22efbc16.html</id>
+    <link href="https://gitee.com/yunyd/posts/22efbc16.html"/>
+    <id>https://gitee.com/yunyd/posts/22efbc16.html</id>
     <published>2023-08-25T00:50:04.000Z</published>
     <updated>2023-09-03T02:01:08.947Z</updated>
     
@@ -400,16 +400,16 @@
     
     
     
-    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
     
-    <category term="ElasticSearch" scheme="http://yunyd.cloud/tags/ElasticSearch/"/>
+    <category term="ElasticSearch" scheme="https://gitee.com/yunyd/tags/ElasticSearch/"/>
     
   </entry>
   
   <entry>
     <title>ElasticSearch分布式搜索引擎 -Ⅰ</title>
-    <link href="http://yunyd.cloud/posts/55e88c80.html"/>
-    <id>http://yunyd.cloud/posts/55e88c80.html</id>
+    <link href="https://gitee.com/yunyd/posts/55e88c80.html"/>
+    <id>https://gitee.com/yunyd/posts/55e88c80.html</id>
     <published>2023-08-24T23:44:04.000Z</published>
     <updated>2023-09-03T02:01:08.943Z</updated>
     
@@ -424,16 +424,16 @@
     
     
     
-    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
     
-    <category term="ElasticSearch" scheme="http://yunyd.cloud/tags/ElasticSearch/"/>
+    <category term="ElasticSearch" scheme="https://gitee.com/yunyd/tags/ElasticSearch/"/>
     
   </entry>
   
   <entry>
     <title>Dubbo复习</title>
-    <link href="http://yunyd.cloud/posts/11f4b451.html"/>
-    <id>http://yunyd.cloud/posts/11f4b451.html</id>
+    <link href="https://gitee.com/yunyd/posts/11f4b451.html"/>
+    <id>https://gitee.com/yunyd/posts/11f4b451.html</id>
     <published>2023-08-24T03:21:15.000Z</published>
     <updated>2023-08-25T00:18:51.566Z</updated>
     
@@ -448,14 +448,14 @@
     
     
     
-    <category term="Dubbo" scheme="http://yunyd.cloud/tags/Dubbo/"/>
+    <category term="Dubbo" scheme="https://gitee.com/yunyd/tags/Dubbo/"/>
     
   </entry>
   
   <entry>
     <title>Redis复习 -Ⅱ</title>
-    <link href="http://yunyd.cloud/posts/89420fb3.html"/>
-    <id>http://yunyd.cloud/posts/89420fb3.html</id>
+    <link href="https://gitee.com/yunyd/posts/89420fb3.html"/>
+    <id>https://gitee.com/yunyd/posts/89420fb3.html</id>
     <published>2023-08-22T02:08:42.000Z</published>
     <updated>2023-09-07T08:31:24.962Z</updated>
     
@@ -470,7 +470,7 @@
     
     
     
-    <category term="Redis" scheme="http://yunyd.cloud/tags/Redis/"/>
+    <category term="Redis" scheme="https://gitee.com/yunyd/tags/Redis/"/>
     
   </entry>
   
