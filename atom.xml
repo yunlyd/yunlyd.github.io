@@ -3,11 +3,11 @@
   <title>llllz_liu</title>
   
   <subtitle>llllzの博客</subtitle>
-  <link href="https://gitee.com/yunyd/atom.xml" rel="self"/>
+  <link href="http://yunyd.cloud/atom.xml" rel="self"/>
   
-  <link href="https://gitee.com/yunyd/"/>
-  <updated>2023-09-21T00:32:45.904Z</updated>
-  <id>https://gitee.com/yunyd/</id>
+  <link href="http://yunyd.cloud/"/>
+  <updated>2023-09-21T00:33:02.974Z</updated>
+  <id>http://yunyd.cloud/</id>
   
   <author>
     <name>llllz.</name>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>计网-应用层</title>
-    <link href="https://gitee.com/yunyd/posts/43e5bbc0.html"/>
-    <id>https://gitee.com/yunyd/posts/43e5bbc0.html</id>
+    <link href="http://yunyd.cloud/posts/43e5bbc0.html"/>
+    <id>http://yunyd.cloud/posts/43e5bbc0.html</id>
     <published>2023-09-21T00:30:22.000Z</published>
-    <updated>2023-09-21T00:32:45.904Z</updated>
+    <updated>2023-09-21T00:33:02.974Z</updated>
     
     <content type="html"><![CDATA[<h1 id="计算机网络第6章（应用层）"><a href="#计算机网络第6章（应用层）" class="headerlink" title="计算机网络第6章（应用层）"></a>计算机网络第6章（应用层）</h1><h2 id="6-1、应用层概述"><a href="#6-1、应用层概述" class="headerlink" title="6.1、应用层概述"></a>6.1、应用层概述</h2><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/531.jpg"></p><p>image-</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/532.jpg"></p><p>image-</p><p>我们在浏览器的地址中输入某个网站的域名后，就可以访问该网站的内容，这个就是<strong>万维网WWW应用</strong>，其相关的应用层协议为<strong>超文本传送协议HTTP</strong></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/533.jpg"></p><p>image-</p><p>用户在浏览器地址栏中输入的是“见名知意”的<strong>域名</strong>，而TCP/IP的网际层使用<strong>IP地址</strong>来表示目的主机，从域名到IP地址的装转换，由属于<strong>应用层范畴的域名系统DNS</strong>，在后台帮用户完成</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/534.jpg"></p><p>image-</p><p>常见的应用</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/535.jpg"></p><p>image-</p><p>总结</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/536.jpg"></p><p>image-</p><hr><h2 id="6-2、客户-服务器方式（C-S方式）和对等方式（P2P方式）"><a href="#6-2、客户-服务器方式（C-S方式）和对等方式（P2P方式）" class="headerlink" title="6.2、客户/服务器方式（C/S方式）和对等方式（P2P方式）"></a>6.2、客户/服务器方式（C/S方式）和对等方式（P2P方式）</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/537.jpg"></p><p>image-</p><h3 id="客户-服务器方式（C-S方式）"><a href="#客户-服务器方式（C-S方式）" class="headerlink" title="客户/服务器方式（C/S方式）"></a>客户/服务器方式（C/S方式）</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/538.jpg"></p><p>image-</p><h3 id="对等方式（P2P方式）"><a href="#对等方式（P2P方式）" class="headerlink" title="对等方式（P2P方式）"></a>对等方式（P2P方式）</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/539.jpg"></p><p>image-</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/540.jpg"></p><p>image-</p><hr><h2 id="6-3、动态主机配置协议DHCP"><a href="#6-3、动态主机配置协议DHCP" class="headerlink" title="6.3、动态主机配置协议DHCP"></a>6.3、动态主机配置协议DHCP</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><ul><li>互联网广泛使用的<strong>动态主机配置协议 DHCP</strong> (Dynamic Host Configuration Protocol) 提供了<strong>即插即用连网</strong> (plug-and-play networking) 的机制。</li><li>这种机制允许一台计算机加入新的网络和获取 IP 地址，而不用手工配置。</li></ul><h3 id="DHCP的作用"><a href="#DHCP的作用" class="headerlink" title="DHCP的作用"></a>DHCP的作用</h3><p>在之前，如果要正常访问Web服务器，需要该主机手动配置网络的相关配置信息</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/541.jpg"></p><p>image-</p><blockquote><p>如果主机数很多，就工作量大，容易出错</p></blockquote><p>如果我们给网络中添加一台DHCP服务器</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/542.jpg"></p><p>image-</p><h3 id="DHCP的工作过程"><a href="#DHCP的工作过程" class="headerlink" title="DHCP的工作过程"></a>DHCP的工作过程</h3><p><strong>DHCP 使用客户 - 服务器方式</strong></p><ul><li>需要 IP 地址的主机在启动时就向 DHCP 服务器广播发送发现报文 （DHCP DISCOVER），这时该主机就成为 DHCP 客户。</li><li>本地网络上所有主机都能收到此广播报文，但只有 DHCP 服务器才回答此广播报文。</li><li>DHCP 服务器先在其数据库中查找该计算机的配置信息。若找到，则返回找到的信息。若找不到，则从服务器的 IP 地址池 (address pool) 中取一个地址分配给该计算机。DHCP服务器的回答报文叫做提供报文（DHCP OFFER）。</li></ul><p><strong>DHCP 工作方式</strong></p><ul><li>DHCP 使用客户-服务器方式，采用请求/应答方式工作。</li><li>DHCP 基于 UDP 工作（DHCP报文在运输层会被封装成为UDP用户数据报），DHCP 服务器运行在 67 号端口， DHCP客户运行在 68 号端口。</li></ul><p><strong>DHCP交互过程</strong></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/543.jpg"></p><p>image-</p><blockquote><p><strong>DHCP客户端将广播发送DHCP发现报文（DHCP DISCOVER）</strong></p><ul><li><p>事务ID</p></li><li><p>DHCP客户端的MAC地址</p></li></ul><p><strong>封装该报文的IP数据报的源IP地址为0.0.0.0，这是因为主机目前还未分配到IP地址</strong>，因此使用该地址代替</p><p><strong>目的IP地址为广播地址255.255.255.255，之所以广播发送，是因为主机现在并不知道网络中有哪几个DHCP服务器</strong>。它们的IP地址各是什么</p><p><strong>DHCP服务器收到DHCP发现报文后，根据其中封装的DHCP客户端的MAC地址来查找自己的数据库</strong>，如果查到匹配信息，则使用这些配置信息来构建并发送DHCP提供报文，如果没有则采用默认配置信息来构建报文并发送</p></blockquote><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/544.jpg"></p><p>image-</p><blockquote><p><strong>DHCP服务端将广播发送DHCP提供报文（DHCP OFFER）</strong></p><ul><li><p>事务ID：DHCP客户端会与之前DHCP发现报文的事务ID做对比，来判断该DHCP提供报文是否是自己的</p></li><li><p>配置信息：</p></li></ul><pre class="line-numbers language-undefined" data-language="undefined"><code class="language-undefined">*   IP地址：DHCP服务器从自己的IP地址池中挑选待租用给主机的IP地址（使用ARP来确保所选IP地址未被网络中其他主机占用）*   子网掩码*   地址租期*   默认网关*   DNS服务器<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>源IP地址：发送DHCP提供报文的DHCP服务器的IP</p><p>目的地址：因为目的主机还没分配到IP，所以使用广播地址</p></blockquote><p>在本例中，DHCP客户会收到两个DHCP服务器发来的DHCP提供报文，DHCP客户从中选择一个，一般选择先到的，并向所选择的DHCP服务器发送DHCP请求报文</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/545.jpg"></p><p>image-</p><blockquote><p><strong>DHCP客户端将广播发送DHCP请求报文（DHCP REQUEST）</strong></p><ul><li><p>事务ID</p></li><li><p>DHCP客户端的MAC地址</p></li><li><p>接收的租约中的IP地址</p></li><li><p>提供此租约的DHCP服务器端的IP地址</p></li></ul><p>源地址：0.0.0.0，因为此时DHCP客户才从多个DHCP服务器中挑选一个作为自己的DHCP服务器。它首先要征得该服务器的同意，之后才能正式使用向该DHCP服务器租用的IP地址</p><p>目的地址：广播地址，这样可以一次性向所有DHCP服务器发送DHCP请求报文，来告知它们是否请求它们作为自己的DHCP服务器</p></blockquote><p>在本例中，假设DHCP客户端选择DHCP服务器1作为自己的DHCP服务器，DHCP服务器1接受该请求，于是DHCP服务器1给DHCP客户端发送DHCP确认报文</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/546.jpg"></p><p>image-</p><blockquote><p>源地址：DHCP服务器1的IP地址</p><p>目的地址：广播地址</p><p><strong>DHCP客户收到该报文后就可以使用租用的IP地址</strong></p><p><strong>在使用前还会进行ARP检测</strong></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/547.jpg"></p><p>image-</p></blockquote><p>剩下流程图示</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/548.jpg"></p><p>image-</p><h3 id="DHCP中继代理"><a href="#DHCP中继代理" class="headerlink" title="DHCP中继代理"></a>DHCP中继代理</h3><p>下图的网络拓扑中的各主机是否可以通过DHCP来自动获取到网络配置？</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/549.jpg"></p><p>image-</p><blockquote><p>使用DHCP中继代理是因为我们不用给每一个网络上都设置一个DHCP服务器，这样会使DHCP服务器的数量太多</p></blockquote><h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/550.jpg"></p><p>image-</p><hr><h2 id="6-4、域名系统DNS"><a href="#6-4、域名系统DNS" class="headerlink" title="6.4、域名系统DNS"></a>6.4、域名系统DNS</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>域名相比IP地址更容易记忆</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/551.jpg"></p><p>image-</p><p>因特网是否可以只使用一台DNS服务器？</p><p>不行</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/552.jpg"></p><p>image-</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/553.jpg"></p><p>image-</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/554.jpg"></p><p>image-</p><blockquote><p>名称相同的域名其等级未必相同</p></blockquote><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/555.jpg"></p><p>image-</p><h3 id="域名解析过程"><a href="#域名解析过程" class="headerlink" title="域名解析过程"></a>域名解析过程</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/556.jpg"></p><p>image-</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/557.jpg"></p><p>image-</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/558.jpg"></p><p>image-</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/559.jpg"></p><p>image-</p><h3 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/560.jpg"></p><p>image-</p><hr><h2 id="6-5、文件传送协议FTP"><a href="#6-5、文件传送协议FTP" class="headerlink" title="6.5、文件传送协议FTP"></a>6.5、文件传送协议FTP</h2><h3 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/561.jpg"></p><p>image-</p><h3 id="文件传送协议FTP的应用"><a href="#文件传送协议FTP的应用" class="headerlink" title="文件传送协议FTP的应用"></a>文件传送协议FTP的应用</h3><p>FTP采用C/S方式（客户/服务器方式）</p><p>FTP客户计算机可将各种类型的文件上传到FTP服务器计算机</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/562.jpg"></p><p>image-</p><p>FTP客户计算机也可以从FTP服务器计算机下载文件</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/563.jpg"></p><p>image-</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/564.jpg"></p><p>image-</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/565.jpg"></p><p>image-</p><h3 id="FTP基本工作原理"><a href="#FTP基本工作原理" class="headerlink" title="FTP基本工作原理"></a>FTP基本工作原理</h3><p>FTP服务器监听熟知端口（端口号为 21），使客户进程能够连接上。</p><p>FTP客户随机选择一个临时端口号与其建立TCP连接，这条TCP连接用于FTP客户与服务器之间传送FTP的相关控制命令（这条连接是FTP客户与服务器之间的命令通道）</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/566.jpg"></p><p>image-</p><p>下图为建立数据通道的TCP连接</p><p>FTP服务器使用自己的熟知端口号20与其建立TCP连接，这条TCP连接用于FTP客户与服务器之间传送文件</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/567.jpg"></p><p>image-</p><blockquote><p>上面例子是主动模式：建立数据通道时，FTP服务器主动连接FTP客户</p></blockquote><p>下图实例为被动模式</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/568.jpg"></p><p>image-</p><p>两种模式对比</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/569.jpg"></p><p>image-</p><blockquote><p>注意两种模式都是</p><p>控制连接在整个会话期间保持打开状态</p><p>数据连接传输完毕后就关闭</p></blockquote><h3 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/570.jpg"></p><p>image-</p><hr><h2 id="6-6、电子邮件"><a href="#6-6、电子邮件" class="headerlink" title="6.6、电子邮件"></a>6.6、电子邮件</h2><h3 id="概念-3"><a href="#概念-3" class="headerlink" title="概念"></a>概念</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/571.jpg"></p><p>image-</p><h3 id="邮件发送和接收过程"><a href="#邮件发送和接收过程" class="headerlink" title="邮件发送和接收过程"></a>邮件发送和接收过程</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/572.jpg"></p><p>image-</p><h3 id="简单邮件传送协议SMTP（Simple-Mail-Transfer-Protocol）的基本工作原理"><a href="#简单邮件传送协议SMTP（Simple-Mail-Transfer-Protocol）的基本工作原理" class="headerlink" title="简单邮件传送协议SMTP（Simple Mail Transfer Protocol）的基本工作原理"></a>简单邮件传送协议SMTP（Simple Mail Transfer Protocol）的基本工作原理</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/573.jpg"></p><p>image-</p><h3 id="电子邮件的信息格式"><a href="#电子邮件的信息格式" class="headerlink" title="电子邮件的信息格式"></a>电子邮件的信息格式</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/574.jpg"></p><p>image-</p><h3 id="邮件读取"><a href="#邮件读取" class="headerlink" title="邮件读取"></a>邮件读取</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/575.jpg"></p><p>image-</p><h3 id="基于万维网的电子邮件"><a href="#基于万维网的电子邮件" class="headerlink" title="基于万维网的电子邮件"></a>基于万维网的电子邮件</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/576.jpg"></p><p>image-</p><h3 id="总结-4"><a href="#总结-4" class="headerlink" title="总结"></a>总结</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/577.jpg"></p><p>image-</p><hr><h2 id="6-7、万维网WWW"><a href="#6-7、万维网WWW" class="headerlink" title="6.7、万维网WWW"></a>6.7、万维网WWW</h2><h3 id="概念-4"><a href="#概念-4" class="headerlink" title="概念"></a>概念</h3><p><strong>概述</strong></p><ul><li><strong>万维网</strong> WWW (World Wide Web) 并非某种特殊的计算机网络。</li><li>万维网是一个大规模的、联机式的<strong>信息储藏所</strong>。</li><li>万维网用链接的方法能非常方便地从互联网上的一个站点访问另一个站点，从而主动地按需获取丰富的信息。</li><li>这种访问方式称为“<strong>链接</strong>”。</li></ul><p><strong>万维网的工作方式</strong></p><ul><li>万维网以<strong>客户 - 服务器</strong>方式工作。</li><li><strong>浏览器</strong>就是在用户计算机上的万维网<strong>客户程序</strong>。万维网文档所驻留的计算机则运行<strong>服务器程序</strong>，因此这个计算机也称为<strong>万维网服务器</strong>。</li><li>客户程序向服务器程序发出请求，服务器程序向客户程序送回客户所要的<strong>万维网文档</strong>。</li><li>在一个客户程序主窗口上显示出的万维网文档称为<strong>页面</strong> (page)。</li></ul><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/578.jpg"></p><p>image-</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/579.jpg"></p><p>image-</p><p><strong>万维网应用举例</strong></p><p>访问网页</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/580.jpg"></p><p>image-</p><p><strong>怎样标志分布在整个互联网上的万维网文档？</strong></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/581.jpg"></p><p>image-</p><p><strong>万维网的文档</strong></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/582.jpg"></p><p>image-</p><h3 id="超文本传输协议HTTP（Hyper-Transfer-Protocol）"><a href="#超文本传输协议HTTP（Hyper-Transfer-Protocol）" class="headerlink" title="超文本传输协议HTTP（Hyper Transfer Protocol）"></a>超文本传输协议HTTP（Hyper Transfer Protocol）</h3><h4 id="概念和传输过程"><a href="#概念和传输过程" class="headerlink" title="概念和传输过程"></a>概念和传输过程</h4><ul><li>在万维网客户程序与万维网服务器程序之间进行交互所使用的协议，是<strong>超文本传送协议</strong> HTTP (HyperText Transfer Protocol)。</li><li>HTTP 是一个应用层协议，它使用 TCP 连接进行可靠的传送。</li></ul><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/583.jpg"></p><p>image-</p><ul><li>每个万维网网点都有一个服务器进程，它不断地<strong>监听 TCP 的端口 80</strong>，以便发现是否有浏览器向它发出连接建立请求。</li><li>一旦监听到连接建立请求并建立了 TCP 连接之后，浏览器就向万维网服务器发出浏览某个页面的请求，服务器接着就返回所请求的页面作为响应。</li><li>最后，TCP 连接就被释放了。</li></ul><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/584.jpg"></p><p>image-</p><h4 id="HTTP报文格式"><a href="#HTTP报文格式" class="headerlink" title="HTTP报文格式"></a>HTTP报文格式</h4><p><strong>HTTP请求报文格式</strong></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/585.jpg"></p><p>image-</p><p><strong>HTTP响应报文格式</strong></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/586.jpg"></p><p>image-</p><h4 id="使用Cookie在服务器上记录用户信息"><a href="#使用Cookie在服务器上记录用户信息" class="headerlink" title="使用Cookie在服务器上记录用户信息"></a>使用Cookie在服务器上记录用户信息</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/587.jpg"></p><p>image-</p><h4 id="万维网缓存与代理服务器"><a href="#万维网缓存与代理服务器" class="headerlink" title="万维网缓存与代理服务器"></a>万维网缓存与代理服务器</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/588.jpg"></p><p>image-</p><p>如果该请求有缓存</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/589.jpg"></p><p>image-</p><p>如果该请求没有缓存</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/590.jpg"></p><p>image-</p><blockquote><p>若WEb缓存的命中率比较高</p><p>则会大大减小了该链路上的通信量，因而减少了访问因特网的时延</p></blockquote><p>假设原始服务器的文档被更改，这样代理服务器的文档就不是最新的</p><p>所以原始服务器通常会为每个响应的对象设定一个<strong>修改时间字段</strong>和一个<strong>有效日期字段</strong></p><p>若未过期</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/591.jpg"></p><p>image-</p><p>若过期并且代理服务器的文档和原始服务器的<strong>文档一致</strong>，原始服务器则给代理服务器发送不包含实体主体的响应</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/592.jpg"></p><p>image-</p><p>若过期并且代理服务器的文档和原始服务器的<strong>文档不一致</strong>，原始服务器则给代理服务器发送封装有该文档的响应报文</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/593.jpg"></p><p>image-</p><h3 id="总结-5"><a href="#总结-5" class="headerlink" title="总结"></a>总结</h3><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/594.jpg"></p><p>image-</p>]]></content>
     
@@ -34,14 +34,14 @@
     
     
     
-    <category term="计算机网络" scheme="https://gitee.com/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="http://yunyd.cloud/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>计算机网络题库</title>
-    <link href="https://gitee.com/yunyd/posts/90f616cd.html"/>
-    <id>https://gitee.com/yunyd/posts/90f616cd.html</id>
+    <link href="http://yunyd.cloud/posts/90f616cd.html"/>
+    <id>http://yunyd.cloud/posts/90f616cd.html</id>
     <published>2023-09-17T23:34:20.000Z</published>
     <updated>2023-09-17T23:58:37.080Z</updated>
     
@@ -56,14 +56,14 @@
     
     
     
-    <category term="计算机网络" scheme="https://gitee.com/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="http://yunyd.cloud/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>计网-运输层</title>
-    <link href="https://gitee.com/yunyd/posts/53088c30.html"/>
-    <id>https://gitee.com/yunyd/posts/53088c30.html</id>
+    <link href="http://yunyd.cloud/posts/53088c30.html"/>
+    <id>http://yunyd.cloud/posts/53088c30.html</id>
     <published>2023-09-16T07:10:05.000Z</published>
     <updated>2023-09-16T07:25:05.649Z</updated>
     
@@ -78,14 +78,14 @@
     
     
     
-    <category term="计算机网络" scheme="https://gitee.com/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="http://yunyd.cloud/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>计网-网络层</title>
-    <link href="https://gitee.com/yunyd/posts/93662db.html"/>
-    <id>https://gitee.com/yunyd/posts/93662db.html</id>
+    <link href="http://yunyd.cloud/posts/93662db.html"/>
+    <id>http://yunyd.cloud/posts/93662db.html</id>
     <published>2023-09-13T22:00:30.000Z</published>
     <updated>2023-09-14T03:49:29.580Z</updated>
     
@@ -100,14 +100,14 @@
     
     
     
-    <category term="计算机网络" scheme="https://gitee.com/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="http://yunyd.cloud/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>MySQL进阶学习</title>
-    <link href="https://gitee.com/yunyd/posts/ff2d31e5.html"/>
-    <id>https://gitee.com/yunyd/posts/ff2d31e5.html</id>
+    <link href="http://yunyd.cloud/posts/ff2d31e5.html"/>
+    <id>http://yunyd.cloud/posts/ff2d31e5.html</id>
     <published>2023-09-11T22:10:40.000Z</published>
     <updated>2023-09-13T09:48:32.942Z</updated>
     
@@ -122,14 +122,14 @@
     
     
     
-    <category term="MySQL" scheme="https://gitee.com/yunyd/tags/MySQL/"/>
+    <category term="MySQL" scheme="http://yunyd.cloud/tags/MySQL/"/>
     
   </entry>
   
   <entry>
     <title>RabbitMQ快速回顾</title>
-    <link href="https://gitee.com/yunyd/posts/b22d840b.html"/>
-    <id>https://gitee.com/yunyd/posts/b22d840b.html</id>
+    <link href="http://yunyd.cloud/posts/b22d840b.html"/>
+    <id>http://yunyd.cloud/posts/b22d840b.html</id>
     <published>2023-09-11T00:43:21.000Z</published>
     <updated>2023-09-11T12:57:33.313Z</updated>
     
@@ -144,16 +144,16 @@
     
     
     
-    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
     
-    <category term="MQ" scheme="https://gitee.com/yunyd/tags/MQ/"/>
+    <category term="MQ" scheme="http://yunyd.cloud/tags/MQ/"/>
     
   </entry>
   
   <entry>
     <title>计网-数据链路层</title>
-    <link href="https://gitee.com/yunyd/posts/c01737cc.html"/>
-    <id>https://gitee.com/yunyd/posts/c01737cc.html</id>
+    <link href="http://yunyd.cloud/posts/c01737cc.html"/>
+    <id>http://yunyd.cloud/posts/c01737cc.html</id>
     <published>2023-09-10T02:00:30.000Z</published>
     <updated>2023-09-10T08:11:14.430Z</updated>
     
@@ -168,14 +168,14 @@
     
     
     
-    <category term="计算机网络" scheme="https://gitee.com/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="http://yunyd.cloud/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>Docker</title>
-    <link href="https://gitee.com/yunyd/posts/f5f9fa9b.html"/>
-    <id>https://gitee.com/yunyd/posts/f5f9fa9b.html</id>
+    <link href="http://yunyd.cloud/posts/f5f9fa9b.html"/>
+    <id>http://yunyd.cloud/posts/f5f9fa9b.html</id>
     <published>2023-09-07T01:02:17.000Z</published>
     <updated>2023-09-11T13:01:03.405Z</updated>
     
@@ -190,16 +190,16 @@
     
     
     
-    <category term="Docker" scheme="https://gitee.com/yunyd/tags/Docker/"/>
+    <category term="Docker" scheme="http://yunyd.cloud/tags/Docker/"/>
     
-    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
     
   </entry>
   
   <entry>
     <title>Feign远程调用复习</title>
-    <link href="https://gitee.com/yunyd/posts/dc362a43.html"/>
-    <id>https://gitee.com/yunyd/posts/dc362a43.html</id>
+    <link href="http://yunyd.cloud/posts/dc362a43.html"/>
+    <id>http://yunyd.cloud/posts/dc362a43.html</id>
     <published>2023-09-06T02:01:57.000Z</published>
     <updated>2023-09-11T23:07:54.802Z</updated>
     
@@ -214,16 +214,16 @@
     
     
     
-    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
     
-    <category term="Feign" scheme="https://gitee.com/yunyd/tags/Feign/"/>
+    <category term="Feign" scheme="http://yunyd.cloud/tags/Feign/"/>
     
   </entry>
   
   <entry>
     <title>计网-物理层</title>
-    <link href="https://gitee.com/yunyd/posts/1a887d87.html"/>
-    <id>https://gitee.com/yunyd/posts/1a887d87.html</id>
+    <link href="http://yunyd.cloud/posts/1a887d87.html"/>
+    <id>http://yunyd.cloud/posts/1a887d87.html</id>
     <published>2023-09-04T03:37:48.000Z</published>
     <updated>2023-09-11T13:01:30.193Z</updated>
     
@@ -238,14 +238,14 @@
     
     
     
-    <category term="计算机网络" scheme="https://gitee.com/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="http://yunyd.cloud/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>Gateway服务网关</title>
-    <link href="https://gitee.com/yunyd/posts/596a9b7e.html"/>
-    <id>https://gitee.com/yunyd/posts/596a9b7e.html</id>
+    <link href="http://yunyd.cloud/posts/596a9b7e.html"/>
+    <id>http://yunyd.cloud/posts/596a9b7e.html</id>
     <published>2023-09-02T02:08:14.000Z</published>
     <updated>2023-09-11T23:05:26.459Z</updated>
     
@@ -260,16 +260,16 @@
     
     
     
-    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
     
-    <category term="Gateway" scheme="https://gitee.com/yunyd/tags/Gateway/"/>
+    <category term="Gateway" scheme="http://yunyd.cloud/tags/Gateway/"/>
     
   </entry>
   
   <entry>
     <title>计网-概述</title>
-    <link href="https://gitee.com/yunyd/posts/c68d923.html"/>
-    <id>https://gitee.com/yunyd/posts/c68d923.html</id>
+    <link href="http://yunyd.cloud/posts/c68d923.html"/>
+    <id>http://yunyd.cloud/posts/c68d923.html</id>
     <published>2023-08-31T00:45:47.000Z</published>
     <updated>2023-09-11T13:01:20.780Z</updated>
     
@@ -284,14 +284,14 @@
     
     
     
-    <category term="计算机网络" scheme="https://gitee.com/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="http://yunyd.cloud/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
   <entry>
     <title>Nginx复习</title>
-    <link href="https://gitee.com/yunyd/posts/a78394d2.html"/>
-    <id>https://gitee.com/yunyd/posts/a78394d2.html</id>
+    <link href="http://yunyd.cloud/posts/a78394d2.html"/>
+    <id>http://yunyd.cloud/posts/a78394d2.html</id>
     <published>2023-08-28T12:41:40.000Z</published>
     <updated>2023-09-11T23:08:09.565Z</updated>
     
@@ -306,14 +306,14 @@
     
     
     
-    <category term="Nginx" scheme="https://gitee.com/yunyd/tags/Nginx/"/>
+    <category term="Nginx" scheme="http://yunyd.cloud/tags/Nginx/"/>
     
   </entry>
   
   <entry>
     <title>Nacos复习回顾</title>
-    <link href="https://gitee.com/yunyd/posts/270777eb.html"/>
-    <id>https://gitee.com/yunyd/posts/270777eb.html</id>
+    <link href="http://yunyd.cloud/posts/270777eb.html"/>
+    <id>http://yunyd.cloud/posts/270777eb.html</id>
     <published>2023-08-26T04:35:26.000Z</published>
     <updated>2023-08-26T04:40:56.460Z</updated>
     
@@ -328,16 +328,16 @@
     
     
     
-    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
     
-    <category term="Nacos" scheme="https://gitee.com/yunyd/tags/Nacos/"/>
+    <category term="Nacos" scheme="http://yunyd.cloud/tags/Nacos/"/>
     
   </entry>
   
   <entry>
     <title>Eureka复习回顾</title>
-    <link href="https://gitee.com/yunyd/posts/7b1e2515.html"/>
-    <id>https://gitee.com/yunyd/posts/7b1e2515.html</id>
+    <link href="http://yunyd.cloud/posts/7b1e2515.html"/>
+    <id>http://yunyd.cloud/posts/7b1e2515.html</id>
     <published>2023-08-26T00:41:40.000Z</published>
     <updated>2023-08-26T00:48:45.166Z</updated>
     
@@ -352,16 +352,16 @@
     
     
     
-    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
     
-    <category term="Eureka" scheme="https://gitee.com/yunyd/tags/Eureka/"/>
+    <category term="Eureka" scheme="http://yunyd.cloud/tags/Eureka/"/>
     
   </entry>
   
   <entry>
     <title>ElasticSearch分布式搜索引擎 -Ⅲ</title>
-    <link href="https://gitee.com/yunyd/posts/bbe6edac.html"/>
-    <id>https://gitee.com/yunyd/posts/bbe6edac.html</id>
+    <link href="http://yunyd.cloud/posts/bbe6edac.html"/>
+    <id>http://yunyd.cloud/posts/bbe6edac.html</id>
     <published>2023-08-25T01:40:04.000Z</published>
     <updated>2023-09-03T02:01:08.949Z</updated>
     
@@ -376,16 +376,16 @@
     
     
     
-    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
     
-    <category term="ElasticSearch" scheme="https://gitee.com/yunyd/tags/ElasticSearch/"/>
+    <category term="ElasticSearch" scheme="http://yunyd.cloud/tags/ElasticSearch/"/>
     
   </entry>
   
   <entry>
     <title>ElasticSearch分布式搜索引擎 -Ⅱ</title>
-    <link href="https://gitee.com/yunyd/posts/22efbc16.html"/>
-    <id>https://gitee.com/yunyd/posts/22efbc16.html</id>
+    <link href="http://yunyd.cloud/posts/22efbc16.html"/>
+    <id>http://yunyd.cloud/posts/22efbc16.html</id>
     <published>2023-08-25T00:50:04.000Z</published>
     <updated>2023-09-03T02:01:08.947Z</updated>
     
@@ -400,16 +400,16 @@
     
     
     
-    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
     
-    <category term="ElasticSearch" scheme="https://gitee.com/yunyd/tags/ElasticSearch/"/>
+    <category term="ElasticSearch" scheme="http://yunyd.cloud/tags/ElasticSearch/"/>
     
   </entry>
   
   <entry>
     <title>ElasticSearch分布式搜索引擎 -Ⅰ</title>
-    <link href="https://gitee.com/yunyd/posts/55e88c80.html"/>
-    <id>https://gitee.com/yunyd/posts/55e88c80.html</id>
+    <link href="http://yunyd.cloud/posts/55e88c80.html"/>
+    <id>http://yunyd.cloud/posts/55e88c80.html</id>
     <published>2023-08-24T23:44:04.000Z</published>
     <updated>2023-09-03T02:01:08.943Z</updated>
     
@@ -424,16 +424,16 @@
     
     
     
-    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
+    <category term="SpringCloud" scheme="http://yunyd.cloud/tags/SpringCloud/"/>
     
-    <category term="ElasticSearch" scheme="https://gitee.com/yunyd/tags/ElasticSearch/"/>
+    <category term="ElasticSearch" scheme="http://yunyd.cloud/tags/ElasticSearch/"/>
     
   </entry>
   
   <entry>
     <title>Dubbo复习</title>
-    <link href="https://gitee.com/yunyd/posts/11f4b451.html"/>
-    <id>https://gitee.com/yunyd/posts/11f4b451.html</id>
+    <link href="http://yunyd.cloud/posts/11f4b451.html"/>
+    <id>http://yunyd.cloud/posts/11f4b451.html</id>
     <published>2023-08-24T03:21:15.000Z</published>
     <updated>2023-08-25T00:18:51.566Z</updated>
     
@@ -448,14 +448,14 @@
     
     
     
-    <category term="Dubbo" scheme="https://gitee.com/yunyd/tags/Dubbo/"/>
+    <category term="Dubbo" scheme="http://yunyd.cloud/tags/Dubbo/"/>
     
   </entry>
   
   <entry>
     <title>Redis复习 -Ⅱ</title>
-    <link href="https://gitee.com/yunyd/posts/89420fb3.html"/>
-    <id>https://gitee.com/yunyd/posts/89420fb3.html</id>
+    <link href="http://yunyd.cloud/posts/89420fb3.html"/>
+    <id>http://yunyd.cloud/posts/89420fb3.html</id>
     <published>2023-08-22T02:08:42.000Z</published>
     <updated>2023-09-07T08:31:24.962Z</updated>
     
@@ -470,7 +470,7 @@
     
     
     
-    <category term="Redis" scheme="https://gitee.com/yunyd/tags/Redis/"/>
+    <category term="Redis" scheme="http://yunyd.cloud/tags/Redis/"/>
     
   </entry>
   
