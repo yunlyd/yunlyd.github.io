@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Feign远程调用复习, lucky_llllz 计算机 软件工程 后端">
+    <meta name="keywords" content="MySQL进阶学习 -2, lucky_llllz 计算机 软件工程 后端">
     <meta name="description" content="计算机 | 软件工程">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Feign远程调用复习 | llllz_liu</title>
+    <title>MySQL进阶学习 -2 | llllz_liu</title>
 
     <link rel="icon" type="image/png" href="/yunyd/medias/favicon-32x32.png">
 
@@ -352,12 +352,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Blog/z004.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Blog/i.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Feign远程调用复习</h1>
+                    <h1 class="description center-align post-title">MySQL进阶学习 -2</h1>
                 </div>
             </div>
         </div>
@@ -478,12 +478,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/yunyd/tags/SpringCloud/">
-                                <span class="chip bg-color">SpringCloud</span>
-                            </a>
-                        
-                            <a href="/yunyd/tags/Feign/">
-                                <span class="chip bg-color">Feign</span>
+                            <a href="/yunyd/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
                             </a>
                         
                     </div>
@@ -498,28 +494,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-09-06
+                    2023-09-24
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-09-12
+                    2023-09-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    3.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    14 分
                 </div>
                 
 
@@ -537,247 +533,345 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="1-Feign远程调用复习"><a href="#1-Feign远程调用复习" class="headerlink" title="1.Feign远程调用复习"></a>1.Feign远程调用复习</h1><p>先来看我们以前利用RestTemplate发起远程调用的代码：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Feign/1.jpg"></p>
-<p>存在下面的问题：</p>
+                <h1 id="MySQL进阶学习-Ⅱ"><a href="#MySQL进阶学习-Ⅱ" class="headerlink" title="MySQL进阶学习  -Ⅱ"></a>MySQL进阶学习  -Ⅱ</h1><h2 id="MySQL-锁"><a href="#MySQL-锁" class="headerlink" title="MySQL 锁"></a>MySQL 锁</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>锁是计算机协调多个进程或线程并发访问某一资源的机制。在数据库中，除传统的计算资源（<code>CPU、RAM、I/O</code>）的争用以外，数据也是一种供许多用户共享的资源。如何保证数据并发访问的一致性、有效性是所有数据库必须解决的一个问题，锁冲突也是影响数据库并发访问性能的一个重要因素。从这个角度来说，锁对数据库而言显得尤其重要，也更加复杂。</p>
+<p>MySQL中的锁，按照锁的粒度分，分为以下三类：</p>
 <ul>
-<li>代码可读性差，编程体验不统一</li>
-<li>参数复杂URL难以维护</li>
+<li>全局锁：锁定数据库中的所有表。</li>
+<li>表级锁：每次操作锁住整张表。</li>
+<li>行级锁：每次操作锁住对应的行数据。</li>
 </ul>
-<p>Feign是一个声明式的http客户端，官方地址：<a target="_blank" rel="noopener" href="https://github.com/OpenFeign/feign">https://github.com/OpenFeign/feign</a></p>
-<p>其作用就是帮助我们优雅的实现http请求的发送，解决上面提到的问题。</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Feign/2.jpg"></p>
-<h2 id="1-1-Feign替代RestTemplate"><a href="#1-1-Feign替代RestTemplate" class="headerlink" title="1.1.Feign替代RestTemplate"></a>1.1.Feign替代RestTemplate</h2><p>Fegin的使用步骤如下：</p>
-<h3 id="1）引入依赖"><a href="#1）引入依赖" class="headerlink" title="1）引入依赖"></a>1）引入依赖</h3><p>我们在order-service服务的pom文件中引入feign的依赖：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-cloud-starter-openfeign<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="2）添加注解"><a href="#2）添加注解" class="headerlink" title="2）添加注解"></a>2）添加注解</h3><p>在order-service的启动类添加注解开启Feign的功能：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Feign/3.jpg"></p>
-<h3 id="3）编写Feign的客户端"><a href="#3）编写Feign的客户端" class="headerlink" title="3）编写Feign的客户端"></a>3）编写Feign的客户端</h3><p>在order-service中新建一个接口，内容如下：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">package</span> <span class="token namespace">cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>order<span class="token punctuation">.</span>client</span><span class="token punctuation">;</span>
-
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">cn<span class="token punctuation">.</span>itcast<span class="token punctuation">.</span>order<span class="token punctuation">.</span>pojo<span class="token punctuation">.</span></span><span class="token class-name">User</span></span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>cloud<span class="token punctuation">.</span>openfeign<span class="token punctuation">.</span></span><span class="token class-name">FeignClient</span></span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">GetMapping</span></span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">PathVariable</span></span><span class="token punctuation">;</span>
-
-<span class="token annotation punctuation">@FeignClient</span><span class="token punctuation">(</span><span class="token string">"userservice"</span><span class="token punctuation">)</span>
-<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">UserClient</span> <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/user/{id}"</span><span class="token punctuation">)</span>
-    <span class="token class-name">User</span> <span class="token function">findById</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span><span class="token string">"id"</span><span class="token punctuation">)</span> <span class="token class-name">Long</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<p>这个客户端主要是基于SpringMVC的注解来声明远程调用的信息，比如：</p>
+<h2 id="全局锁"><a href="#全局锁" class="headerlink" title="全局锁"></a>全局锁</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>全局锁就是对整个数据库实例加锁，加锁后整个实例就处于只读状态，后续的DML的写语句，DDL语句，已经更新操作的事务提交语句都将被阻塞。</p>
+<p>其典型的使用场景是做全库的逻辑备份，对所有的表进行锁定，从而获取一致性视图，保证数据的完整性。</p>
+<p>为什么全库逻辑备份，就需要加全就锁呢？</p>
+<p>A. 我们一起先来分析一下不加全局锁，可能存在的问题。</p>
+<p>假设在数据库中存在这样三张表: tb_stock 库存表，tb_order 订单表，tb_orderlog 订单日志表。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/12.jpg"></p>
 <ul>
-<li>服务名称：userservice</li>
-<li>请求方式：GET</li>
-<li>请求路径：/user/{id}</li>
-<li>请求参数：Long id</li>
-<li>返回值类型：User</li>
+<li>在进行数据备份时，先备份了tb_stock库存表。</li>
+<li>然后接下来，在业务系统中，执行了下单操作，扣减库存，生成订单（更新tb_stock表，插入tb_order表）。</li>
+<li>然后再执行备份 tb_order表的逻辑。</li>
+<li>业务中执行插入订单日志操作。</li>
+<li>最后，又备份了tb_orderlog表。</li>
 </ul>
-<p>这样，Feign就可以帮助我们发送http请求，无需自己使用RestTemplate来发送了。</p>
-<h3 id="4）测试"><a href="#4）测试" class="headerlink" title="4）测试"></a>4）测试</h3><p>修改order-service中的OrderService类中的queryOrderById方法，使用Feign客户端代替RestTemplate：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Feign/4.jpg"></p>
-<p>是不是看起来优雅多了。</p>
-<h3 id="5）总结"><a href="#5）总结" class="headerlink" title="5）总结"></a>5）总结</h3><p>使用Feign的步骤：</p>
-<p>① 引入依赖</p>
-<p>② 添加@EnableFeignClients注解</p>
-<p>③ 编写FeignClient接口</p>
-<p>④ 使用FeignClient中定义的方法代替RestTemplate</p>
-<h2 id="1-2-自定义配置"><a href="#1-2-自定义配置" class="headerlink" title="1.2.自定义配置"></a>1.2.自定义配置</h2><p>Feign可以支持很多的自定义配置，如下表所示：</p>
+<p>此时备份出来的数据，是存在问题的。因为备份出来的数据，tb_stock表与tb_order表的数据不一致(有最新操作的订单信息,但是库存数没减)。</p>
+<p>那如何来规避这种问题呢? 此时就可以借助于MySQL的全局锁来解决。</p>
+<p>B. 再来分析一下加了全局锁后的情况</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/13.jpg"></p>
+<p>对数据库进行进行逻辑备份之前，先对整个数据库加上全局锁，一旦加了全局锁之后，其他的DDL、DML全部都处于阻塞状态，但是可以执行DQL语句，也就是处于只读状态，而数据备份就是查询操作。那么数据在进行逻辑备份的过程中，数据库中的数据就是不会发生变化的，这样就保证了数据的一致性和完整性。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><ul>
+<li>加全局锁</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">flush <span class="token keyword">tables</span> <span class="token keyword">with</span> <span class="token keyword">read</span> <span class="token keyword">lock</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>数据备份</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysqldump <span class="token operator">-</span>uroot –p1234 itcast <span class="token operator">&gt;</span> itcast<span class="token punctuation">.</span><span class="token keyword">sql</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<ul>
+<li>释放锁</li>
+</ul>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">unlock</span> <span class="token keyword">tables</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>数据库中加全局锁，是一个比较重的操作，存在以下问题：</p>
+<ul>
+<li>如果在主库上备份，那么在备份期间都不能执行更新，业务基本上就得停摆。</li>
+<li>如果在从库上备份，那么在备份期间从库不能执行主库同步过来的二进制日志（binlog），会导致主从延迟。</li>
+</ul>
+<p>在InnoDB引擎中，我们可以在备份时加上参数 –single-transaction 参数来完成不加锁的一致性数据备份。</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysqldump <span class="token comment">--single-transaction -uroot –p123456 itcast &gt; itcast.sql</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="表级锁"><a href="#表级锁" class="headerlink" title="表级锁"></a>表级锁</h2><h3 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h3><p>表级锁，每次操作锁住整张表。锁定粒度大，发生锁冲突的概率最高，并发度最低。应用在MyISAM、InnoDB、BDB等存储引擎中。</p>
+<p>对于表级锁，主要分为以下三类：</p>
+<ul>
+<li>表锁</li>
+<li>元数据锁（meta data lock，MDL）</li>
+<li>意向锁</li>
+</ul>
+<h3 id="表锁"><a href="#表锁" class="headerlink" title="表锁"></a>表锁</h3><p>对于表锁，分为两类：</p>
+<ul>
+<li>表共享读锁（read lock）</li>
+<li>表独占写锁（write lock）</li>
+</ul>
+<p>语法：</p>
+<ul>
+<li>加锁：lock tables 表名… read/write。</li>
+<li>释放锁：unlock tables / 客户端断开连接 。</li>
+</ul>
+<p>特点:</p>
+<p>A. 读锁</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/14.jpg"></p>
+<p>左侧为客户端一，对指定表加了读锁，不会影响右侧客户端二的读，但是会阻塞右侧客户端的写。</p>
+<p>测试:</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/15.jpg"></p>
+<p>B.写锁</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/16.jpg"></p>
+<p>左侧为客户端一，对指定表加了写锁，会阻塞右侧客户端的读和写。</p>
+<p>测试:</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/17.jpg"></p>
+<p>结论</p>
+<p>读锁不会阻塞其他客户端的读，但是会阻塞写。写锁既会阻塞其他客户端的读，又会阻塞其他客户端的写。</p>
+<h3 id="元数据锁"><a href="#元数据锁" class="headerlink" title="元数据锁"></a>元数据锁</h3><p>meta data lock , 元数据锁，简写MDL。</p>
+<p>MDL加锁过程是系统自动控制，无需显式使用，在访问一张表的时候会自动加上。MDL锁主要作用是维护表元数据的数据一致性，在表上有活动事务的时候，不可以对元数据进行写入操作。<strong>为了避免DML与DDL冲突，保证读写的正确性</strong>。</p>
+<p>这里的元数据，大家可以简单理解为就是一张表的表结构。 也就是说，某一张表涉及到未提交的事务时，是不能够修改这张表的表结构的。</p>
+<p>在MySQL5.5中引入了MDL，当对一张表进行增删改查的时候，加MDL读锁(共享)；当对表结构进行变更操作的时候，加MDL写锁(排他)。</p>
+<p>常见的SQL操作时，所添加的元数据锁：</p>
 <table>
 <thead>
 <tr>
-<th>类型</th>
-<th>作用</th>
+<th>对应SQL</th>
+<th>锁类型</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><strong>feign.Logger.Level</strong></td>
-<td>修改日志级别</td>
-<td>包含四种不同的级别：NONE、BASIC、HEADERS、FULL</td>
+<td>lock tables xxx read/write</td>
+<td>SHARED_READ_ONLY / SHARED_NO_READ_WRITE</td>
+<td></td>
 </tr>
 <tr>
-<td>feign.codec.Decoder</td>
-<td>响应结果的解析器</td>
-<td>http远程调用的结果做解析，例如解析json字符串为java对象</td>
+<td>select 、select … lock in share mode</td>
+<td>SHARED_READ</td>
+<td>与SHARED_READ、SHARED_WRITE兼容，与EXCLUSIVE互斥</td>
 </tr>
 <tr>
-<td>feign.codec.Encoder</td>
-<td>请求参数编码</td>
-<td>将请求参数编码，便于通过http请求发送</td>
+<td>insert 、update、delete、select … for update</td>
+<td>SHARED_WRITE</td>
+<td>与SHARED_READ、SHARED_WRITE兼容，与EXCLUSIVE互斥</td>
 </tr>
 <tr>
-<td>feign. Contract</td>
-<td>支持的注解格式</td>
-<td>默认是SpringMVC的注解</td>
-</tr>
-<tr>
-<td>feign. Retryer</td>
-<td>失败重试机制</td>
-<td>请求失败的重试机制，默认是没有，不过会使用Ribbon的重试</td>
+<td>alter table …</td>
+<td>EXCLUSIVE</td>
+<td>与其他的MDL都互斥</td>
 </tr>
 </tbody></table>
-<p>一般情况下，默认值就能满足我们使用，如果要自定义时，只需要创建自定义的@Bean覆盖默认Bean即可。</p>
-<p>下面以日志为例来演示如何自定义配置。</p>
-<h3 id="1-2-1-配置文件方式"><a href="#1-2-1-配置文件方式" class="headerlink" title="1.2.1.配置文件方式"></a>1.2.1.配置文件方式</h3><p>基于配置文件修改feign的日志级别可以针对单个服务：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">feign</span><span class="token punctuation">:</span>  
-  <span class="token key atrule">client</span><span class="token punctuation">:</span>
-    <span class="token key atrule">config</span><span class="token punctuation">:</span> 
-      <span class="token key atrule">userservice</span><span class="token punctuation">:</span> <span class="token comment"># 针对某个微服务的配置</span>
-        <span class="token key atrule">loggerLevel</span><span class="token punctuation">:</span> FULL <span class="token comment">#  日志级别 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>演示：</p>
+<p>当执行SELECT、INSERT、UPDATE、DELETE等语句时，添加的是元数据共享锁（SHARED_READ / SHARED_WRITE），之间是兼容的。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/18.jpg"></p>
+<p>当执行SELECT语句时，添加的是元数据共享锁（SHARED_READ），会阻塞元数据排他锁（EXCLUSIVE），之间是互斥的。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/19.jpg"></p>
+<p>我们可以通过下面的SQL，来查看数据库中的元数据锁的情况：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> object_type<span class="token punctuation">,</span>object_schema<span class="token punctuation">,</span>object_name<span class="token punctuation">,</span>lock_type<span class="token punctuation">,</span>lock_duration <span class="token keyword">from</span> performance_schema<span class="token punctuation">.</span>metadata_locks<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>也可以针对所有服务：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">feign</span><span class="token punctuation">:</span>  
-  <span class="token key atrule">client</span><span class="token punctuation">:</span>
-    <span class="token key atrule">config</span><span class="token punctuation">:</span> 
-      <span class="token key atrule">default</span><span class="token punctuation">:</span> <span class="token comment"># 这里用default就是全局配置，如果是写服务名称，则是针对某个微服务的配置</span>
-        <span class="token key atrule">loggerLevel</span><span class="token punctuation">:</span> FULL <span class="token comment">#  日志级别 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我们在操作过程中，可以通过上述的SQL语句，来查看元数据锁的加锁情况。</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">select</span> object_type<span class="token punctuation">,</span>object_schema<span class="token punctuation">,</span>object_name<span class="token punctuation">,</span>lock_type<span class="token punctuation">,</span>lock_duration <span class="token keyword">from</span> performance_schema<span class="token punctuation">.</span>metadata_locks<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">-------------+--------------------+----------------+--------------+---------------+</span>
+<span class="token operator">|</span> object_type <span class="token operator">|</span> object_schema      <span class="token operator">|</span> object_name    <span class="token operator">|</span> lock_type    <span class="token operator">|</span> lock_duration <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">-------------+--------------------+----------------+--------------+---------------+</span>
+<span class="token operator">|</span> <span class="token keyword">TABLE</span>       <span class="token operator">|</span> MySQL_Advanced     <span class="token operator">|</span> tb_user        <span class="token operator">|</span> SHARED_READ  <span class="token operator">|</span> <span class="token keyword">TRANSACTION</span>   <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">TABLE</span>       <span class="token operator">|</span> MySQL_Advanced     <span class="token operator">|</span> tb_user        <span class="token operator">|</span> SHARED_READ  <span class="token operator">|</span> <span class="token keyword">TRANSACTION</span>   <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">TABLE</span>       <span class="token operator">|</span> MySQL_Advanced     <span class="token operator">|</span> tb_user        <span class="token operator">|</span> SHARED_WRITE <span class="token operator">|</span> <span class="token keyword">TRANSACTION</span>   <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">TABLE</span>       <span class="token operator">|</span> MySQL_Advanced     <span class="token operator">|</span> user_logs      <span class="token operator">|</span> SHARED_WRITE <span class="token operator">|</span> <span class="token keyword">TRANSACTION</span>   <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">TABLE</span>       <span class="token operator">|</span> performance_schema <span class="token operator">|</span> metadata_locks <span class="token operator">|</span> SHARED_READ  <span class="token operator">|</span> <span class="token keyword">TRANSACTION</span>   <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">-------------+--------------------+----------------+--------------+---------------+</span>
+<span class="token number">5</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+mysql<span class="token operator">&gt;</span> <span class="token keyword">alter</span> <span class="token keyword">table</span> tb_user <span class="token keyword">add</span> <span class="token keyword">column</span> java <span class="token keyword">int</span><span class="token punctuation">;</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>阻塞<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<p>而日志的级别分为四种：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">-- 另开一个客户端窗口</span>
+mysql<span class="token operator">&gt;</span> <span class="token keyword">select</span> object_type<span class="token punctuation">,</span>object_schema<span class="token punctuation">,</span>object_name<span class="token punctuation">,</span>lock_type<span class="token punctuation">,</span>lock_duration <span class="token keyword">from</span> performance_schema<span class="token punctuation">.</span>metadata_locks<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">-------------+--------------------+------------------------+---------------------+---------------+</span>
+<span class="token operator">|</span> object_type <span class="token operator">|</span> object_schema      <span class="token operator">|</span> object_name            <span class="token operator">|</span> lock_type           <span class="token operator">|</span> lock_duration <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">-------------+--------------------+------------------------+---------------------+---------------+</span>
+<span class="token operator">|</span> <span class="token keyword">TABLE</span>       <span class="token operator">|</span> MySQL_Advanced     <span class="token operator">|</span> tb_user                <span class="token operator">|</span> SHARED_READ         <span class="token operator">|</span> <span class="token keyword">TRANSACTION</span>   <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">GLOBAL</span>      <span class="token operator">|</span> <span class="token boolean">NULL</span>               <span class="token operator">|</span> <span class="token boolean">NULL</span>                   <span class="token operator">|</span> INTENTION_EXCLUSIVE <span class="token operator">|</span> STATEMENT     <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">BACKUP</span> <span class="token keyword">LOCK</span> <span class="token operator">|</span> <span class="token boolean">NULL</span>               <span class="token operator">|</span> <span class="token boolean">NULL</span>                   <span class="token operator">|</span> INTENTION_EXCLUSIVE <span class="token operator">|</span> <span class="token keyword">TRANSACTION</span>   <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">SCHEMA</span>      <span class="token operator">|</span> MySQL_Advanced     <span class="token operator">|</span> <span class="token boolean">NULL</span>                   <span class="token operator">|</span> INTENTION_EXCLUSIVE <span class="token operator">|</span> <span class="token keyword">TRANSACTION</span>   <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">TABLE</span>       <span class="token operator">|</span> MySQL_Advanced     <span class="token operator">|</span> tb_user                <span class="token operator">|</span> SHARED_UPGRADABLE   <span class="token operator">|</span> <span class="token keyword">TRANSACTION</span>   <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">TABLESPACE</span>  <span class="token operator">|</span> <span class="token boolean">NULL</span>               <span class="token operator">|</span> MySQL_Advanced<span class="token operator">/</span>tb_user <span class="token operator">|</span> INTENTION_EXCLUSIVE <span class="token operator">|</span> <span class="token keyword">TRANSACTION</span>   <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">TRIGGER</span>     <span class="token operator">|</span> MySQL_Advanced     <span class="token operator">|</span> tb_user_insert_trigger <span class="token operator">|</span> EXCLUSIVE           <span class="token operator">|</span> <span class="token keyword">TRANSACTION</span>   <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">TRIGGER</span>     <span class="token operator">|</span> MySQL_Advanced     <span class="token operator">|</span> tb_user_update_trigger <span class="token operator">|</span> EXCLUSIVE           <span class="token operator">|</span> <span class="token keyword">TRANSACTION</span>   <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">TRIGGER</span>     <span class="token operator">|</span> MySQL_Advanced     <span class="token operator">|</span> tb_user_delete_trigger <span class="token operator">|</span> EXCLUSIVE           <span class="token operator">|</span> <span class="token keyword">TRANSACTION</span>   <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">TABLE</span>       <span class="token operator">|</span> MySQL_Advanced     <span class="token operator">|</span> <span class="token comment">#sql-261d_18           | EXCLUSIVE           | STATEMENT     |</span>
+<span class="token operator">|</span> <span class="token keyword">TABLE</span>       <span class="token operator">|</span> MySQL_Advanced     <span class="token operator">|</span> tb_user                <span class="token operator">|</span> EXCLUSIVE           <span class="token operator">|</span> <span class="token keyword">TRANSACTION</span>   <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">TABLE</span>       <span class="token operator">|</span> performance_schema <span class="token operator">|</span> metadata_locks         <span class="token operator">|</span> SHARED_READ         <span class="token operator">|</span> <span class="token keyword">TRANSACTION</span>   <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">-------------+--------------------+------------------------+---------------------+---------------+</span>
+<span class="token number">12</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="意向锁"><a href="#意向锁" class="headerlink" title="意向锁"></a>意向锁</h3><ol>
+<li>介绍</li>
+</ol>
+<p>为了避免DML在执行时，加的行锁与表锁的冲突，在InnoDB中引入了意向锁，使得表锁不用检查每行数据是否加锁，使用意向锁来减少表锁的检查。</p>
+<p>假如没有意向锁，客户端一对表加了行锁后，客户端二如何给表加表锁呢，来通过示意图简单分析一下：</p>
+<p>首先客户端一，开启一个事务，然后执行DML操作，在执行DML语句时，会对涉及到的行加行锁。</p>
+<p>当客户端二，想对这张表加表锁时，会检查当前表是否有对应的行锁，如果没有，则添加表锁，此时就会从第一行数据，检查到最后一行数据，效率较低。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/20.jpg"></p>
+<p>有了意向锁之后 :</p>
+<p>客户端一，在执行DML操作时，会对涉及的行加行锁，同时也会对该表加上意向锁。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/21.jpg"></p>
+<p>而其他客户端，在对这张表加表锁的时候，会根据该表上所加的意向锁来判定是否可以成功加表锁，而不用逐行判断行锁情况了。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/22.jpg"></p>
+<ol>
+<li>分类</li>
+</ol>
 <ul>
-<li>NONE：不记录任何日志信息，这是默认值。</li>
-<li>BASIC：仅记录请求的方法，URL以及响应状态码和执行时间</li>
-<li>HEADERS：在BASIC的基础上，额外记录了请求和响应的头信息</li>
-<li>FULL：记录所有请求和响应的明细，包括头信息、请求体、元数据。</li>
+<li><strong>意向共享锁(IS): 由语句select … lock in share mode添加</strong> 。<strong>与表锁共享锁(read)兼容，与表锁排他锁(write)互斥</strong>。</li>
+<li><strong>意向排他锁(IX)</strong>: <strong>由insert、update、delete、select…for update添加 **。</strong>与表锁共享锁(read)及排他锁(write)都互斥，意向锁之间不会互斥**。</li>
 </ul>
-<h3 id="1-2-2-Java代码方式"><a href="#1-2-2-Java代码方式" class="headerlink" title="1.2.2.Java代码方式"></a>1.2.2.Java代码方式</h3><p>也可以基于Java代码来修改日志级别，先声明一个类，然后声明一个Logger.Level的对象：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DefaultFeignConfiguration</span>  <span class="token punctuation">{</span>
-    <span class="token annotation punctuation">@Bean</span>
-    <span class="token keyword">public</span> <span class="token class-name">Logger<span class="token punctuation">.</span>Level</span> <span class="token function">feignLogLevel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token class-name">Logger<span class="token punctuation">.</span>Level</span><span class="token punctuation">.</span><span class="token constant">BASIC</span><span class="token punctuation">;</span> <span class="token comment">// 日志级别为BASIC</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>一旦事务提交了，意向共享锁、意向排他锁，都会自动释放。</p>
+</blockquote>
+<p>可以通过以下SQL，查看意向锁及行锁的加锁情况：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> object_schema<span class="token punctuation">,</span>object_name<span class="token punctuation">,</span>index_name<span class="token punctuation">,</span>lock_type<span class="token punctuation">,</span>lock_mode<span class="token punctuation">,</span>lock_data <span class="token keyword">from</span> performance_schema<span class="token punctuation">.</span>data_locks<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-
-
-<p>如果要<strong>全局生效</strong>，将其放到启动类的@EnableFeignClients这个注解中：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@EnableFeignClients</span><span class="token punctuation">(</span>defaultConfiguration <span class="token operator">=</span> <span class="token class-name">DefaultFeignConfiguration</span> <span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<p>如果是<strong>局部生效</strong>，则把它放到对应的@FeignClient这个注解中：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@FeignClient</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"userservice"</span><span class="token punctuation">,</span> configuration <span class="token operator">=</span> <span class="token class-name">DefaultFeignConfiguration</span> <span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-
-
-
-
-<h2 id="1-3-Feign使用优化"><a href="#1-3-Feign使用优化" class="headerlink" title="1.3.Feign使用优化"></a>1.3.Feign使用优化</h2><p>Feign底层发起http请求，依赖于其它的框架。其底层客户端实现包括：</p>
-<p>•URLConnection：默认实现，不支持连接池</p>
-<p>•Apache HttpClient ：支持连接池</p>
-<p>•OKHttp：支持连接池</p>
-<p>因此提高Feign的性能主要手段就是使用<strong>连接池</strong>代替默认的URLConnection。</p>
-<p>这里我们用Apache的HttpClient来演示。</p>
-<p>1）引入依赖</p>
-<p>在order-service的pom文件中引入Apache的HttpClient依赖：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--httpClient的依赖 --&gt;</span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>io.github.openfeign<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>feign-httpclient<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<p>2）配置连接池</p>
-<p>在order-service的application.yml中添加配置：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">feign</span><span class="token punctuation">:</span>
-  <span class="token key atrule">client</span><span class="token punctuation">:</span>
-    <span class="token key atrule">config</span><span class="token punctuation">:</span>
-      <span class="token key atrule">default</span><span class="token punctuation">:</span> <span class="token comment"># default全局的配置</span>
-        <span class="token key atrule">loggerLevel</span><span class="token punctuation">:</span> BASIC <span class="token comment"># 日志级别，BASIC就是基本的请求和响应信息</span>
-  <span class="token key atrule">httpclient</span><span class="token punctuation">:</span>
-    <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 开启feign对HttpClient的支持</span>
-    <span class="token key atrule">max-connections</span><span class="token punctuation">:</span> <span class="token number">200</span> <span class="token comment"># 最大的连接数</span>
-    <span class="token key atrule">max-connections-per-route</span><span class="token punctuation">:</span> <span class="token number">50</span> <span class="token comment"># 每个路径的最大连接数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<p>接下来，在FeignClientFactoryBean中的loadBalance方法中打断点：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Feign/5.jpg"></p>
-<p>Debug方式启动order-service服务，可以看到这里的client，底层就是Apache HttpClient：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Feign/6.jpg"></p>
-<p>总结，Feign的优化：</p>
-<p>1.日志级别尽量用basic</p>
-<p>2.使用HttpClient或OKHttp代替URLConnection</p>
-<p>①  引入feign-httpClient依赖</p>
-<p>②  配置文件开启httpClient功能，设置连接池参数</p>
-<h2 id="1-4-最佳实践"><a href="#1-4-最佳实践" class="headerlink" title="1.4.最佳实践"></a>1.4.最佳实践</h2><p>所谓最近实践，就是使用过程中总结的经验，最好的一种使用方式。</p>
-<p>自习观察可以发现，Feign的客户端与服务提供者的controller代码非常相似：</p>
-<p>feign客户端：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Feign/7.jpg"></p>
-<p>UserController：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Feign/8.jpg"></p>
-<p>有没有一种办法简化这种重复的代码编写呢？</p>
-<h3 id="1-4-1-继承方式"><a href="#1-4-1-继承方式" class="headerlink" title="1.4.1.继承方式"></a>1.4.1.继承方式</h3><p>一样的代码可以通过继承来共享：</p>
-<p>1）定义一个API接口，利用定义方法，并基于SpringMVC注解做声明。</p>
-<p>2）Feign客户端和Controller都集成改接口</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Feign/9.jpg"></p>
-<p>优点：</p>
+<p>演示：</p>
+<p>A. 意向共享锁与表读锁是兼容的</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/23.jpg"></p>
+<p>B. 意向排他锁与表读锁、写锁都是互斥的</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/24.jpg"></p>
+<h2 id="行级锁"><a href="#行级锁" class="headerlink" title="行级锁"></a>行级锁</h2><h3 id="介绍-2"><a href="#介绍-2" class="headerlink" title="介绍"></a>介绍</h3><p>行级锁，每次操作锁住对应的行数据。锁定粒度最小，发生锁冲突的概率最低，并发度最高。应用在InnoDB存储引擎中。</p>
+<p>InnoDB的数据是基于索引组织的，行锁是通过对索引上的索引项加锁来实现的，而不是对记录加的锁。对于行级锁，主要分为以下三类：</p>
 <ul>
-<li>简单</li>
-<li>实现了代码共享</li>
+<li>行锁（Record Lock）：锁定单个行记录的锁，防止其他事务对此行进行update和delete。在RC、RR隔离级别下都支持。</li>
 </ul>
-<p>缺点：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/25.jpg"></p>
 <ul>
-<li><p>服务提供方、服务消费方紧耦合</p>
-</li>
-<li><p>参数列表中的注解映射并不会继承，因此Controller中必须再次声明方法、参数列表、注解</p>
-</li>
+<li>间隙锁（Gap Lock）：锁定索引记录间隙（不含该记录），确保索引记录间隙不变，防止其他事务在这个间隙进行insert，产生幻读。在RR隔离级别下都支持。</li>
 </ul>
-<h3 id="1-4-2-抽取方式"><a href="#1-4-2-抽取方式" class="headerlink" title="1.4.2.抽取方式"></a>1.4.2.抽取方式</h3><p>将Feign的Client抽取为独立模块，并且把接口有关的POJO、默认的Feign配置都放到这个模块中，提供给所有消费者使用。</p>
-<p>例如，将UserClient、User、Feign的默认配置都抽取到一个feign-api包中，所有微服务引用该依赖包，即可直接使用。</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Feign/10.jpg"></p>
-<h3 id="1-4-3-实现基于抽取的最佳实践"><a href="#1-4-3-实现基于抽取的最佳实践" class="headerlink" title="1.4.3.实现基于抽取的最佳实践"></a>1.4.3.实现基于抽取的最佳实践</h3><h4 id="1）抽取"><a href="#1）抽取" class="headerlink" title="1）抽取"></a>1）抽取</h4><p>首先创建一个module，命名为feign-api：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Feign/11.jpg"></p>
-<p>项目结构：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Feign/12.jpg"></p>
-<p>在feign-api中然后引入feign的starter依赖</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-cloud-starter-openfeign<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/26.jpg"></p>
+<ul>
+<li>临键锁（Next-Key Lock）：行锁和间隙锁组合，同时锁住数据，并锁住数据前面的间隙Gap。在RR隔离级别下支持。</li>
+</ul>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/27.jpg"></p>
+<h3 id="行锁"><a href="#行锁" class="headerlink" title="行锁"></a>行锁</h3><ol>
+<li>介绍</li>
+</ol>
+<p>InnoDB实现了以下两种类型的行锁：</p>
+<ul>
+<li>共享锁（S）：允许一个事务去读一行，阻止其他事务获得相同数据集的排它锁。</li>
+<li>排他锁（X）：允许获取排他锁的事务更新数据，阻止其他事务获得相同数据集的共享锁和排他 锁。</li>
+</ul>
+<p>两种行锁的兼容情况如下:</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/28.jpg"></p>
+<p>常见的SQL语句，在执行时，所加的行锁如下：</p>
+<table>
+<thead>
+<tr>
+<th>SQL</th>
+<th>行锁类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>INSERT …</td>
+<td>排他锁</td>
+<td>自动加锁</td>
+</tr>
+<tr>
+<td>UPDATE …</td>
+<td>排他锁</td>
+<td>自动加锁</td>
+</tr>
+<tr>
+<td>DELETE …</td>
+<td>排他锁</td>
+<td>自动加锁</td>
+</tr>
+<tr>
+<td>SELECT（正常）</td>
+<td>不加任何锁</td>
+<td></td>
+</tr>
+<tr>
+<td>SELECT … LOCK IN SHARE MODE</td>
+<td>共享锁</td>
+<td>需要手动在SELECT之后加LOCK IN SHARE MODE</td>
+</tr>
+<tr>
+<td>SELECT … FOR UPDATE</td>
+<td>排他锁</td>
+<td>需要手动在SELECT之后加FOR UPDATE</td>
+</tr>
+</tbody></table>
+<ol>
+<li>演示</li>
+</ol>
+<p>默认情况下，InnoDB在 REPEATABLE READ事务隔离级别运行，InnoDB使用 next-key 锁进行搜索和索引扫描，以防止幻读。</p>
+<ul>
+<li>针对唯一索引进行检索时，对已存在的记录进行等值匹配时，将会自动优化为行锁。</li>
+<li>InnoDB的行锁是针对于索引加的锁，不通过索引条件检索数据，那么InnoDB将对表中的所有记录加锁，此时 就会升级为表锁。</li>
+</ul>
+<p>可以通过以下SQL，查看意向锁及行锁的加锁情况：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> object_schema<span class="token punctuation">,</span>object_name<span class="token punctuation">,</span>index_name<span class="token punctuation">,</span>lock_type<span class="token punctuation">,</span>lock_mode<span class="token punctuation">,</span>lock_data <span class="token keyword">from</span> performance_schema<span class="token punctuation">.</span>data_locks<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>示例演示</p>
+<p>数据准备:</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">`</span>stu<span class="token punctuation">`</span></span> <span class="token punctuation">(</span>
+	<span class="token identifier"><span class="token punctuation">`</span>id<span class="token punctuation">`</span></span> <span class="token keyword">int</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>
+	<span class="token identifier"><span class="token punctuation">`</span>name<span class="token punctuation">`</span></span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+	<span class="token identifier"><span class="token punctuation">`</span>age<span class="token punctuation">`</span></span> <span class="token keyword">int</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span>
+<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span> <span class="token operator">=</span> <span class="token keyword">InnoDB</span> <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> <span class="token operator">=</span> utf8mb4<span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">`</span>stu<span class="token punctuation">`</span></span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'tom'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">`</span>stu<span class="token punctuation">`</span></span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'cat'</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">`</span>stu<span class="token punctuation">`</span></span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token string">'rose'</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">`</span>stu<span class="token punctuation">`</span></span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">,</span> <span class="token string">'jetty'</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">`</span>stu<span class="token punctuation">`</span></span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">19</span><span class="token punctuation">,</span> <span class="token string">'lily'</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">`</span>stu<span class="token punctuation">`</span></span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token string">'luci'</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<p>然后，order-service中编写的UserClient、User、DefaultFeignConfiguration都复制到feign-api项目中</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Feign/13.jpg"></p>
-<h4 id="2）在order-service中使用feign-api"><a href="#2）在order-service中使用feign-api" class="headerlink" title="2）在order-service中使用feign-api"></a>2）在order-service中使用feign-api</h4><p>首先，删除order-service中的UserClient、User、DefaultFeignConfiguration等类或接口。</p>
-<p>在order-service的pom文件中中引入feign-api的依赖：</p>
-<pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>cn.itcast.demo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>feign-api<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">&gt;</span></span>1.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>演示行锁的时候，我们就通过上面这张表来演示一下。</p>
+<p>A. <strong>普通的select语句，执行时，不会加锁</strong>。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/29.jpg"></p>
+<p>B. select…lock in share mode，加共享锁，<strong>共享锁与共享锁之间兼容</strong>。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/30.jpg"></p>
+<p>共享锁与排他锁之间互斥。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/31.jpg"></p>
+<p>客户端一获取的是id为1这行的共享锁，客户端二是可以获取id为3这行的排它锁的，因为不是同一行数据。 而如果客户端二想获取id为1这行的排他锁，会处于阻塞状态，以为共享锁与排他锁之间互斥。</p>
+<p>C. <strong>排它锁与排他锁之间互斥</strong></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/32.jpg"></p>
+<p>当客户端一，执行update语句，会为id为1的记录加排他锁； 客户端二，如果也执行update语句更新id为1的数据，也要为id为1的数据加排他锁，但是客户端二会处于阻塞状态，因为排他锁之间是互斥的。 直到客户端一，把事务提交了，才会把这一行的行锁释放，此时客户端二，解除阻塞。</p>
+<p>D. <strong>无索引行锁升级为表锁</strong></p>
+<p>stu表中数据如下:</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> stu<span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">----+-----+-------+</span>
+<span class="token operator">|</span> id <span class="token operator">|</span> age <span class="token operator">|</span> name  <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">----+-----+-------+</span>
+<span class="token operator">|</span>  <span class="token number">1</span> <span class="token operator">|</span>   <span class="token number">1</span> <span class="token operator">|</span> Java  <span class="token operator">|</span>
+<span class="token operator">|</span>  <span class="token number">3</span> <span class="token operator">|</span>   <span class="token number">3</span> <span class="token operator">|</span> Java  <span class="token operator">|</span>
+<span class="token operator">|</span>  <span class="token number">8</span> <span class="token operator">|</span>   <span class="token number">8</span> <span class="token operator">|</span> rose  <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">11</span> <span class="token operator">|</span>  <span class="token number">11</span> <span class="token operator">|</span> jetty <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">19</span> <span class="token operator">|</span>  <span class="token number">19</span> <span class="token operator">|</span> lily  <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token number">25</span> <span class="token operator">|</span>  <span class="token number">25</span> <span class="token operator">|</span> luci  <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">----+-----+-------+</span>
+<span class="token number">6</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<p>修改order-service中的所有与上述三个组件有关的导包部分，改成导入feign-api中的包</p>
-<h4 id="3）重启测试"><a href="#3）重启测试" class="headerlink" title="3）重启测试"></a>3）重启测试</h4><p>重启后，发现服务报错了：</p>
-<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Feign/14.jpg"></p>
-<p>这是因为UserClient现在在cn.itcast.feign.clients包下，</p>
-<p>而order-service的@EnableFeignClients注解是在cn.itcast.order包下，不在同一个包，无法扫描到UserClient。</p>
-<h4 id="4）解决扫描包问题"><a href="#4）解决扫描包问题" class="headerlink" title="4）解决扫描包问题"></a>4）解决扫描包问题</h4><p>方式一：</p>
-<p>指定Feign应该扫描的包：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@EnableFeignClients</span><span class="token punctuation">(</span>basePackages <span class="token operator">=</span> <span class="token string">"cn.itcast.feign.clients"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<p>方式二：</p>
-<p>指定需要加载的Client接口：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token annotation punctuation">@EnableFeignClients</span><span class="token punctuation">(</span>clients <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token class-name">UserClient</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>我们在两个客户端中执行如下操作:</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/33.jpg"></p>
+<p>在客户端一中，开启事务，并执行update语句，更新name为Lily的数据，也就是id为19的记录 。然后在客户端二中更新id为3的记录，却不能直接执行，会处于阻塞状态，为什么呢？</p>
+<p>原因就是因为此时，客户端一，根据name字段进行更新时，name字段是没有索引的，如果没有索引，此时行锁会升级为表锁(因为行锁是对索引项加的锁，而name没有索引)。</p>
+<p>接下来，我们再针对name字段建立索引，索引建立之后，再次做一个测试：</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/34.jpg"></p>
+<p>此时我们可以看到，客户端一，开启事务，然后依然是根据name进行更新。而客户端二，在更新id为3的数据时，更新成功，并未进入阻塞状态。 这样就说明，我们根据索引字段进行更新操作，就可以避免行锁升级为表锁的情况。</p>
+<h3 id="间隙锁-amp-临键锁"><a href="#间隙锁-amp-临键锁" class="headerlink" title="间隙锁&amp;临键锁"></a>间隙锁&amp;临键锁</h3><p>默认情况下，InnoDB在 REPEATABLE READ事务隔离级别运行，InnoDB使用 next-key 锁进行搜索和索引扫描，以防止幻读。</p>
+<ul>
+<li>索引上的等值查询(唯一索引)，给不存在的记录加锁时, 优化为间隙锁 。</li>
+<li>索引上的等值查询(非唯一普通索引)，向右遍历时最后一个值不满足查询需求时，next-key lock 退化为间隙锁。</li>
+<li>索引上的范围查询(唯一索引)–会访问到不满足条件的第一个值为止。</li>
+</ul>
+<p>注意:</p>
+<p>间隙锁唯一目的是防止其他事务插入间隙。间隙锁可以共存，一个事务采用的间隙锁不会阻止另一个事务在同一间隙上采用间隙锁。</p>
+<p>示例演示</p>
+<p>A. <strong>索引上的等值查询(唯一索引)，给不存在的记录加锁时, 优化为</strong>间隙锁 。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/35.jpg"></p>
+<p>B. 索引上的等值查询(非唯一普通索引)，向右遍历时最后一个值不满足查询需求时，next-key lock 退化为间隙锁。</p>
+<p>介绍分析一下：</p>
+<p>我们知道InnoDB的B+树索引，叶子节点是有序的双向链表。 假如，我们要根据这个二级索引查询值为18的数据，并加上共享锁，我们是只锁定18这一行就可以了吗？ 并不是，因为是非唯一索引，这个结构中可能有多个18的存在，所以，在加锁时会继续往后找，找到一个不满足条件的值（当前案例中也就是29）。此时会对18加临键锁，并对29之前的间隙加锁。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/36.jpg"></p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/37.jpg"></p>
+<p>C. 索引上的范围查询(唯一索引)–会访问到不满足条件的第一个值为止。</p>
+<p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/MySQL/38.jpg"></p>
+<p>查询的条件为id&gt;=19，并添加共享锁。 此时我们可以根据数据库表中现有的数据，将数据分为三个部分：</p>
+<p>[19]</p>
+<p>(19,25]</p>
+<p>(25,+∞]</p>
+<p>所以数据库数据在加锁是，就是将19加了行锁，25的临键锁（包含25及25之前的间隙），正无穷的临键锁(正无穷及之前的间隙)。</p>
 
                 
             </div>
@@ -804,7 +898,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://gitee.com/yunyd/yunyd/posts/dc362a43.html">https://gitee.com/yunyd/yunyd/posts/dc362a43.html</a>
+                    <a href="https://gitee.com/yunyd/yunyd/posts/35addee.html">https://gitee.com/yunyd/yunyd/posts/35addee.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -842,12 +936,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/yunyd/tags/SpringCloud/">
-                                    <span class="chip bg-color">SpringCloud</span>
-                                </a>
-                            
-                                <a href="/yunyd/tags/Feign/">
-                                    <span class="chip bg-color">Feign</span>
+                                <a href="/yunyd/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
                                 </a>
                             
                         </div>
@@ -1319,29 +1409,30 @@ new Valine({
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/yunyd/posts/f5f9fa9b.html">
+                <a href="/yunyd/posts/35addee.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Blog/o.jpg" class="responsive-img" alt="Docker">
+                        <img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Blog/i.jpg" class="responsive-img" alt="MySQL进阶学习 -2">
                         
-                        <span class="card-title">Docker</span>
+                        <span class="card-title">MySQL进阶学习 -2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Docker复习
+                            MySQL进阶学习 -2
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1350,15 +1441,12 @@ new Valine({
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/yunyd/tags/Docker/">
-                        <span class="chip bg-color">Docker</span>
-                    </a>
-                    
-                    <a href="/yunyd/tags/SpringCloud/">
-                        <span class="chip bg-color">SpringCloud</span>
+                    <a href="/yunyd/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
                     </a>
                     
                 </div>
@@ -1372,24 +1460,24 @@ new Valine({
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yunyd/posts/1a887d87.html">
+                <a href="/yunyd/posts/43e5bbc0.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Blog/a.jpg" class="responsive-img" alt="计网-物理层">
+                        <img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/Blog/n.jpg" class="responsive-img" alt="计网-应用层">
                         
-                        <span class="card-title">计网-物理层</span>
+                        <span class="card-title">计网-应用层</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            计网-物理层
+                            计网-应用层
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-21
                             </span>
                         <span class="publish-author">
                             
