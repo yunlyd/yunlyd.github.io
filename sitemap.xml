@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://gitee.com/yunyd/posts/e2dc1e98.html</loc>
+    <loc>https://gitee.com/yunyd/posts/38f0fa30.html</loc>
     
     <lastmod>2023-10-05</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/posts/38f0fa30.html</loc>
+    <loc>https://gitee.com/yunyd/posts/e2dc1e98.html</loc>
     
     <lastmod>2023-10-05</lastmod>
     
@@ -846,20 +846,6 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/Docker/</loc>
-    <lastmod>2023-10-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gitee.com/yunyd/tags/SpringCloud/</loc>
-    <lastmod>2023-10-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://gitee.com/yunyd/tags/Dubbo/</loc>
     <lastmod>2023-10-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -874,7 +860,14 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/Feign/</loc>
+    <loc>https://gitee.com/yunyd/tags/SpringCloud/</loc>
+    <lastmod>2023-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/tags/Docker/</loc>
     <lastmod>2023-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -896,6 +889,13 @@
   
   <url>
     <loc>https://gitee.com/yunyd/tags/Git/</loc>
+    <lastmod>2023-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/tags/Feign/</loc>
     <lastmod>2023-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -965,14 +965,14 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/%E9%A1%B9%E7%9B%AE/</loc>
+    <loc>https://gitee.com/yunyd/tags/Nginx/</loc>
     <lastmod>2023-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/Nginx/</loc>
+    <loc>https://gitee.com/yunyd/tags/%E9%A1%B9%E7%9B%AE/</loc>
     <lastmod>2023-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1007,14 +1007,14 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/Spring/</loc>
+    <loc>https://gitee.com/yunyd/tags/%E5%8D%9A%E5%AE%A2%E4%BB%8B%E7%BB%8D/</loc>
     <lastmod>2023-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/tags/%E5%8D%9A%E5%AE%A2%E4%BB%8B%E7%BB%8D/</loc>
+    <loc>https://gitee.com/yunyd/tags/Spring/</loc>
     <lastmod>2023-10-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -6,7 +6,7 @@
   <link href="https://gitee.com/yunyd/atom.xml" rel="self"/>
   
   <link href="https://gitee.com/yunyd/"/>
-  <updated>2023-10-05T12:20:41.085Z</updated>
+  <updated>2023-10-05T12:21:19.240Z</updated>
   <id>https://gitee.com/yunyd/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://gitee.com/yunyd/posts/e2dc1e98.html"/>
     <id>https://gitee.com/yunyd/posts/e2dc1e98.html</id>
     <published>2023-10-05T11:56:19.000Z</published>
-    <updated>2023-10-05T12:20:41.085Z</updated>
+    <updated>2023-10-05T12:21:19.240Z</updated>
     
     <content type="html"><![CDATA[<h1 id="llllz-BI-智能数据分析"><a href="#llllz-BI-智能数据分析" class="headerlink" title="llllz-BI 智能数据分析"></a>llllz-BI 智能数据分析</h1><h2 id="项目所用到的技术："><a href="#项目所用到的技术：" class="headerlink" title="项目所用到的技术："></a>项目所用到的技术：</h2><p>SpringBoot、MySQL、SSM、MyBatis-Plus及MyBatis X自动生成、</p><p>Redisson限流、</p><p>AI SDK、JDK线程池及异步化、Easy Excel表格数据处理</p><p>Swagger + Knife4j 接口文档生成</p><p>Hutool、Apache Common Utils 等工具库</p><h2 id="后端："><a href="#后端：" class="headerlink" title="后端："></a>后端：</h2><ul><li><p>后端自定义 Prompt 预设模板并封装用户输入的数据和分析诉求，通过对接 AIGC 接口生成可视化图表 json 配置和分析结论，返回给前端渲染。</p></li><li><p>由于 AIGC 的输入 Token 限制，使用 Easy Excel 解析用户上传的 XLSX 表格数据文件并压缩为 CSV，实测提高了 20% 的单次输入数据量、并节约了成本。</p></li><li><p>为保证系统的安全性，对用户上传的原始数据文件进行了后缀名、大小、内容等多重校验</p></li><li><p>为防止某用户恶意占用系统资源，基于 Redisson 的 RateLimiter 实现分布式限流，控制单用户访问的频率。</p></li><li><p>考虑到单个图表的原始数据量较大，基于 MyBatis + 业务层构建自定义 SQL 实现了对每份原始数据的分表存储，提高查询20%性能和系统的可扩展性。</p></li><li><p>由于 AIGC 的响应时间较长，基于自定义线程池 + 任务队列实现了 AIGC 的并发执行和异步化，提交任务后即可响应前端，提高用户体验。</p></li><li><p>由于本地任务队列重启丢失数据，使用 RabbitMQ（分布式消息队列）来接受并持久化任务消息，通过 Direct 交换机转发给解耦的 AI 生成模块消费并处理任务，提高了系统的可靠性。</p></li></ul><h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介:"></a>项目简介:</h2><p>基于 Spring Boot + MQ + AIGC的智能数据分析平台。区别于传统 BI，用户只需要导入原始数据集、并输入分析诉求，就能自动生成可视化图表及分析结论，实现数据分析的降本增效</p><h3 id="项目功能及各部分页面介绍，如下图："><a href="#项目功能及各部分页面介绍，如下图：" class="headerlink" title="项目功能及各部分页面介绍，如下图："></a>项目功能及各部分页面介绍，如下图：</h3><h4 id="登录界面："><a href="#登录界面：" class="headerlink" title="登录界面："></a>登录界面：</h4><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/BI/1.jpg"></p><h4 id="登录成功后，里面界面及功能如下："><a href="#登录成功后，里面界面及功能如下：" class="headerlink" title="登录成功后，里面界面及功能如下："></a>登录成功后，里面界面及功能如下：</h4><p>左面功能栏：</p><ul><li>智能分析，不用异步处理，按照文本框提示输入，直接生成可视化图表以及分析结论</li></ul><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/BI/2.jpg"></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/BI/3.jpg"></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/BI/4.jpg"></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/BI/5.jpg"></p><h4 id="智能分析（异步）："><a href="#智能分析（异步）：" class="headerlink" title="智能分析（异步）："></a>智能分析（异步）：</h4><p>考虑到用户数较多的时候，AI无法同时处理很多用户同时的请求，并且AI返回结果比较慢，用户可以选择异步提交，当按照文本框提示进行输入后，直接显示分析成功，此时这个页面并不会立刻出现分析结论以及可视化图表，而是当AI 一个一个处理完用户们的请求直接返回到{我的图表}里面，用户可选择继续忙自己的事情，当用户有空时即可点击我的图表查看可视化图表以及分析结论。</p><p>好处是：不会对服务器造成很大的压力</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/BI/6.jpg"></p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/BI/7.jpg"></p><p>当点击提交后，并来到我的图表页面，下图为AI正在生成可视化图表和分析结论的等待图</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/BI/8.jpg"></p><h4 id="最后可以观察到可视化图表："><a href="#最后可以观察到可视化图表：" class="headerlink" title="最后可以观察到可视化图表："></a>最后可以观察到可视化图表：</h4><p>左侧为刚刚异步分析的图表，用到了RabbitMq                         右侧为同步，并没有使用消息队列</p><p><img src="https://llllz-1319101047.cos.ap-beijing.myqcloud.com/BI/9.jpg"></p>]]></content>
     
@@ -234,9 +234,9 @@
     
     
     
-    <category term="Docker" scheme="https://gitee.com/yunyd/tags/Docker/"/>
-    
     <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
+    
+    <category term="Docker" scheme="https://gitee.com/yunyd/tags/Docker/"/>
     
   </entry>
   
@@ -420,9 +420,9 @@
     
     
     
-    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
-    
     <category term="ElasticSearch" scheme="https://gitee.com/yunyd/tags/ElasticSearch/"/>
+    
+    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
     
   </entry>
   
@@ -444,9 +444,9 @@
     
     
     
-    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
-    
     <category term="ElasticSearch" scheme="https://gitee.com/yunyd/tags/ElasticSearch/"/>
+    
+    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
     
   </entry>
   
@@ -468,9 +468,9 @@
     
     
     
-    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
-    
     <category term="ElasticSearch" scheme="https://gitee.com/yunyd/tags/ElasticSearch/"/>
+    
+    <category term="SpringCloud" scheme="https://gitee.com/yunyd/tags/SpringCloud/"/>
     
   </entry>
   
