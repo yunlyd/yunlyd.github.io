@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://gitee.com/yunyd/posts/43138433.html</loc>
+    
+    <lastmod>2023-10-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://gitee.com/yunyd/posts/4a61fdde.html</loc>
     
     <lastmod>2023-10-07</lastmod>
@@ -749,7 +758,7 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/List/galleries/%E5%9F%8E%E5%B8%82%E9%A3%8E%E5%85%89/index.html</loc>
+    <loc>https://gitee.com/yunyd/List/galleries/%E6%B8%85%E6%96%B0%E8%8A%B1%E5%8D%89/index.html</loc>
     
     <lastmod>2023-08-01</lastmod>
     
@@ -758,7 +767,7 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/List/galleries/%E6%B8%85%E6%96%B0%E8%8A%B1%E5%8D%89/index.html</loc>
+    <loc>https://gitee.com/yunyd/List/galleries/%E5%9F%8E%E5%B8%82%E9%A3%8E%E5%85%89/index.html</loc>
     
     <lastmod>2023-08-01</lastmod>
     
@@ -803,7 +812,7 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/List/galleries/%E4%BA%8C%E6%AC%A1%E5%85%83%E9%A3%8E/index.html</loc>
+    <loc>https://gitee.com/yunyd/List/galleries/%E4%B9%96%E5%B7%A7%E5%B0%8F%E7%8B%97/index.html</loc>
     
     <lastmod>2023-08-01</lastmod>
     
@@ -812,7 +821,7 @@
   </url>
   
   <url>
-    <loc>https://gitee.com/yunyd/List/galleries/%E4%B9%96%E5%B7%A7%E5%B0%8F%E7%8B%97/index.html</loc>
+    <loc>https://gitee.com/yunyd/List/galleries/%E4%BA%8C%E6%AC%A1%E5%85%83%E9%A3%8E/index.html</loc>
     
     <lastmod>2023-08-01</lastmod>
     
@@ -841,7 +850,7 @@
 
   <url>
     <loc>https://gitee.com/yunyd</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -849,196 +858,203 @@
   
   <url>
     <loc>https://gitee.com/yunyd/tags/%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/Docker/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/SpringCloud/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/Dubbo/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/ElasticSearch/</loc>
-    <lastmod>2023-10-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gitee.com/yunyd/tags/Gateway/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/Eureka/</loc>
-    <lastmod>2023-10-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gitee.com/yunyd/tags/Feign/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/Git/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/tags/Gateway/</loc>
+    <lastmod>2023-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/tags/Feign/</loc>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/%E7%A2%8E%E7%89%87%E7%9F%A5%E8%AF%86/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/Java%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/Linux/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/Maven/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/MySQL/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/MyBatis-Plus/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/SSMP/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/Nacos/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/MyBatis/</loc>
-    <lastmod>2023-10-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://gitee.com/yunyd/tags/Nginx/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/%E9%A1%B9%E7%9B%AE/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/tags/Nginx/</loc>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/MQ/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/Redis/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/SpringBoot/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/SpringMVC/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/Spring/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/%E5%8D%9A%E5%AE%A2%E4%BB%8B%E7%BB%8D/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://gitee.com/yunyd/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://gitee.com/yunyd/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2023-10-07</lastmod>
+    <lastmod>2023-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
